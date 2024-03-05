@@ -1,17 +1,17 @@
 {
   "main": {
-    "id": "46f58907be89da35",
+    "id": "9f9a51c01085a6f2",
     "type": "split",
     "children": [
       {
-        "id": "45ac2463cfa9c5b1",
+        "id": "ae840953f3d9a4cc",
         "type": "tabs",
         "children": [
           {
-            "id": "1ea9632b6406a6d9",
+            "id": "dcff37ae71f2a0f8",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {}
             }
           }
@@ -21,11 +21,11 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "c8b6103b8e14b93e",
+    "id": "426f021f779d404c",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "08af1dd372c7bc7f",
+        "id": "71d314ac1a3d3591",
         "type": "leaf",
         "state": {
           "type": "file-explorer",
@@ -35,12 +35,12 @@
         }
       },
       {
-        "id": "7cc1a7a1c82b2017",
+        "id": "5affecb6982e695b",
         "type": "leaf",
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "XML",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -50,7 +50,7 @@
         }
       },
       {
-        "id": "416313d324c83936",
+        "id": "82b455143dc72870",
         "type": "leaf",
         "state": {
           "type": "tag",
@@ -61,7 +61,7 @@
         }
       },
       {
-        "id": "fa1b320d40072a0b",
+        "id": "ea90d16ed9ab231b",
         "type": "leaf",
         "state": {
           "type": "bookmarks",
@@ -69,14 +69,15 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1,
+    "pinned": true
   },
   "right": {
-    "id": "9ec2740a5f33f8cc",
+    "id": "0deef714eea8b6a8",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "4e9393acffb090d4",
+        "id": "7227a704427bee2a",
         "type": "leaf",
         "state": {
           "type": "backlink",
@@ -92,7 +93,7 @@
         }
       },
       {
-        "id": "dcfe80fa2d2843ef",
+        "id": "e3b8b27119e0e035",
         "type": "leaf",
         "state": {
           "type": "outgoing-link",
@@ -103,7 +104,7 @@
         }
       },
       {
-        "id": "78294e91a5434a61",
+        "id": "5f5ca93ce8f6e5f0",
         "type": "leaf",
         "state": {
           "type": "outline",
@@ -120,9 +121,59 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "1ea9632b6406a6d9",
-  "lastOpenFiles": []
+  "active": "dcff37ae71f2a0f8",
+  "lastOpenFiles": [
+    "Paradygmat Interakcji Pomiędzy Zdalnymi Jednostkami.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
+    "XHTML 2.0.md",
+    "FreeRADIUS.md",
+    "RADIUS.md",
+    "Trwałość Komunikacji.md",
+    "Synchroniczność komunikacji.md",
+    "Zdalne Wywoływanie Procedur.md",
+    "Istota Podejścia Obiektowego.md",
+    "Excalidraw/komunikacja_nieustanna_asynchroniczna.excalidraw.md",
+    "Przekazywanie wiadomości (komunikatów).md",
+    "Excalidraw/model_komunikacji.excalidraw.png",
+    "Excalidraw/łącze_komunikacji.excalidraw.md",
+    "Excalidraw/łącze_komunikacji.excalidraw.png",
+    "Excalidraw/model_komunikacji.excalidraw.md",
+    "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
+    "Pasted image 20240305085949.png",
+    "Pasted image 20240305092519.png",
+    "Pasted image 20240305092619.png",
+    "Wspódzielenie Pamięci.md",
+    "Web Services.md",
+    "Web Services Standards.md",
+    "Przezroczystość Migracji.md",
+    "Podstawowe Własności Systemu Rozproszonego.md",
+    "Service Oriented Architecture.md",
+    "System Rozproszony.md",
+    "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Untitled 1.md",
+    "Przezroczystość.md",
+    "XForms.md",
+    "Java Business Integration.md",
+    "HTML5.md",
+    "Enterprise Service Bus.md",
+    "Algorytmy Rozproszone",
+    "Zarządzanie Systemami Komputerowymi/Images/dowiązanie_trwałe.png",
+    "Angielski/Roadmap-e-book-C1-C2.pdf",
+    "Angielski/Untitled.canvas",
+    "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
+    "Zarządzanie Systemami Komputerowymi/Images/dowiązanie_w_btrfs.png",
+    "Zarządzanie Systemami Komputerowymi/Images",
+    "Zarządzanie Systemami Komputerowymi/Images/FUSE_example.png",
+    "Programowanie Sieciowe",
+    "Metody Bezpiecznego Programowania",
+    "Angielski",
+    "Bezpieczeństwo Systemów Rozproszonych",
+    "Excalidraw",
+    "Narzędzia przetwarzania rozproszonego"
+  ]
 }
