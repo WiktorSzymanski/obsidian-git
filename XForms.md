@@ -1,4 +1,4 @@
-#SRC #Sem1 #tiwpr #wykład #w2 
+#SRC #Sem1 #TIWPR #wykład #w2 
 
 - Bogatsze, bardziej nowatorskie podejście do formularzy
 - Przesyłanie danych w formacie [[XML]]

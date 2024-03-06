@@ -1,4 +1,4 @@
-#SRC #Sem1 #tiwpr #wykład #w2 
+#SRC #Sem1 #TIWPR #wykład #w2 
 
 - Zapewnia komunikację pomiędzy usługami
 - Eliminuje bezpośrednie połącznie pomiędzy klientem a konsumentem 

@@ -1,52 +1,38 @@
 {
-  "collapse-filter": false,
+  "collapse-filter": true,
   "search": "",
   "showTags": false,
   "showAttachments": false,
-  "hideUnresolved": false,
+  "hideUnresolved": true,
   "showOrphans": true,
   "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "path:\"Zarządzanie Systemami Komputerowymi\"  ",
+      "query": "tag:#MBP  ",
       "color": {
         "a": 1,
         "rgb": 14048348
       }
     },
     {
-      "query": "path:\"Bezpieczeństwo Systemów Rozproszonych\"  ",
+      "query": "tag:#NPR  ",
       "color": {
         "a": 1,
         "rgb": 14069084
       }
     },
     {
-      "query": "path:\"Narzędzia przetwarzania rozproszonego\"  ",
+      "query": "tag:#BSR  ",
       "color": {
         "a": 1,
         "rgb": 11392604
       }
     },
     {
-      "query": "path:\"Bezpieczeństwo Systemów Rozproszonych\"  ",
+      "query": "tag:#TIWPR",
       "color": {
         "a": 1,
         "rgb": 6084188
-      }
-    },
-    {
-      "query": "path:\"Metody Bezpiecznego Programowania\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 6084269
-      }
-    },
-    {
-      "query": "path:Angielski  ",
-      "color": {
-        "a": 1,
-        "rgb": 6073814
       }
     }
   ],
@@ -55,11 +41,11 @@
   "textFadeMultiplier": -1.3,
   "nodeSizeMultiplier": 1.14380530973451,
   "lineSizeMultiplier": 3.78274336283186,
-  "collapse-forces": true,
+  "collapse-forces": false,
   "centerStrength": 0.164981036662453,
   "repelStrength": 4.56384323640961,
   "linkStrength": 0.347029077117573,
   "linkDistance": 161,
-  "scale": 0.9264943541711693,
-  "close": true
+  "scale": 1.0253706579431092,
+  "close": false
 }

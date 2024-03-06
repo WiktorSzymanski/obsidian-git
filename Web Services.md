@@ -1,4 +1,4 @@
-#SRC #Sem1 #tiwpr #wykład #w2 
+#SRC #Sem1 #TIWPR #wykład #w2 
 
 Czym są Web services:
 - komponenty aplikacji

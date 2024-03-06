@@ -1,4 +1,4 @@
-#SRC #Sem1 #tiwpr #wykład #w2
+#SRC #Sem1 #TIWPR #wykład #w2
 
 Pewne problemy i niewiadome przy wykorzystaniu Web services ze względu na brak standardów.
 

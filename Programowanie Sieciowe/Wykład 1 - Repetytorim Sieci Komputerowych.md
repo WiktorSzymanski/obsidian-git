@@ -58,3 +58,4 @@ Google zastąpił TCP własnym protokolem QUICK. Jeśli by mieli zaimplementowa�
 - deskryptor (jakiś int) to liczba po której jest dowiązanie symboliczne do i-węzła opisujący to połącznie np. socket:[numer i-węzła]
 - 0 - wejście, 1 - wyjście, 2 - wyjście diagnostyczne
 - netstat wyświetla i-węzły w bardziej przyjazny sposób
+#TODO Zadanie domowe z prezki

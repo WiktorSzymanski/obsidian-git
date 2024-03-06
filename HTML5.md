@@ -1,5 +1,9 @@
-#SRC #Sem1 #tiwpr #wykład #w2
+#SRC #Sem1 #TIWPR #wykład 
 
+- Multimedia
+	- Element </video/> wyparł flash 
+	- Element </audio/> do reprezentacji zapisu dźwięku.
+- Problem z formatami danych, z powodu braku standardu.
 - [[DOM]] Level 3: Events i XPath
 - API do rysowania 2D (obiekt canvas, można kożystać z WebGL aby ziększyć możliwości)
 - Web Storage (składowanie danych po stronie klienta do 5MiB)

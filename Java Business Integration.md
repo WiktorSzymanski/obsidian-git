@@ -1,4 +1,4 @@
-#SRC #Sem1 #tiwpr #wykład #w2 
+#SRC #Sem1 #TIWPR #wykład #w2 
 
 - Propozycja standardu implementacji [[Enterprise Service Bus]] dla Javy
 - Standard oparty na Web Services
