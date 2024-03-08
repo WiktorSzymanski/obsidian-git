@@ -6,7 +6,7 @@ haslo: uslugirest
 ważny polluks/unixlab
 stoi na sirus (niby ważne)
 
-https://sirius.../~inf123/
+https://sirius.cs.put.poznan.pl/~inf123/
 a w nim public_html
 
 

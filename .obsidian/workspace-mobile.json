@@ -4,52 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "fa99b33d40a8ca57",
+        "id": "8098d86c914b6f38",
         "type": "tabs",
         "children": [
           {
-            "id": "fd3dd4d49462775f",
+            "id": "ae8811ef7429500d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+                "file": "Obsługa Interfejsów Sieciowych.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "89f754f9033f5762",
+        "type": "tabs",
+        "children": [
           {
-            "id": "c42613402b993009",
+            "id": "a6c570bfe323437f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7bba32b60e2a2151",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "XML.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8c3a2525ce206b56",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "XML.md",
+                "file": "Warstwa Łącza Danych.md",
                 "mode": "source",
                 "source": false
               }
@@ -80,7 +62,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "HTML",
+            "query": "ioc",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -109,8 +91,7 @@
         }
       }
     ],
-    "currentTab": 0,
-    "pinned": true
+    "currentTab": 1
   },
   "right": {
     "id": "9ec2740a5f33f8cc",
@@ -122,7 +103,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+            "file": "Obsługa Interfejsów Sieciowych.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -139,7 +120,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+            "file": "Obsługa Interfejsów Sieciowych.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -151,7 +132,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md"
+            "file": "Obsługa Interfejsów Sieciowych.md"
           }
         }
       }
@@ -169,35 +150,35 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "fd3dd4d49462775f",
+  "active": "ae8811ef7429500d",
   "lastOpenFiles": [
-    "Programowanie Sieciowe/Lab 1 - Init.md",
-    "HTML 5.md",
-    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
-    "HTML.md",
-    "XML.md",
-    "XSL.md",
-    "HTML5.md",
-    "XHTML.md",
-    "XHTML 2.0.md",
+    "Warstwa Łącza Danych.md",
+    "Obsługa Interfejsów Sieciowych.md",
+    "OpenPKG.md",
+    "Mac OS X.md",
+    "Debian.md",
+    "DEB vs RPM.md",
     "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
-    "Narzędzia przetwarzania rozproszonego/Wykład 1 - Sylabus.md",
-    "Narzędzia przetwarzania rozproszonego/Lab 1 - Wprowadzenie do Aplikacji Wielowątkowych.md",
-    "Algorytmy Rozproszone/Wykład 2.md",
-    "Bezpieczeństwo Systemów Rozproszonych/Lab 0 - Wstęp.md",
+    "Narzędzia przetwarzania rozproszonego/Lab 1-2 - Wprowadzenie do Aplikacji Wielowątkowych.md",
+    "Programowanie Sieciowe - 01.md",
+    "Excalidraw/Drawing 2024-03-07 14.10.02.excalidraw.md",
+    "RPM5.md",
+    "Patch RPM.md",
+    "Delta RPM.md",
+    "Oprogramowanie uzupełniające.md",
+    "Repozytoria pakietów.md",
+    "Biblioteki.md",
+    "Problem z zależnościami.md",
+    "Wyzwalacze (triggers).md",
+    "Pakiety Źródłowe (SRPM).md",
+    "Web Storage.md",
+    "FreeBSD.md",
+    "One Click Installaction (openSUSE).md",
+    "RPM.md",
+    "XAR.md",
+    "Plik spec.md",
+    "Pakiety Oprogramowania.md",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
-    "SSL & TLS.md",
-    "XForms.md",
-    "Web Services Standards.md",
-    "Web Services.md",
-    "Service Oriented Architecture.md",
-    "Java Business Integration.md",
-    "Enterprise Service Bus.md",
-    "DOM.md",
-    "OCaml.md",
-    "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
-    "Klasyczny Monitor.md",
-    "Synchronizacja.md",
     "Excalidraw/łącze_komunikacji.excalidraw.png",
     "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
     "Excalidraw/model_komunikacji.excalidraw.png",
