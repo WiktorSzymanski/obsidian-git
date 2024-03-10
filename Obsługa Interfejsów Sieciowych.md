@@ -1,7 +1,6 @@
 #SRC #Sem1 #PS #wykład 
 
-- Najniżej jak możemy zejść w programowaniu sieciowym
-[[Warstwa Łącza Danych]]
+Najniżej jak możemy zejść w programowaniu sieciowym to [[Warstwa Łącza Danych]]
 
 ## Obsługa Interfejsów Sieciowych Komendami Systemowymi
 

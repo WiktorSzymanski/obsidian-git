@@ -1,4 +1,4 @@
-
+#SRC #Sem1 #PS #wykład
 ### Wstęp
 Na koniec wykładów zadanka "do domu".
 #### Zaliczenie:
@@ -11,6 +11,8 @@ Prowadzący poleca : https://www.unixnetworkprogramming.com
 
 Będzie kod jądra linuxa na wykładach.
 
+zob. _nazwa_usługi_ -> zobacz, w konsoli można wpisać _nazwa_usługi_
+
 "libnet pozwala nam gotować (przygotować gotowe)" ~ MK
 
 
@@ -18,25 +20,9 @@ Będzie kod jądra linuxa na wykładach.
 
 [[ISO & OSI]]
 
+[[EtherType]]
 
-##### Zestaw protokołów internetowych
-zob. _nazwa_usługi_ -> zobacz, w konsoli można wpisać _nazwa_usługi_
-
-##### Ethertype
-
-##### Podstawowe gniazda sieciowe
-
-\***Obrazek z prezki slajd 18/34**
-
-- dostęp do gniazd surowych i PF_PACKET ma tylko root.
-
-Google zastąpił TCP własnym protokolem QUICK. Jeśli by mieli zaimplementować go jako surowe gniazdo to odpalenie googla by wymagało roota, lub poprosić wszystkich by dodali ich protokół. Zaimplementowali QUICK tak aby wykorzystywał UDP by to obejść.
-
-- socket zwraca deskryptor.
-- deskryptor (jakiś int) to liczba po której jest dowiązanie symboliczne do i-węzła opisujący to połącznie np. socket:\[numer i-węzła\]
-- 0 - wejście, 1 - wyjście, 2 - wyjście diagnostyczne
-- netstat wyświetla i-węzły w bardziej przyjazny sposób
-#TODO Zadanie domowe z prezki
+[[Gniazdo Sieciowe]]
 
 ### Pytania i zadania
 1. Czy kapsułkowaniu zawsze musi towarzyszyć fragmentacja i na jakich warstwach modelu warstwowego iso/osi może ona wystąpić?

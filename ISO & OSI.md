@@ -1,5 +1,11 @@
 #SRC #Sem1 #PS #wykład 
 
+##### Model warstwowy ISO/OSI
+![[Pasted image 20240309153837.png]]
+
+##### Warstwowy model internetowy i jego porównanie z ISO/OSI
+![[Pasted image 20240309154245.png]]
+
 - Warstwa łącza danych
 	- komputery połączone kablami do tego samego switcha mogą się komunikować przez ethernet, umożliwia to warstwa łącza danych
 	- dwa sposoby radzenia sobie z kolizjami, dla ethernet (wykrywanie) i wifi (unikanie)

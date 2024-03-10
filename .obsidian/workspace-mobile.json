@@ -4,40 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "8098d86c914b6f38",
+        "id": "90933c1c1d84b1c9",
         "type": "tabs",
         "children": [
           {
-            "id": "ae8811ef7429500d",
+            "id": "079915b01ed0687a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Obsługa Interfejsów Sieciowych.md",
+                "file": "socket(2).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e9ca4a68d6875c82",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "EtherType.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
-      },
-      {
-        "id": "89f754f9033f5762",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a6c570bfe323437f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Warstwa Łącza Danych.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
+        ],
+        "stacked": true
       }
     ],
     "direction": "vertical"
@@ -62,7 +57,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "ioc",
+            "query": "wyklad",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -91,7 +86,7 @@
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 0
   },
   "right": {
     "id": "9ec2740a5f33f8cc",
@@ -103,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Obsługa Interfejsów Sieciowych.md",
+            "file": "socket(2).md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -120,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Obsługa Interfejsów Sieciowych.md",
+            "file": "socket(2).md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -132,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Obsługa Interfejsów Sieciowych.md"
+            "file": "socket(2).md"
           }
         }
       }
@@ -150,34 +145,38 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ae8811ef7429500d",
+  "active": "079915b01ed0687a",
   "lastOpenFiles": [
-    "Warstwa Łącza Danych.md",
+    "Angielski/Ćw 1.md",
+    "ISO & OSI.md",
+    "Untitled 2.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
+    "socket(2).md",
+    "EtherType.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
+    "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
+    "Service Oriented Architecture.md",
+    "Synchronizacja.md",
+    "XAR.md",
     "Obsługa Interfejsów Sieciowych.md",
+    "Warstwa Łącza Danych.md",
+    "Pasted image 20240309162008.png",
+    "Gniazdo Sieciowe.md",
+    "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+    "Pasted image 20240309155711.png",
+    "Pasted image 20240309154245.png",
+    "Pasted image 20240309153837.png",
+    "Untitled 1.md",
+    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
+    "RPM5.md",
+    "XHTML 2.0.md",
     "OpenPKG.md",
     "Mac OS X.md",
     "Debian.md",
     "DEB vs RPM.md",
-    "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
     "Narzędzia przetwarzania rozproszonego/Lab 1-2 - Wprowadzenie do Aplikacji Wielowątkowych.md",
     "Programowanie Sieciowe - 01.md",
     "Excalidraw/Drawing 2024-03-07 14.10.02.excalidraw.md",
-    "RPM5.md",
-    "Patch RPM.md",
-    "Delta RPM.md",
-    "Oprogramowanie uzupełniające.md",
-    "Repozytoria pakietów.md",
-    "Biblioteki.md",
-    "Problem z zależnościami.md",
-    "Wyzwalacze (triggers).md",
-    "Pakiety Źródłowe (SRPM).md",
-    "Web Storage.md",
-    "FreeBSD.md",
-    "One Click Installaction (openSUSE).md",
-    "RPM.md",
-    "XAR.md",
-    "Plik spec.md",
-    "Pakiety Oprogramowania.md",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "Excalidraw/łącze_komunikacji.excalidraw.png",
     "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
@@ -193,10 +192,6 @@
     "Angielski/Tenses in context_1_240304_145900.pdf",
     "Angielski/Roadmap-e-book-C1-C2.pdf",
     "Angielski",
-    "Bezpieczeństwo Systemów Rozproszonych",
-    "Pasted image 20240305085949.png",
-    "Pasted image 20240305092619.png",
-    "Pasted image 20240305092519.png",
-    "PP/Zarządzanie Systemami Komputerowymi/Images/FUSE_example.png"
+    "Bezpieczeństwo Systemów Rozproszonych"
   ]
 }
