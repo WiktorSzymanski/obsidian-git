@@ -13,19 +13,31 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+                "file": "SSL & TLS.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "8f2dcc6f9410d207",
+            "id": "ea03780fcd81532f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ISO & OSI.md",
+                "file": "HTTP Authentication.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "40eda46ecef8cdb1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TLS.md",
                 "mode": "source",
                 "source": false
               }
@@ -43,7 +55,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -72,7 +85,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "QUI",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +102,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -109,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+                "file": "HTTP Authentication.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +140,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+                "file": "HTTP Authentication.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +163,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md"
+                "file": "HTTP Authentication.md"
               }
             }
           }
@@ -171,24 +185,38 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "8655193379e50fd0",
+  "active": "ea03780fcd81532f",
   "lastOpenFiles": [
+    "Gniazdo Sieciowe.md",
+    "QUIC.md",
+    "HTTP Authentication.md",
+    "TLS.md",
+    "Protokół Handshake.md",
+    "Istota Podejścia Obiektowego.md",
+    "SSL & TLS.md",
+    "handshake_protocol.png",
     "ISO & OSI.md",
     "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
-    "Istota Podejścia Obiektowego.md",
-    "Programowanie Sieciowe/Lab 1 - Init.md",
-    "XSL.md",
-    "XHTML.md",
-    "Wątek.md",
-    "Untitled.md",
-    "Synchronizacja.md",
-    "SSL & TLS.md",
-    "Programowanie współbieżne.md",
-    "Process.md",
-    "OCaml.md",
-    "Klasyczny Monitor.md",
-    "Handshake.md",
-    "HTTP Authentication.md",
-    "HTML.md"
+    "socket(2).md",
+    "Zarządzanie oprogramowaniem.md",
+    "XAR.md",
+    "Wyzwalacze (triggers).md",
+    "Web Storage.md",
+    "Warstwa Łącza Danych.md",
+    "Untitled 2.md",
+    "Untitled 1.md",
+    "Systemowe Zarządzanie Oprogramowaniem.md",
+    "Struktura katalogów.md",
+    "Repozytoria pakietów.md",
+    "RPM5.md",
+    "RPM.md",
+    "Programowanie Sieciowe - 01.md",
+    "Problem z zależnościami.md",
+    "Plik spec.md",
+    "Patch RPM.md",
+    "Pasted image 20240309162008.png",
+    "Pasted image 20240309155711.png",
+    "Pasted image 20240309154245.png",
+    "Pasted image 20240309153837.png"
   ]
 }

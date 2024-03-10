@@ -19,3 +19,9 @@ HTTP/1.1 Digest Authentication (RFC 2617)
 - Wariancja która zapobiega _nonce replay attacks_ to przechowywanie po stronie serwera nonce z _timestamp_-ami i ignorowanie _nonce_ starszych jak jakiś _treshold_
 - #TODO Na co podatny jest HTTP Digesta Authentication (nie crypto attaks)
 - Otwarty na inne metody uwieżytelniania klienta (np. Amazon S3 lub OAuth )
+
+HTTP/2.0
+- SPDY transport protocol with optional [[TLS]] profile
+
+HTTP/3.0
+- [[QUIC]] protocol with obligatory TLS 1.3

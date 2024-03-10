@@ -9,6 +9,6 @@ Podstawowe gniazda sieciowe pozwalają na komunikację strumieniową (_TCP/IP_) 
 
 W języku _C_ można je utworzyć przy pomocy funkcji systemowej [[socket(2)]].
 
-Dostęp do gniazd surowych i PF_PACKET ma tylko root.
+Dostęp do gniazd surowych i PF_PACKET ma tylko _root_.
 
-Google zastąpił TCP własnym protokolem QUICK. Jeśli by mieli zaimplementować go jako surowe gniazdo to odpalenie googla by wymagało roota, lub poprosić wszystkich by dodali ich protokół. Zaimplementowali QUICK tak aby wykorzystywał UDP by to obejść.
+Google zastąpił TCP własnym protokołem [[QUIC]].
