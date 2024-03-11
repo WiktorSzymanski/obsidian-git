@@ -4,34 +4,59 @@
     "type": "split",
     "children": [
       {
-        "id": "90933c1c1d84b1c9",
+        "id": "90ef3fd68e55c0f2",
         "type": "tabs",
         "children": [
           {
-            "id": "079915b01ed0687a",
+            "id": "02d0d8a158cbdabc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "socket(2).md",
+                "file": "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "e9ca4a68d6875c82",
+            "id": "34c386bb2a647262",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "EtherType.md",
+                "file": "LVM.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f2862fc0bde550d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Btrfs.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0a564bd038bedc0b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Thin Provisioning.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
+        "currentTab": 2,
         "stacked": true
       }
     ],
@@ -57,7 +82,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "wyklad",
+            "query": "COW",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -86,7 +111,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1
   },
   "right": {
     "id": "9ec2740a5f33f8cc",
@@ -98,7 +123,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "socket(2).md",
+            "file": "Btrfs.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -115,7 +140,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "socket(2).md",
+            "file": "Btrfs.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -127,7 +152,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "socket(2).md"
+            "file": "Btrfs.md"
           }
         }
       }
@@ -145,13 +170,20 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "079915b01ed0687a",
+  "active": "f2862fc0bde550d8",
   "lastOpenFiles": [
+    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
+    "Btrfs.md",
+    "LVM.md",
+    "Thin Provisioning.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 2 -.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
+    "N.md",
+    "socket(2).md",
     "Angielski/Ćw 1.md",
     "ISO & OSI.md",
     "Untitled 2.md",
     "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
-    "socket(2).md",
     "EtherType.md",
     "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
     "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
@@ -167,16 +199,9 @@
     "Pasted image 20240309154245.png",
     "Pasted image 20240309153837.png",
     "Untitled 1.md",
-    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
     "RPM5.md",
     "XHTML 2.0.md",
     "OpenPKG.md",
-    "Mac OS X.md",
-    "Debian.md",
-    "DEB vs RPM.md",
-    "Narzędzia przetwarzania rozproszonego/Lab 1-2 - Wprowadzenie do Aplikacji Wielowątkowych.md",
-    "Programowanie Sieciowe - 01.md",
-    "Excalidraw/Drawing 2024-03-07 14.10.02.excalidraw.md",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "Excalidraw/łącze_komunikacji.excalidraw.png",
     "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",

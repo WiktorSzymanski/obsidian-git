@@ -56,7 +56,7 @@ Rozszerzone atrybuty systemów plików:
 
 ##### "Jak coś w systemie nie działa to pierwsze co sprawdzić to czy jest wolne miejsce na dysku"
 
-Local Volume Manager:
+Local Volume Manager ([[LVM]]):
 - podzielone prtycje są sztywne, więc chcemy dynamicznie powiększyć partycje która pilnie wymaga więcej miejsca (np. varlog)
 - pozwala tworzyć kopie migawkowe - kopia utrwalająca stan (spójny), w danym momencie, jak kopiujemy bardzo duży plik (kopujemy go przez 2h) początek tego pliku (kopiowany prawie 2h temu) nie jest od "tego samego" pliku co koniec tego pliku, kopia migawkowa pozwala na utrwalenie stanu pliku który dalej można sobie zgrywać, a oryginalny plik dalej żyje swoim życiem
 - hybrid volumines - łącznie różnych nośników np. HDD i SDD
@@ -81,6 +81,8 @@ Mechanizm Copy-on-Write:
 Btrfs:
 - warto wiedzieć i poeksperymentować
 - korzysta z CoW
+	- Przydatne w przypadku archiwizacji wielowersyjnej
+	- Minusem jest to, że jeśli plik ulegnie awarii wszystkie nasze "kopie" też będą uszkodzone
 - pozwala na tworzenie wersji systemów plików
 - zapisywanie skompresowanych danych jako tych "normalnych" (?)
 - mechanizmy RAID0/1/5 od ręki, RAID5 niestabilny na ten moment na Btrfs
