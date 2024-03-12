@@ -27,3 +27,20 @@ Pewne problemy i niewiadome przy wykorzystaniu Web services ze względu na brak 
 ##### Reliability
 - Web Services Reliable Messaging
 - WS-RM Policy Assertion
+
+##### Translations
+- Web Services Atomic Translations
+- Web Services Business Activity
+- Web Services Coordination
+
+##### Security
+	- Propagacja "zaufania" w głąb i do innych oddzielnych usług.
+- WS-Federation
+- Web Services Security 1.0 i 1.1
+- WS-Trust
+- Security Assertion Markup Language (SAML)
+
+##### Business Process
+- Business Process Execution for #TODO
+##### Management
+- Web Services Distributed Management

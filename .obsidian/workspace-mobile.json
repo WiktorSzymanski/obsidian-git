@@ -4,59 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "90ef3fd68e55c0f2",
+        "id": "517ff0ec39125ab1",
         "type": "tabs",
         "children": [
           {
-            "id": "02d0d8a158cbdabc",
+            "id": "1cb612bec896cba3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "34c386bb2a647262",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "LVM.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f2862fc0bde550d8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Btrfs.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "0a564bd038bedc0b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Thin Provisioning.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
-        "currentTab": 2,
         "stacked": true
       }
     ],
@@ -123,7 +82,6 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Btrfs.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -140,7 +98,6 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Btrfs.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -151,9 +108,7 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {
-            "file": "Btrfs.md"
-          }
+          "state": {}
         }
       }
     ],
@@ -170,11 +125,21 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f2862fc0bde550d8",
+  "active": "1cb612bec896cba3",
   "lastOpenFiles": [
+    "REST.md",
     "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
-    "Btrfs.md",
     "LVM.md",
+    "Web Services Standards.md",
+    "Web Standarization Bodies.md",
+    "WS-Security.md",
+    "Business ProcesS Execution Language.md",
+    "WSDL.md",
+    "SOAP.md",
+    "UDDI.md",
+    "Narzędzia przetwarzania rozproszonego/Wykład 1 - Sylabus.md",
+    "Untitled 3.md",
+    "Btrfs.md",
     "Thin Provisioning.md",
     "Zarządzanie Systemami Komputerowymi/Lab 2 -.md",
     "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
@@ -188,20 +153,10 @@
     "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
     "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
     "Service Oriented Architecture.md",
-    "Synchronizacja.md",
-    "XAR.md",
-    "Obsługa Interfejsów Sieciowych.md",
-    "Warstwa Łącza Danych.md",
     "Pasted image 20240309162008.png",
-    "Gniazdo Sieciowe.md",
-    "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
     "Pasted image 20240309155711.png",
     "Pasted image 20240309154245.png",
     "Pasted image 20240309153837.png",
-    "Untitled 1.md",
-    "RPM5.md",
-    "XHTML 2.0.md",
-    "OpenPKG.md",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "Excalidraw/łącze_komunikacji.excalidraw.png",
     "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
