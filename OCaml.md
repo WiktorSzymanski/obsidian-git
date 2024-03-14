@@ -2,6 +2,12 @@
 
 www.ocaml.org
 
+Projekt zaliczeniowy idea:
+- Jakaś gra
+- Funkcje robione z funkcji jako ciekawa zaleśność języka (różne poziomy umiejętności)
+- Referencja funkcji jako atak który można zmieniać
+- 
+
 OCaml to [[Język Funkcyjny]].
 
 ##### Interpretuje funkcję jak zmienne. Przykład: uznaje int_of_float jako pierwszy argument funkcje. 
@@ -21,4 +27,70 @@ let average a b =
 	let sum x y = x + y in
 	let d = 2 in
 	(sum a b) / d;;
+```
+
+##### Referencje 
+``` ocaml
+let y = ref 1;;
+```
+Do wyciągnięcia wartości wstaźnika używamy `!`.
+
+``` ocaml
+!y + 10
+```
+Typ wyrażenia bez `!` to `unit = ()`. Nie nadużywać referencji przy pisania programów funkcyjnych.
+
+``` ocaml
+y := 10
+```
+Przypisanie do referencji wartosci.
+
+Referencja może wskazywać na funkcję, a podmiana tej funkcji może mieć miejsce jeśli funkcje mają te same typy.
+
+W języku funkcyjnym można podać do funkcji mniej argumentów niż wymaga i otrzymamy nową funkcję. Można też napisać funkcję która przyjmuje więcej argumentów niż oczekuje.
+``` ocaml
+let f x =
+	let g = fun a -> a - z in
+	g;;
+```
+
+Operatory to tez funkcje więc moża je przekazywać jako argumenty.
+
+`in` oznacza zagnieżdzanie funkcji we wunkcji.
+
+`1::2::3::[];;`  tworzy liste `[1; 2; 3;]`
+`@` oznacza konkatenacje list
+
+#### Dopasowanie do wzoraca
+``` ocaml
+match l with
+  [] -> 0
+| [a] -> a
+| [a;b] -> a+b;;
+```
+Przekazanie do `match` większej ilości elementów jak `match` pozwala, generuje wyjątek (wyjątkowa sytacja dla tego języka). Aby uniknąć tych wyjątków/warningów warto na koniec `match` dodać 
+``` ocaml
+| _ -> -1;;
+```
+aby obsłóżyć jakikolwiek inny przypadek.
+
+##### Zad 1
+``` ocaml
+let maczek l =
+  let timesListIf = fun a ->
+    let times3 = fun x -> x * 3 in
+    List.map times3 a in
+  match l with
+    [] -> []
+  | [a] -> []
+  | [a;b] -> []
+  | _ -> times3 l;;
+```
+
+##### Zad 2 - Napisać funkcję działającą jak `@`.
+``` ocaml
+let rec append = fun l1 l2 ->
+  match l1 with
+  | [] -> l2
+  | h :: t -> h :: append t l2;;
 ```

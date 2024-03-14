@@ -11,8 +11,12 @@
             "id": "1cb612bec896cba3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Gniazda Sieciowe PF_PACKET.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ],
@@ -41,7 +45,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "COW",
+            "query": "802",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -82,6 +86,7 @@
         "state": {
           "type": "backlink",
           "state": {
+            "file": "Gniazda Sieciowe PF_PACKET.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -98,6 +103,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
+            "file": "Gniazda Sieciowe PF_PACKET.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -108,7 +114,9 @@
         "type": "leaf",
         "state": {
           "type": "outline",
-          "state": {}
+          "state": {
+            "file": "Gniazda Sieciowe PF_PACKET.md"
+          }
         }
       }
     ],
@@ -127,6 +135,13 @@
   },
   "active": "1cb612bec896cba3",
   "lastOpenFiles": [
+    "Untitled 4.md",
+    "Gniazda Sieciowe PF_PACKET.md",
+    "sockaddr_ll.md",
+    "Zmienne Warunkowe.md",
+    "OCaml.md",
+    "Klasyczny Monitor.md",
+    "Kerberos.md",
     "REST.md",
     "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
     "LVM.md",
@@ -146,13 +161,6 @@
     "N.md",
     "socket(2).md",
     "Angielski/Ćw 1.md",
-    "ISO & OSI.md",
-    "Untitled 2.md",
-    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
-    "EtherType.md",
-    "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
-    "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
-    "Service Oriented Architecture.md",
     "Pasted image 20240309162008.png",
     "Pasted image 20240309155711.png",
     "Pasted image 20240309154245.png",
