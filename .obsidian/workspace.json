@@ -4,59 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "be230d2d9e680f0e",
+        "id": "f95086c7ea330698",
         "type": "tabs",
         "children": [
           {
-            "id": "8655193379e50fd0",
+            "id": "fb2538c6849c5a40",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "SSL & TLS.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ea03780fcd81532f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "HTTP Authentication.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "40eda46ecef8cdb1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TLS.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e4967f62ff0dc91b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Istota Podejścia Obiektowego.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -85,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "QUI",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,8 +61,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -123,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HTTP Authentication.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTTP Authentication.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -162,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "HTTP Authentication.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -185,35 +139,38 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ea03780fcd81532f",
+  "active": "fb2538c6849c5a40",
   "lastOpenFiles": [
-    "Gniazdo Sieciowe.md",
-    "QUIC.md",
-    "HTTP Authentication.md",
-    "TLS.md",
-    "Protokół Handshake.md",
-    "Istota Podejścia Obiektowego.md",
-    "SSL & TLS.md",
-    "handshake_protocol.png",
-    "ISO & OSI.md",
+    "Ramka Sieci Ethernet II.md",
+    "Podstawowe Gniazda Sieciowe.md",
+    "Gniazda Sieciowe.md",
+    "ISO/OSI.md",
+    "ISO",
     "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
     "socket(2).md",
-    "Zarządzanie oprogramowaniem.md",
-    "XAR.md",
-    "Wyzwalacze (triggers).md",
-    "Web Storage.md",
+    "Obsługa Interfejsów Sieciowych.md",
+    "Programowanie Sieciowe/Lab 1 - Init.md",
+    "Gniazda Sieciowe PF_PACKET.md",
+    "sockaddr_ll.md",
+    "OCaml.md",
+    "Stałe AF oraz PF.md",
+    "Synchronizacja.md",
+    "Trwałość Komunikacji.md",
+    "Deskryptor.md",
+    "ISO & OSI.md",
+    "EtherType.md",
     "Warstwa Łącza Danych.md",
-    "Untitled 2.md",
-    "Untitled 1.md",
-    "Systemowe Zarządzanie Oprogramowaniem.md",
-    "Struktura katalogów.md",
-    "Repozytoria pakietów.md",
-    "RPM5.md",
-    "RPM.md",
-    "Programowanie Sieciowe - 01.md",
-    "Problem z zależnościami.md",
-    "Plik spec.md",
-    "Patch RPM.md",
+    "Pasted image 20240315194435.png",
+    "Pasted image 20240315191441.png",
+    "WS-Security.md",
+    "Istota Podejścia Obiektowego.md",
+    "TLS.md",
+    "HTTP Authentication.md",
+    "SSL & TLS.md",
+    "QUIC.md",
+    "Protokół Handshake.md",
+    "handshake_protocol.png",
+    "Zarządzanie oprogramowaniem.md",
     "Pasted image 20240309162008.png",
     "Pasted image 20240309155711.png",
     "Pasted image 20240309154245.png",
