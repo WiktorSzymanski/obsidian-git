@@ -13,13 +13,62 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Gniazda Sieciowe PF_PACKET.md",
+                "file": "FreeBSD.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f0e7096f8fcd10bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Gentoo Portage.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f593077e46f2224b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AppImage.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7056a5b1631802ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Zarządcy pakietów.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "540f036f14a2c0cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Klik.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
+        "currentTab": 3,
         "stacked": true
       }
     ],
@@ -86,7 +135,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Gniazda Sieciowe PF_PACKET.md",
+            "file": "Zarządcy pakietów.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -103,7 +152,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Gniazda Sieciowe PF_PACKET.md",
+            "file": "Zarządcy pakietów.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -115,7 +164,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Gniazda Sieciowe PF_PACKET.md"
+            "file": "Zarządcy pakietów.md"
           }
         }
       }
@@ -133,10 +182,25 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "1cb612bec896cba3",
+  "active": "7056a5b1631802ea",
   "lastOpenFiles": [
-    "Untitled 4.md",
+    "AppImage.md",
+    "Zarządcy pakietów.md",
+    "Klik.md",
+    "Untitled 5.md",
+    "Gentoo Portage.md",
+    "Stałe AF oraz PF.md",
+    "Ramka Sieci Ethernet II.md",
+    "Podstawowe Gniazda Sieciowe.md",
+    "Pasted image 20240315194435.png",
+    "Pasted image 20240315191441.png",
+    "Gniazda Sieciowe.md",
+    "Deskryptor.md",
+    "FreeBSD.md",
+    "OpenPKG.md",
+    "Delta RPM.md",
     "Gniazda Sieciowe PF_PACKET.md",
+    "Untitled 4.md",
     "sockaddr_ll.md",
     "Zmienne Warunkowe.md",
     "OCaml.md",
@@ -148,19 +212,6 @@
     "Web Services Standards.md",
     "Web Standarization Bodies.md",
     "WS-Security.md",
-    "Business ProcesS Execution Language.md",
-    "WSDL.md",
-    "SOAP.md",
-    "UDDI.md",
-    "Narzędzia przetwarzania rozproszonego/Wykład 1 - Sylabus.md",
-    "Untitled 3.md",
-    "Btrfs.md",
-    "Thin Provisioning.md",
-    "Zarządzanie Systemami Komputerowymi/Lab 2 -.md",
-    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
-    "N.md",
-    "socket(2).md",
-    "Angielski/Ćw 1.md",
     "Pasted image 20240309162008.png",
     "Pasted image 20240309155711.png",
     "Pasted image 20240309154245.png",
@@ -171,8 +222,6 @@
     "Excalidraw/model_komunikacji.excalidraw.png",
     "Excalidraw",
     "Zarządzanie Systemami Komputerowymi/Images/FUSE_example.png",
-    "Zarządzanie Systemami Komputerowymi/Images/dowiązanie_trwałe.png",
-    "Zarządzanie Systemami Komputerowymi/Images/dowiązanie_w_btrfs.png",
     "Zarządzanie Systemami Komputerowymi/Images",
     "Zarządzanie Systemami Komputerowymi",
     "Technologie internetowe w przetwarzaniu rozproszonym",
