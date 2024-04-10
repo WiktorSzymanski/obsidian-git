@@ -94,3 +94,38 @@ let rec append = fun l1 l2 ->
   | [] -> l2
   | h :: t -> h :: append t l2;;
 ```
+
+#### Printf
+``` oCaml
+Printf.printf "%i" 10;; (*int*)
+Printf.printf "%s" "10";; (*string*)
+Printf.printf "%c" '10';; (*char*)
+```
+Jeśli nie chcemy używać "kropkowego" _syntax_-u możemy użyć `open Printf`.
+``` ocaml
+open Printf;;
+printf "%i" 10;;
+```
+
+#### Typy
+``` ocaml
+type foo =
+   Liczba of int
+ | Tekst of string
+ | Rz of float
+ | Nic;;
+
+let x : foo = Nic;;
+let y = Liczba(100);;
+let z = Tekst("ala");;
+```
+
+``` ocaml
+type 'a btree = 
+   Leaf of 'a (*zmienn typu aby drzew było uniwersalne*)
+ | Empty
+ | Node of 'a btree * 'a btree;;
+
+let sosna = Node (Leaf 10, Node (Leaf 20, Empty));;
+```
+`Empty` aby można rozróżnić prawy od lewego (node/liścia).  Można typowi nadać zmienną typu `'a` dzięki czemu typ nie ogranicza się do jednego typu danych.

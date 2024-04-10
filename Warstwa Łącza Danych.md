@@ -3,7 +3,7 @@
 - Warstwa 2 [[ISO & OSI]]
 - Dostęp do tej warstwy ma tylko root, tak samo programy korzystające z niej potrzebują uprawnień `root`
 - Korzyści
-	- Daje nam możliwość implementacji analizatorów komunikacji sieciowej (w szczególności w tzw _trybie nasłuchiwania_ ang. Promiscous mode) - Wireshark korzysta z bibliotek (?) działających na tej warstwie
+	- Daje nam możliwość implementacji analizatorów komunikacji sieciowej (w szczególności w tzw _trybie nasłuchiwania_ ang. Promiscous mode) - Wireshark korzysta z bibliotek (?) działających na tej warstwie (`tcpdump` to taki konsolowy wireshark))
 	- Możliwość implementacji protokołów warstwy sieciowej poza jądrem systemu operacyjnego
 	- Możliwość realizacji komunikacji sieciowej bez potrzeby użytkowania lub konfigurowania stosu protokołów internetowych
 - Komunikacja możliwa między urządzeniami połączonymi ze sobą fizycznie (oba podłączone do jednego switcha lub do tego samego Access point-a)

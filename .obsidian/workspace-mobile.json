@@ -4,72 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "517ff0ec39125ab1",
+        "id": "15b3fc7b21e24133",
         "type": "tabs",
         "children": [
           {
-            "id": "1cb612bec896cba3",
+            "id": "f6c2195238b1cc57",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FreeBSD.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f0e7096f8fcd10bd",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Gentoo Portage.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f593077e46f2224b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AppImage.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7056a5b1631802ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Zarządcy pakietów.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "540f036f14a2c0cc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Klik.md",
+                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3,
-        "stacked": true
+        ]
       }
     ],
     "direction": "vertical"
@@ -94,7 +44,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "802",
+            "query": "libnet pozwala nam",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -135,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Zarządcy pakietów.md",
+            "file": "TIWPR - Projekt - Dokumentacja usługi.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -152,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Zarządcy pakietów.md",
+            "file": "TIWPR - Projekt - Dokumentacja usługi.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -164,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Zarządcy pakietów.md"
+            "file": "TIWPR - Projekt - Dokumentacja usługi.md"
           }
         }
       }
@@ -182,53 +132,53 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "7056a5b1631802ea",
+  "active": "f6c2195238b1cc57",
   "lastOpenFiles": [
-    "AppImage.md",
-    "Zarządcy pakietów.md",
-    "Klik.md",
-    "Untitled 5.md",
-    "Gentoo Portage.md",
-    "Stałe AF oraz PF.md",
-    "Ramka Sieci Ethernet II.md",
-    "Podstawowe Gniazda Sieciowe.md",
+    "Angielski/Ćw 1.md",
+    "TIWPR - Projekt - Dokumentacja usługi.md",
+    "Gwarancja wykonania (semantyka błędu).md",
+    "QUIC.md",
+    "HTTP 2.md",
+    "pipelining-1-1675947131.png",
+    "HTTP_pipelining2.svg",
+    "Pasted image 20240409091015.png",
+    "HTTP/2.md",
+    "WebSocket.md",
+    "HTTP",
+    "PS_wyklad.md",
+    "libnet.md",
+    "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
+    "RPC.md",
+    "Enterprise Service Bus.md",
+    "OCaml.md",
+    "libpcap.md",
+    "ZMQ.md",
+    "RPM.md",
+    "Analizatory Komunikacji Sieciowej.md",
+    "tcpdump(1).md",
+    "EtherType.md",
+    "Warstwa Łącza Danych.md",
+    "warstwy łącza danych.md",
+    "Untitled 4.md",
+    "Untitled 3.md",
+    "Untitled 2.md",
+    "Untitled 1.md",
+    "Untitled.md",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
-    "Gniazda Sieciowe.md",
-    "Deskryptor.md",
-    "FreeBSD.md",
-    "OpenPKG.md",
-    "Delta RPM.md",
-    "Gniazda Sieciowe PF_PACKET.md",
-    "Untitled 4.md",
-    "sockaddr_ll.md",
-    "Zmienne Warunkowe.md",
-    "OCaml.md",
-    "Klasyczny Monitor.md",
-    "Kerberos.md",
-    "REST.md",
-    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
-    "LVM.md",
-    "Web Services Standards.md",
-    "Web Standarization Bodies.md",
-    "WS-Security.md",
     "Pasted image 20240309162008.png",
     "Pasted image 20240309155711.png",
     "Pasted image 20240309154245.png",
     "Pasted image 20240309153837.png",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "Excalidraw/łącze_komunikacji.excalidraw.png",
-    "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
-    "Excalidraw/model_komunikacji.excalidraw.png",
     "Excalidraw",
-    "Zarządzanie Systemami Komputerowymi/Images/FUSE_example.png",
     "Zarządzanie Systemami Komputerowymi/Images",
     "Zarządzanie Systemami Komputerowymi",
     "Technologie internetowe w przetwarzaniu rozproszonym",
     "Narzędzia przetwarzania rozproszonego",
     "Angielski/Tenses in context_1_240304_145900.pdf",
     "Angielski/Roadmap-e-book-C1-C2.pdf",
-    "Angielski",
-    "Bezpieczeństwo Systemów Rozproszonych"
+    "Angielski"
   ]
 }

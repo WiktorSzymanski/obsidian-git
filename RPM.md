@@ -43,3 +43,15 @@ Użytkowanie
 #### Konwencje tworzenie pakietów RPM
 - powinny być tworzone jako inny użytkownik jak `root`
 #TODO 
+
+
+### Komendy
+> `rpm -q --requires <nazwa>` - wświetla jakich pakietów wymaga `<nazwa>`
+> `rpm -q --whatrequires <nazwa>` - wyświetla jakie pakiety potrzebują `<nazwa>`
+> `rpm -qc <nazwa>` - wyświetla liste plików konfiguracyjnych dla `<nazwa>`
+> `rpm -ql <nazwa>` - wyświetla liste pakietów zainstalowynych dla `<nazwa>`
+
+>pakiet `drpm` można zastosować tylko dla wersji bezpośrednio niższej, jako że zawiera on różnicę między wersią poprzednią i tą która jest w pakiecie.
+
+>`zypper rm -u <nazwa>` - usuwa `<nazwa>` wraz z pakietami zainstalowanymi tylko dla tego pakietu.
+
