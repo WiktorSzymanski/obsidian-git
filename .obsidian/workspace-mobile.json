@@ -4,22 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "15b3fc7b21e24133",
+        "id": "d7830b7a991c9e98",
         "type": "tabs",
         "children": [
           {
-            "id": "f6c2195238b1cc57",
+            "id": "82b2a5b9dbd06f56",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
+                "file": "Pamięć Podręczna Protokołu ARP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ac32bdad4feb94c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Angielski/Test1.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -44,7 +57,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "libnet pozwala nam",
+            "query": "ioctl",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -85,7 +98,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "TIWPR - Projekt - Dokumentacja usługi.md",
+            "file": "Angielski/Test1.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "TIWPR - Projekt - Dokumentacja usługi.md",
+            "file": "Angielski/Test1.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +127,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "TIWPR - Projekt - Dokumentacja usługi.md"
+            "file": "Angielski/Test1.md"
           }
         }
       }
@@ -132,10 +145,16 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "f6c2195238b1cc57",
+  "active": "ac32bdad4feb94c0",
   "lastOpenFiles": [
-    "Angielski/Ćw 1.md",
+    "ioctl(2).md",
+    "Pamięć Podręczna Protokołu ARP.md",
+    "Angielski/Test1.md",
+    "Tablica Routingu.md",
+    "Angielski/Tenses in context_1_240304_145900.pdf",
+    "Obsługa Interfejsów Sieciowych.md",
     "TIWPR - Projekt - Dokumentacja usługi.md",
+    "Angielski/Ćw 1.md",
     "Gwarancja wykonania (semantyka błędu).md",
     "QUIC.md",
     "HTTP 2.md",
@@ -159,11 +178,6 @@
     "EtherType.md",
     "Warstwa Łącza Danych.md",
     "warstwy łącza danych.md",
-    "Untitled 4.md",
-    "Untitled 3.md",
-    "Untitled 2.md",
-    "Untitled 1.md",
-    "Untitled.md",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
     "Pasted image 20240309162008.png",
@@ -177,7 +191,6 @@
     "Zarządzanie Systemami Komputerowymi",
     "Technologie internetowe w przetwarzaniu rozproszonym",
     "Narzędzia przetwarzania rozproszonego",
-    "Angielski/Tenses in context_1_240304_145900.pdf",
     "Angielski/Roadmap-e-book-C1-C2.pdf",
     "Angielski"
   ]
