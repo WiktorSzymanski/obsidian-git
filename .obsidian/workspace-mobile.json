@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pamięć Podręczna Protokołu ARP.md",
+                "file": "rsync.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,6 +25,18 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Unison.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "eb38dec6b2a9db14",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Angielski/Test1.md",
                 "mode": "source",
                 "source": false
@@ -32,7 +44,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -145,11 +157,13 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ac32bdad4feb94c0",
+  "active": "eb38dec6b2a9db14",
   "lastOpenFiles": [
-    "ioctl(2).md",
+    "rsync.md",
     "Pamięć Podręczna Protokołu ARP.md",
     "Angielski/Test1.md",
+    "Unison.md",
+    "ioctl(2).md",
     "Tablica Routingu.md",
     "Angielski/Tenses in context_1_240304_145900.pdf",
     "Obsługa Interfejsów Sieciowych.md",
@@ -176,8 +190,6 @@
     "Analizatory Komunikacji Sieciowej.md",
     "tcpdump(1).md",
     "EtherType.md",
-    "Warstwa Łącza Danych.md",
-    "warstwy łącza danych.md",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
     "Pasted image 20240309162008.png",

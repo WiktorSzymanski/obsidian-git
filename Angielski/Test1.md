@@ -1,7 +1,7 @@
 ### Słownictwo
 ---
 ##### 1A
-exhilarting -> ekscutujące
+exhilarating -> ekscutujące
 scavenger -> padlinożerca
 quirky -> dziwaczny
 give a nudge -> zachęcić
@@ -27,18 +27,18 @@ impervious -> niewrażliwy
 wade in -> dołączyć do dyskusji
 knee jerk reactions -> odruchowa reakcjia
 blanking -> ingorować
-thick skin
-drives me up the wall
-bite my tounge
-get under my skin
-let off steam
-lashing out
-bottle up
-put a brave face on
-make a scene
-get something of my chest
-take a step back
-put things into perspective
+thick-skined -> niewrażliwy na krytykę
+drives me up the wall -> rozzłościć kogoś
+bite my tounge -> powstrzymać się od powiedzenia czego 
+get under my skin -> denerwować kogoś
+let off steam -> uspokoić się/pozbyć się emocji 
+lashing out -> spend large ammount of money on something unnecesary
+bottle up -> nie rozmawiać o czyć co nas denerwuje 
+put a brave face on -> zachowywać się jakbyśmy się czymś nie przejeli
+make a scene -> robiś scenę (idiom)
+get something of my chest -> zrzucić kamień z serca
+take a step back -> zastanowić się nad czymś spokojnie
+put things into perspective -> compere something to make it fairly jugged
 
 ##### 1C
 

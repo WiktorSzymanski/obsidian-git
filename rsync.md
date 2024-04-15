@@ -1,0 +1,12 @@
+#SRC #Sem1 #ZSK 
+- synchronizacja dnych w jedną stronę
+- wylicza sumy kontrole i na ich podstawie weryfikuje zmiany w pliku
+- -t -> modyfikuje zmiane modyfikacji
+	- w przypadku przełącznika `-t` jeśli nie zmieniły się daty modyfikacji, `speedup` (przyśpieszenie) jest znacząco wyższy niż w przypadku jego braku ( bez 65 z 2,395)
+- kosztem tego jest przetwarzanie tych danych (liczenie sum kontrolnych)
+- `dir/` -> odwołanie do zawartości katalogu, a nie katalogu samym w sobie
+- usunięcie pliku wymaga dodanie przełącznika `--delete`. Jest tak ponieważ jeśli przeniesiemy pliki z katalogu i synchronizujemy katalog, to synchronizacja mogłaby nam wyczyścić kopie.
+- `service rsyncd start`
+- `read -s RSYNC_PASSWORD` pozwala zapisać zmienną środowiskową w nie jawny sposób w terminalu, a wstawienie spacji przed komendą nie zapisze instrukcji w historii terminala
+- `-link-dest=../snap3` - tworzenie snapchota przy wykonywaniu `rsync`, minusem jest konieczność znania nazwy poprzedniego snapchota, przerwa w komunikacji może powodować że snapchot jest nie spójny
+- `post-xfer exec = <skrypt.sh>` -> wykonanie skryptu po udanym `rsync`
