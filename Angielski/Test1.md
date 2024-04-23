@@ -37,7 +37,7 @@ bottle up -> nie rozmawiać o czyć co nas denerwuje
 put a brave face on -> zachowywać się jakbyśmy się czymś nie przejeli
 make a scene -> robiś scenę (idiom)
 get something of my chest -> zrzucić kamień z serca
-take a step back -> zastanowić się nad czymś spokojnie
+take a step back -> zatrzymać się by zastanowić się nad czymś spokojnie
 put things into perspective -> compere something to make it fairly jugged
 
 ##### 1C

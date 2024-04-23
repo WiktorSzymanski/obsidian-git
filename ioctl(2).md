@@ -59,6 +59,8 @@ if (arq.arp_flags & ATF_COM) {
 	if (arq.arp_flags & ATF_PUBL) printf("MP"); 
 	if (arq.arp_flags & ATF_USETRAILERS) printf("T"); 
 	if (arq.arp_flags & ATF_NETMASK) printf("N");  
-}
+} else
+	printf("(incomplete)");
+printf("\n");
+close(fd);
 ```
-#TODO prez 14-15/25

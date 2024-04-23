@@ -4,47 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "d7830b7a991c9e98",
+        "id": "e268587695bffc86",
         "type": "tabs",
         "children": [
           {
-            "id": "82b2a5b9dbd06f56",
+            "id": "d12b85f6ccb68665",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "rsync.md",
+                "file": "Mac OS X.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "ac32bdad4feb94c0",
+            "id": "6598227d31d66691",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Unison.md",
+                "file": "Wywoływanie metod zdalnych.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "eb38dec6b2a9db14",
+            "id": "33886d25f09c538a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Angielski/Test1.md",
+                "file": "Storage Area Network.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +69,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "ioctl",
+            "query": "",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -110,7 +110,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Angielski/Test1.md",
+            "file": "Wywoływanie metod zdalnych.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Angielski/Test1.md",
+            "file": "Wywoływanie metod zdalnych.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -139,7 +139,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Angielski/Test1.md"
+            "file": "Wywoływanie metod zdalnych.md"
           }
         }
       }
@@ -157,39 +157,41 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "eb38dec6b2a9db14",
+  "active": "6598227d31d66691",
   "lastOpenFiles": [
+    "Archiwizacja a wirtualizacja.md",
+    "Wywoływanie metod zdalnych.md",
+    "Network Attached Storage.md",
+    "Storage Area Network.md",
+    "Ciągła ochrona danych.md",
+    "Analizatory Komunikacji Sieciowej.md",
+    "SOAP.md",
+    "Funkcjonalność systemów CAD.md",
+    "Archiwizacja i odtwarzanie.md",
+    "Systemy plików a archiwizacja.md",
+    "Borg Backup.md",
+    "Pakiet rdiff-backup.md",
     "rsync.md",
-    "Pamięć Podręczna Protokołu ARP.md",
-    "Angielski/Test1.md",
+    "Mac OS X - Time Machine.md",
+    "Mac OS X.md",
     "Unison.md",
-    "ioctl(2).md",
-    "Tablica Routingu.md",
-    "Angielski/Tenses in context_1_240304_145900.pdf",
-    "Obsługa Interfejsów Sieciowych.md",
-    "TIWPR - Projekt - Dokumentacja usługi.md",
+    "Zsync.md",
+    "Amanda.md",
+    "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
+    "BackupPC.md",
     "Angielski/Ćw 1.md",
-    "Gwarancja wykonania (semantyka błędu).md",
-    "QUIC.md",
-    "HTTP 2.md",
+    "EtherType.md",
+    "HTTP/2.md",
+    "Algorytmy Rozproszone/Ćw1.md",
+    "2024-04-22.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "Untitled.md",
+    "Angielski/Tenses in context_1_240304_145900.pdf",
     "pipelining-1-1675947131.png",
     "HTTP_pipelining2.svg",
     "Pasted image 20240409091015.png",
-    "HTTP/2.md",
-    "WebSocket.md",
     "HTTP",
-    "PS_wyklad.md",
-    "libnet.md",
-    "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
-    "RPC.md",
-    "Enterprise Service Bus.md",
-    "OCaml.md",
-    "libpcap.md",
-    "ZMQ.md",
-    "RPM.md",
-    "Analizatory Komunikacji Sieciowej.md",
-    "tcpdump(1).md",
-    "EtherType.md",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
     "Pasted image 20240309162008.png",
