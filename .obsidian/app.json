@@ -3,5 +3,11 @@
   "alwaysUpdateLinks": true,
   "newFileLocation": "root",
   "showUnsupportedFiles": true,
+<<<<<<< Updated upstream
   "showInlineTitle": true
+=======
+  "spellcheck": true,
+  "vimMode": true,
+  "readableLineLength": false
+>>>>>>> Stashed changes
 }

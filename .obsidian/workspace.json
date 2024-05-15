@@ -4,15 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "f95086c7ea330698",
+        "id": "57b36959312ef159",
         "type": "tabs",
         "children": [
           {
-            "id": "fb2538c6849c5a40",
+            "id": "528f86f5875252c6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3e80e217874a2eff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "POST once exactly.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -44,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "POST",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -61,7 +77,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +137,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "TIWPR - Projekt - Dokumentacja usługi.md"
+              }
             }
           }
         ]
@@ -139,8 +160,16 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "fb2538c6849c5a40",
+  "active": "528f86f5875252c6",
   "lastOpenFiles": [
+    "POST once exactly.md",
+    "TIWPR - Projekt - Dokumentacja usługi.md",
+    "libpcap.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 2 -.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
+    "N.md",
+    "HTTP/2.md",
+    "RADIUS.md",
     "Ramka Sieci Ethernet II.md",
     "Podstawowe Gniazda Sieciowe.md",
     "Gniazda Sieciowe.md",
@@ -162,15 +191,7 @@
     "Warstwa Łącza Danych.md",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
-    "WS-Security.md",
-    "Istota Podejścia Obiektowego.md",
-    "TLS.md",
-    "HTTP Authentication.md",
-    "SSL & TLS.md",
-    "QUIC.md",
-    "Protokół Handshake.md",
     "handshake_protocol.png",
-    "Zarządzanie oprogramowaniem.md",
     "Pasted image 20240309162008.png",
     "Pasted image 20240309155711.png",
     "Pasted image 20240309154245.png",

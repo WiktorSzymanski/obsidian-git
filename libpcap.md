@@ -17,7 +17,7 @@ Wymaga jawnego linkowania tej biblioteki (`-lpcap` w przypadku kompilatora gcc)
 `pcap_compile` -> gotowa funkcja do skompilowania wyrażenia filtracji (takiego jak w `tcpdump` i wstawia wynik do struktury `bpf_program`)
 `pcap_setfilter` -> dodanie filtru do handlera
 
-`pcap_loop` -> podajemy handler z funkcji create, `callback` wskaźnik na funkcje wykonywaną za każdym razem jak złapiemy jakąś ramkę, `cnt` oznacza kiedy przerwać pętle (10 -> po 10 odebrnych ramkach, -1 -> w nieskończoność), `*user` parametr który możemy sobie podać.
+`pcap_loop` -> podajemy handler z funkcji create, `callback` wskaźnik na funkcje wykonywaną za każdym razem jak złapiemy jakąś ramkę, `cnt` oznacza kiedy przerwać pętle (10 -> po 10 odebranych ramkach, -1 -> w nieskończoność), `*user` parametr który możemy sobie podać.
 
 `pcap_next_e` -> chce złapać następną ramkę
 
@@ -30,7 +30,7 @@ Jest to opakowanie gniazd `PF_PACKET` o dodatkowe funkcje filtracji.
 
 Można wysyłać ramki poprzez `libpcap` przez `pcap_inject` ale do tego jest inna biblioteka. 
 
-### Przyklad
+### Przykład
 ---
 ##### Nasłuchiwanie ramek sieciowych
 ``` C
@@ -43,9 +43,8 @@ handle = pcap_create(argv[1], errbuff);
 ```
 #TODO 
 
-`signal(SIGINT, stop)` -> jeśli program odbierze `SIGINT` to ma wykonać stop. Kultularna obsługa `Ctrl + C`
+`signal(SIGINT, stop)` -> jeśli program odbierze `SIGINT` to ma wykonać stop. Kulturalna obsługa `Ctrl + C`
 
 `atexit(cleanup)` -> 
 
-prez 18/23 - tak mniejwięcej wygląda implementacja `tcpdump`
-
+prez 18/23 - tak mniej więcej wygląda implementacja `tcpdump`
