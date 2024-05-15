@@ -4,47 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "e268587695bffc86",
+        "id": "012ec4c5715bdb8a",
         "type": "tabs",
         "children": [
           {
-            "id": "d12b85f6ccb68665",
+            "id": "132aa21501105af4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mac OS X.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "6598227d31d66691",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Wywoływanie metod zdalnych.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "33886d25f09c538a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Storage Area Network.md",
+                "file": "HTML5.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -69,7 +44,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "tag:#TIWPR",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -110,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Wywoływanie metod zdalnych.md",
+            "file": "HTML5.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -127,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Wywoływanie metod zdalnych.md",
+            "file": "HTML5.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -139,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Wywoływanie metod zdalnych.md"
+            "file": "HTML5.md"
           }
         }
       }
@@ -157,36 +132,36 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "6598227d31d66691",
+  "active": "132aa21501105af4",
   "lastOpenFiles": [
-    "Archiwizacja a wirtualizacja.md",
-    "Wywoływanie metod zdalnych.md",
-    "Network Attached Storage.md",
-    "Storage Area Network.md",
-    "Ciągła ochrona danych.md",
-    "Analizatory Komunikacji Sieciowej.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
+    "Web Services Standards.md",
+    "Web Services.md",
+    "UDDI.md",
+    "REST.md",
+    "HTML.md",
+    "DOM.md",
+    "Enterprise Service Bus.md",
+    "Business ProcesS Execution Language.md",
     "SOAP.md",
-    "Funkcjonalność systemów CAD.md",
-    "Archiwizacja i odtwarzanie.md",
-    "Systemy plików a archiwizacja.md",
-    "Borg Backup.md",
-    "Pakiet rdiff-backup.md",
-    "rsync.md",
-    "Mac OS X - Time Machine.md",
-    "Mac OS X.md",
-    "Unison.md",
-    "Zsync.md",
-    "Amanda.md",
-    "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
-    "BackupPC.md",
-    "Angielski/Ćw 1.md",
-    "EtherType.md",
-    "HTTP/2.md",
-    "Algorytmy Rozproszone/Ćw1.md",
-    "2024-04-22.md",
+    "HTML5.md",
+    "WSDL.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
+    "Excalidraw/AR-Cw2.excalidraw.md",
+    "Gniazda Sieciowe Protokołu IPv6.md",
+    "Excalidraw/broadcast_zad_dom.excalidraw.md",
+    "Implementacje niezależne od protokołu warstwy sieciowej.md",
+    "getaddrinfo(3).md",
+    "Ipv6.md",
+    "asdasd.md",
+    "ip(8).md",
+    "Model Spójności.md",
+    "Gniazda Sieciowe PF_NETLINK.md",
+    "Replikacja.md",
+    "OCaml.md",
+    "socket(2).md",
     "Untitled 1.canvas",
     "Untitled.canvas",
-    "Untitled.md",
     "Angielski/Tenses in context_1_240304_145900.pdf",
     "pipelining-1-1675947131.png",
     "HTTP_pipelining2.svg",

@@ -1,7 +1,7 @@
 {
-  "collapse-filter": false,
-  "search": "",
-  "showTags": false,
+  "collapse-filter": true,
+  "search": "TIWPR",
+  "showTags": true,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
@@ -17,6 +17,6 @@
   "repelStrength": 12.4273072060683,
   "linkStrength": 1,
   "linkDistance": 225,
-  "scale": 0.2751215063672123,
+  "scale": 1.6637313954901676,
   "close": false
 }

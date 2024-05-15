@@ -129,3 +129,33 @@ type 'a btree =
 let sosna = Node (Leaf 10, Node (Leaf 20, Empty));;
 ```
 `Empty` aby można rozróżnić prawy od lewego (node/liścia).  Można typowi nadać zmienną typu `'a` dzięki czemu typ nie ogranicza się do jednego typu danych.
+
+#### Pętle
+###### to
+---
+``` OCaml
+for i = 1 to 12 do
+	let f x = x + 1 in
+	Printf.printf "%i/n" (f i)
+done;;
+```
+
+###### down to
+---
+``` OCaml
+for i = 13 downto 1 do
+	let f x = x + 1 in
+	Printf.printf "%i/n" (f i)
+done;;
+```
+
+###### while
+---
+``` OCaml
+while true do
+	let newline = input_line stdin in
+	Printf.printf "%s/n" newline
+done;;
+```
+
+(Chyba) Wszystko zwracane przez pętlę musi być `Unit`.

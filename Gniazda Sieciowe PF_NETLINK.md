@@ -15,8 +15,7 @@ int sfd = socket(PF_NETLINK, SOCK_RAW, netlink_family);
 # lub
 int sfd = socket(PF_NETLINK, SOCK_DGRAM, netlink_family);
 ```
-
-#TODO prez 15/32
+Stałe, które mogą być trzecim argumentem wywołania funkcji systemowej [[socket(2)]] dla gniazd sieciowych _PF_NETLINK_ zdefiniowane są w pliku `linux/netlink.h`.
 
 >`netlink_family` -> moduł jądra z którego chcemy skorzystać
 
@@ -28,10 +27,26 @@ nlmsghdr |
 ---
 Gniazda sieciowe `PF_NETLINK` mogą zostać powiązane z adresem procesu (funkcją systemową `bind(2)`), który określany jest w strukturze `sockaddr_nl`.
 
-#TODO prez 16/32
-
+``` C
+struct sockaddr_nl {
+	sa_family_t nl_family; /* AF_NETLINK */
+	unsigned short nl_pad; /* Zero */
+	__u32 nl_pid; /* Process PID */
+	__u32 nl_groups; /* Multicast groups maska */
+};
+```
 >_zob._ `netlink.h`
 
+Nagłówki komunikatów przesyłanych gniazdami sieciowymi _PF_NETLINK_ opisane są strukturą 
+``` C
+struct nlmsghdr {
+	__u32 nlmsq_len; /* Length of message including header */
+	__u16 nlmsq_type; /* Type of message content */
+	__u16 nlmsq_flags; /* Additional flags */
+	__u32 nlmsq_seq; /* Sequence number */
+	__u32 nlmsq_pid; /* Sender port ID */
+}
+```
 #TODO prez 17/32
 
 >Jądro może nam coś wysłać "pocięte", stąd "sequence number".
