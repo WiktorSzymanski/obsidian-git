@@ -61,3 +61,10 @@ Interfejs typu **sit** (_Simple Internet Transformation_) ...
 
 ##### Przykładowy tunel w linux
 ...
+
+
+Aby sprawdzić czy dany adres obsługuje IPv6 można wykożystać komendę
+``` bash
+dig +short AAAA google.com
+```
+Można podać jedno `A` aby ukazać IPv4

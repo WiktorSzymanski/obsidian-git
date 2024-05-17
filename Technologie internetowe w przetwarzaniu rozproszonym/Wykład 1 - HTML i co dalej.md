@@ -13,4 +13,4 @@ Zaliczenie:
 
 [[XHTML]]
 
-[[HTML5]]
+[[HTML 5]]
