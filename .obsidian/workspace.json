@@ -4,31 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "57b36959312ef159",
+        "id": "a1b4b8db95a9b28d",
         "type": "tabs",
         "children": [
           {
-            "id": "528f86f5875252c6",
+            "id": "c44ef72efe02f8bb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3e80e217874a2eff",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "POST once exactly.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -60,7 +44,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "POST",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -98,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +98,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,9 +119,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "TIWPR - Projekt - Dokumentacja usługi.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -160,41 +140,47 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "528f86f5875252c6",
+  "active": "c44ef72efe02f8bb",
   "lastOpenFiles": [
-    "POST once exactly.md",
-    "TIWPR - Projekt - Dokumentacja usługi.md",
-    "libpcap.md",
     "Zarządzanie Systemami Komputerowymi/Lab 2 -.md",
     "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
-    "N.md",
-    "HTTP/2.md",
-    "RADIUS.md",
-    "Ramka Sieci Ethernet II.md",
-    "Podstawowe Gniazda Sieciowe.md",
-    "Gniazda Sieciowe.md",
-    "ISO/OSI.md",
+    "Zarządzanie Systemami Komputerowymi/Images/FUSE_example.png",
+    "Zarządzanie Systemami Komputerowymi/Images/dowiązanie_w_btrfs.png",
+    "Zarządzanie Systemami Komputerowymi/Images/dowiązanie_trwałe.png",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Lab 2 - Web APIs.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Lab 1 - HTML5.md",
+    "Narzędzia przetwarzania rozproszonego/Wykład 1 - Sylabus.md",
+    "Narzędzia przetwarzania rozproszonego/Lab 1-2 - Wprowadzenie do Aplikacji Wielowątkowych.md",
+    "Metody Bezpiecznego Programowania/Wykład 1 - Wprowadznie.md",
+    "Metody Bezpiecznego Programowania/Lab 1 - Wprowadznie.md",
+    "WebSocket.md",
+    "WS-Security.md",
+    "WSDL.md",
+    "Wywoływanie metod zdalnych.md",
+    "Wyzwalacze (triggers).md",
+    "XAR.md",
+    "XForms.md",
+    "XHTML 2.0.md",
+    "XML.md",
+    "XSL.md",
+    "Zarządcy pakietów.md",
+    "Zarządzanie czasem.md",
+    "Zarządzanie oprogramowaniem.md",
+    "Zdalne Wywoływanie Procedur.md",
+    "Zgodne Rozgłaszanie Niezawodne FIFO.md",
+    "ZMQ.md",
+    "Zsync.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
+    "Excalidraw/model_komunikacji.excalidraw.png",
+    "Excalidraw/łącze_komunikacji.excalidraw.png",
+    "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
     "ISO",
-    "Programowanie Sieciowe/Wykład 1 - Repetytorim Sieci Komputerowych.md",
-    "socket(2).md",
-    "Obsługa Interfejsów Sieciowych.md",
-    "Programowanie Sieciowe/Lab 1 - Init.md",
-    "Gniazda Sieciowe PF_PACKET.md",
-    "sockaddr_ll.md",
-    "OCaml.md",
-    "Stałe AF oraz PF.md",
-    "Synchronizacja.md",
-    "Trwałość Komunikacji.md",
-    "Deskryptor.md",
-    "ISO & OSI.md",
-    "EtherType.md",
-    "Warstwa Łącza Danych.md",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
     "handshake_protocol.png",
-    "Pasted image 20240309162008.png",
-    "Pasted image 20240309155711.png",
-    "Pasted image 20240309154245.png",
-    "Pasted image 20240309153837.png"
+    "Pasted image 20240309162008.png"
   ]
 }
