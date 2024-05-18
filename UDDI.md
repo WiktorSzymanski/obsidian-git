@@ -1,4 +1,7 @@
-#SRC #Sem1 #TIWPR 
-#TODO 
+#SRC #Sem1 #TIWPR #TODO
 
-UDDI is a directory service where businesses can register and serach for Web services.
+### Universal Description, Discovery and Integration
+---
+To usługa katalogowa w której firmy mogą rejestrować i wyszukiwać serwisy sieciowe ([[Web Services]]). Przechowuje informacje o serwisach sieciowych opisywanych przez [[WSDL]].
+
+UDDI do komunikacji wykorzystuje [[SOAP]].

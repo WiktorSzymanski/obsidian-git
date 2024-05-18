@@ -2,7 +2,7 @@
 
 [[Gniazda Sieciowe]] `PF_NETLINK` umożliwiają wymianę informacji (komunikatów) pomiędzy jądrem systemu operacyjnego a procesami przestrzeni użytkownika.
 
->Nie są to takie same gniazda sieciowe jak pozostałe, te nie służą do komunikacji poza pojedyńczy komputer.
+>Nie są to takie same gniazda sieciowe jak pozostałe, te nie służą do komunikacji poza pojedynczy komputer.
 
 Mechanizm 
 

@@ -66,13 +66,13 @@ Eliminacja
 
 #### HTTP/2 Push
 - Nie jest to mechanizm powiadamiania klienta przez serwer
-- Pojedyńcze żądanie + wiele odpowiedzi
+- Pojedyncze żądanie + wiele odpowiedzi
 - żądanie musi wystąpić
 ##### Push
 - ramka PUSH_PROMISE załącza do normalnej odpowiedzi (na początku)
 - #TODO 
 
-#### Pojedyńcze łącze TCP
+#### Pojedyncze łącze TCP
 - HTTP/1.1 - 75% połączeń obsługuje 1 żądanie
 - HTTP/2.0 - 25% połączeń obsługuje 1 żądanie
 - TCP jest zoptymalizowany pod kątem długich, dużych transferów

@@ -2,7 +2,7 @@
 
 - Podział oprogramowania na komponenty
 	- Bezpieczeństwo - ograniczone możliwości przy próbie włamania jeśli mamy tylko te pakiety które potrzebujemy 
-- Pakiet - pojedyńcze archiwum z wydzielonego komponentu
+- Pakiet - pojedyncze archiwum z wydzielonego komponentu
 - Baza danych plików i uprawnień zainstalowanego oprogramowania
 - Zewnętrzne repozytoria pakietów
 
