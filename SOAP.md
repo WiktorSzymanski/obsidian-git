@@ -1,26 +1,15 @@
 #SRC #Sem1 #TIWPR 
-#TODO
 
-#### Why SOAP:
+### Simple Object Access Protocol
+---
+SOAP to protokół komunikacyjny do komunikacji pomiędzy aplikacjami. Stworzony do komunikacji przez internet, posiada dany format wysyłanych [[SOAP Messages|wiadomości]]. Jest niezależny od platformy i języka, oparty na [[XML]]-u, prosty i skalowalny. Pozwala obejść firewall. Jest standardem W3C.
+
+### Zalety
+---
 - Komunikacja pomiędzy programami
-- Problemy instniejących technologii (RPC, DCOM, Cobra, RMI):
-	- #TODO 
-
-#### SOAP Messages
-- `<envelope>`
-#TODO 
-
-#### SOAP Header
-- Informacje specyficzne dla aplikacji (np. authentication, payment)
-- Atrybuty (`actor`, #TODO)
-
-#### SAOP Body
-#### SAOP Response
-
-#### Fault Element 
-
-#### SOAP Fault Codes
-
-#### SOAP HTTP Binding
-- Request SAOP może być POST-em lub GET-em HTTP
-- HTTP POST #TODO 
+- (rozwiązuje?) Problemy istniejących technologii (RPC, DCOM, Cobra, RMI):
+	- kompatybilność
+	- bezpieczeństwo (firewall)
+- Aplikacje mogą działać na różnych systemach operacyjnych, korzystając z różnych technologii i języków programowania
+- Wspierane przez .Net, JavaEE
+- Rekomendowane przez W3C (SOAP 1.2 Recommendation)

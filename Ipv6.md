@@ -13,7 +13,7 @@ Adres IPv6 ma 128 bitów. Podobnie jak dla IPv4, adres IPv6 obejmuje 3 części:
 - identyfikator sieci (ang. _subnetwork ID_)
 - identyfikator interfejsu (ang. _interface ID_)
 
-Długość identyfikatora sieci określa maska w notacji "/". Podobnie jak dla IPv4, adres IPv6 identyfikuje pojedyńczy interfejs podłączony do systemu operacyjnego, a nie cały węzeł. Jeden interfejs może mieć kilka adresów IPv6.
+Długość identyfikatora sieci określa maska w notacji "/". Podobnie jak dla IPv4, adres IPv6 identyfikuje pojedynczy interfejs podłączony do systemu operacyjnego, a nie cały węzeł. Jeden interfejs może mieć kilka adresów IPv6.
 
 
 ### Zapis adresu

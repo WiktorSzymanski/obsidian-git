@@ -1,12 +1,12 @@
-#SRC #Sem1 #TIWPR #wykład #w2 
+#SRC #Sem1 #TIWPR 
 
-- Propozycja standardu implementacji [[Enterprise Service Bus]] dla Javy
+- Propozycja standardu implementacji [[ESB]] dla Javy
 - Standard oparty na Web Services
 - Używa WSDL 2.0
-- Podłądzenie instniejących systemów
-- Podłączenie istnejących systemów przez ...
-#TODO
+- Podłączenie istniejących systemów poprzez konektory (_binding components_)
+- Standaryzacja organizacji pakietów programowych
+- Normalized Message Router - dystrybucja komunikatów
 
-
-#### Problem
-skupia się na danym języku, a z założenia [[Service Oriented Architecture]] ma pozwalać je łączyć.
+### Problem
+---
+skupia się na danym języku, a z założenia [[SOA]] ma pozwalać je łączyć.

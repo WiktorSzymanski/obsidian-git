@@ -12,7 +12,7 @@
 | /api/task-list                                       | lista list zadań       | dodanie listy zadań                | x                       | x                        | x                     |
 | /api/tasks-list/{id}                                 | pewna lista zadań      | dodanie listy zadań                | x                       | aktualizacja listy zadań | usunięcie listy zadań |
 | /api/tasks-list/{list_id}/tasks                      | zadania z danej listy  | dodanie zadania                    | x                       | x                        | x                     |
-| /api/tasks-list/{list_id}/tasks/{id}                 | pojedyńcze zadanie     | x                                  | x                       | aktualizacja zadania     | usunięcie zadania     |
+| /api/tasks-list/{list_id}/tasks/{id}                 | pojedyncze zadanie     | x                                  | x                       | aktualizacja zadania     | usunięcie zadania     |
 | /api/tasks-list/{list_id}/tasks/{id}/toggles         | x                      | tworzenie tokenu do zmiany statusu | x                       | x                        | x                     |
 | /api/tasks-list/{list_id}/tasks/{id}/toggles/{token} | x                      | x                                  | x                       | zmiana statusu zadania   | x                     |
 | /api/tasks-lists-merges                              | x                      | zcalenie dwóch list                | x                       | x                        | x                     |

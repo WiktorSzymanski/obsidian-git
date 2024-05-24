@@ -22,4 +22,4 @@
 	- on-line
 	- wersjonowanie
 	- deduplikacja
-- Konieczność odtwarzania całej maszyny wirtualnej w celu przywrócenia pojedyńczego pliku
+- Konieczność odtwarzania całej maszyny wirtualnej w celu przywrócenia pojedynczego pliku

@@ -3,8 +3,6 @@ Wykład - egzamin w sesji, online wygodniejsze (szok), ale dopiero będzie info 
 
 Na usos jest sylabus przedmiotu.
 
-
-
 Prowadzący: "Nie będziemy przecież spędzać całego wykładu na sylabusie"
 Aslo Prowadzący 1h 10min into lecture: "Metody i kryteria oceniania"
 
