@@ -4,71 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "cff37b196ddef3b0",
+        "id": "6cfab686071a64f4",
         "type": "tabs",
         "children": [
           {
-            "id": "2cc3fc00a4fcea65",
+            "id": "02771a931b3e90ba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "XForms.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e5f87b373408e71b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "XHTML.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "feed9b0893d4036d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "XHTML 2.0.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ed6c75faa0a59c36",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "HTML.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "48f6a470a3eaa369",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "XHTML 2.0.md",
+                "file": "LDAP.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,7 +44,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "multiplek",
+            "query": "",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -134,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "HTML.md",
+            "file": "LDAP.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -151,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "HTML.md",
+            "file": "LDAP.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -163,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "HTML.md"
+            "file": "LDAP.md"
           }
         }
       }
@@ -181,13 +132,18 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "ed6c75faa0a59c36",
+  "active": "02771a931b3e90ba",
   "lastOpenFiles": [
+    "LDAP.md",
+    "ADA-95.md",
+    "XML.md",
+    "XSL.md",
+    "Excalidraw/AR-Cw2.excalidraw.md",
+    "HTML.md",
     "XHTML 2.0.md",
     "XHTML.md",
     "XForms.md",
     "HTML 5.md",
-    "HTML.md",
     "SCTP.md",
     "Gniazda Sieciowe Protokołu SCTP.md",
     "Ipv6.md",
@@ -195,21 +151,16 @@
     "Protokół Handshake.md",
     "TCP.md",
     "One Click Installaction (openSUSE).md",
-    "XML.md",
     "DocBook.md",
     "MathML.md",
     "SVG.md",
     "Pasted image 20240516113704.png",
-    "XSL.md",
-    "Excalidraw/AR-Cw2.excalidraw.md",
     "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
     "Web Services Standards.md",
     "Web Services.md",
     "UDDI.md",
     "REST.md",
     "DOM.md",
-    "Enterprise Service Bus.md",
-    "Business ProcesS Execution Language.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Angielski/Tenses in context_1_240304_145900.pdf",
