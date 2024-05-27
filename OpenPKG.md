@@ -17,6 +17,6 @@ Korzystanie z OpenPKG nie wymaga uprawnień administratora, obsługuje skryptu s
 - Aktywnie aktualizowany
 #### Wady
 - Mało popularny
-- Mniejsza liczba pakietów w porównaniu do `apt` czy `yum`
+- Niewielka liczba pakietów (~1100) w porównaniu do `apt`
 - Zwiększenie złożoności zarządzania systemem, jeśli jest używane równocześnie z systemowym menadżerem pakietów
 - Brak automatycznego mechanizmu zarządzania zależnościami

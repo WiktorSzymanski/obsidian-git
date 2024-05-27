@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RPM.md",
+                "file": "LDAP.md",
                 "mode": "source",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "RPM.md",
+                "file": "LDAP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "RPM.md",
+                "file": "LDAP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "RPM.md"
+                "file": "LDAP.md"
               }
             }
           }
@@ -150,13 +150,17 @@
   },
   "active": "e46faab073f15e46",
   "lastOpenFiles": [
-    "Samba.md",
+    "DN.md",
+    "LDAP.md",
+    "Schemat Danych.md",
+    "DIT.md",
     "OpenPKG.md",
+    "RPM.md",
+    "Samba.md",
     "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
     "UnionFS.md",
     "OverlayFS.md",
     "Winbind.md",
-    "RPM.md",
     "Unison.md",
     "Btrfs.md",
     "CoW.md",
@@ -171,14 +175,10 @@
     "Pasted image 20240527182426.png",
     "Pasted image 20240527182130.png",
     "Systemy Plików.md",
-    "LDAP.md",
     "LDIF.md",
     "OpenLDAP.md",
     "Syncrepl.md",
-    "Schemat Danych.md",
-    "Atrybuty Operacyjne.md",
     "Pasted image 20240525195113.png",
-    "dystrybucji danych.md",
     "Pasted image 20240525191530.png",
     "Pasted image 20240525121252.png",
     "Pasted image 20240525121157.png",

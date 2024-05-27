@@ -7,7 +7,7 @@ class: ZSK
 
 >to hierarchiczna struktura organizacyjna, używana do przechowywania danych w usługach katalogowych opartych na [[LDAP]]. Organizuje dane w formie drzewa, gdzie każdy, gdzie każdy węzeł (_entry_) jest unikalny i może zawierać różne atrybuty, wartości, a także relację z innymi węzłami.
 >
->Podobny do klasycznego systemu pliku, jednak nie posiada korzenia głównego (_root_), każdy węzeł może zawierać dane i posiadać węzły potomne oraz możliwa odwrotna struktura nazw obiektów w drzewie.
+>Podobny do klasycznego systemu pliku, jednak nie posiada korzenia/katalogu głównego (_root_), każdy węzeł może zawierać dane i posiadać węzły potomne oraz jest możliwa odwrotna struktura nazw obiektów w drzewie.
 >```
 >/usr/local/bin/pico
 >uid=voytek,ou=users,dc=put,dc=pl

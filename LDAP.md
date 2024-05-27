@@ -19,7 +19,7 @@ class: ZSK
 
 #### LDAP vs DB
 - rozszerzalność [[Schemat Danych|schematów danych]] - w dowolnym momencie możemy wprowadzić dowolny atrybut
-- dystrybucja danych dzięki strukturze drzewiastej pozwala dzielić informacje na logicznie powiązane segmenty
+- dystrybucja danych dzięki strukturze drzewiastej pozwala dzielić informacje na logicznie powiązane segmenty. Dzięki temu jeśli w jakieś lokalizacji często zasięga się do danych z jakiegoś poddrzewa to można trzymać je na serwerze w tej właśnie organizacji.
 - replikacja poprzez jeden serwer _master_ i jeden lub wiele serwerów _slave_
 - przetwarzanie transakcyjne co najwyżej na poziomie pojedynczego obiektu, w bazie danych jest to bardziej skomplikowane
 - rozmiar danych - zwykle operuje na mniejszych porcjach danych.
@@ -35,25 +35,11 @@ class: ZSK
 - Kontrola składni wprowadzanych danych
 - Możliwość szyfrowania komunikacji ([[SSL & TLS|SSL/TLS]])
 
-<<<<<<< HEAD
 ## Nazwy zastępcze (aliasy)
-=======
-# Nazwy zastępcze (aliasy)
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
-
 są pseudo-węzłami wskazującymi na inne węzły. Koncepcyjnie działają podobnie do dowiązań symbolicznych w systemie Unix. Nie są obsługiwane przez wszystkie serwery LDAP, ze względu na degradacje efektywności. Aby węzeł stał się aliasem musi być obiektem klasy `alias` z atrybutem `aliasedObjectName` zawierającym [[DN]] właściwego obiektu.
-
-<<<<<<< HEAD
 ## [[LDIF]]
 
 ## Przeszukiwanie bazy
-=======
-# [[LDIF]]
-
-# Przeszukiwanie bazy
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
 ### Kryteria przeszukiwania
 - bazowa nazwa wyróżniająca (base)
 - głębokość/zakres przeszukiwania (scope)
@@ -102,12 +88,7 @@ są pseudo-węzłami wskazującymi na inne węzły. Koncepcyjnie działają podo
 #### children
 > Przeszukuje wszystkie swoje dzieci i ich następców.
 
-<<<<<<< HEAD
 ## LDAP URL
-=======
-# LDAP URL
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
 ``` URL
 ldap://serwer/DN?atrybuty?zakres?filtr
 ```
@@ -120,13 +101,7 @@ ldap://srv/dc=put,dc=pl?cn?sub?uid=voytek
 ldap://srv/ou=Osoby,dc=put,dc=pl?cn?one?(|(uid=a*)(uid=b*))
 ```
 
-<<<<<<< HEAD
 ## LDAP v3
-=======
-# LDAP v3
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
-
 - Wsparcie dla języków narodowych (UTF‐8)
 - Odwołania do serwerów zewnętrznych (referrals)
 - Bezpieczeństwo
@@ -137,16 +112,9 @@ ldap://srv/ou=Osoby,dc=put,dc=pl?cn?one?(|(uid=a*)(uid=b*))
 - Introspekcja funkcjonalności serwera
 - [[Atrybuty Operacyjne]]
 
-<<<<<<< HEAD
 ## Operacje protokołu LDAP
-=======
-# Operacje protokołu LDAP
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
-
 - **bind** - Uwierzytelnienie klienta. v3: Domyślnie połączenie jest anonimowe. Możliwe jest przełączanie się.
 - **unbind** - Zamknięcie połączenia.
-<<<<<<< HEAD
 - **search**- Przeszukiwanie drzewa DIT. Argumenty: baza, zakres, filtr. Dodatkowo: lista atrybutów do zwrócenia, ograniczenie czasu wykonania zapytania i liczby obiektów zwracanych.
 - **modify** - Modyfikacja istniejącego rekordu (nazwa atrybutu + operacja: dodanie, usunięcie, zamiana).
 - **add** - Dodanie nowego rekordu (nazwa i zbiór atrybutów).
@@ -156,18 +124,6 @@ ldap://srv/ou=Osoby,dc=put,dc=pl?cn?one?(|(uid=a*)(uid=b*))
 - **abandon** - Przerwanie wykonywanej operacji.
 
 ## Directory Specific Entry
-=======
--  **search**- Przeszukiwanie drzewa DIT. Argumenty: baza, zakres, filtr. Dodatkowo: lista atrybutów do zwrócenia, ograniczenie czasu wykonania zapytania i liczby obiektów zwracanych.
--  **modify** - Modyfikacja istniejącego rekordu (nazwa atrybutu + operacja: dodanie, usunięcie, zamiana).
--  **add** - Dodanie nowego rekordu (nazwa i zbiór atrybutów).
--  **delete** - Usunięcie istniejącego rekordu.
--  **modify RDN** - zmiana RDN. v3: Ogólna operacja modify DN umożliwiająca również przenoszenie obiektu w  inne miejsce drzewa DIT. 
--  **compare** - Sprawdzenie obecności atrybutu o określonej wartości.
-- **abandon** - Przerwanie wykonywanej operacji.
-
-# Directory Specific Entry
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
 
 ### Directory Service Agent
 Oprogramowanie serwera LDAP.
@@ -188,12 +144,7 @@ supportedSASLMechanisms: GSSAPI
 subschemaSubentry: cn=Subschema
 ```
 
-<<<<<<< HEAD
 ## Implementacje serwerów LDAP 
-=======
-# Implementacje serwerów LDAP 
->>>>>>> 34e4ebacff9ba97de277ee6e1d02851649b9d9b8
----
 - IBM Tivoli Directory Server
 - Sun Java System Directory Server
 - Novell eDirectory

@@ -15,4 +15,4 @@ Można ją podzielić na dwie składowe:
 - **Base Distinguished Name** -> kontekst lub baza 
 	`ou=users,dc=put,dc=pl`
 
-W ramach każdego kontekstu wartości **RDN** są unikalne.
+W ramach każdego kontekstu, wartości **RDN** są unikalne.

@@ -5,7 +5,7 @@ class: ZSK
 # Schemat danych
 ---
 
->opisuje jakiego typu informacje z jakiego typu atrybutami mogą być przechowywane przez nasz serwer usługi katalogowej. Ustalenie schematu danych ułatwia zarządzanie informacją, wymusza jej uspójnienie, porządkuje te informacje in redukuje ich nadmiarowość. Ułatwia tworzenie aplikacji, poprzez dostosowanie jej do się do schematu po stronie serwera. **Schematy są globalnie unikalne**. Jest to zagwarantowane przez [[OID]].
+>opisuje jakiego typu informacje z jakiego typu atrybutami mogą być przechowywane przez nasz serwer usługi katalogowej. Ustalenie schematu danych ułatwia zarządzanie informacją, wymusza jej uspójnienie, porządkuje te informacje i redukuje ich nadmiarowość. Ułatwia tworzenie aplikacji, poprzez dostosowanie jej do się do schematu po stronie serwera. **Schematy są globalnie unikalne**. Jest to zagwarantowane przez [[OID]].
 
 #### Przykład zastosowania:
 Jeśli będziemy chcieli podać numer telefonu, schemat nie dopuści do sytuacji, że w jednym miejscu będzie to `phone`, a w innym `tel`, wymusi aby atrybut nazywał się tak jak zostało to ustalone w schemacie.
