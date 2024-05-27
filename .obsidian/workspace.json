@@ -4,52 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a2f752345b46c6be",
+        "id": "c4a68b54dcd16a61",
         "type": "tabs",
         "children": [
           {
-            "id": "000dd65a29db3e92",
+            "id": "e46faab073f15e46",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenPKG.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "baa70a25a8135ff2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Btrfs.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "aa77f648be4212f2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Snapshots.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5256e983b7e09008",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CoW.md",
+                "file": "RPM.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,8 +70,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "934776b18c83d676",
@@ -123,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OpenPKG.md",
+                "file": "RPM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OpenPKG.md",
+                "file": "RPM.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OpenPKG.md"
+                "file": "RPM.md"
               }
             }
           }
@@ -185,44 +148,44 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "000dd65a29db3e92",
+  "active": "e46faab073f15e46",
   "lastOpenFiles": [
-    "LVM.md",
+    "Samba.md",
+    "OpenPKG.md",
+    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
+    "UnionFS.md",
+    "OverlayFS.md",
+    "Winbind.md",
+    "RPM.md",
+    "Unison.md",
     "Btrfs.md",
     "CoW.md",
-    "Snapshots.md",
+    "Kopia Migawkowa.md",
+    "Rsync.md",
+    "LVM.md",
+    "Bezstanowy Serwer Plików.md",
+    "Programowanie współbieżne.md",
+    "NFS.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
+    "Zsync.md",
+    "Pasted image 20240527182426.png",
+    "Pasted image 20240527182130.png",
+    "Systemy Plików.md",
     "LDAP.md",
     "LDIF.md",
     "OpenLDAP.md",
-    "Systemy Plików.md",
-    "OpenPKG.md",
     "Syncrepl.md",
     "Schemat Danych.md",
     "Atrybuty Operacyjne.md",
     "Pasted image 20240525195113.png",
     "dystrybucji danych.md",
-    "Odwołania do innych serwerów.md",
-    "OID.md",
-    "DIT.md",
     "Pasted image 20240525191530.png",
-    "DN.md",
     "Pasted image 20240525121252.png",
     "Pasted image 20240525121157.png",
     "Pasted image 20240525120946.png",
     "Pasted image 20240524204901.png",
     "Pasted image 20240524163212.png",
     "Pasted image 20240523225608.png",
-    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
-    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
-    "Księgowanie Systemów Plików.md",
-    "Excalidraw/Drawing 2024-05-23 15.50.33.excalidraw.md",
-    "Systemy plików a archiwizacja.md",
-    "SCTP.md",
-    "Excalidraw/Drawing 2024-05-22 21.45.44.excalidraw.md",
-    "TIWPR - Projekt - Dokumentacja usługi.md",
-    "socket(2).md",
-    "Pasted image 20240518142948.png",
-    "Pasted image 20240305085949.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",

@@ -24,8 +24,8 @@ pozwalają tworzyć _sub_-partycje w partycjach, a następnie je podpinać, a co
 
 ## Kopie migawkowe w Btrfs
 ---
-w przeciwieństwie do [[LVM]], który działa pod systemem plików, Btrfs tworzy na poziomie systemu pliku, wykorzystując do tego mechanizm [[CoW]]. Kiedy tworzy [[Snapshots|migawkę]], system nie kopiuje danych. Zamiast tego wszelkie nowe modyfikacje zapisuje w nowej lokalizacji, podczas gdy pliki sprzed migawki pozostają w swoim początkowym położeniu.
-Dzięki temu, [[Snapshots|kopie migawkowe]] w Btrfs, są bardzo szybkie i oszczędne w przestrzeń dyskową.
+w przeciwieństwie do [[LVM]], który działa pod systemem plików, Btrfs tworzy na poziomie systemu pliku, wykorzystując do tego mechanizm [[CoW]]. Kiedy tworzy [[Kopia Migawkowa|migawkę]], system nie kopiuje danych. Zamiast tego wszelkie nowe modyfikacje zapisuje w nowej lokalizacji, podczas gdy pliki sprzed migawki pozostają w swoim początkowym położeniu.
+Dzięki temu, [[Kopia Migawkowa|kopie migawkowe]] w Btrfs, są bardzo szybkie i oszczędne w przestrzeń dyskową.
 
 ## Kompresja 
 ---
