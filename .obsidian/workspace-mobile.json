@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "LDAP.md",
+                "file": "Angielski/Sub2.md",
                 "mode": "source",
                 "source": false
               }
@@ -44,7 +44,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "tag:#TODO",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "LDAP.md",
+            "file": "Angielski/Sub2.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "LDAP.md",
+            "file": "Angielski/Sub2.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "LDAP.md"
+            "file": "Angielski/Sub2.md"
           }
         }
       }
@@ -134,7 +134,11 @@
   },
   "active": "02771a931b3e90ba",
   "lastOpenFiles": [
+    "DIT.md",
     "LDAP.md",
+    "Atrybuty Operacyjne.md",
+    "SSL & TLS.md",
+    "Rsync.md",
     "ADA-95.md",
     "XML.md",
     "XSL.md",
@@ -157,10 +161,6 @@
     "Pasted image 20240516113704.png",
     "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
     "Web Services Standards.md",
-    "Web Services.md",
-    "UDDI.md",
-    "REST.md",
-    "DOM.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Angielski/Tenses in context_1_240304_145900.pdf",

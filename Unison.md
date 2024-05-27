@@ -1,7 +1,7 @@
 #SRC #Sem1 #ZSK 
 
 - Synchronizacja modyfikacji w obie strony
-- Stosuje protokół [[rsync]] do przesyłania modyfikacji
+- Stosuje protokół [[Rsync]] do przesyłania modyfikacji
 - Praca w środowisku heterogenicznym
 - Zapamiętywanie informacji o stanie każdego katalogu po udanej synchronizacji
 	- wykonywanie usuwania i tworzenia nowych plików

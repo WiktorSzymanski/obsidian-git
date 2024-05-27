@@ -1,7 +1,14 @@
-#SRC #Sem1 #ZSK 
+---
+up: 
+class: ZSK
+---
+#TODO
+
+# Rsync
+---
+
 - Protokół i program do synchronizacji zawartości dwóch (rozproszonych) plików
 - Optymalizacja
-#TODO wykład
 
 ### Algorytm Rsync
 ---
