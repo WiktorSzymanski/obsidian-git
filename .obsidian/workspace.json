@@ -1,0 +1,231 @@
+{
+  "main": {
+    "id": "f8e3e6e6191f2345",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2f752345b46c6be",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "000dd65a29db3e92",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OpenPKG.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "baa70a25a8135ff2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Btrfs.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "aa77f648be4212f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Snapshots.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5256e983b7e09008",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CoW.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f09675dc9581a31d",
+    "type": "split",
+    "children": [
+      {
+        "id": "dc6af4472f42d42c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3e7a36a5c163cc2e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cddff8bb8d4d1766",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "88ec1b88e592a896",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "934776b18c83d676",
+    "type": "split",
+    "children": [
+      {
+        "id": "270eb7eb16e950db",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d49413eb9ed450a6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "OpenPKG.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "41c65878292ee0d4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "OpenPKG.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3f1e4b0ea98a398d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c3bdb5d463c7e6c8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "OpenPKG.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "000dd65a29db3e92",
+  "lastOpenFiles": [
+    "LVM.md",
+    "Btrfs.md",
+    "CoW.md",
+    "Snapshots.md",
+    "LDAP.md",
+    "LDIF.md",
+    "OpenLDAP.md",
+    "Systemy Plików.md",
+    "OpenPKG.md",
+    "Syncrepl.md",
+    "Schemat Danych.md",
+    "Atrybuty Operacyjne.md",
+    "Pasted image 20240525195113.png",
+    "dystrybucji danych.md",
+    "Odwołania do innych serwerów.md",
+    "OID.md",
+    "DIT.md",
+    "Pasted image 20240525191530.png",
+    "DN.md",
+    "Pasted image 20240525121252.png",
+    "Pasted image 20240525121157.png",
+    "Pasted image 20240525120946.png",
+    "Pasted image 20240524204901.png",
+    "Pasted image 20240524163212.png",
+    "Pasted image 20240523225608.png",
+    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
+    "Księgowanie Systemów Plików.md",
+    "Excalidraw/Drawing 2024-05-23 15.50.33.excalidraw.md",
+    "Systemy plików a archiwizacja.md",
+    "SCTP.md",
+    "Excalidraw/Drawing 2024-05-22 21.45.44.excalidraw.md",
+    "TIWPR - Projekt - Dokumentacja usługi.md",
+    "socket(2).md",
+    "Pasted image 20240518142948.png",
+    "Pasted image 20240305085949.png",
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
+    "ISO"
+  ]
+}

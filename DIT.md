@@ -16,7 +16,6 @@ class: ZSK
 ## ![[DN]]
 
 ## Struktura drzewa DIT
----
 
 W strukturze drzewa DIT, każdy węzeł jest obiektem. Taki obiekt składa się z atrybutów określonego typ. Atrybuty mogą mieć wiele wartości, reprezentowanych jako łańcuch tekstowe.
 
