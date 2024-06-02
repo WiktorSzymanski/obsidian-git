@@ -1,6 +1,6 @@
 #SRC #Sem1 #BSR #lab2 
 
-Najpopularniejsza implementacja [[RADIUS]].
+Najpopularniejsza implementacja [[Radius]].
 
 Serwer FreeRADIUS jest dostępny na licencji open-source i posiada szerokie możliwości konfiguracyjne oraz możliwości integracji z relacyjnymi bazami danych (np. MySQL lub PostgreSQL).
 

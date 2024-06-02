@@ -1,6 +1,8 @@
-#SRC #Sem1 #PS #TODO 
-
-### Stream Control Transmission Protocol
+---
+up: 
+class: PS
+---
+# Stream Control Transmission Protocol
 ---
 ...
 Mówi sie że UDP jest zawodny, jednak oznacza to tyle, że nie otrzymujemy potwierdzenia że pakiet został odebrany. UDP jest tak niezawodny jak połączenie którym jest wysyłany.
@@ -77,7 +79,7 @@ withsctp telnet HOST PORT
 
 Do pisania aplikacji obsługujących SCTP można wykorzystać [[Gniazda Sieciowe Protokołu SCTP]].
 
-### Pyrania i zadania
+### Pytania i zadania
 1. ...
 2. ...
 3. ...
