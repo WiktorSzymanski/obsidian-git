@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "6cfab686071a64f4",
+        "id": "85ad1114ce48ffe5",
         "type": "tabs",
         "children": [
           {
-            "id": "02771a931b3e90ba",
+            "id": "7890f4d7643c4ee7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Angielski/Sub2.md",
+                "file": "TIWPR - Projekt - Dokumentacja usługi.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Angielski/Sub2.md",
+            "file": "TIWPR - Projekt - Dokumentacja usługi.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Angielski/Sub2.md",
+            "file": "TIWPR - Projekt - Dokumentacja usługi.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -114,7 +114,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Angielski/Sub2.md"
+            "file": "TIWPR - Projekt - Dokumentacja usługi.md"
           }
         }
       }
@@ -132,11 +132,20 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "02771a931b3e90ba",
+  "active": "7890f4d7643c4ee7",
   "lastOpenFiles": [
-    "DIT.md",
+    "Cloud Types.md",
+    "Angielski/Ćw 1.md",
     "LDAP.md",
+    "RPM.md",
+    "BackupPC.md",
+    "Samba.md",
+    "Winbind.md",
+    "Btrfs.md",
     "Atrybuty Operacyjne.md",
+    "DN.md",
+    "DIT.md",
+    "Angielski/Sub2.md",
     "SSL & TLS.md",
     "Rsync.md",
     "ADA-95.md",
@@ -151,16 +160,7 @@
     "SCTP.md",
     "Gniazda Sieciowe Protokołu SCTP.md",
     "Ipv6.md",
-    "Gniazda Sieciowe Protokołu IPv6.md",
-    "Protokół Handshake.md",
-    "TCP.md",
-    "One Click Installaction (openSUSE).md",
-    "DocBook.md",
-    "MathML.md",
-    "SVG.md",
     "Pasted image 20240516113704.png",
-    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
-    "Web Services Standards.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Angielski/Tenses in context_1_240304_145900.pdf",

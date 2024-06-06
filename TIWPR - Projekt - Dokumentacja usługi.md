@@ -16,3 +16,5 @@
 | /api/tasks-list/{list_id}/tasks/{id}/toggles         | x                      | tworzenie tokenu do zmiany statusu | x                       | x                        | x                     |
 | /api/tasks-list/{list_id}/tasks/{id}/toggles/{token} | x                      | x                                  | x                       | zmiana statusu zadania   | x                     |
 | /api/tasks-lists-merges                              | x                      | zcalenie dwóch list                | x                       | x                        | x                     |
+
+
