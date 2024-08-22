@@ -4,55 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "8bbcd1c8418eae1a",
+        "id": "48a5f34c2c4234c1",
         "type": "tabs",
         "children": [
           {
-            "id": "d9308dad94f20a6e",
+            "id": "896314dce7f311ec",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AppArmor.md",
+                "file": "Aggregate.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "8176cfd358363114",
+            "id": "60a7a684d279a226",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "PAM.md",
+                "file": "Repository.md",
                 "mode": "source",
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "06f6e2b776c918c8",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/AR-Cw2.excalidraw.md"
-              }
-            }
-          },
-          {
-            "id": "49de1cdf430995bc",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/modele_spojnosci_zad_dom.excalidraw.md"
               }
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Przykład",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -98,11 +78,13 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "934776b18c83d676",
@@ -118,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Excalidraw/modele_spojnosci_zad_dom.excalidraw.md",
+                "file": "Repository.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -135,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Excalidraw/modele_spojnosci_zad_dom.excalidraw.md",
+                "file": "Repository.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Excalidraw/modele_spojnosci_zad_dom.excalidraw.md"
+                "file": "Repository.md"
               }
             }
           }
@@ -176,50 +158,48 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "49de1cdf430995bc",
+  "active": "60a7a684d279a226",
   "lastOpenFiles": [
-    "PAM.md",
-    "Excalidraw/AR-Cw2.excalidraw.md",
-    "Excalidraw/modele_spojnosci_zad_dom.excalidraw.md",
-    "Excalidraw/komunikacja_nieustanna_asynchroniczna.excalidraw.md",
-    "Excalidraw/Drawing 2024-05-23 15.50.33.excalidraw.md",
-    "Excalidraw/Drawing 2024-05-22 21.45.44.excalidraw.md",
-    "Excalidraw/Drawing 2024-03-07 14.10.02.excalidraw.md",
-    "SCTP.md",
-    "Kerberos.md",
-    "LDAP.md",
-    "Radius.md",
-    "SNMP.md",
-    "Zaliczenie BSR.md",
-    "AppArmor.md",
-    "FreeRADIUS.md",
-    "DN.md",
-    "Schemat Danych.md",
-    "DIT.md",
-    "OpenPKG.md",
-    "RPM.md",
-    "Samba.md",
-    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
-    "UnionFS.md",
-    "OverlayFS.md",
-    "Winbind.md",
-    "Unison.md",
-    "Pasted image 20240527182426.png",
-    "Pasted image 20240527182130.png",
-    "Pasted image 20240525195113.png",
-    "Pasted image 20240525191530.png",
-    "Pasted image 20240525121252.png",
-    "Pasted image 20240525121157.png",
-    "Pasted image 20240525120946.png",
-    "Pasted image 20240524204901.png",
-    "Pasted image 20240524163212.png",
-    "Pasted image 20240523225608.png",
-    "Untitled 1.canvas",
     "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Excalidraw/Drawing 2024-06-06 10.16.16.excalidraw.md",
+    "Excalidraw/AR-cw3.excalidraw.md",
+    "Cloud Types.md",
+    "2024-06-16.md",
+    "Aggregate.md",
+    "Repository.md",
+    "LDAP.md",
+    "Domain.md",
+    "DDD.md",
+    "Entity.md",
+    "Value Object.md",
+    "Domain Model.md",
+    "Gniazda Sieciowe PF_PACKET.md",
+    "Deskryptor.md",
+    "Bezstanowy Serwer Plików.md",
+    "Atrybuty Operacyjne.md",
+    "globe-showing-europe-africa.svg",
+    "world-map.svg",
+    "earth.png",
+    "Model.md",
+    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
+    "Bounded Context.md",
+    "Event.md",
+    "UnionFS.md",
+    "Excalidraw/AR-Cw2.excalidraw.md",
+    "Excalidraw/Drawing 2024-06-19 16.38.35.excalidraw.md",
+    "Pasted Image 20240619164105_607.png",
+    "Pasted Image 20240619163850_601.png",
+    "Excalidraw/Drawing 2024-06-18 20.44.37.excalidraw.md",
+    "Pasted Image 20240619133132_884.png",
+    "Pasted Image 20240618204452_849.png",
+    "TIWPR - Projekt - Dokumentacja usługi.md",
+    "Excalidraw/modele_spojnosci_zad_dom.excalidraw.png",
+    "Excalidraw/modele_spojnosci_zad_dom.png",
+    "Pasted image 20240527182426.png",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "ISO"
   ]
