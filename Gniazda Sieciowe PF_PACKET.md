@@ -102,7 +102,7 @@ sendto(sfd, frame, ETH_HLEN + strlen(argv[3]) + 1, 0,
 free(frame); close(sfd);
 ```
 
->**Wybrane zmienne***
+>**Wybrane zmienne**
 >`fhead`
 >	początek buffora, mapowany na `coś`
 >`argv[1]`

@@ -1,5 +1,9 @@
-#SRC #Sem1 #PS
-
+---
+up: 
+class: PS
+---
+# Stałe AF oraz PF
+---
 Prefiks `AF` odnosi się do rodziny adresowej _(ang. address family_), a prefiks `PF` odnosi się do rodziny protokołu (_ang. protocol family_) — domena komunikacyjna.
 
 Podział taki wprowadzono na przypadek gdyby pojedynczy protokół wspierał wiele sposobów adresacji — stała `PF` niezbędna byłaby wówczas do utworzenia gniazda sieciowego, a stała `AF` używana byłaby w strukturze adresowej.

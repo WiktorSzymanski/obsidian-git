@@ -1,5 +1,11 @@
 {
   "accentColor": "",
   "cssTheme": "LYT Mode",
+<<<<<<< Updated upstream
   "theme": "obsidian"
+=======
+  "enabledCssSnippets": [
+    "image-adjustments"
+  ]
+>>>>>>> Stashed changes
 }

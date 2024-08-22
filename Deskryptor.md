@@ -8,7 +8,8 @@ to liczba (`int`) do której jest dowiązanie symboliczne do i-węzła.
 
 Lista deskryptorów plików procesu o identyfikatorze `[pid]` przechowywana jest w katalogu `/proc/[pid]/fd`. Katalog ten zawiera dowiązania symboliczne o nazwach odpowiadających numerom deskryptorów plików procesu. Każde takie dowiązanie symboliczne wskazuje na plik, z którym powiązany jest dany deskryptor.
 
-W przypadku gniazd sieciowych, dowiązany plik zawiera etykietę typu (_socket_) oraz numer i-węzła danego [[Gniazda Sieciowe|gniazda sieciowego]]. I-węzły gniazd sieciowych przechowywane są w plikach w katalogu` /proc/net`.
+W przypadku gniazd sieciowych, dowiązany plik zawiera etykietę typu (_socket_) oraz numer i-węzła danego [[Gniazda Sieciowe|gniazda sieciowego]]. I-węzły gniazd sieciowych przechowywane są w plikach w katalogu `/proc/net`.
+>_zob. `proc(5)`_
 
 #### Przykład
 ``` shell
@@ -30,8 +31,8 @@ $ cat /proc/21627/fdinfo/3
 ```
 
 ##### Stałe wartości deskryptorów:
->	0 - standardowe wejście
->	1 - standardowe wyjście
->	2 - wyjście diagnostyczne
+>`0` - standardowe wejście
+>`1` - standardowe wyjście
+>`2` - wyjście diagnostyczne
 	
 Przy pomocy polecenia `netstat` możemy wyświetlić i-węzły w bardziej przyjazny sposób,

@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Repository.md",
+                "file": "Podstawowe Gniazda Sieciowe.md",
                 "mode": "source",
                 "source": false
               }
@@ -100,7 +100,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Repository.md",
+                "file": "Podstawowe Gniazda Sieciowe.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +117,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Repository.md",
+                "file": "Podstawowe Gniazda Sieciowe.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +140,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Repository.md"
+                "file": "Podstawowe Gniazda Sieciowe.md"
               }
             }
           }
@@ -163,6 +163,9 @@
   },
   "active": "60a7a684d279a226",
   "lastOpenFiles": [
+    "socket(2).md",
+    "ip(8).md",
+    "Repository.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "Excalidraw/Drawing 2024-06-06 10.16.16.excalidraw.md",
@@ -170,7 +173,6 @@
     "Cloud Types.md",
     "2024-06-16.md",
     "Aggregate.md",
-    "Repository.md",
     "LDAP.md",
     "Domain.md",
     "DDD.md",
@@ -196,7 +198,6 @@
     "Excalidraw/Drawing 2024-06-18 20.44.37.excalidraw.md",
     "Pasted Image 20240619133132_884.png",
     "Pasted Image 20240618204452_849.png",
-    "TIWPR - Projekt - Dokumentacja usługi.md",
     "Excalidraw/modele_spojnosci_zad_dom.excalidraw.png",
     "Excalidraw/modele_spojnosci_zad_dom.png",
     "Pasted image 20240527182426.png",

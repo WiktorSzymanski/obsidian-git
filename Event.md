@@ -1,0 +1,3 @@
+---
+up: "[[Domain Model]]"
+---
