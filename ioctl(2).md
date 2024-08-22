@@ -1,5 +1,9 @@
-#SRC #Sem1 #PS 
-
+---
+up: 
+class: PS
+---
+# `ioctl(2)`
+---
 W systemach operacyjnych `GNU/Linux`, do obsługi pamięci podręcznej protokołu `ARP` dostępne są trzy żądania:
 - `SIOCSARP` - dodaje nowy wpis do pamięci podręcznej
 - `SIOCDARP` - usuwa istniejący wpis z pamięci podręcznej

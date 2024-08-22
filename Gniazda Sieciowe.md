@@ -1,13 +1,16 @@
-#SRC #Sem1 #PS #wykład 
-
-Gniazda Sieciowe są traktowane przez system operacyjny jako pliki specjalne. Aby korzystać z mechanizmu komunikacji internetowej wymagane jest utworzenie gniazda sieciowego.
+---
+up: 
+class: PS
+---
+# Gniazda Sieciowe
+---
+są traktowane przez system operacyjny jako pliki specjalne. Aby korzystać z mechanizmu komunikacji internetowej wymagane jest utworzenie gniazda sieciowego.
 
 [[Podstawowe Gniazda Sieciowe]] pozwalają na komunikację strumieniową (_TCP/IP_) i datagramową (_UDP/IP_). Dostęp do gniazd surowych i [[Gniazda Sieciowe PF_PACKET|PF_PACKET]] ma tylko użytkownik z uprawnieniami _root_-a.
 
 Google zastąpił TCP własnym protokołem [[QUIC]].
 
 ### Pytania i zadania
----
 ##### 1. Czy kapsułkowaniu zawsze musi towarzyszyć fragmentacja i na jakich warstwach modelu warstwowego [[ISO & OSI|ISO/OSI]] może ona wystąpić?
 >	Kapsułkowanie nie zawsze musi towarzyszyć fragmentacji. Fragmentacja jest procesem dzielenia dużych pakietów danych na mniejsze części, aby mogły być przesyłane przez sieć, który może wystąpić na różnych warstwach modelu OSI, ale jest szczególnie istotny w warstwie sieciowej, gdzie dane są segmentowane do pakietów, które są następnie _encapsulated_ (opakowywane) na niższe warstwy. Kapsułkowanie, z drugiej strony, to proces dodawania nagłówków do danych na każdej warstwie modelu OSI, co pozwala na ich odpowiednie przetwarzanie i przesyłanie przez sieć.
 

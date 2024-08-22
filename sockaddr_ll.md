@@ -18,7 +18,7 @@ struct sockaddr_ll {
 >`sll_protocol`
 >	oznacza rodzaj protokołu warstwy sieciowej przez [[EtherType]]
 
->`sll_ifindex
+>`sll_ifindex`
 >	numer interfejsu sieciowego z którym wiążemy gniazdo. Można go uzyskać przy pomocy funkcji systemowej `ioctl(2)` z żądaniem `SIOCGIFINDEX`
 
 >`sll_hatype`

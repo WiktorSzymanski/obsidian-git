@@ -1,5 +1,9 @@
-#SRC #Sem1 #PS #wykład
-
+---
+up: 
+class: PS
+---
+# EtherType
+---
 to liczba dwu-bajtowa wykorzystywana w ramach [[Warstwa Łącza Danych|warstwy łącza danych]] do określania transportowanego protokołu warstwy sieciowej.
 
 Lista wartości EtherType jest utrzymywana przez _Instytutem of Electrical and Electronica Engineers_ (_IEEE_). Dostępna jest pod adresem

@@ -1,11 +1,15 @@
-#SRC #Sem1 #PS
+---
+up: 
+class: PS
+---
+# `ip(8)`
 
+---
 Komenda systemowa `ip(8)` umożliwia manipulowanie wszystkimi tablicami routingu w systemie.
 
 Odwołania do poszczególnych tablic mogą się odbywać z użyciem ich numerów lub nadanych im nazw zgodnie z odwzorowania mi zapisanym w pliku konfiguracyjnym `/etc/iproute2/rt_tables`.
 
-###### Przykłady
----
+#### Przykłady
 ``` shell
 grep -v "^#" /etc/iproute2/rt_tables
 	# Wyświetla tablice routingu i odpowiadające im numery

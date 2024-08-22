@@ -1,6 +1,9 @@
-#SRC #Sem1 #PS #wykład 
-
-
+---
+up: "[[Podstawowe Gniazda Sieciowe]]"
+class: PS
+---
+# socket(2)
+---
 ``` c
 int socket(int domain, int type, int protocol);
 ```

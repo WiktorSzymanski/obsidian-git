@@ -1,5 +1,9 @@
-#SRC #Sem1 #PS 
-
+---
+up: "[[Gniazda Sieciowe]]"
+class: PS
+---
+# Gniazda Sieciowe PF_PACKET
+---
 W systemach operacyjnych gnu/Linux istnieją dwa mechanizmy systemowe umożliwiające dostęp do warstwy łącza danych: 
 - _gniazda sieciowe domeny komunikacyjnej `PF_PACKET`_ (nowsze rozwiązanie)
 - _gniazda sieciowe typu `SOCK_PACKET`_ (rozwiązanie przestarzałe).
