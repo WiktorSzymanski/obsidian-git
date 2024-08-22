@@ -1,5 +1,9 @@
-#SRC #Sem1 #PS #wyklad 
-
+---
+up: 
+class: PS
+---
+# Analizatory Komunikacji Sieciowej
+---
 #### [[tcpdump(1)]]
 #### Wireshark
 >i jego konsolowa wersja `tshark`

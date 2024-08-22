@@ -1,13 +1,16 @@
-#SRC #Sem1 #PS
-
-Deskryptor to liczba (`int`) do której jest dowiązanie symboliczne do i-węzła.
+---
+up: 
+class: PS
+---
+# Deskryptor
+---
+to liczba (`int`) do której jest dowiązanie symboliczne do i-węzła.
 
 Lista deskryptorów plików procesu o identyfikatorze `[pid]` przechowywana jest w katalogu `/proc/[pid]/fd`. Katalog ten zawiera dowiązania symboliczne o nazwach odpowiadających numerom deskryptorów plików procesu. Każde takie dowiązanie symboliczne wskazuje na plik, z którym powiązany jest dany deskryptor.
 
 W przypadku gniazd sieciowych, dowiązany plik zawiera etykietę typu (_socket_) oraz numer i-węzła danego [[Gniazda Sieciowe|gniazda sieciowego]]. I-węzły gniazd sieciowych przechowywane są w plikach w katalogu` /proc/net`.
 
 #### Przykład
----
 ``` shell
 $ ./server-tcp &
 	[1] 21627 

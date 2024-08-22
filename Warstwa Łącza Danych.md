@@ -1,5 +1,7 @@
-#SRC #Sem1 #PS #wykład 
-
+---
+up: "[[ISO & OSI]]"
+class: PS
+---
 - Warstwa 2 [[ISO & OSI]]
 - Dostęp do tej warstwy ma tylko root, tak samo programy korzystające z niej potrzebują uprawnień `root`
 - Korzyści

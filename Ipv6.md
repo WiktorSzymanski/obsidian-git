@@ -1,6 +1,13 @@
-#SRC #Sem1 #PS #TODO
+---
+up: 
+class: PS
+---
+ #TODO
+# IPv6
+---
+>**Definicja**
 
-Wszystkie nowe implementacje aplikacji sieciowych powinny działać w trybie dualnym (obsługiwać IPv4 i IPv6)
+Wszystkie nowe implementacje aplikacji sieciowych powinny być robione tak, aby działać w trybie dualnym (obsługiwać IPv4 i IPv6)
 
 ### Historia
 ---
@@ -26,7 +33,7 @@ Adres IPv6 zapisujemy w postaci szesnastkowej, w ośmiu blokach 2-bajtowych.
 Na szczęście adres ten można skracać:
 - Przez pominięcie wiodących zer w bloku 2-bajtowym:
 	`np. ...`
-- Przez zastąpieniem (nejwyżej jeden raz) sekwencji bloków złożonych wyłącznie z zer znakiem "::"
+- Przez zastąpieniem (najwyżej jeden raz) sekwencji bloków złożonych wyłącznie z zer znakiem "::"
 	`np. ...`
 ### Typy adresów
 ---

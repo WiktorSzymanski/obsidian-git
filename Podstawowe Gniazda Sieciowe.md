@@ -1,6 +1,10 @@
-#SRC #Sem1 #PS 
-
-Podstawowe Gniazda Sieciowe pozwalają na komunikację _strumieniową_ (_TCP/IP_) i _datagramową_ 
+---
+up: 
+class: PS
+---
+# Podstawowe Gniazda Sieciowe
+---
+pozwalają na komunikację _strumieniową_ (_TCP/IP_) i _datagramową_ 
 (_UDP/IP_).
 
 Można je utworzyć przy pomocy funkcji systemowej [[socket(2)]].
