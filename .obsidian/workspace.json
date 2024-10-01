@@ -4,35 +4,71 @@
     "type": "split",
     "children": [
       {
-        "id": "48a5f34c2c4234c1",
+        "id": "c1e0cc4990f7991a",
         "type": "tabs",
         "children": [
           {
-            "id": "896314dce7f311ec",
+            "id": "ba8b1c3f8a417c1b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Aggregate.md",
+                "file": "Progresywne techniki wdrożeń aplikacji.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "60a7a684d279a226",
+            "id": "3c9b60211ab4b747",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Podstawowe Gniazda Sieciowe.md",
+                "file": "Rolling update.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "991135b332ddecf7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "BlueGreen.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "a6c3ea0db8823b61",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Canary Release.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e5cebac6217b7232",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "AB testing.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -61,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Przykład",
+                "query": "A/B",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -83,8 +119,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "934776b18c83d676",
@@ -100,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Podstawowe Gniazda Sieciowe.md",
+                "file": "Canary Release.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Podstawowe Gniazda Sieciowe.md",
+                "file": "Canary Release.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -140,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Podstawowe Gniazda Sieciowe.md"
+                "file": "Canary Release.md"
               }
             }
           }
@@ -158,49 +193,50 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "60a7a684d279a226",
+  "active": "a6c3ea0db8823b61",
   "lastOpenFiles": [
+    "AB testing.md",
+    "Canary Release.md",
+    "BlueGreen.md",
+    "Rolling update.md",
+    "Progresywne techniki wdrożeń aplikacji.md",
+    "Domain Model.md",
+    "Domain.md",
+    "Pasted image 20241001091704.png",
+    "OWASP ASVS.md",
+    "Bounded Context.md",
+    "Event.md",
+    "Podstawowe Gniazda Sieciowe.md",
+    "Repository.md",
+    "Aggregate.md",
+    "Cloud Types.md",
+    "Excalidraw/Drawing 2024-09-01 03.40.20.excalidraw.md",
+    "Excalidraw/Drawing 2024-09-01 03.40.21.excalidraw.md",
     "socket(2).md",
     "ip(8).md",
-    "Repository.md",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "Excalidraw/Drawing 2024-06-06 10.16.16.excalidraw.md",
     "Excalidraw/AR-cw3.excalidraw.md",
-    "Cloud Types.md",
     "2024-06-16.md",
-    "Aggregate.md",
     "LDAP.md",
-    "Domain.md",
     "DDD.md",
     "Entity.md",
     "Value Object.md",
-    "Domain Model.md",
     "Gniazda Sieciowe PF_PACKET.md",
-    "Deskryptor.md",
-    "Bezstanowy Serwer Plików.md",
-    "Atrybuty Operacyjne.md",
     "globe-showing-europe-africa.svg",
     "world-map.svg",
     "earth.png",
-    "Model.md",
-    "Zarządzanie Systemami Komputerowymi/Wykład 1 - Systemy Plików.md",
-    "Bounded Context.md",
-    "Event.md",
-    "UnionFS.md",
-    "Excalidraw/AR-Cw2.excalidraw.md",
-    "Excalidraw/Drawing 2024-06-19 16.38.35.excalidraw.md",
     "Pasted Image 20240619164105_607.png",
     "Pasted Image 20240619163850_601.png",
-    "Excalidraw/Drawing 2024-06-18 20.44.37.excalidraw.md",
     "Pasted Image 20240619133132_884.png",
     "Pasted Image 20240618204452_849.png",
     "Excalidraw/modele_spojnosci_zad_dom.excalidraw.png",
     "Excalidraw/modele_spojnosci_zad_dom.png",
-    "Pasted image 20240527182426.png",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "ISO"
   ]
