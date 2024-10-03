@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Event.md",
+                "file": "Bounded Context.md",
                 "mode": "source",
                 "source": false
               }
@@ -134,7 +134,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Event.md",
+            "file": "Bounded Context.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -151,7 +151,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Event.md",
+            "file": "Bounded Context.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -163,7 +163,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Event.md"
+            "file": "Bounded Context.md"
           }
         }
       }
@@ -183,6 +183,7 @@
   },
   "active": "2ba668165d063bd2",
   "lastOpenFiles": [
+    "Event.md",
     "Rolling update.md",
     "Progresywne techniki wdrożeń aplikacji.md",
     "Pasted image 20241001091704.png",
@@ -203,7 +204,6 @@
     "Command.md",
     "DDD.md",
     "Domain.md",
-    "Event.md",
     "Bounded Context.md",
     "LDAP.md",
     "Aggregate.md",
