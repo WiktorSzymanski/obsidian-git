@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Canary Release.md",
+                "file": "Skafford.md",
                 "mode": "source",
                 "source": false
               }
@@ -135,7 +135,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Canary Release.md",
+                "file": "Skafford.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -152,7 +152,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Canary Release.md",
+                "file": "Skafford.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -175,7 +175,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Canary Release.md"
+                "file": "Skafford.md"
               }
             }
           }
@@ -199,8 +199,11 @@
   },
   "active": "a6c3ea0db8823b61",
   "lastOpenFiles": [
-    "AB testing.md",
+    "Feature Flags (Toggles).md",
+    "Skafford.md",
+    "Argo Rollouts.md",
     "Canary Release.md",
+    "AB testing.md",
     "BlueGreen.md",
     "Rolling update.md",
     "Progresywne techniki wdrożeń aplikacji.md",
@@ -225,9 +228,6 @@
     "2024-06-16.md",
     "LDAP.md",
     "DDD.md",
-    "Entity.md",
-    "Value Object.md",
-    "Gniazda Sieciowe PF_PACKET.md",
     "globe-showing-europe-africa.svg",
     "world-map.svg",
     "earth.png",
