@@ -1,6 +1,7 @@
 ---
 up: 
-class: PS
+tags:
+  - ProgramowanieSieciowe
 ---
 # Analizatory Komunikacji Sieciowej
 ---

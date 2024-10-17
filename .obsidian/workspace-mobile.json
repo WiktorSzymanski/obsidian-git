@@ -4,71 +4,46 @@
     "type": "split",
     "children": [
       {
-        "id": "fdd0fcc3b6ee8402",
+        "id": "a9b1d73e963f44d9",
         "type": "tabs",
         "children": [
           {
-            "id": "449e3d2d4d6f63cd",
+            "id": "eda7f181bd5b7830",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CQRS.md",
+                "file": "Systemy Rozproszone Dużej Skali/BigTable.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "0c47e664b3a130dc",
+            "id": "cfb53b455bed6d9b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CQRS with DDD.md",
+                "file": "Systemy Rozproszone Dużej Skali/Dynamo.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "f3336272c4e42ed4",
+            "id": "c62d3e44855ad665",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systemy rozproszone dużej skali - wstęp.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5f7e3baf27d9b6b3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Architektura Lambda.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2ba668165d063bd2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Bounded Context.md",
+                "file": "Systemy Rozproszone Dużej Skali/Cassandra.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,8 +68,8 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "tag:#REFACTOR",
-            "matchingCase": false,
+            "query": "PS",
+            "matchingCase": true,
             "explainSearch": false,
             "collapseAll": false,
             "extraContext": false,
@@ -134,7 +109,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Bounded Context.md",
+            "file": "Systemy Rozproszone Dużej Skali/BigTable.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -151,7 +126,7 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Bounded Context.md",
+            "file": "Systemy Rozproszone Dużej Skali/BigTable.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
           }
@@ -163,7 +138,7 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Bounded Context.md"
+            "file": "Systemy Rozproszone Dużej Skali/BigTable.md"
           }
         }
       }
@@ -181,35 +156,43 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "2ba668165d063bd2",
+  "active": "eda7f181bd5b7830",
   "lastOpenFiles": [
-    "Event.md",
-    "Rolling update.md",
-    "Progresywne techniki wdrożeń aplikacji.md",
+    "Systemy Rozproszone Dużej Skali/Cassandra.md",
+    "Systemy Rozproszone Dużej Skali/BigTable.md",
+    "Systemy Rozproszone Dużej Skali/Dynamo.md",
+    "Linearizability.md",
+    "Programowanie Sieciowe/Analizatory Komunikacji Sieciowej.md",
+    "Excalidraw/Drawing 2024-06-19 16.38.35.excalidraw.md",
+    "Excalidraw/AlgorytmyRozproszoneCwiczenia.excalidraw.md",
+    "Excalidraw/Drawing 2024-06-18 19.49.13.excalidraw.md",
+    "Excalidraw/Drawing 2024-06-06 10.16.16.excalidraw.md",
+    "Excalidraw/Drawing 2024-05-23 15.50.33.excalidraw.md",
+    "Excalidraw/Drawing 2024-03-07 14.10.02.excalidraw.md",
+    "Excalidraw/Drawing 2024-05-22 21.45.44.excalidraw.md",
+    "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
+    "Excalidraw/Drawing 2024-06-11 20.26.22.excalidraw.md",
+    "Systemy Rozproszone Dużej Skali/Big Data.md",
+    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
+    "Systemy Rozproszone Dużej Skali/noSQL.md",
+    "Systemy Rozproszone Dużej Skali/Teoria CAP.md",
+    "Systemy Rozproszone Dużej Skali/Architektura Lambda.md",
+    "Docker.md",
+    "Systemy Rozproszone Dużej Skali",
+    "Dockerfile.md",
+    "Podman.md",
+    "Konteneryzacja.md",
+    "Unikernels.md",
+    "Wirtualizacja.md",
+    "Xen.md",
+    "Versitale SMP.md",
+    "SmartSelect_20241010_170658_Samsung Notes.jpg",
+    "capture_temp 1",
+    "capture_temp",
+    "Excalidraw/VM-baloon.excalidraw.png",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
     "Pasted image 20241001091704.png",
-    "OWASP ASVS.md",
-    "Excalidraw/Drawing 2024-09-01 03.40.21.excalidraw.md",
-    "Excalidraw/Drawing 2024-09-01 03.40.20.excalidraw.md",
-    "Canary Release.md",
-    "BlueGreen.md",
-    "AB testing.md",
-    "Architektura Kappa.md",
-    "Architektura Lambda.md",
-    "Systemy rozproszone dużej skali - wstęp.md",
-    "CQRS with DDD.md",
-    "CQRS.md",
-    "Query Model.md",
-    "Query.md",
-    "Command Model.md",
-    "Command.md",
-    "DDD.md",
-    "Domain.md",
-    "Bounded Context.md",
-    "LDAP.md",
-    "Aggregate.md",
-    "Repository.md",
-    "Model.md",
-    "Model Spójności.md",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Pasted image 20240516113704.png",
@@ -220,16 +203,10 @@
     "HTTP",
     "Pasted image 20240315194435.png",
     "Pasted image 20240315191441.png",
-    "Pasted image 20240309162008.png",
-    "Pasted image 20240309155711.png",
-    "Pasted image 20240309154245.png",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "Excalidraw",
     "Zarządzanie Systemami Komputerowymi/Images",
     "Zarządzanie Systemami Komputerowymi",
-    "Technologie internetowe w przetwarzaniu rozproszonym",
-    "Narzędzia przetwarzania rozproszonego",
-    "Angielski/Roadmap-e-book-C1-C2.pdf",
-    "Angielski"
+    "Technologie internetowe w przetwarzaniu rozproszonym"
   ]
 }

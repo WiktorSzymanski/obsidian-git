@@ -1,6 +1,6 @@
 ---
 up: "[[Podstawowe Gniazda Sieciowe]]"
-class: PS
+tags: ProgramowanieSieciowe
 ---
 # `socket(2)`
 ---

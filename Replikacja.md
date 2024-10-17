@@ -1,4 +1,25 @@
 #SRC #Sem1 #AR #TODO 
+# Replikacja
+---
+>**Replikacja** to process **przechowywania wielu kopi danych**.
+
+**Replikacja częściowa**
+## Rodzaje replikacji
+### Master-slave
+> Jeden węzeł jest stworzony jako **główny** (**master**), pozostałe jako **drugorzędne** (**slaves**).
+
+#TODO 
+**Master**-y pomocnicze wśród **Slave**-ów.
+
+
+### Peer-to-peer
+>Relacja **peer-to-peer** oznacza brak nadrzędnego węzła. Wszystkie repliki przyjmują zapisy i są na równi. Powoduje to pewien kompromis pomiędzy dostępnością, a niespójnością danych.
+
+Utrzymanie spójności danych może być problematyczne:
+- **Niezgodność odczytu** #TODO
+- **Niezgodność zapisu** #TODO 
+
+#TODO 
 
 ##### Zastosowania
 ---

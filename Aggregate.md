@@ -1,7 +1,7 @@
 ---
 up: "[[Domain Model]]"
 ---
-# Aggregate *(ang. Agregat)*
+# Aggregate *(z ang. Agregat)*
 ---
 > to określenie używane do przedstawienia modelowanych "granic" i zasad **bezpośrednio powiązanych** obiektów. Prościej mówiąc to grupa **powiązanych obiektów** uważanych za **pojedynczą jednostkę** w kwestii zmian informacji. Oznacza to, że jakakolwiek zmiana obiektu, znajdującego się w agregacie, uznawana jest za zmianę **stanu agregatu**.
 

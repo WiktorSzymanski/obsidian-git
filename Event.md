@@ -1,7 +1,7 @@
 ---
 up: "[[Domain Model]]"
 ---
-# Event
+# Event *(z ang. Zdarzenie)*
 ---
 >**Event** to informacja, że coś ważnego wydażyło się w domenie.
 

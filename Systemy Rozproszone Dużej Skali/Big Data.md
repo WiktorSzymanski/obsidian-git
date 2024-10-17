@@ -1,7 +1,8 @@
 ---
-class: SRDS
+tags:
+  - SystemyRozproszoneDużejSkali
 ---
-# Wstęp
+# Big Data
 ---
 >*Big Data* to zbiór danych tak duży, że jego przetwarzanie jest trudne dla relacyjnej bazy danych. *Big Data* to dane skalujące się, rozproszone i różnorodne, ich przetwarzanie wymaga specjalnej architektóry.
 
