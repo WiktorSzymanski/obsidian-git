@@ -4,46 +4,53 @@
     "type": "split",
     "children": [
       {
-        "id": "a9b1d73e963f44d9",
+        "id": "dd81d05263de172c",
         "type": "tabs",
         "children": [
           {
-            "id": "eda7f181bd5b7830",
+            "id": "c20ac09224c8b6ae",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systemy Rozproszone Dużej Skali/BigTable.md",
+                "file": "Odtwarzanie Wsteczne Węzła.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Odtwarzanie Wsteczne Węzła"
             }
           },
           {
-            "id": "cfb53b455bed6d9b",
+            "id": "56c192744b536939",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systemy Rozproszone Dużej Skali/Dynamo.md",
+                "file": "Wycofanie operacji.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Wycofanie operacji"
             }
           },
           {
-            "id": "c62d3e44855ad665",
+            "id": "b4ed6b4cc0311108",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Systemy Rozproszone Dużej Skali/Cassandra.md",
+                "file": "Awarie.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Awarie"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -59,7 +66,9 @@
           "type": "file-explorer",
           "state": {
             "sortOrder": "alphabetical"
-          }
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
         }
       },
       {
@@ -68,13 +77,15 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "PS",
+            "query": "#TODO",
             "matchingCase": true,
             "explainSearch": false,
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical"
-          }
+          },
+          "icon": "lucide-search",
+          "title": "Search"
         }
       },
       {
@@ -85,7 +96,9 @@
           "state": {
             "sortOrder": "frequency",
             "useHierarchy": true
-          }
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
         }
       },
       {
@@ -93,11 +106,13 @@
         "type": "leaf",
         "state": {
           "type": "bookmarks",
-          "state": {}
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 0
   },
   "right": {
     "id": "9ec2740a5f33f8cc",
@@ -109,7 +124,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Systemy Rozproszone Dużej Skali/BigTable.md",
+            "file": "Kubernetes.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -117,7 +132,9 @@
             "searchQuery": "",
             "backlinkCollapsed": false,
             "unlinkedCollapsed": false
-          }
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
         }
       },
       {
@@ -126,10 +143,12 @@
         "state": {
           "type": "outgoing-link",
           "state": {
-            "file": "Systemy Rozproszone Dużej Skali/BigTable.md",
+            "file": "Systemy Rozproszone Dużej Skali/Big Data.md",
             "linksCollapsed": false,
             "unlinkedCollapsed": true
-          }
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
         }
       },
       {
@@ -138,8 +157,10 @@
         "state": {
           "type": "outline",
           "state": {
-            "file": "Systemy Rozproszone Dużej Skali/BigTable.md"
-          }
+            "file": "Systemy Rozproszone Dużej Skali/Big Data.md"
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
         }
       }
     ],
@@ -156,36 +177,42 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "eda7f181bd5b7830",
+  "active": "56c192744b536939",
   "lastOpenFiles": [
-    "Systemy Rozproszone Dużej Skali/Cassandra.md",
-    "Systemy Rozproszone Dużej Skali/BigTable.md",
-    "Systemy Rozproszone Dużej Skali/Dynamo.md",
-    "Linearizability.md",
-    "Programowanie Sieciowe/Analizatory Komunikacji Sieciowej.md",
-    "Excalidraw/Drawing 2024-06-19 16.38.35.excalidraw.md",
-    "Excalidraw/AlgorytmyRozproszoneCwiczenia.excalidraw.md",
-    "Excalidraw/Drawing 2024-06-18 19.49.13.excalidraw.md",
-    "Excalidraw/Drawing 2024-06-06 10.16.16.excalidraw.md",
-    "Excalidraw/Drawing 2024-05-23 15.50.33.excalidraw.md",
-    "Excalidraw/Drawing 2024-03-07 14.10.02.excalidraw.md",
-    "Excalidraw/Drawing 2024-05-22 21.45.44.excalidraw.md",
-    "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
-    "Excalidraw/Drawing 2024-06-11 20.26.22.excalidraw.md",
-    "Systemy Rozproszone Dużej Skali/Big Data.md",
-    "Zarządzanie Systemami Komputerowymi/Lab 1 - Systemy plików.md",
-    "Systemy Rozproszone Dużej Skali/noSQL.md",
-    "Systemy Rozproszone Dużej Skali/Teoria CAP.md",
-    "Systemy Rozproszone Dużej Skali/Architektura Lambda.md",
+    "Odtwarzanie Wsteczne Węzła.md",
+    "Wycofanie operacji.md",
+    "Odtwarzanie Wsteczne.md",
+    "Awarie.md",
+    "Odtwarzanie.md",
+    "Kibana.md",
+    "Archiwizacja i odtwarzanie.md",
+    "Monitorowanie w Systemach Rozproszonych.md",
+    "Fluentd.md",
+    "Prometheus.md",
+    "Ansible.md",
+    "ELK Stack.md",
+    "Grafana.md",
+    "Logstash.md",
+    "Nowoczesne technologie informatyczne w zastosowaniach branży IT.md",
+    "1_2Rxak3lZ3pB5_dx1uXeB8Q.webp",
     "Docker.md",
+    "Pod.md",
+    "Kubernetes.md",
+    "Skafford.md",
+    "Excalidraw/Drawing 2024-10-23 10.31.09.excalidraw.md",
+    "YAML.md",
+    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
+    "Systemy Rozproszone Dużej Skali/Architektura Lambda.md",
+    "Architektura Kappa.md",
+    "SmartSelect_20241021_155141_Samsung Notes.jpg",
+    "Systemy Rozproszone Dużej Skali/Big Data.md",
+    "SmartSelect_20241021_145202_Samsung Notes.jpg",
+    "SmartSelect_20241021_143013_Samsung Notes.jpg",
+    "Cloud Computing.md",
+    "SmartSelect_20241021_133304_Samsung Notes.jpg",
+    "capture_temp 2",
+    "Excalidraw/Drawing 2024-03-05 10.40.18.excalidraw.png",
     "Systemy Rozproszone Dużej Skali",
-    "Dockerfile.md",
-    "Podman.md",
-    "Konteneryzacja.md",
-    "Unikernels.md",
-    "Wirtualizacja.md",
-    "Xen.md",
-    "Versitale SMP.md",
     "SmartSelect_20241010_170658_Samsung Notes.jpg",
     "capture_temp 1",
     "capture_temp",
@@ -197,16 +224,10 @@
     "Untitled.canvas",
     "Pasted image 20240516113704.png",
     "Angielski/Tenses in context_1_240304_145900.pdf",
-    "pipelining-1-1675947131.png",
-    "HTTP_pipelining2.svg",
-    "Pasted image 20240409091015.png",
     "HTTP",
-    "Pasted image 20240315194435.png",
-    "Pasted image 20240315191441.png",
     "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
     "Excalidraw",
     "Zarządzanie Systemami Komputerowymi/Images",
-    "Zarządzanie Systemami Komputerowymi",
-    "Technologie internetowe w przetwarzaniu rozproszonym"
+    "Zarządzanie Systemami Komputerowymi"
   ]
 }

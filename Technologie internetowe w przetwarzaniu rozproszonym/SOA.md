@@ -1,7 +1,10 @@
-#SRC #Sem1 #TIWPR 
-### Service Oriented Architecture
 ---
-to architektura tworzenia aplikacji biznesowych przez dynamiczne luźne powiązania interfejsów usług, implementacją ich funkcjonalności oraz realizacją wywołań ich operacji. Ma to na celu pokonanie barier języków programowania i tworzenie dynamicznej sieci [[Usługa|usług]].
+tags:
+  - TechnologieInternetoweWPrzetwarzaniuRozproszonym
+---
+# Service Oriented Architecture
+---
+>to architektura tworzenia aplikacji biznesowych przez dynamiczne luźne powiązania interfejsów usług, implementacją ich funkcjonalności oraz realizacją wywołań ich operacji. Ma to na celu pokonanie barier języków programowania i tworzenie dynamicznej sieci [[Usługa|usług]].
 
 - Podejście i metodologia biznesowa i technologiczna
 - Decyzje biznesowe wspierane przez technologię

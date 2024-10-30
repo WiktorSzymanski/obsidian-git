@@ -1,17 +1,13 @@
 ---
-class: KSCh, BSR
-aliases:
-  - KSCh
-  - BSR
-  - ZSR
 tags:
   - BezpieczeństwoSystemówRozproszonych
   - ZarządzanieSystemamiRozproszonymi
   - KonstrukcjaSystemówChmurowych
+up: "[[Konteneryzacja]]"
 ---
 # Docker
 ---
-> **Docker** ujednolica proces wdrażania aplikacji na różnych systemach. Pozwala na przenośność aplikacji, ponieważ kontenery mogą działać na dowyolnym systemie wspierającym **Dockera**. Tworzy spójne środowisko adresujące problem *"u mnie działa"*.
+> **Docker** ujednolica proces wdrażania aplikacji na różnych systemach, porządkuje kwestie implementacji i eksploatacji aplikacji. Pozwala na przenośność aplikacji, ponieważ kontenery mogą działać na dowyolnym systemie wspierającym **Dockera**. Tworzy spójne środowisko adresujące problem *"u mnie działa"*.
 
 - Kontenery dla pojedynczych aplikacji (LXC naśladował pełną wirtualizację OS)
 - Infrastruktura standaryzująca tworzenie i zarządzanie kontenerami
@@ -19,6 +15,10 @@ tags:
 
 Konfiguracja domyślna dockera -`/etc/docker/daemon.json`
 
+## Skalowanie
+**Docker** pozwala na skalowanie aplikacji/systemu przez dekompozycje aplikacji na sieć kontenerów. Kontenery będą się komunikowały przez abstrakcyjne połączenia sieciowe.  Możliwe jest również powielanie kontenerów z danym serwisem (jeśli sama aplikacja jest na to gotowa), który jest pod największym obciążeniem. Kontenery mogą pracować na różnych fizycznych serwerach.
+#### Przykład
+#TODO obrazek z prez
 ## Zalety
 - łatwość użycia
 - separacja odpowiedzialności
@@ -78,7 +78,17 @@ Koncepcja wasrstwowej konstruckji systemu plików kontenera:
 - Logowanie i monitoring
 	- narzędzia takie jak ELK Stack, Prometheus, Grafana
 - Orkiestracja
-	- zarządzanie klastami kontenerów (Docker Swarm vs Kubernetes)
+	- zarządzanie klastami kontenerów (Docker Swarm vs [[Kubernetes]])
 - Sieć w Dockerze
 	- zarządzanie overlay networks, service discovery
 
+## Systemy bazowe dla kontenerów Dockera
+- minimialistyczne dystrybucje systemu Linux
+- bez mechanizmu #TODO
+
+## Standaryzacja
+**Open Container Initiative** - https://opencontainers.org/
+
+- Runtime Specification (runtime-spec)
+- Image Specification (image-spec)
+- Distribuition Specification (distribution-spec)

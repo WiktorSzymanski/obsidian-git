@@ -11,3 +11,19 @@
 	- Takie biznesowe rozmowy
 - Cons
 	- Brak bo szybko skończył
+
+# 3. Intel
+- Pros
+	- przykłady z życia wzięte
+	- Część o wzroście kosztu wraz z opóźnieniem jego naprawy
+- Cons
+	- Brak
+
+# 4. OLX
+- Pros
+	- stack OLX pokazany
+	- to jak przechowują i obrabiają dane
+	- przedstawienie działania i skąd wzieła się na nie potrzeba niektórych funkcjonalności
+	- czytelne grafy
+- Cons
+	- dość nurzące
