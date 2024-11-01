@@ -1,0 +1,7 @@
+---
+tags:
+  - NarzędziaPrzetwarzaniaRozproszonego
+up:
+---
+#TODO
+

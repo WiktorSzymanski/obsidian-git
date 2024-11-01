@@ -1,4 +1,8 @@
-#SRC #Sem1 #TIWPR #wykład 
+---
+up: 
+tags:
+  - TechnologieInternetoweWPrzetwarzaniuRozproszonym
+---
 Dostęp do pdf: będzie później
 Zaliczenie:
 	Lab - 2 projekty:

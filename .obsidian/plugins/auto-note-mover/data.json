@@ -19,8 +19,38 @@
       "pattern": ""
     },
     {
-      "folder": "",
-      "tag": "",
+      "folder": "Zarządzanie Systemami Rozproszonymi",
+      "tag": "#ZarządzanieSystemamiRozproszonymi",
+      "pattern": ""
+    },
+    {
+      "folder": "Zarządzanie Systemami Komputerowymi",
+      "tag": "#ZarządzanieSystemamiKomputerowymi",
+      "pattern": ""
+    },
+    {
+      "folder": "Bezpieczeństwo Systemów Rozproszonych",
+      "tag": "#BezpieczeństwoSystemówRozproszonych",
+      "pattern": ""
+    },
+    {
+      "folder": "Narzędzia Przetwarzania Rozproszonego",
+      "tag": "#NarzędziaPrzetwarzaniaRozproszonego",
+      "pattern": ""
+    },
+    {
+      "folder": "Algorytmy Rozproszone",
+      "tag": "#AlgorytmyRozproszone",
+      "pattern": ""
+    },
+    {
+      "folder": "Konstrukcja Systemów Chmurowych",
+      "tag": "#KonstrukcjaSystemówChmurowych",
+      "pattern": ""
+    },
+    {
+      "folder": "Systemy Wysokiej Niezawodności",
+      "tag": "#SystemyWysokiejNiezawodności",
       "pattern": ""
     }
   ],

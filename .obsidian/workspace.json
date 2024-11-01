@@ -4,71 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "c1e0cc4990f7991a",
+        "id": "25c840c380b9589c",
         "type": "tabs",
         "children": [
           {
-            "id": "ba8b1c3f8a417c1b",
+            "id": "852eb4ff93f78bba",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Progresywne techniki wdrożeń aplikacji.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3c9b60211ab4b747",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Rolling update.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "991135b332ddecf7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "BlueGreen.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a6c3ea0db8823b61",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Skafford.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e5cebac6217b7232",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AB testing.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -88,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -97,13 +48,15 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "A/B",
+                "query": "aliases",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -111,11 +64,12 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -135,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Skafford.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +96,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": false
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
             }
           },
           {
@@ -152,10 +107,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Skafford.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
             }
           },
           {
@@ -166,7 +122,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -174,9 +132,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Skafford.md"
-              }
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
             }
           }
         ]
@@ -197,47 +155,57 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "a6c3ea0db8823b61",
+  "active": "852eb4ff93f78bba",
   "lastOpenFiles": [
-    "Feature Flags (Toggles).md",
-    "Skafford.md",
-    "Argo Rollouts.md",
-    "Canary Release.md",
-    "AB testing.md",
-    "BlueGreen.md",
-    "Rolling update.md",
-    "Progresywne techniki wdrożeń aplikacji.md",
-    "Domain Model.md",
-    "Domain.md",
-    "Pasted image 20241001091704.png",
-    "OWASP ASVS.md",
-    "Bounded Context.md",
-    "Event.md",
-    "Podstawowe Gniazda Sieciowe.md",
-    "Repository.md",
-    "Aggregate.md",
+    "Narzędzia Przetwarzania Rozproszonego/Wykład 1 - Sylabus 1.md",
+    "TCP.md",
+    "Command Model.md",
+    "Command.md",
     "Cloud Types.md",
-    "Excalidraw/Drawing 2024-09-01 03.40.20.excalidraw.md",
-    "Excalidraw/Drawing 2024-09-01 03.40.21.excalidraw.md",
-    "socket(2).md",
-    "ip(8).md",
-    "Untitled.canvas",
-    "Untitled 1.canvas",
-    "Excalidraw/Drawing 2024-06-06 10.16.16.excalidraw.md",
-    "Excalidraw/AR-cw3.excalidraw.md",
-    "2024-06-16.md",
-    "LDAP.md",
+    "Cloud Computing.md",
+    "AB testing.md",
+    "1_2Rxak3lZ3pB5_dx1uXeB8Q.webp",
     "DDD.md",
+    "Kubernetes.md",
+    "Klasyczny Monitor.md",
+    "Implementacje niezależne od protokołu warstwy sieciowej.md",
+    "IaaS.md",
+    "Query Model.md",
+    "Query.md",
+    "Prometheus.md",
+    "Progresywne techniki wdrożeń aplikacji.md",
+    "Programowanie Sieciowe - 01.md",
+    "Process.md",
+    "Scaling on-demand.md",
+    "Rozproszone przetwarzanie danych.md",
+    "Rozproszona baza danych.md",
+    "Systemowe Zarządzanie Oprogramowaniem.md",
+    "Synchronizacja.md",
+    "Systemy plików a archiwizacja.md",
+    "socket(2)]] and [[sockaddr_in.md",
+    "Value Object.md",
     "globe-showing-europe-africa.svg",
+    "handshake_protocol.png",
+    "HTTP_pipelining2.svg",
+    "Systemy Wysokiej Niezawodności",
+    "Schemaless.md~",
+    "newSQL.md~",
+    "Open Virtualization Format.md~",
+    "IBM Logical Partition (LPAR).md~",
+    "Versitale SMP.md~",
+    "Emulacja.md~",
+    "Konteneryzacja.md~",
+    "Unikernels.md~",
+    "OpenVZ.md~",
+    "Untitled.canvas",
+    "Untitled 3.canvas",
+    "Untitled 2.canvas",
+    "Untitled 1.canvas",
+    "Pasted image 20240309154245.png",
+    "Pasted image 20240305092619.png",
+    "Pasted image 20240305085949.png",
+    "Pasted image 20241001091704.png",
     "world-map.svg",
-    "earth.png",
-    "Pasted Image 20240619164105_607.png",
-    "Pasted Image 20240619163850_601.png",
-    "Pasted Image 20240619133132_884.png",
-    "Pasted Image 20240618204452_849.png",
-    "Excalidraw/modele_spojnosci_zad_dom.excalidraw.png",
-    "Excalidraw/modele_spojnosci_zad_dom.png",
-    "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
-    "ISO"
+    "earth.png"
   ]
 }

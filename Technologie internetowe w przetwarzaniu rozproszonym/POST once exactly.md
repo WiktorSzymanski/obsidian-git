@@ -1,0 +1,6 @@
+---
+up:
+tags:
+- TechnologieInternetoweWPrzetwarzaniuRozproszonym
+---
+#TODO

@@ -1,4 +1,8 @@
-#SRC #Sem1 #PS #wykład
+---
+up:
+tags: ProgramowanieSieciowe
+---
+
 ### Wstęp
 Na koniec wykładów zadanka "do domu".
 #### Zaliczenie:
