@@ -6,9 +6,8 @@ tags:
 ---
 
 ## Rodzaje
-**Postępowe** (*forward recovery*)
-> Minusem tego działania jest konieczność przewidzenia danego błędu i napisania dla niego procedury
+**[[Odtwarzanie Postępowe|Postępowe]]** (*forward recovery*)
+> Jeśli natura błędu powodującego awarię pozwala na usunięcie błędów ze stanu systemu i system (proces) jest wyposarzony w mechanizmy obsługujące dany błąd, to błąd ten można efektywnie wyeliminować (naprawić) i umożliwić postęp przetwarzania. (np. całkowita utrata precyzji w wyniku operacji zmiennoprzecinkowej może zostać usunięta przez podanie wyniku "zero" w obsłudze błędu (*arythmetic underflow*))
 
 **[[Odtwarzanie Wsteczne|Wsteczne]]** (*backward recovery*)
-> Polega na przywróceniu stanu sprzed awarii. Jest to bardzo skomplikowane dla systemu rozproszonego w implementacji. Konieczne jest znalezienie takiego staniu który nie posiada już błędu. W przeciwnym razie **odtwarzanie wsteczne** jest nieefektywne ponieważ wystąpi ten sam błąd przy operacji, która doprowadziła do [[Awarie|awarii]].
-
+> Jeśli błąd jest nieprzewidywalny lub awaria nieodwracalna (np. *arythmetic overflow*), można jedynie wymienić cały stan systemu na wcześniej zarejestrowany, wolny od błędów. 
