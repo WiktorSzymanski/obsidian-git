@@ -4,35 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "dd81d05263de172c",
+        "id": "da109eaa1d4d3edd",
         "type": "tabs",
         "children": [
           {
-            "id": "c20ac09224c8b6ae",
+            "id": "7c2a922dcbc3c05f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Odtwarzanie Wsteczne.md",
+                "file": "Odtwarzanie Wsteczne Węzła.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Odtwarzanie Wsteczne"
-            }
-          },
-          {
-            "id": "a687ee188e29562e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Odtwarzanie.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Odtwarzanie"
+              "title": "Odtwarzanie Wsteczne Węzła"
             }
           }
         ]
@@ -109,7 +95,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Odtwarzanie Wsteczne.md",
+            "file": "Odtwarzanie Wsteczne Węzła.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -162,36 +148,41 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "c20ac09224c8b6ae",
+  "active": "7c2a922dcbc3c05f",
   "lastOpenFiles": [
-    "Odtwarzanie.md",
-    "Odtwarzanie Postępowe.md",
-    "Odtwarzanie Wsteczne.md",
-    "Awarie.md",
     "Odtwarzanie Wsteczne Węzła.md",
-    "Wycofanie operacji.md",
-    "Kibana.md",
-    "Archiwizacja i odtwarzanie.md",
-    "Monitorowanie w Systemach Rozproszonych.md",
-    "Fluentd.md",
-    "Prometheus.md",
-    "Ansible.md",
-    "ELK Stack.md",
-    "Grafana.md",
-    "Logstash.md",
-    "Nowoczesne technologie informatyczne w zastosowaniach branży IT.md",
+    "Model Węzła Systemu.md",
+    "Zarządzanie Systemami Rozproszonymi/YAML.md",
+    "Zarządzanie Systemami Rozproszonymi/System Rozproszony.md",
+    "Zarządzanie Systemami Rozproszonymi/Podman.md",
+    "Zarządzanie Systemami Rozproszonymi/Pod.md",
+    "Zarządzanie Systemami Rozproszonymi/Kibana.md",
+    "Zarządzanie Systemami Rozproszonymi/Grafana.md",
+    "Zarządzanie Systemami Rozproszonymi/Fluentd.md",
+    "Zarządzanie Systemami Rozproszonymi/ELK Stack.md",
+    "Zarządzanie Systemami Rozproszonymi/Dockerfile.md",
+    "Zarządzanie Systemami Rozproszonymi/DevOps.md",
+    "Zarządzanie Systemami Rozproszonymi/Configuration Management as Code.md",
+    "Zarządzanie Systemami Rozproszonymi/Ansible.md",
+    "Zarządzanie Systemami Rozproszonymi",
+    "Zarządzanie Systemami Komputerowymi/tar.md",
+    "Zarządzanie Systemami Komputerowymi/Zsync.md",
+    "Zarządzanie Systemami Komputerowymi/Zarządzanie oprogramowaniem.md",
+    "Zarządzanie Systemami Komputerowymi/Zarządcy pakietów.md",
+    "Zarządzanie Systemami Komputerowymi/XAR.md",
+    "Zarządzanie Systemami Komputerowymi/Wyzwalacze (triggers).md",
+    "Zarządzanie Systemami Komputerowymi/Winbind.md",
+    "Zarządzanie Systemami Komputerowymi/Unison.md",
+    "Zarządzanie Systemami Komputerowymi/UnionFS.md",
+    "Zarządzanie Systemami Komputerowymi/Thin Provisioning.md",
+    "Zarządzanie Systemami Komputerowymi/Systemy Plików.md",
+    "Zarządzanie Systemami Komputerowymi/Syncrepl.md",
+    "Systemy Wysokiej Niezawodności",
+    "Narzędzia Przetwarzania Rozproszonego",
+    "Konstrukcja Systemów Chmurowych",
+    "SmartSelect_20241104_130746_Samsung Notes.jpg",
     "1_2Rxak3lZ3pB5_dx1uXeB8Q.webp",
-    "Docker.md",
-    "Pod.md",
-    "Kubernetes.md",
-    "Skafford.md",
-    "Excalidraw/Drawing 2024-10-23 10.31.09.excalidraw.md",
-    "YAML.md",
-    "Technologie internetowe w przetwarzaniu rozproszonym/Wykład 1 - HTML i co dalej.md",
-    "Systemy Rozproszone Dużej Skali/Architektura Lambda.md",
-    "Architektura Kappa.md",
     "SmartSelect_20241021_155141_Samsung Notes.jpg",
-    "Systemy Rozproszone Dużej Skali/Big Data.md",
     "SmartSelect_20241021_145202_Samsung Notes.jpg",
     "SmartSelect_20241021_143013_Samsung Notes.jpg",
     "SmartSelect_20241021_133304_Samsung Notes.jpg",
@@ -207,12 +198,7 @@
     "Pasted image 20241001091704.png",
     "Untitled 1.canvas",
     "Untitled.canvas",
-    "Pasted image 20240516113704.png",
     "Angielski/Tenses in context_1_240304_145900.pdf",
-    "HTTP",
-    "Bezpieczeństwo Systemów Rozproszonych/Lab 1 - PAM.pdf",
-    "Excalidraw",
-    "Zarządzanie Systemami Komputerowymi/Images",
-    "Zarządzanie Systemami Komputerowymi"
+    "HTTP"
   ]
 }
