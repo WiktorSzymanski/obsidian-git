@@ -27,3 +27,10 @@
 	- czytelne grafy
 - Cons
 	- dość nurzące
+
+# 5. Cap
+- Pros
+	- "Fajnie się pracuje dla dużych klientów"
+- Cons
+	- wydaje mi się że nie jest to coś interesującego dla ludzi który skończyli studia inżynierskie i są na magisterskich aby dalej się doskonalać w bardziej kompleksowych rozwiązaniach (może nie licząc jednego kierunku). Tym czasem prezentacja dotyczy nażędzia dla ludzi nie kończących studiów informatycznych
+	- Koncept architekróty Power Platform podsumowany jako że "działa". Z mojej perspektywy świadczy to o tym że prowadzący nie ma pojędzia jak własciwie te serwisy są orkiestrowane.
