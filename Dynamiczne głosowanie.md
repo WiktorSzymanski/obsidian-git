@@ -1,0 +1,2 @@
+- DS nie istnieje gdy RU jest nieparzyste.
+- Jeśli DS zostanie rodzielony, system nie ma prawa postępu

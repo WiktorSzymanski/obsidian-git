@@ -52,3 +52,6 @@ Nie trzyma żandych twardych referencji. "Trzyma" rzeczy luźno po nazwach. Stą
 - lepsza obsługa dłużych klastrów
 - rozbudowane możliwości automatyzacji i zarządzania
 - szerokie wsparcie od dostawców chmurowych i duża społeczność
+
+
+> Zaleca się tworzyć reguły network policy per aplikacja/pod
