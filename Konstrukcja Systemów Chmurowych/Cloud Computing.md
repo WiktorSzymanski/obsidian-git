@@ -56,19 +56,19 @@ Anything as a Service (Xaas, EaaS, \*aaS)
 	- przestarzały *hardware*
 	- stare narzędzia deweloperskie, języki programowania
 	- wymagają przepisania całej aplikacji
-- Systemy *Real-time* z bardzo crytyczne w pewnych scenariuszach - np. jakieś systemy szpitalne
+- Systemy *Real-time*, bardzo krytyczne w pewnych scenariuszach - np. jakieś systemy szpitalne
 - Przechowywanie poufnych danych
 
-## Gdze stosować
+## Gdzie stosować
 - *Startups* - gdy chcemy sprawdzić jak przyjmie się dany koncept, ale nie chcemy inwestować dużej ilości pieniędzy.
 - Małe i średnie biznesy
 	- serwisy korporacyjne
-	- testowanie nowch produktów/usług
+	- testowanie nowych produktów/usług
 	- kopie zapasowe
 
 ## Bezpieczeństwo
 - Łagodzi ataki [[DDoS]]
-- syfrowanie danych
+- szyfrowanie danych
 - [[Paravirtualizacja]]
 ### Amazon EC2
 #TODO

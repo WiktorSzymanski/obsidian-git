@@ -4,19 +4,20 @@ tags:
 ---
 # Konteneryzacja
 ---
+> mechanizm wirtualizacji na poziomie systemu operacyjnego, dzielące jądro systemu z systemem maszyny host-a. 
 ## Historia
-- Unix `chroot` - lata '80
+- **Unix chroot** - lata '80
 	- pierwszy krok do stworzenia kontenera, zamknięcie się w jakimś katalogu. Jeśli aplikacja została by złamana narażony jest tylko dany folder.
-- FreeBSD jails/Solaris Zones - 2000
-- OpenVZ - 2005
-- Cgroups - 2006
+- **FreeBSD jails**/**Solaris Zones** - 2000
+- **OpenVZ** - 2005
+- **Cgroups** - 2006
 	- próba wstawienia konteneryzacji do systemu linux.
-- AIX WPARs (Workload partitions) IBM - 2007
-- LXC (Linux Containers) - 2008
-	- konteneryzacja na poziomie systemu operacyjnego, alternatywne rozwiązanie do OpenVZ
-- Docker - 2010
+- **AIX WPARs** (Workload partitions) IBM - 2007
+- **LXC** (Linux Containers) - 2008
+	- konteneryzacja na poziomie systemu operacyjnego, alternatywne rozwiązanie do **OpenVZ**
+- **Docker** - 2010
 
-LXC i OpenVZ to dwa pierwsze systemu konteneryzacji, które umożliwiały izolację bez potrzeby pełnej wirtualizacji sprzętu. Kontenery działają na poziomie systemu operacyjnego, co oznacza, że nie mają własnego jądra, ale współdzielą jądro z gospodarzem, co zmiejsza zużycie zasobów.
+**LXC** i **OpenVZ** to dwa pierwsze systemy konteneryzacji, które umożliwiały izolację bez potrzeby pełnej wirtualizacji sprzętu. Kontenery działają na poziomie systemu operacyjnego, co oznacza, że nie mają własnego jądra, ale współdzielą jądro z gospodarzem, co zmniejsza zużycie zasobów.
 
 ## Kontener aplikacyjny
 - Lekka jednostka uruchomieniowa, która zapewnia aplikację oraz jej zależności
@@ -28,22 +29,8 @@ LXC i OpenVZ to dwa pierwsze systemu konteneryzacji, które umożliwiały izolac
 - Główny proces to `systemd` lub `init`
 - **Cel**: Izolacja i wirtualizacja na poziomie systemu operacyjnego
 - **Przykład**: Wielozadaniowość na poziomie systemu
-## Wirtualizacja a konteneryzacja
-**Wirtualizacja**:
-- każda VM napędza własny OS z jądrem systemu operacyjnego
-- możliwość uruchamiania różnych OS
-- Większe zurzycie zasobów
-- Narzut na wydajność (*hipervizor*)
 
-**Konteneryzacja**:
-- Współdzielą jądro systemu z gospodarzem
-- mniejsze koszty (tańsze przełączanie kontekstu)
-- lżejsze i szybsze uruchamianie aplikacji
-- mniejsze zużycie zasobów
-- krótki czas ...
-- #TODO 
-
-#TODO obrazek z przez
+![[Wirtualizacja a Konteneryzacja]]
 
 ## Narzędzia implementacji kontenerów w systemie Linux
 Stare podejście
@@ -75,10 +62,10 @@ Mechanizm zarządzania grupami procesów:
 	- wyjątki: ABI dla kodu z innych OS (np. Linux pod FreeBSD)
 - słabsza izolacja niż w przypadku VM -> bezpieczeństwo
 	- funkcje syst. sa wykonywane przez to samo jądro systemu
-- Powielanie dużych fragmentów systemów plików dla kontenerów
+- Powielanie dużych fragmentów systemów plików dla kontenerów. Można to ograniczyć przy użyciu systemów plików typu **Union**. W przypadku [[Wirtualizacja|pełnej wirtualizacji]], problem jest jeszcze bardziej dotkliwy.
 - Ograniczona przenaszalność
 
-## Ograniczanie do tego samemgo systemu operacyjnego
+## Ograniczanie do tego samego systemu operacyjnego
 - Kontenery uruchamiane wewnątrz maszyny wirtualnej (pełna wirtualizacja)
 	- cf. Docker dla Linux vx dla Windows i Mac OS X
 - Redukcja wydajności

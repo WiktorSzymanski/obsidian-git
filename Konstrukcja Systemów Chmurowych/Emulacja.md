@@ -9,7 +9,7 @@ tags:
 - WINE
 - Cygwin
 
-> Programów napisanych na te samą architektórę procesora nie można otpalić na innych systemach przez inne otoczenie *binary interface*.
+> Programów napisanych na te samą architekturę procesora nie można uruchomić na innych systemach przez inne otoczenie *binary interface*.
 
 ## Emulacja pełna
 - emulacja sprzętu i systemu operacyjnego

@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "57feec2362153383",
+        "id": "d7e441224a8e0c85",
         "type": "tabs",
         "children": [
           {
-            "id": "90b30d7db83e0edf",
+            "id": "96f45b46e730310d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Nowoczesne technologie informatyczne w zastosowaniach branży IT.md",
+                "file": "Cloud Computing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Nowoczesne technologie informatyczne w zastosowaniach branży IT"
+              "title": "Cloud Computing"
             }
           }
         ]
@@ -48,8 +48,8 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
-            "matchingCase": false,
+            "query": "Coding",
+            "matchingCase": true,
             "explainSearch": false,
             "collapseAll": false,
             "extraContext": false,
@@ -83,7 +83,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1
   },
   "right": {
     "id": "e4b40e897b9b3c9c",
@@ -95,7 +95,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Systemy Wysokiej Niezawodności/Checkpoint.md",
+            "file": "Cloud Computing.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -148,19 +148,35 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "90b30d7db83e0edf",
+  "active": "96f45b46e730310d",
   "lastOpenFiles": [
-    "Zarządzanie Systemami Rozproszonymi/IaC.md",
-    "Zarządzanie Systemami Rozproszonymi/Terraform.md",
-    "Systemy Wysokiej Niezawodności/Wycofanie operacji.md",
-    "Systemy Wysokiej Niezawodności/Write-Ahead-Log.md",
-    "Systemy Wysokiej Niezawodności/Update-In-Place.md",
-    "Systemy Wysokiej Niezawodności/Checkpoint.md",
-    "Systemy Wysokiej Niezawodności/Przywracanie stanu.md",
+    "Konstrukcja Systemów Chmurowych/Erasure Coding.md",
+    "Cloud Computing.md",
+    "IaaS.md",
+    "Software as a Service.md",
+    "Konstrukcja Systemów Chmurowych/PaaS.md",
+    "QUIC.md",
+    "Zarządzanie Systemami Rozproszonymi/Kubernetes.md",
+    "Plan Pracy Magisterskiej.md",
     "Nowoczesne technologie informatyczne w zastosowaniach branży IT.md",
-    "().md",
-    "Systemy Wysokiej Niezawodności/Odtwarzanie Wsteczne Węzła.md",
-    "Model Węzła Systemu.md",
-    "Systemy Wysokiej Niezawodności/Odtwarzanie Wsteczne.md"
+    "Zarządzanie Systemami Rozproszonymi/ISO 27001.md",
+    "Excalidraw/Drawing 2024-12-11 08.09.32.excalidraw.md",
+    "Konstrukcja Systemów Chmurowych/Ceph block storage.md",
+    "OSD.md",
+    "Konstrukcja Systemów Chmurowych/Modele pików.md",
+    "Konstrukcja Systemów Chmurowych/Ceph.md",
+    "CRUSH.md",
+    "Konstrukcja Systemów Chmurowych/RAID.md",
+    "Konstrukcja Systemów Chmurowych/RADOS.md",
+    "Konstrukcja Systemów Chmurowych/ClusterFS.md",
+    "Dynamiczne głosowanie.md",
+    "Excalidraw/Drawing 2024-12-04 11.12.02.excalidraw.md",
+    "Bezpieczeństwo Systemów Rozproszonych/TLS.md",
+    "Zarządzanie Systemami Rozproszonymi/Bezpieczeństwo Systemów Rozproszonych.md",
+    "Untitled.canvas",
+    "Slajdy-FT-06_Commit.pdf",
+    "Systemy Wysokiej Niezawodności/Quasi-synchronous Checkpointing.md",
+    "Excalidraw/Drawing 2024-11-27 08.20.43.excalidraw.md",
+    "Zarządzanie Systemami Rozproszonymi/IaC.md"
   ]
 }

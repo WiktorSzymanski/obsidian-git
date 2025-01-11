@@ -4,20 +4,71 @@
     "type": "split",
     "children": [
       {
-        "id": "25c840c380b9589c",
+        "id": "1c67a8721ef30440",
         "type": "tabs",
         "children": [
           {
-            "id": "852eb4ff93f78bba",
+            "id": "55b7c97c327bec6d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Zarządzanie Systemami Rozproszonymi/Ansible.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Ansible"
+            }
+          },
+          {
+            "id": "99f55b1e6b213438",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Zarządzanie Systemami Rozproszonymi/Wirtualizacja.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Wirtualizacja"
+            }
+          },
+          {
+            "id": "0666fe2f5c967d15",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Konstrukcja Systemów Chmurowych/Cloud Computing.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Cloud Computing"
+            }
+          },
+          {
+            "id": "33dec580e8a4d1d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Konstrukcja Systemów Chmurowych/GlusterFS.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "GlusterFS"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -48,7 +99,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "aliases",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -69,7 +120,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -89,6 +141,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Konstrukcja Systemów Chmurowych/Konteneryzacja.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +151,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Konteneryzacja"
             }
           },
           {
@@ -155,38 +208,46 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "852eb4ff93f78bba",
+  "active": "33dec580e8a4d1d6",
   "lastOpenFiles": [
-    "Narzędzia Przetwarzania Rozproszonego/Wykład 1 - Sylabus 1.md",
-    "TCP.md",
-    "Command Model.md",
-    "Command.md",
-    "Cloud Types.md",
-    "Cloud Computing.md",
-    "AB testing.md",
-    "1_2Rxak3lZ3pB5_dx1uXeB8Q.webp",
-    "DDD.md",
-    "Kubernetes.md",
-    "Klasyczny Monitor.md",
-    "Implementacje niezależne od protokołu warstwy sieciowej.md",
-    "IaaS.md",
-    "Query Model.md",
-    "Query.md",
-    "Prometheus.md",
-    "Progresywne techniki wdrożeń aplikacji.md",
-    "Programowanie Sieciowe - 01.md",
-    "Process.md",
-    "Scaling on-demand.md",
-    "Rozproszone przetwarzanie danych.md",
-    "Rozproszona baza danych.md",
-    "Systemowe Zarządzanie Oprogramowaniem.md",
-    "Synchronizacja.md",
-    "Systemy plików a archiwizacja.md",
-    "socket(2)]] and [[sockaddr_in.md",
-    "Value Object.md",
-    "globe-showing-europe-africa.svg",
-    "handshake_protocol.png",
-    "HTTP_pipelining2.svg",
+    "Konstrukcja Systemów Chmurowych/RAID.md",
+    "Konstrukcja Systemów Chmurowych/Wirtualizacja a Konteneryzacja.md",
+    "Zarządzanie Systemami Rozproszonymi/Kubernetes.md",
+    "Zarządzanie Systemami Rozproszonymi/ISO 27001.md",
+    "Zarządzanie Systemami Rozproszonymi/Bezpieczeństwo Systemów Rozproszonych.md",
+    "Untitled.canvas",
+    "Systemy Wysokiej Niezawodności/Quasi-synchronous Checkpointing.md",
+    "Slajdy-FT-06_Commit.pdf",
+    "Plan Pracy Magisterskiej.md",
+    "OSD.md",
+    "Konstrukcja Systemów Chmurowych/RADOS.md",
+    "Konstrukcja Systemów Chmurowych/Modele pików.md",
+    "Konstrukcja Systemów Chmurowych/Erasure Coding.md",
+    "Konstrukcja Systemów Chmurowych/GlusterFS.md",
+    "Konstrukcja Systemów Chmurowych/Ceph.md",
+    "Konstrukcja Systemów Chmurowych/Ceph block storage.md",
+    "Excalidraw/Drawing 2024-12-11 08.09.32.excalidraw.md",
+    "Excalidraw/Drawing 2024-12-04 11.12.02.excalidraw.md",
+    "Excalidraw/Drawing 2024-11-27 08.20.43.excalidraw.md",
+    "Dynamiczne głosowanie.md",
+    "CRUSH.md",
+    "Konstrukcja Systemów Chmurowych/Cloud Computing.md",
+    "Konstrukcja Systemów Chmurowych/Prywatne Chmury.md",
+    "Konstrukcja Systemów Chmurowych/Pełna wirtualizacja.md",
+    "Konstrukcja Systemów Chmurowych/Parawirtualizacja.md",
+    "Konstrukcja Systemów Chmurowych/Wirtualizacja w procesorach z rodziny x86.md",
+    "Zarządzanie Systemami Rozproszonymi/Wirtualizacja.md",
+    "Konstrukcja Systemów Chmurowych/Obsługa Urządzań.md",
+    "SmartSelect_20241104_130746_Samsung Notes.jpg",
+    "SmartSelect_20241021_145202_Samsung Notes.jpg",
+    "SmartSelect_20241021_143013_Samsung Notes.jpg",
+    "SmartSelect_20241021_133304_Samsung Notes.jpg",
+    "Pasted Image 20240618204452_849.png",
+    "Pasted image 20240527182426.png",
+    "Pasted image 20240527182130.png",
+    "Pasted image 20240525195113.png",
+    "Pasted Image 20240619163850_601.png",
+    "Pasted image 20241228153533.png",
     "Systemy Wysokiej Niezawodności",
     "Schemaless.md~",
     "newSQL.md~",
@@ -196,16 +257,8 @@
     "Emulacja.md~",
     "Konteneryzacja.md~",
     "Unikernels.md~",
-    "OpenVZ.md~",
-    "Untitled.canvas",
     "Untitled 3.canvas",
     "Untitled 2.canvas",
-    "Untitled 1.canvas",
-    "Pasted image 20240309154245.png",
-    "Pasted image 20240305092619.png",
-    "Pasted image 20240305085949.png",
-    "Pasted image 20241001091704.png",
-    "world-map.svg",
-    "earth.png"
+    "Untitled 1.canvas"
   ]
 }

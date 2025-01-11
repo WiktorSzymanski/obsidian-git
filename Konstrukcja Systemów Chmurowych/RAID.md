@@ -89,3 +89,9 @@ tags:
 - rozproszony dysk **Hot Spare**
 - (n + 1)-krotny wzrost wydajności odczytu
 - n-krotny wzrost wydajności zapisu 
+
+## Po co nam RAID
+ Dyski twarde są coraz bardziej niezawodne i coraz większe. Z tego faktu ddbudowanie macierzy może trwać ponad dobę, a w tym czasie ryzykujemy kolejną awarię. Konieczność wykorzystywania identycznych dysków jest uciążliwe wraz z kosztownymi kontrolerami RAID. RAID zabezpiecza przed awarią dysku ale nie sieci...
+
+Stąd pomysł na [[GlusterFS]]
+
