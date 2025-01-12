@@ -5,24 +5,29 @@ up: "[[Wirtualizacja]]"
 ---
 # Wirtualizacja Pamięci
 ---
- - Podobna do klasycznej obsługi pamięci wirtualnej
- - Dodatkowy poziom wirtualizacji, poniżej wirtualizacji vOS
-	 - pamięć aplikacji vOS
-		 - wirtualna pamięć fizyczna vOS
-		 - faktyczna pamięć fizyczna
- - Optymalizacja: tablice stron kopiowane z vOS w celu skrócenia odwzorowań (*ang. shadow pages*)
+ > Rozwiązanie problemu wirtualizacji jest podobne do klasycznej obsługi pamięci wirtualnej, z dodatkową warstwą abstrakcji. Występują trzy poziomy:
+ > - pamięć aplikacji vOS
+ > - wirtualna pamięć fizyczna vOS
+ > - faktyczna pamięć fizyczna
+ 
+ Optymalizacja: tablice stron kopiowane z vOS w celu skrócenia odwzorowań (*ang. shadow pages*)
+
+## Główne mechanizmy wirtualizacji pamięci
+- **Shadow Pages**
+- **Translation Lookaside Buffer**
+- **Wsparcie Sprzętowe** (Intel EPT i AMD RVI)
 ## Klasyczne odwzorowanie adresów pamięci
 ostatnie odwzorowania **LPN** (*Logical Page Number*) -> **PPN** (*Physical Page Number*) przechowywane są w rejestrach **TLB** (*Translation Lookaside Buffer*)
 
 ![[Pasted image 20241228154520.png]]
 
-- VMM: PPN -> MPN
-- shadow page tables: LPN -> MPN (widoczne przez sprzęt)
-- rejestry TLB zawierają ostatnie odwołania LPN -> MPN (przeładowanie podczas przełączanie na inny vOS). 
+- **VMM**: **PPN** -> **MPN**
+- shadow page tables: **LPN** -> **MPN** (widoczne przez sprzęt)
+- rejestry **TLB** zawierają ostatnie odwołania **LPN** -> **MPN** (przeładowanie podczas przełączanie na inny vOS). 
 ![[Pasted image 20241228154554.png]]
-> Problem: Rejestry TLB były czyszcone co kwant czasu procesora więc tylko na chwilę mieliśmy te optymalizacje
+> Problem: Rejestry **TLB** były czyszczone co kwant czasu procesora więc tylko na chwilę mieliśmy te optymalizacje
 
-##### Wsparcie sprzętowe drugiej generacji:
+## Wsparcie sprzętowe drugiej generacji
 - AMD
 	- Tagged TLB
 	- Rapid Virtualization Indexing (RVI) (poprzednio: Nested Page Tables)
@@ -33,7 +38,7 @@ ostatnie odwzorowania **LPN** (*Logical Page Number*) -> **PPN** (*Physical Page
 
 > Rozwiązuje to problem z czyszczonymi rejestrami.
 
-MMU (Memory Menagement Unit) korzysta zarówno z odwzorowań LPN -> PPN jak i PPN -> MPN. Co za tym idzie znika konieczność korzystania z *shadow pages*.
+**MMU** (_Memory Management Unit_) korzysta zarówno z odwzorowań **LPN** -> **PPN** jak i **PPN** -> **MPN**. Co za tym idzie znika konieczność korzystania z *shadow pages*.
 
 ![[Pasted image 20241228154634.png]]
 ### Zaawansowane zarządzanie pamięcią:
