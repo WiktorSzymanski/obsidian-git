@@ -6,5 +6,5 @@ tags:
 # Przywracanie Stanu
 ---
 > (*state-based recovery*) polega na przechowywaniu pełnego stanu procesu (pamięci, obiektu). Wyróżniamy dwa podejścia:
-> - **shadow pages**
+> - [[Shadow Pages]]
 > - **[[Checkpoint]]**

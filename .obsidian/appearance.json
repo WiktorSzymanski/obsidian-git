@@ -1,7 +1,9 @@
 {
-  "cssTheme": "LYT Mode",
+  "cssTheme": "Things",
   "accentColor": "",
   "enabledCssSnippets": [
     "image-adjustments"
-  ]
+  ],
+  "showRibbon": true,
+  "theme": "moonstone"
 }

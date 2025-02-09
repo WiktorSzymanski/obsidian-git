@@ -11,4 +11,5 @@ tags:
 
 **Globalny punkt kontrolny** to wektor lokalnych punków kontrolnych $CP$ = < $cp_i$; dla każdego $P_i$>, czyli punkty kontrolne wszystkich procesów.
 
+![[Pasted image 20250205150110.png]]
 #TODO

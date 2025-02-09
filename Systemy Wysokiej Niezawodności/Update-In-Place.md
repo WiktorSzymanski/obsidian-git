@@ -5,7 +5,7 @@ up: "[[Wycofanie operacji]]"
 ---
 # Update-In-Place
 ---
-> Każdy zapis (*update*) rejestruje jednocześnie krotkę `log=(OBJ, UNDO, REDO)`, gdzie:
+> Każdy zapis (*update*) rejestruje jednocześnie krotkę `log=(OBJ, UNDO, REDO)` w logu, gdzie:
 > - **OBJ** → identyfikator modyfikowanego obiektu
 > - **UNDO** → stan obiektu sprzed modyfikacji
 > - **REDO** → nowy stan obiektu 
