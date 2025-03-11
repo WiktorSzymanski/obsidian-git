@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Plan Pracy Magisterskiej.md",
+                "file": "Architektura Aplikacji.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,10 +28,23 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Plan Pracy Magisterskiej"
+              "title": "Architektura Aplikacji"
+            }
+          },
+          {
+            "id": "95f97ae06e91ddad",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/ArchitekturyAplikacji.excalidraw.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "ArchitekturyAplikacji.excalidraw"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -159,8 +172,11 @@
       "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "3a2b92341b2c3482",
+  "active": "95f97ae06e91ddad",
   "lastOpenFiles": [
+    "Architektura Aplikacji.md",
+    "Excalidraw/ArchitekturyAplikacji.excalidraw.md",
+    "Plan Pracy Magisterskiej.md",
     "Untitled.md",
     "Untitled 1.md",
     "Systemy Wysokiej Niezawodności/Shadow Pages.md",
@@ -194,9 +210,6 @@
     "Excalidraw/VM-baloon.excalidraw.md",
     "Excalidraw/ZSK_w_1.excalidraw.md",
     "Excalidraw/komunikacja_nieustanna_asynchroniczna.excalidraw.md",
-    "Excalidraw/Drawing 2024-10-23 10.31.09.excalidraw.md",
-    "Excalidraw/Drawing 2024-12-11 16.53.50.excalidraw.md",
-    "Excalidraw/AlgorytmyRozproszoneCwiczenia.excalidraw.md",
     "Untitled.canvas",
     "Slajdy-FT-06_Commit.pdf"
   ]
