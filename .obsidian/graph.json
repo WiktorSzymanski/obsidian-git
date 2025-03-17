@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "tag:#SystemyWysokiejNiezawodności  ",
+  "search": "tag:#Magisterka  ",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -18,5 +18,5 @@
   "linkStrength": 1,
   "linkDistance": 250,
   "scale": 1.3579761100951675,
-  "close": true
+  "close": false
 }
