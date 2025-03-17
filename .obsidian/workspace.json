@@ -4,31 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "a549ee7b56dac6ba",
+        "id": "847c007725bca37a",
         "type": "tabs",
         "children": [
           {
-            "id": "43a2bb7d956ff559",
+            "id": "5a631064c00ff02c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Systemy Wysokiej Niezawodności/2 Phase Locking.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "Excalidraw/Architectures.md"
               },
-              "icon": "lucide-file",
-              "title": "2 Phase Locking"
+              "icon": "excalidraw-icon",
+              "title": "Architectures"
             }
           }
         ]
@@ -168,11 +156,17 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "3e7a36a5c163cc2e",
+  "active": "5a631064c00ff02c",
   "lastOpenFiles": [
+    "Excalidraw/drwnio.excalidrawlib",
+    "Excalidraw/Architectures.md",
+    "Plan Pracy Magisterskiej.md",
+    "Excalidraw/Drawing 2025-03-17 16.18.53.excalidraw.md",
+    "Systemy Wysokiej Niezawodności/2 Phase Locking.md",
     "Systemy Wysokiej Niezawodności/Wycofanie operacji.md",
     "Systemy Wysokiej Niezawodności/Write-Ahead-Log.md",
     "Systemy Wysokiej Niezawodności/Update-In-Place.md",
@@ -193,13 +187,9 @@
     "Systemy Wysokiej Niezawodności/Algorytm Jajodia-Mutchlera.md",
     "Systemy Wysokiej Niezawodności/Algorytm Gifforda.md",
     "Systemy Wysokiej Niezawodności/Algorytm Bracha-Touega.md",
-    "Systemy Wysokiej Niezawodności/2 Phase Locking.md",
     "Untitled 1.md",
-    "Untitled.md",
     "Pasted image 20250206135404.png",
     "Pasted_image_20250206134728.png",
-    "One Click Installaction (openSUSE).md",
-    "Pasted.md",
     "Pasted image 20250206122822.png",
     "Pasted image 20250206122842.png",
     "2.png",
@@ -208,7 +198,6 @@
     "Pasted image 20250206105817.png",
     "Pasted image 20250206105251.png",
     "Pasted image 20250206104601.png",
-    "Excalidraw/Drawing 2025-02-05 16.54.31.excalidraw.md",
     "Untitled.canvas",
     "Slajdy-FT-06_Commit.pdf",
     "Systemy Wysokiej Niezawodności",
