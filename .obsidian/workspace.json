@@ -8,23 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "5a631064c00ff02c",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
             "id": "08fc2e76a3b7febe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Magisterka/Architektura Aplikacji.md",
-                "mode": "source",
+                "file": "Marketing i elementy kompetencji menedżerskich/Proces decyzyjny.md",
+                "mode": "preview",
                 "source": false,
                 "backlinks": true,
                 "backlinkOpts": {
@@ -38,11 +28,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Architektura Aplikacji"
+              "title": "Proces decyzyjny"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -179,15 +168,18 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "08fc2e76a3b7febe",
   "lastOpenFiles": [
+    "Zarządzanie bezpieczeństwem w systemach IT/DokumentA.md",
+    "Marketing i elementy kompetencji menedżerskich/Proces decyzyjny.md",
+    "Magisterka/Architektura Aplikacji.md",
+    "Marketing i elementy kompetencji menedżerskich",
+    "Zarządzanie bezpieczeństwem w systemach IT",
     "Magisterka/Architectures.md",
     "Excalidraw/ArchitekturyAplikacji.excalidraw.md",
-    "Magisterka/Architektura Aplikacji.md",
     "Magisterka",
     "Systemy Wysokiej Niezawodności/Replikacja Procesu.md",
     "Systemy Wysokiej Niezawodności/Błąd Bizantyjski.md",
@@ -211,7 +203,6 @@
     "Systemy Wysokiej Niezawodności/Algorytm Phase-King.md",
     "Systemy Wysokiej Niezawodności/Algorytm Paxos.md",
     "Systemy Wysokiej Niezawodności/Algorytm Manivannana-Singhala.md",
-    "Systemy Wysokiej Niezawodności/Algorytm Manetho.md",
     "Pasted image 20250206135404.png",
     "Pasted_image_20250206134728.png",
     "Pasted image 20250206122822.png",
@@ -229,8 +220,6 @@
     "newSQL.md~",
     "Open Virtualization Format.md~",
     "IBM Logical Partition (LPAR).md~",
-    "Versitale SMP.md~",
-    "Emulacja.md~",
     "Untitled 3.canvas",
     "Untitled 2.canvas",
     "Untitled 1.canvas"
