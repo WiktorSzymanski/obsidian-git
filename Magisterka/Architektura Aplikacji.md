@@ -11,6 +11,7 @@ Aplikacja biura podróży wymaga synchronizacji z usługami:
 - noclegi
 - wycieczki
 
+
 1. Można wydzielić mikro-serwisy (które będą odpowiednikami pojedynczej lambdy przy podejściu FaaS) - w ES mikro-serwis mógłby zapisywać eventy związane ze swoją działalnością
 2. Eventy kompensujące rzucane w przypadku gdy jakiś np. środek transportu będzie opóźniony
 
@@ -33,3 +34,8 @@ Aplikacja biura podróży wymaga synchronizacji z usługami:
 ## Mock-owane microserwisy
 1. Ich dane na podstawie pliku konfiguracyjnego zawierającego np. informacje o dostępnych lotach.
 2. Możliwość losowego opóźniania transportów lub "zawsze takiego samego" (przy testach różnych rozwiązań warto aby takie zdarzenia występowały, ale powinny jednolicie dla każdego z przypadków) (na dobrą sprawę dwa tryby działania: normal i tests)
+
+
+
+## Przy pisaniu pracy:
+- napomnieć dlaczego podejście Reactive a nie klasyczny REST/Async REST
