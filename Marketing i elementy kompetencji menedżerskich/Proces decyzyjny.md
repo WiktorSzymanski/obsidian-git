@@ -4,6 +4,10 @@
 ## 1. Rozpoznanie potrzeb
 Na poprzednim wyjeździe w góry konsument zauważył, że podeszwa jego obuwia w góry jest całkowicie przetarta co dało się odczuć podczas chodzenia. Ze względu na zbliżającą się 3-dniową wyprawę, zakup butów w góry był nieunikniony.
 
+#### Wewnętrzne:
+- Wygoda podczas chodzenia po górach
+#### Zewnętrzne:
+- Wyjazd w góry
 ## 2. Poszukiwanie informacji
 #### Zaostrzona uwaga:
 - zwracanie uwagi na reklamy dotyczące obuwia w góry

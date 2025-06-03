@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "73ee1e7611509ce4",
+        "id": "ba9e72c669d821ed",
         "type": "tabs",
         "children": [
           {
-            "id": "3a2b92341b2c3482",
+            "id": "535d99a970b083f9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Architektura Aplikacji.md",
+                "file": "Marketing i elementy kompetencji menedżerskich/Proces decyzyjny.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,23 +28,10 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "Architektura Aplikacji"
-            }
-          },
-          {
-            "id": "95f97ae06e91ddad",
-            "type": "leaf",
-            "state": {
-              "type": "excalidraw",
-              "state": {
-                "file": "Excalidraw/ArchitekturyAplikacji.excalidraw.md"
-              },
-              "icon": "excalidraw-icon",
-              "title": "ArchitekturyAplikacji.excalidraw"
+              "title": "Proces decyzyjny"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -163,19 +150,50 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:Create new drawing": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "95f97ae06e91ddad",
+  "active": "535d99a970b083f9",
   "lastOpenFiles": [
-    "Architektura Aplikacji.md",
+    "Zarządzanie bezpieczeństwem w systemach IT/TopCor.png",
+    "Zarządzanie bezpieczeństwem w systemach IT/TeamImg.png",
+    "Zarządzanie bezpieczeństwem w systemach IT/PlanBudynku.png",
+    "Zarządzanie bezpieczeństwem w systemach IT/PP_znak_konturowy_RGB.png",
+    "TopCor.png",
+    "TeamImg.png",
+    "PlanBudynku.png",
+    "Plan.md",
+    "Pasted image 20250329180233.png",
+    "Pasted image 20250329132327.png",
+    "Magisterka/Architectures.png",
+    "Magisterka/AR2.excalidraw.md",
+    "Excalidraw/architecture-diagram-components.excalidrawlib",
+    "Excalidraw/Drawing 2025-04-06 13.27.08.excalidraw.md",
+    "DocA/DokumentA/TopCor.png",
+    "DocA/DokumentA/DokumentA.md",
+    "DocA/DokumentA",
+    "DocA",
+    "DocA.zip",
+    "Zarządzanie bezpieczeństwem w systemach IT/DokumentA.md",
+    "Excalidraw/AlgorytmyRozproszoneCwiczenia.excalidraw.md",
     "Excalidraw/ArchitekturyAplikacji.excalidraw.md",
+    "Magisterka/Architectures.md",
+    "Excalidraw/Drawing 2025-03-27 23.23.22.excalidraw.md",
+    "Magisterka/Architektura Aplikacji.md",
+    "Zarządzanie bezpieczeństwem w systemach IT",
+    "Marketing i elementy kompetencji menedżerskich/Proces decyzyjny.md",
+    "Marketing i elementy kompetencji menedżerskich",
+    "Magisterka",
+    "Excalidraw/drwnio.excalidrawlib",
+    "Excalidraw/aws-serverless-icons-v2.excalidrawlib",
+    "Excalidraw/Drawing 2025-03-17 16.18.53.excalidraw.md",
+    "Architektura Aplikacji.md",
     "Plan Pracy Magisterskiej.md",
     "Untitled.md",
     "Untitled 1.md",
@@ -188,28 +206,6 @@
     "Systemy Wysokiej Niezawodności/Algorytm Koo-Touega.md",
     "Systemy Wysokiej Niezawodności/Algorytm Juanga-Venkatesana.md",
     "Systemy Wysokiej Niezawodności/Algorytm Jajodia-Mutchlera.md",
-    "Systemy Wysokiej Niezawodności/Algorytm Gifforda.md",
-    "Systemy Wysokiej Niezawodności/Algorytm Bracha-Touega.md",
-    "Systemy Wysokiej Niezawodności/2 Phase Locking.md",
-    "SLR.md",
-    "Pasted_image_20250206134728.png",
-    "Pasted image 20250206135404.png",
-    "Pasted image 20250206122842.png",
-    "Pasted image 20250206122822.png",
-    "Pasted image 20250206120951.png",
-    "Pasted image 20250206110551.png",
-    "Pasted image 20250206105817.png",
-    "Pasted image 20250206105251.png",
-    "Pasted image 20250206104601.png",
-    "Pasted image 20250205150110.png",
-    "Excalidraw/Drawing 2025-02-05 16.54.31.excalidraw.md",
-    "Excalidraw/Drawing 2024-11-27 08.20.43.excalidraw.md",
-    "Excalidraw/Drawing 2024-12-04 11.12.02.excalidraw.md",
-    "Excalidraw/Drawing 2024-12-11 08.09.32.excalidraw.md",
-    "Excalidraw/modele_spojnosci_zad_dom.excalidraw.md",
-    "Excalidraw/VM-baloon.excalidraw.md",
-    "Excalidraw/ZSK_w_1.excalidraw.md",
-    "Excalidraw/komunikacja_nieustanna_asynchroniczna.excalidraw.md",
     "Untitled.canvas",
     "Slajdy-FT-06_Commit.pdf"
   ]
