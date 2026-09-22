@@ -4,100 +4,125 @@ tags:
 up: "[[SWN 00 Indeks i mapowanie na prezentacje]]"
 zagadnienie: 24
 ---
-# 24. Niezawodne zatwierdzanie transakcji rozproszonych — pojęcia
+# 24. Niezawodne zatwierdzanie transakcji rozproszonych
 ---
-> Skrót pojęciowy. Algorytmy są tylko nazwane i zlinkowane — opis w [[SWN 09 Transakcje i atomowe zatwierdzanie|SWN 09]] i [[SWN 10 Algorytmy głosowania|SWN 10]].
+> Komplet pojęć zagadnienia. Algorytmy są nazwane i opatrzone informacją, jaki problem rozwiązują, ale ich przebieg pozostaje w [[SWN 09 Transakcje i atomowe zatwierdzanie|SWN 09]] i [[SWN 10 Algorytmy głosowania|SWN 10]].
 
 ## Transakcje
-**atomowa akcja** — zbiór niepodzielnych operacji
-**Problemy:** *współbieżność* — koordynacja żądań dotyczących tych samych obiektów · *izolacja* — wykonanie **i odtwarzanie** atomowej akcji musi być niezależne od innych akcji
-**konflikt żądań** — współbieżne żądania dotyczą **tego samego obiektu** i **przynajmniej jedno wymaga modyfikacji**
 
-Reakcje zarządcy obiektu na konflikt:
-**WAIT** — nowe żądanie kolejkowane (akcja może być wycofana później)
-**REJECT** — nowe żądanie odrzucone → *abort*
-**PREEMPT** — żądanie bieżąco obsługiwane anulowane → *abort*
+### Atomowa akcja i jej problemy
+**Atomowa akcja** (*atomic action*) to zbiór operacji niepodzielnych, traktowanych jako jedna całość. Jej realizacja w systemie rozproszonym rodzi dwa problemy. Pierwszym jest **współbieżność**: trzeba jakoś koordynować żądania współbieżnych atomowych akcji dotyczące operacji na **tych samych obiektach**. Drugim jest **izolacja**: wykonanie atomowej akcji musi być niezależne od innych atomowych akcji, a **tym bardziej niezależne musi być jej odtwarzanie** — wycofanie jednej akcji nie może pociągać za sobą wycofywania innych.
+
+### Konflikty żądań
+Współbieżne żądania są **w konflikcie**, jeżeli dotyczą **tego samego obiektu** i **przynajmniej jedno z nich wymaga jego modyfikacji**. Dwa odczyty konfliktu nie tworzą; tworzy go dopiero zapis. Podstawowym narzędziem rozwiązywania konfliktów jest **blokowanie dostępu** (*locking*).
+
+Gdy zarządca obiektu otrzymuje żądanie będące w konflikcie z akcją już wykonywaną, może zareagować na trzy sposoby. Operacja **WAIT** kolejkuje nowe żądanie. Operacja **REJECT** odrzuca nowe żądanie. Operacja **PREEMPT** anuluje żądanie bieżąco obsługiwane. Przy REJECT i PREEMPT odpowiednie atomowe akcje są **wycofywane** natychmiast; przy WAIT akcja może zostać wycofana później.
 
 ## Blokady
-**blokada wyłączna** (*exclusive-lock*) / **współdzielona** (*shared-lock*); zakłada je **lokalny zarządca** (*lock manager*)
-**zakleszczenie** — gdy akcja oczekująca na kolejną blokadę może utrzymywać wcześniej uzyskane
- reakcje: (1) detekcja zakleszczenia + abort jednej lub kilku akcji · (2) timeout na **utrzymywanie** blokady albo na **oczekiwanie** na nią
- → timeout prowadzi do **zbędnego wycofywania** akcji
-**etykieta czasowa** — $TS = \langle clock(i), unique\_node\_ID(i) \rangle$; daje **globalnie jednoznaczne uszeregowanie żądań a priori**, alternatywne wobec dynamicznego porządku 2PL
 
-→ **[[SWN 09 Transakcje i atomowe zatwierdzanie#2PL i zakleszczenie|2PL]]** — uszeregowanie zbioru atomowych akcji przez dynamiczne porządkowanie operacji
-→ **[[SWN 09 Transakcje i atomowe zatwierdzanie#Strategie rozstrzygania konfliktów|WAIT-DIE / WOUND-WAIT]]** — rozstrzyganie konfliktów blokad po etykietach czasowych zamiast przez oczekiwanie
- *WAIT-DIE*: $TS_i < TS_j$ → $i$ czeka; $TS_i \geqslant TS_j$ → $i$ odrzucone
- *WOUND-WAIT*: $TS_i < TS_j$ → $j$ odrzucone; $TS_i \geqslant TS_j$ → $i$ czeka
- → problem obu: zbędne wycofywanie akcji, **niezawodność zegarów**
+### Dwufazowe blokowanie i zakleszczenie
+Podstawowym protokołem porządkującym dostęp jest **[[SWN 09 Transakcje i atomowe zatwierdzanie#2PL i zakleszczenie|dwufazowe blokowanie]]** (*2 Phase Locking*, 2PL), który rozwiązuje problem **uszeregowania zbioru atomowych akcji** przez dynamiczne porządkowanie ich operacji. Blokady mogą być **wyłączne** (*exclusive-lock*) albo **współdzielone** (*shared-lock*), a zakłada je **lokalny zarządca blokad** (*lock manager*).
+
+Sama blokada **nie zawiera żadnych informacji pomocnych w wykrywaniu ani rozwiązywaniu konfliktów** — wie jedynie, że zasób jest zajęty. Prowadzi to wprost do **zakleszczenia**: jeżeli atomowa akcja oczekująca na założenie kolejnej blokady może **utrzymywać blokady wcześniej uzyskane**, powstaje cykliczne oczekiwanie.
+
+Możliwe reakcje są dwie. Pierwszą jest **detekcja zakleszczenia** połączona z wycofaniem jednej lub kilku atomowych akcji. Drugą jest **timeout**, nakładany albo na **utrzymywanie** blokady, albo na **oczekiwanie** na jej założenie. Wadą timeoutu jest to, że prowadzi do **zbędnego wycofywania** akcji, które wcale nie były zakleszczone, lecz jedynie powolne.
+
+### Porządkowanie a priori i etykiety czasowe
+Protokół 2PL gwarantuje uszeregowanie atomowych akcji przez **dynamiczne** porządkowanie operacji — kolejność wyłania się dopiero w trakcie wykonania. Alternatywą jest wyznaczenie tej kolejności **a priori**, przez globalnie jednoznaczne uszeregowanie żądań. W systemie rozproszonym zapewnia je mechanizm **etykiet czasowych** (*timestamps*), w którym globalna etykieta ma postać pary
+$$TS = \langle clock(i), unique\_node\_ID(i) \rangle$$
+Pierwszy składnik porządkuje żądania w czasie, drugi rozstrzyga remisy między węzłami, dzięki czemu porządek jest globalnie jednoznaczny.
+
+### Strategie rozstrzygania konfliktów
+Mając etykiety czasowe, konflikt blokad można rozstrzygnąć bez czekania w nieskończoność. Zarządca obiektów zakłada blokady zgodnie z uszeregowaniem żądań, a przy konflikcie stosuje jedną z dwóch strategii, które razem noszą nazwę **[[SWN 09 Transakcje i atomowe zatwierdzanie#Strategie rozstrzygania konfliktów|WAIT-DIE i WOUND-WAIT]]** i rozwiązują problem **zakleszczeń przy zakładaniu blokad**.
+
+W strategii **WAIT-DIE** nowe żądanie $i$ **czeka** na blokadę posiadaną przez $j$, jeżeli $TS_i < TS_j$; natomiast gdy $TS_i \geqslant TS_j$, żądanie $i$ jest **odrzucane**, a akcja wycofywana. W strategii **WOUND-WAIT** jest odwrotnie: gdy $TS_i < TS_j$, odrzucane jest żądanie $j$, a gdy $TS_i \geqslant TS_j$ — żądanie $i$ czeka. Starsza akcja jest więc w WAIT-DIE cierpliwa, a w WOUND-WAIT agresywna.
+
+Obie strategie dzielą dwa problemy: prowadzą do **zbędnego wycofywania akcji**, podobnie jak timeout, oraz opierają się na **niezawodności zegarów**, bo poprawność etykiet zależy od jakości synchronizacji czasu.
 
 ## Atomowe zatwierdzanie
-**Zgodność** — transakcję lokalnie zatwierdzają **wszystkie węzły albo żaden**
-**Poprawność** — jeśli wszystkie węzły zakończyły operacje pomyślnie **i wszystkie odpowiedzi zostały poprawnie dostarczone**, transakcja powinna zostać zatwierdzona
-**protokół zatwierdzania** — gwarantuje globalną **atomowość i trwałość**; każda składowa transakcja zapisuje lokalnie rejestry UNDO i REDO (kolejność wg **write-ahead-log**)
 
-**Stany automatów** — koordynator: $q_0$ (początkowy), $w_0$ (oczekiwanie), $a_0$ (abort), $c_0$ (commit), $CT_0$ (complete) · uczestnik: $q_i$, $w_i$, $a_i$, $c_i$; w 3PC dochodzi $p_0$ / $p_i$ (*precommit*)
-**przejścia F i T** — $F$ = *failure*, $T$ = *timeout*
+### Wymagania
+Celem atomowego zatwierdzania jest zagwarantowanie **globalnej atomowości** transakcji rozproszonej, co rozpada się na dwa wymagania. **Zgodność** mówi, że transakcję lokalnie zatwierdzają **wszystkie węzły albo żaden** — nie może dojść do sytuacji, w której część węzłów zatwierdziła, a część wycofała. **Poprawność** mówi, że jeżeli wszystkie węzły zakończyły swoje operacje pomyślnie **i wszystkie odpowiedzi węzłów zostały poprawnie dostarczone**, to transakcja **powinna zostać zatwierdzona**. Drugi człon poprawności jest istotny: bez niego trywialny protokół, który zawsze wycofuje transakcję, spełniałby zgodność.
 
-**concurrency set** $\text{Cset}(s_i)$ — zbiór wszystkich stanów pozostałych procesów, które mogą występować **współbieżnie** ze stanem $s_i$ (bez uwzględnienia tranzycji F i T)
-**warunek zablokowania** — zablokowanie może wystąpić, gdy dla pewnego stanu $s$ zbiór $\text{Cset}(s)$ zawiera **jednocześnie stany $a$ i $c$**
-→ w 2PC: $\text{Cset}(w_i) = \{w_0, \mathbf{a_0}, \mathbf{c_0}, q_j, w_j, \mathbf{a_j}, \mathbf{c_j}\}$ — proces w $w_i$ **nie odróżni lokalnie** abortu od commitu
-→ w 3PC stan $p$ **rozdziela** $a$ i $c$, więc żaden $\text{Cset}$ nie zawiera obu: jeśli $\text{Cset}(s_i)$ zawiera $c$, proces może samodzielnie przejść do $c_i$, w przeciwnym razie do $a_i$
+**Protokół zatwierdzania** (*commitment*) gwarantuje globalną atomowość i trwałość. Każda składowa transakcja dokonuje lokalnie modyfikacji, zapisując rejestry $UNDO$ i $REDO$, przy czym kolejność tych zapisów wyznacza zasada **write-ahead-log** — log musi wyprzedzać stan.
 
-**Punkty awarii 2PC** (model fail-stop):
-**K1** koordynator nie zapisał [COMMIT] → wysyła *rollback*, UNDO; **procesy zablokowane** do odebrania rollback
-**K2** awaria między [COMMIT] a [COMPLETE] → wysyła *commit*; **procesy zablokowane** do odebrania commit
-**K3** awaria po [COMPLETE] → nie ma czego rozważać
-**P1** brak odpowiedzi na *agree_req* → **timeout**, koordynator wysyła *rollback*
-**P2** uczestnik zapisał UNDO/REDO, ale brak *ack* → uczestnik **pyta o ostateczną decyzję**; jeśli padł przed zmodyfikowaniem wszystkich obiektów → **REDO**
+### Stany automatów zatwierdzania
+Zachowanie uczestników protokołu opisuje się automatami skończonymi. **Koordynator** przechodzi przez stan początkowy $q_0$, stan oczekiwania na odpowiedzi $w_0$, a następnie do stanu wycofania $a_0$ albo zatwierdzenia $c_0$, kończąc w stanie $CT_0$ oznaczającym zakończenie protokołu. **Uczestnik** przechodzi analogicznie przez $q_i$, $w_i$ oraz $a_i$ lub $c_i$. W protokole trójfazowym dochodzi stan buforowy $p_0$ i $p_i$ (*precommit*). Automaty uzupełnia się o dwa rodzaje przejść nadzwyczajnych: **$F$** oznacza awarię (*failure*), **$T$** — przekroczenie czasu oczekiwania (*timeout*).
 
-**Zablokowanie przetwarzania** — przy awarii koordynatora procesy czekają na jego odtworzenie, **przetrzymując zasoby i blokady**
+### Concurrency set i warunek zablokowania
+Aby formalnie uchwycić, kiedy protokół może się zablokować, wprowadza się pojęcie zbioru stanów współbieżnych. **Concurrency set** stanu $s_i$, oznaczany $\text{Cset}(s_i)$, to zbiór wszystkich stanów pozostałych procesów, które mogą występować **współbieżnie** ze stanem $s_i$; przy jego wyznaczaniu **nie uwzględnia się tranzycji $F$ i $T$**.
 
-→ **[[SWN 09 Transakcje i atomowe zatwierdzanie#2PC — dwufazowe zatwierdzanie|2PC (Gray)]]** — globalna atomowość transakcji rozproszonej; **blokujący**
-→ **[[SWN 09 Transakcje i atomowe zatwierdzanie#3PC — trójfazowe zatwierdzanie|3PC (Skeen)]]** — zatwierdzanie **nieblokujące** przy awarii koordynatora, dzięki buforowemu stanowi *precommit*
- założenia: kanały *uniform reliable reordering* (dostarczą komunikat **nawet gdy nadawca padł**) · koordynator używa **URBcast** · **timeout nieomylnie** wskazuje awarię · **co najwyżej jeden węzeł ulega awarii**
+Warunek brzmi: **zablokowanie może wystąpić, gdy dla pewnego stanu $s$ zbiór $\text{Cset}(s)$ zawiera jednocześnie stany typu $a$ i typu $c$**. Znaczenie tego warunku jest bardzo konkretne — jeśli proces znajdujący się w stanie $s$ dopuszcza, że reszta systemu jest w trakcie wycofywania **albo** w trakcie zatwierdzania, to **na podstawie samego stanu lokalnego nie odróżni tych dwóch sytuacji** i nie może podjąć samodzielnej decyzji.
+
+### Awarie i odtwarzanie w protokole dwufazowym
+W modelu fail-stop wyróżnia się pięć istotnych punktów awarii, trzy po stronie koordynatora i dwa po stronie uczestnika.
+
+**K1** oznacza awarię, zanim koordynator zapisał decyzję o zatwierdzeniu. Przy odtwarzaniu koordynator wysyła wycofanie i wykonuje $UNDO$, a **uczestnicy pozostają zablokowani** aż do odebrania tej decyzji. **K2** to awaria pomiędzy zapisaniem decyzji o zatwierdzeniu a zakończeniem protokołu; koordynator wysyła wówczas zatwierdzenie, a uczestnicy znów **pozostają zablokowani** do czasu jego odebrania. **K3** to awaria po zakończeniu protokołu — nie ma już czego odtwarzać.
+
+**P1** to sytuacja, w której koordynator nie otrzymał odpowiedzi na żądanie zgody; rozwiązuje ją **timeout**, po którym koordynator rozsyła wycofanie. **P2** to sytuacja, w której uczestnik zapisał już rejestry $UNDO$ i $REDO$, ale koordynator nie otrzymał od niego potwierdzenia; przy odtwarzaniu uczestnik **pyta koordynatora o ostateczną decyzję**, a jeśli padł, zanim zmodyfikował wszystkie obiekty, wykonuje $REDO$. Alternatywnie koordynator może po prostu powtarzać wysyłanie decyzji.
+
+Z punktów K1 i K2 wynika **zablokowanie przetwarzania**: jeżeli koordynator ulegnie awarii, uczestnicy czekają na jego odtworzenie, **przetrzymując zasoby i utrzymując blokady**. To właśnie ta własność jest głównym zarzutem wobec protokołu dwufazowego.
+
+### Protokoły zatwierdzania
+**[[SWN 09 Transakcje i atomowe zatwierdzanie#2PC — dwufazowe zatwierdzanie|Dwufazowe zatwierdzanie]]** (*2 Phase Commitment*, 2PC) Graya rozwiązuje problem **globalnej atomowości transakcji rozproszonej**: w pierwszej fazie koordynator zbiera zgody wszystkich uczestników, w drugiej rozsyła decyzję. Jest prosty i powszechnie stosowany, ale **blokujący** — w stanie oczekiwania $\text{Cset}(w_i)$ zawiera zarówno stany wycofania, jak i zatwierdzenia, więc uczestnik nie ma jak rozstrzygnąć sytuacji samodzielnie.
+
+**[[SWN 09 Transakcje i atomowe zatwierdzanie#3PC — trójfazowe zatwierdzanie|Trójfazowe zatwierdzanie]]** (*3 Phase Commitment*, 3PC) Skeena rozwiązuje problem **zablokowania przy awarii koordynatora**, wprowadzając dodatkowy **stan buforowy** *precommit*. Stan ten **rozdziela** w każdym zbiorze stanów współbieżnych stany wycofania od stanów zatwierdzenia, dzięki czemu żaden $\text{Cset}$ nie zawiera obu naraz. Uczestnik może wtedy podjąć **niezależną decyzję lokalną**: jeżeli jego $\text{Cset}$ zawiera stan zatwierdzenia, przechodzi do zatwierdzenia, a w przeciwnym razie do wycofania.
+
+Cena za nieblokowanie jest jednak wysoka i kryje się w założeniach. Kanały muszą być **jednolicie niezawodne i bez zachowania kolejności** — w szczególności muszą dostarczyć wysłany komunikat **nawet wtedy, gdy jego nadawca uległ awarii**. Koordynator musi używać **jednolitego rozgłaszania niezawodnego**. Sieć musi wykrywać awarię węzła, przy czym **timeout wskazuje ją nieomylnie**. Wreszcie **co najwyżej jeden węzeł może ulec awarii**.
 
 ## Własności terminacji
-**non-blocking** — zakończenie osiąga **co najmniej 1 proces**, jeśli co najmniej 1 proces nie ulega awarii
-**wait-freedom** — **każdy** proces, który nie ulega awarii, osiąga zakończenie **bez względu na zachowanie innych**
-→ *wait-freedom* jest **silniejsza** niż *non-blocking*
 
-**Tw. 1** — nie istnieje nieblokujący protokół atomowego zatwierdzania odporny na **arbitralne defekty 2 węzłów**
-**Tw. 2** — ani odporny na **rozdzielenie sieci** (*partitioning*) przy możliwości gubienia komunikatów
-**Tw. 3** — ani odporny na **wielokrotne rozdzielenie sieci**
-→ dlatego założenia 3PC (1 awaria, nieomylny timeout) są tak mocne
+### Nieblokowanie i wolność od czekania
+Dwie własności opisują, na ile protokół gwarantuje postęp. Algorytm jest **nieblokujący** (*non-blocking*), jeżeli gwarantuje osiągnięcie zakończenia przez **co najmniej jeden proces**, o ile co najmniej jeden proces nie ulega awarii. **Wolność od czekania** (*wait-freedom*) jest własnością mocniejszą: gwarantuje, że **każdy** proces, który nie ulega awarii, osiągnie zakończenie **bez względu na zachowanie innych procesów**.
+
+W tym ujęciu protokół dwufazowy nie spełnia nawet nieblokowania, a trójfazowy jest nieblokujący, ale nie wolny od czekania.
+
+### Granice nieblokowania
+Trzy twierdzenia wyznaczają granice tego, co da się osiągnąć, i pokazują zarazem, dlaczego założenia protokołu trójfazowego muszą być tak mocne. **Nie istnieje nieblokujący protokół rozproszonego atomowego zatwierdzania, który byłby odporny na arbitralne defekty dwóch węzłów.** **Nie istnieje taki protokół odporny na rozdzielenie sieci** na rozłączne podsieci (*partitioning*) przy możliwości gubienia komunikatów. **Nie istnieje taki protokół odporny na wielokrotne rozdzielenie sieci.**
+
+Widać stąd, że gdy tylko osłabi się założenia protokołu trójfazowego — dopuszczając dwie awarie zamiast jednej albo podział sieci — **nieblokujący protokół przestaje istnieć**. Łączy się to bezpośrednio z twierdzeniem CAP, omówionym na końcu.
 
 ## Głosowanie
-**quorum** — liczba głosów, którą proces musi zebrać przed dostępem do obiektu
-**read-quorum $R$** / **write-quorum $W$** · $V_i$ — głosy repliki · $VN_i$ — **monotoniczny numer wersji** = liczba dokonanych modyfikacji
+
+### Definicja problemu
+**Głosowanie** jest mechanizmem **pokonującym ograniczenia atomowego zatwierdzania**: zamiast wymagać zgody wszystkich replik, wymaga jedynie zebrania odpowiedniej ich liczby. Problem brzmi: należy zagwarantować **atomową spójność operacji odczytu i zapisu na replikach obiektu**. Regułą podstawową jest, że **zanim proces uzyska dostęp do obiektu, musi zdobyć odpowiednią liczbę głosów od pozostałych procesów**, czyli **kworum**.
+
+W modelu systemu każda replika dysponuje pewną liczbą głosów $V_i$, każda operacja na replice wymaga uzyskania blokady zakładanej przez lokalnego zarządcę, a każda replika przechowuje **monotoniczny numer wersji** $VN_i$, równy liczbie dokonanych na niej modyfikacji. Model awarii to *fail-recovery*, obejmujący zarówno procesy, jak i kanały. Operacja odczytu wymaga zebrania **kworum odczytu** $R$, a operacja zapisu — **kworum zapisu** $W$.
+
+### Warunki poprawności kworów
+Oznaczmy przez $V$ łączną liczbę głosów wszystkich replik, a przez $M$ większość:
 $$V = \sum_i V_i \qquad M = \left\lceil \frac{V+1}{2} \right\rceil$$
-**$W \geqslant M$** — tylko większość zapisuje; wyklucza dwa rozłączne write-quorum
-**$R + W > V$** — read-quorum i write-quorum mają część wspólną → w każdym read-quorum jest **co najmniej jedna aktualna replika**
+Poprawność zapewniają dwa warunki nakładane jednocześnie. Warunek **$W \geqslant M$** sprawia, że zapisywać może tylko większość, co **wyklucza powstanie dwóch rozłącznych kworów zapisu**, a więc współbieżne modyfikacje w rozłącznych podzbiorach replik. Warunek **$R + W > V$** gwarantuje, że **kworum odczytu i kworum zapisu mają niepustą część wspólną**, dzięki czemu w każdym kworum odczytu znajdzie się **co najmniej jedna aktualna replika**.
 
-$V_{read} = \sum_{k \in \mathbb{O}} V_k$, gdzie $\mathbb{O}$ — procesy, które przysłały głosy
-$V_{write} = \sum_{k \in \mathbb{Q}} V_k$, gdzie $\mathbb{Q} = \{k \in \mathbb{O} : VN_k = VN_{max}\}$
-→ zapis liczy głosy **tylko aktualnych replik** i idzie tylko do nich; starsze nadrabiają przy okazji kolejnych zapisów
+Przy zbieraniu głosów rozróżnia się dwie sumy. Do kworum odczytu liczą się głosy wszystkich replik, które odpowiedziały, czyli $V_{read} = \sum_{k \in \mathbb{O}} V_k$, gdzie $\mathbb{O}$ jest zbiorem procesów, które przysłały głosy. Do kworum zapisu liczą się natomiast **wyłącznie głosy replik aktualnych**, czyli $V_{write} = \sum_{k \in \mathbb{Q}} V_k$, gdzie $\mathbb{Q} = \{k \in \mathbb{O} : VN_k = VN_{max}\}$, a $VN_{max}$ jest najwyższym numerem wersji wśród tych, które odpowiedziały. Uaktualnienie rozsyłane jest również tylko do replik aktualnych; **starsze repliki nadrabiają zaległości przy okazji kolejnych zapisów**.
 
-**statyczne** — $V_i$, $R$, $W$ **stałe i niezależne od bieżącego stanu**
-**dynamiczne** — adaptacja do stanu systemu po awarii, by dało się zebrać quorum
- *majority based voting* — zmienny **zbiór** procesów stanowiących większość
- *dynamic vote reassignment* — zmienna **liczba głosów** przypisanych replikom
+### Głosowanie statyczne i jego granice
+Głosowanie nazywa się **statycznym**, ponieważ wartości $V_i$, $R$ oraz $W$ są **stałe i niezależne od bieżącego stanu systemu**. Rozdział głosów między repliki bywa przy tym decyzją projektową: przesunięcie głosów na repliki szybkie przyspiesza odczyty, a przesunięcie ich na repliki niezawodne zwiększa szansę zebrania kworum po awarii.
 
-**partycja większościowa** (*majority partition*) — dysponuje większością głosów **całości**
-**partycja pierwotna** (*primary partition*) — mogłaby stanowić większość w **konfiguracji ostatniej modyfikacji**; może być **mniejsza niż większość całości**
-**partitioning graph** — historia podziału sieci: wierzchołki = partycje, krawędzie = podział lub scalenie
+Problem atomowej spójności odczytu i zapisu przy kworum statycznym rozwiązuje **[[SWN 10 Algorytmy głosowania#Algorytm Gifforda|algorytm Gifforda]]**, który zbiera głosy od replik, sprawdza aktualność własnej kopii i rozsyła uaktualnienie do replik świeżych. Opis również w notatce [[Systemy Wysokiej Niezawodności/Algorytm Gifforda|Algorytm Gifforda]].
 
-Struktury głosowania dynamicznego: **$VN_i$** (numer wersji) · **$RU_i$** — liczba replik uaktualnionych w najświeższej modyfikacji · **$DS_i$** — wyróżniona replika, gdy $RU_i$ **parzyste** (największa w porządku liniowym spośród uczestników ostatniej modyfikacji); gdy $RU_i$ **nieparzyste**, $DS_i = \varnothing$
-→ $DS$ rozstrzyga **remis**, gdy nowa partycja ma **dokładnie połowę** węzłów poprzedniej; przy nieparzystym $RU$ remis jest niemożliwy
-→ **jeśli $DS$ zostanie rozdzielony, system nie ma prawa postępu**
-→ pułapka: partycja pierwotna może skurczyć się **do jednego węzła**
+Słabością podejścia statycznego jest zachowanie przy **awarii wielu replik naraz lub przy podziale sieci**. Skoro progi są stałe, a większość liczona względem całości, to po rozpadzie systemu na fragmenty kworum może być **nieosiągalne w żadnym z nich**.
 
-**Polityki zwiększania głosów** — *Group Consensus* (węzły uzgadniają nowy przydział algorytmem konsensusu; skomplikowane) vs *Autonomous Reassignment* (każdy węzeł decyduje sam; nieoptymalne, ale szybkie i elastyczne)
+### Partycjonowanie
+**Partycją większościową** (*majority partition*) nazywa się fragment sieci dysponujący większością głosów **całego systemu** — tylko on może kontynuować pracę przy głosowaniu statycznym. **Partycją pierwotną** (*primary partition*) nazywa się natomiast fragment, który mógłby stanowić większość **w konfiguracji ostatniej modyfikacji**; może on być **mniejszy niż większość całości**, co stanowi istotę głosowania dynamicznego.
 
-→ **[[SWN 10 Algorytmy głosowania#Algorytm Gifforda|Gifford]]** — atomowa spójność `read`/`write` na replikach przez kworum **statyczne** · [[Systemy Wysokiej Niezawodności/Algorytm Gifforda|vault]]
-→ **[[SWN 10 Algorytmy głosowania#Protokół Jajodii-Mutchlera|Jajodia-Mutchler]]** — kworum **dynamiczne**: postęp w partycji pierwotnej mniejszej niż większość całości · [[Dynamiczne głosowanie|vault]]
-→ **[[SWN 10 Algorytmy głosowania#Polityki zwiększania głosów|Overthrow / Alliance]]** — realokacja siły głosu po awarii: jeden wybrany węzeł przejmuje $2V_f$ (wymaga elekcji) albo wszystkie pozostałe zwiększają głosy
+Historię podziałów opisuje **graf partycjonowania** (*partitioning graph*), w którym wierzchołki reprezentują partycje, a krawędzie — **podział lub scalenie**.
 
-## CAP
-**Consistency · Availability · Partition tolerance** — nie da się osiągnąć 100% we wszystkich trzech wymiarach naraz
-**2PC** — Consistency + Availability · **Gossip** — Availability + Partition tolerance · **Paxos** — Consistency + Partition tolerance
+### Głosowanie dynamiczne
+**Głosowanie dynamiczne** polega na **adaptowaniu liczby głosów lub zbioru głosujących procesów do stanu systemu po awarii**, tak aby kworum pozostało osiągalne. Występuje w dwóch wariantach: **majority based voting** zmienia **zbiór** procesów stanowiących większość, a **dynamic vote reassignment** zmienia **liczbę głosów** przypisanych poszczególnym replikom.
+
+W pierwszym wariancie zbiór węzłów tworzących większość jest zmieniany tak, by obejmował **te węzły, które zostały uaktualnione podczas najświeższej modyfikacji**. Wymaga to trzech struktur utrzymywanych przy każdej replice. **Numer wersji** $VN_i$ zlicza udane modyfikacje. Liczba **$RU_i$** mówi, ile replik uaktualniono w **najświeższej** modyfikacji. Lista **$DS_i$** wskazuje **wyróżnioną replikę** i jest wypełniana tylko wtedy, gdy $RU_i$ jest **parzyste**; wskazuje wówczas replikę największą w porządku liniowym spośród uczestniczących w ostatniej modyfikacji. Gdy $RU_i$ jest **nieparzyste**, $DS_i$ pozostaje puste.
+
+Sens tego rozróżnienia jest następujący: **$DS$ służy do rozstrzygnięcia remisu**, gdy nowa partycja zawiera **dokładnie połowę** węzłów partycji poprzedniej i bez dodatkowego kryterium nie dałoby się wskazać, która połowa jest pierwotna. Przy nieparzystym $RU$ remis jest niemożliwy, więc wyróżniona replika nie jest potrzebna. Wynika stąd też ograniczenie: **jeśli $DS$ zostanie rozdzielony, system traci prawo postępu**.
+
+Problem utrzymania postępu w partycji mniejszej niż większość całości rozwiązuje **[[SWN 10 Algorytmy głosowania#Protokół Jajodii-Mutchlera|protokół Jajodii-Mutchlera]]**, który wybiera jedną partycję zdolną kontynuować odczyty i zapisy — tę, która mogłaby stanowić większość w konfiguracji ostatniej modyfikacji — o ile tylko da się wyróżnić partycję pierwotną. Uzupełniające uwagi w notatce [[Dynamiczne głosowanie|Dynamiczne głosowanie]].
+
+Głosowanie dynamiczne ma jednak własną pułapkę: skoro większość liczy się względem coraz mniejszej konfiguracji, **partycja pierwotna może kurczyć się aż do pojedynczego węzła**. Wystarczy wtedy awaria tego jednego węzła, by system stracił możliwość postępu, mimo że większość replik wciąż działa.
+
+### Realokacja siły głosu
+Drugim wariantem adaptacji jest zmiana liczby głosów. Decyzję o nowym przydziale można podjąć na dwa sposoby. W strategii **Group Consensus** węzły grupy aktywnej **uzgadniają nowy przydział algorytmem konsensusu**, co jest rozwiązaniem poprawnym, ale skomplikowanym. W strategii **Autonomous Reassignment** każdy węzeł decyduje o zmianie własnych głosów **na podstawie swojego widoku systemu, bez oglądania się na pozostałych** — rozwiązanie bywa nieoptymalne, ale jest szybkie, proste i elastyczne.
+
+Same polityki zwiększania głosów realizuje para technik **[[SWN 10 Algorytmy głosowania#Polityki zwiększania głosów|Overthrow i Alliance]]**, rozwiązujących problem **odtworzenia zdolności zebrania kworum po awarii**. W technice **Overthrow** siłę głosu przejmuje **jeden** wybrany węzeł grupy aktywnej, co wymaga przeprowadzenia elekcji. W technice **Alliance** swoje głosy zwiększają **wszystkie** węzły grupy aktywnej, dzięki czemu elekcja nie jest potrzebna. W obu przypadkach wraz z sumą głosów **zmienia się odpowiednio próg kworum zapisu**.
+
+## Twierdzenie CAP
+Wszystkie powyższe ograniczenia podsumowuje **twierdzenie CAP**, zgodnie z którym nie da się jednocześnie osiągnąć pełnej **spójności** (*Consistency*), pełnej **dostępności** (*Availability*) i pełnej **odporności na podział sieci** (*Partition tolerance*). Znane rozwiązania lokują się na krawędziach tego kompromisu: **2PC** zapewnia spójność i dostępność, rezygnując z odporności na podział; **Gossip** — dostępność i odporność na podział, rezygnując ze spójności; **Paxos** — spójność i odporność na podział, rezygnując z dostępności.
