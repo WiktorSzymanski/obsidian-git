@@ -164,6 +164,13 @@ Cztery prezentacje z katalogu **nie mapują się na zagadnienia 22–24** i zost
 > **`FT-01` zawiera modele systemu, definicje awarii/błędu/defektu, kanały komunikacyjne i CAP** — czyli podbudowę pojęciową dla zagadnień 22–24. Jeśli którakolwiek z prezentacji miałaby zostać dorobiona jako kolejna notatka, to **właśnie ta**. `FT-05` ma sekcję *backward recovery* dotykającą zagadnienia 22, ale w kontekście DSM, którego nie ma w liście zagadnień.
 
 ---
+## Dwie warstwy materiału
+
+- **`SWN 01`–`SWN 10`** — warstwa **do nauki**: pełne definicje, dowody, pseudokody, wycinki slajdów.
+- **`skompresowane/`** — warstwa **do powtórki**: jeden plik na zagadnienie, same pojęcia z notacją, bez przebiegu algorytmów. Algorytmy są tam wyłącznie **nazwane** (z informacją, jaki problem rozwiązują) i zlinkowane tutaj:
+  [[SWN 22 Wsteczne odtwarzanie stanu]] · [[SWN 23 Rozproszone uzgadnianie w środowisku zawodnym]] · [[SWN 24 Niezawodne zatwierdzanie transakcji]]
+
+---
 ## Konwencje przyjęte w tym katalogu
 
 - **Prefiks `SWN`** w nazwach plików — żeby nie kolidować z wikilinkami do wersji pierwszej, która jest linkowana z [[Mapa zagadnień]].
