@@ -20,6 +20,8 @@ source: "~/Documents/RozproszoneSystemyOperacyjne/"
 | 5   | Algorytmy elekcji                        | [[RSO 05 Algorytmy elekcji]]                        | —                         | 🔴 **brak całkowity** — 0 trafień w 427 slajdach                                                                                                          |
 | 6   | Zakleszczenie w systemach rozproszonych  | [[RSO 06 Zakleszczenie w systemach rozproszonych]]  | `rso_sum_07.pdf` s. 14–53 | 🟢 **pełne** — modele AND/OR z formalnymi predykatami, klasyfikacja detekcji, CMH AND i OR; brak Brachy-Touega i złożoności                               |
 
+**Streszczenia do powtórki** (`skompresowane/`, jeden plik na zagadnienie): [[RSO Z1 Komunikacja grupowa|Z1]] · [[RSO Z2 Danocentryczne modele spójności|Z2]] · [[RSO Z3 Modele spójności zorientowane na klienta|Z3]] · [[RSO Z4 Algorytmy wzajemnego wykluczania|Z4]] · [[RSO Z5 Algorytmy elekcji|Z5]] · [[RSO Z6 Zakleszczenie w systemach rozproszonych|Z6]].
+
 ## Notatki dodatkowe (materiał ze slajdów spoza listy zagadnień)
 
 | Notatka | Źródło | Zawartość |
@@ -84,9 +86,20 @@ Każdy z 427 slajdów jest objęty którąś z notatek — żaden zakres nie zos
 - `rso_sum_06.pdf` s. 55 — „W jakich modelach spójności operacja $r_3(x)v$ zwróci 1 / 2 / 3?" → [[RSO 02 Danocentryczne modele spójności#Zadanie z prezentacji]]
 
 ---
+## Dwie warstwy materiału
+
+- **`RSO 01`–`RSO 10`** — warstwa **do nauki**: pełne definicje, pseudokody, wzory, wycinki slajdów i cytowania slajdu pod każdym nagłówkiem.
+- **`skompresowane/`** — warstwa **do powtórki**: jeden plik na zagadnienie egzaminacyjne, ciągłą prozą, same pojęcia z notacją, **bez przebiegu algorytmów**, bez pseudokodu, bez obrazków i bez cytowań slajdów. Algorytmy są tam wyłącznie **nazwane** — z informacją, jaki problem rozwiązują — i zlinkowane z powrotem tutaj:
+  [[RSO Z1 Komunikacja grupowa]] · [[RSO Z2 Danocentryczne modele spójności]] · [[RSO Z3 Modele spójności zorientowane na klienta]] · [[RSO Z4 Algorytmy wzajemnego wykluczania]] · [[RSO Z5 Algorytmy elekcji]] · [[RSO Z6 Zakleszczenie w systemach rozproszonych]]
+
+> [!important] Materiał spoza slajdów w warstwie powtórkowej
+> Pliki `skompresowane/` mają pokrywać **całe zagadnienie egzaminacyjne**, a nie tylko tę jego część, którą omawiają prezentacje. Tam, gdzie slajdy nie wystarczają — zagadnienia **3** i **5** w całości oraz uzupełnienia w **1**, **4** i **6** — treść pochodzi z wersji pierwszej i notatek vaultu i jest **jawnie oznaczona** blokiem `> [!note] Uzupełnienie spoza prezentacji` albo `> [!warning] Zagadnienie nieobecne w prezentacjach`. Zasada „nic spoza slajdów" obowiązuje więc **bez zmian w `RSO 01`–`RSO 10`**, a w warstwie powtórkowej jest zastąpiona wymogiem jawnego oznaczania źródła.
+
+---
 ## Konwencje przyjęte w tym katalogu
 
 - **Prefiks `RSO`** w nazwach plików — żeby nie kolidować z wikilinkami do wersji pierwszej, która jest linkowana z [[Mapa zagadnień]] i notatek innych przedmiotów.
+- **Prefiks `Z` w podkatalogu `skompresowane/`** — numer po `Z` to **numer zagadnienia egzaminacyjnego**. W tym katalogu numery zagadnień 1–6 pokrywają się z numerami notatek tematycznych `RSO 01`–`RSO 06`, a tytuły są niemal identyczne, więc bez prefiksu powstałyby pary plików o tej samej nazwie i niejednoznaczne wikilinki. Rozróżnia je zatem `Z`, a dodatkowo pole `zagadnienie:` we frontmatterze.
 - **Odsyłacz do slajdu** pod każdym nagłówkiem: `<sub>rso_sum_03.pdf, slajdy 19–23</sub>` — numeracja **slajdów**, nie stron PDF (każda strona PDF zawiera 2 slajdy w układzie handout).
 - **Rysunki** w podkatalogu `assets/`, nazwane `rso-w<nr wykładu>-s<nr slajdu>-<opis>.png`, osadzane przez `![[...]]` z podpisem `<sub>`.
 - **Braki** oznaczone blokiem `> [!todo] Brak w prezentacjach` z opisem, co dokładnie sprawdzono.

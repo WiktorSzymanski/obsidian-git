@@ -86,26 +86,32 @@ Dla każdego zagadnienia powstała **dedykowana notatka** (foldery `01`–`11` w
 ### 1. Komunikacja grupowa (definicje, algorytmy)
 Notatka: [[01 Komunikacja grupowa]] — definicje grup, zegary logiczne (Lamport, wektorowe), rozgłaszanie niezawodne, porządki FIFO/przyczynowy/totalny, algorytmy (ISIS, sekwencer), synchronizacja widoków.
 Materiał w vaultcie: [[Algorytmy Rozproszone/Zgodne Rozgłaszanie Niezawodne FIFO]], [[Algorytmy Rozproszone/Gossiping]], [[broadcast_zad_dom.excalidraw]].
+Wersja z prezentacji: [[RSO Z1 Komunikacja grupowa|skompresowane/RSO Z1]] · [[RSO 01 Komunikacja grupowa]] (BEB/RB/URB, porządki FIFO/CO/TO) — indeks: [[RSO 00 Indeks i mapowanie na prezentacje]].
 
 ### 2. Danocentryczne modele spójności
 Notatka: [[02 Danocentryczne modele spójności]] — atomowa, sekwencyjna, przyczynowa, PRAM, koherencja + przykłady historii.
 Materiał: [[Algorytmy Rozproszone/Model Spójności]], [[Algorytmy Rozproszone/Replikacja]], [[Linearizability]], [[modele_spojnosci_zad_dom.excalidraw]], [[AlgorytmyRozproszoneCwiczenia.excalidraw]].
+Wersja z prezentacji: [[RSO Z2 Danocentryczne modele spójności|skompresowane/RSO Z2]] · [[RSO 02 Danocentryczne modele spójności]] (formalizm, protokoły `fast-read`/`fast-write`) — indeks: [[RSO 00 Indeks i mapowanie na prezentacje]].
 
 ### 3. Modele spójności zorientowane na klienta (RYW, MW, MR, WFR)
 Notatka: [[03 Modele spójności zorientowane na klienta]] — gwarancje sesji, implementacja wektorami wersji.
 Materiał: [[Algorytmy Rozproszone/Model Spójności#Klasyfikacja]].
+Wersja z prezentacji: [[RSO Z3 Modele spójności zorientowane na klienta|skompresowane/RSO Z3]] · [[RSO 03 Modele spójności zorientowane na klienta]] — **zagadnienia nie ma w prezentacjach**; indeks: [[RSO 00 Indeks i mapowanie na prezentacje]].
 
 ### 4. Algorytmy wzajemnego wykluczania (Lamport, Suzuki-Kasami, Ricart-Agrawala, Maekawa, Raymond)
 Notatka: [[04 Algorytmy wzajemnego wykluczania]] — wszystkie pięć algorytmów, komunikaty, złożoność, zakleszczenia w Maekawie.
 Materiał: [[Drawing 2024-06-19 16.38.35.excalidraw]] (Maekawa), [[Synchronizacja]], [[Drawing 2024-12-11 08.09.32.excalidraw]].
+Wersja z prezentacji: [[RSO Z4 Algorytmy wzajemnego wykluczania|skompresowane/RSO Z4]] · [[RSO 04 Algorytmy wzajemnego wykluczania]] (scentralizowany, Lamport, Suzuki-Kasami) — indeks: [[RSO 00 Indeks i mapowanie na prezentacje]].
 
 ### 5. Algorytmy elekcji
 Notatka: [[05 Algorytmy elekcji]] — Bully, pierścieniowe (Chang-Roberts, LeLann, Hirschberg-Sinclair), echo, Raft.
 Materiał: [[Systemy Wysokiej Niezawodności/Algorytm Paxos#Zakończenie (_ang. Termination_)]], [[Systemy Wysokiej Niezawodności/Replikacja Procesu]].
+Wersja z prezentacji: [[RSO Z5 Algorytmy elekcji|skompresowane/RSO Z5]] · [[RSO 05 Algorytmy elekcji]] — **zagadnienia nie ma w prezentacjach**; indeks: [[RSO 00 Indeks i mapowanie na prezentacje]].
 
 ### 6. Zakleszczenie w systemach rozproszonych (modele, Chandy-Misra-Haas, Bracha-Toueg)
 Notatka: [[06 Zakleszczenie w systemach rozproszonych]] — modele zakleszczeń, WFG, algorytmy detekcji (CMH AND/OR, Bracha-Toueg).
 Materiał: [[Synchronizacja]], [[Awarie]], [[Drawing 2024-06-19 16.38.35.excalidraw]].
+Wersja z prezentacji: [[RSO Z6 Zakleszczenie w systemach rozproszonych|skompresowane/RSO Z6]] · [[RSO 06 Zakleszczenie w systemach rozproszonych]] (modele AND/OR, CMH) — indeks: [[RSO 00 Indeks i mapowanie na prezentacje]].
 > ⚠️ [[Systemy Wysokiej Niezawodności/Algorytm Bracha-Touega]] to algorytm **konsensusu**, nie detekcji zakleszczenia (zag. 23).
 
 ## Narzędzia przetwarzania rozproszonego
@@ -113,14 +119,17 @@ Materiał: [[Synchronizacja]], [[Awarie]], [[Drawing 2024-06-19 16.38.35.excalid
 ### 7. Aspekty projektowe realizacji systemów rozproszonych
 Notatka: [[07 Aspekty projektowe realizacji systemów rozproszonych]].
 Materiał: [[Narzędzia Przetwarzania Rozproszonego/Podstawowe Własności Systemu Rozproszonego]], [[Narzędzia Przetwarzania Rozproszonego/Przezroczystość]], [[Zarządzanie Systemami Rozproszonymi/System Rozproszony]], [[Algorytmy Rozproszone/Wykład 2]].
+Wersja z prezentacji: [[NPR 07 Aspekty projektowe realizacji systemów rozproszonych|skompresowane/NPR 07]] · [[NPR 01 Zdalne wywoływanie procedur (RPC)]] · [[NPR 03 NFS, idempotentność i bezstanowość]] — indeks: [[NPR 00 Indeks i mapowanie na prezentacje]].
 
 ### 8. Podejścia do budowy systemów rozproszonych (charakterystyka porównawcza)
 Notatka: [[08 Podejścia do budowy systemów rozproszonych]] — komunikaty, MOM, RPC, obiekty, DSM, krotki, Ada; tabela porównawcza.
 Materiał: [[Narzędzia Przetwarzania Rozproszonego/Paradygmat Interakcji Pomiędzy Zdalnymi Jednostkami]], [[Narzędzia Przetwarzania Rozproszonego/Zdalne Wywoływanie Procedur]], [[Narzędzia Przetwarzania Rozproszonego/Gwarancja wykonania (semantyka błędu)]], [[model_komunikacji.excalidraw]].
+Wersja z prezentacji: [[NPR 08 Podejścia do budowy systemów rozproszonych|skompresowane/NPR 08]] (tabela porównawcza sześciu podejść) · [[NPR 02 Sun RPC i standard XDR]] · [[NPR 04 Podejście obiektowe - Java RMI]] · [[NPR 08 MOM i systemy kolejkowania komunikatów]] · [[NPR 09 ZeroMQ]] · [[NPR 10 JMS]] · [[NPR 11 Przestrzeń krotek - Linda i JavaSpaces]] — indeks: [[NPR 00 Indeks i mapowanie na prezentacje]].
 
 ### 9. Wielozadaniowość i synchronizacja zadań/wątków
 Notatka: [[09 Wielozadaniowość i synchronizacja zadań i wątków]] — pthreads, Ada (rendezvous, obiekty chronione), Java, MPI, OpenMP.
 Materiał: [[Narzędzia Przetwarzania Rozproszonego/Lab 1-2 - Wprowadzenie do Aplikacji Wielowątkowych 1]], [[Synchronizacja]], [[Wątek]], [[Narzędzia Przetwarzania Rozproszonego/ADA-95]].
+Wersja z prezentacji: [[NPR 09 Wielozadaniowość i synchronizacja zadań i wątków|skompresowane/NPR 09]] (zestawienie Java ↔ Ada) · [[NPR 05 Ada 95 - zadania, spotkania i obiekty chronione]] · [[NPR 06 Wątki w Javie i elementarna synchronizacja]] · [[NPR 07 Pakiet java.util.concurrent]] — indeks: [[NPR 00 Indeks i mapowanie na prezentacje]].
 
 ## Technologie internetowe w przetwarzaniu rozproszonym
 
