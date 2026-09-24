@@ -14,19 +14,36 @@ Procesy przetwarzania rozproszonego wymieniają komunikaty: jedne wysyłają **�
 
 Formalnie przez $deadlock(\mathcal{B})$ oznacza się predykat stwierdzający, że w danej chwili $\tau$ niepusty zbiór procesów $\mathcal{B}$ jest zbiorem procesów zakleszczonych. Cała formalna część zagadnienia polega na rozpisaniu tego predykatu — inaczej dla każdego modelu żądań.
 
-**Warunki konieczne** zakleszczenia są cztery: **wzajemne wykluczanie**; **istnienie procesu, który blokuje zasób i jednocześnie czeka na zasób blokowany przez inny proces** (przetrzymywanie i oczekiwanie); **brak wywłaszczania zasobów**; **czekanie cykliczne**.
+**Warunki konieczne** zakleszczenia są cztery:
+
+- **wzajemne wykluczanie**;
+- **przetrzymywanie i oczekiwanie** — istnienie procesu, który blokuje zasób i jednocześnie czeka na zasób blokowany przez inny proces;
+- **brak wywłaszczania zasobów**;
+- **czekanie cykliczne**.
 
 ## Reprezentacje graficzne
 
-**Graf przydziału zasobów** wiąże procesy z zasobami i może być rozpięty na wielu stanowiskach. Do wykrywania zakleszczeń używa się jednak **grafu oczekiwania** (*Wait-For Graph*, WFG), w którym wierzchołkami są procesy, a łuk $P_i \rightarrow P_j$ oznacza, że **$P_i$ oczekuje na wiadomość od $P_j$**. Obowiązują dwie zasady odczytu: proces z łukiem wychodzącym jest **pasywny**, proces bez łuków wychodzących — **aktywny**.
+**Graf przydziału zasobów** wiąże procesy z zasobami i może być rozpięty na wielu stanowiskach. Do wykrywania zakleszczeń używa się jednak **grafu oczekiwania** (*Wait-For Graph*, WFG), w którym wierzchołkami są procesy, a łuk $P_i \rightarrow P_j$ oznacza, że **$P_i$ oczekuje na wiadomość od $P_j$**. Obowiązują dwie zasady odczytu:
+
+- proces **z łukiem wychodzącym** jest **pasywny**,
+- proces **bez łuków wychodzących** jest **aktywny**.
 
 WFG obejmujący cały system to **globalny graf oczekiwania**, a ograniczony do jednego stanowiska — **lokalny graf oczekiwania**. Sedno trudności: **globalny WFG nigdzie nie istnieje w całości** — każdy proces zna wyłącznie swoje krawędzie wychodzące, więc wykrycie zakleszczenia wymaga algorytmu rozproszonego.
 
 ## Strategie postępowania
 
-Wobec zakleszczeń można: **nie dopuszczać** do nich, **dopuszczać i później usuwać** albo **ignorować** je. Niedopuszczanie dzieli się na **zapobieganie** i **unikanie**.
+Wobec zakleszczeń można:
 
-**Zapobieganie** w systemie rozproszonym realizuje się przez **priorytety** procesów przy dostępie do zasobów, a żeby nie zagłodzić procesów o niskich priorytetach — przez **znaczniki czasowe** i dwie strategie: **czekanie albo śmierć** (*wait-die*) oraz **zranienie albo czekanie** (*wound-wait*). Wadą obu są **niepotrzebne wywłaszczenia**: wycofuje się procesy, które wcale nie były zakleszczone.
+- **nie dopuszczać** do nich — co dzieli się dalej na **zapobieganie** i **unikanie**,
+- **dopuszczać i później usuwać**,
+- **ignorować** je.
+
+**Zapobieganie** w systemie rozproszonym realizuje się przez **priorytety** procesów przy dostępie do zasobów, a żeby nie zagłodzić procesów o niskich priorytetach — przez **znaczniki czasowe** i dwie strategie:
+
+- **czekanie albo śmierć** (*wait-die*),
+- **zranienie albo czekanie** (*wound-wait*).
+
+Wadą obu są **niepotrzebne wywłaszczenia**: wycofuje się procesy, które wcale nie były zakleszczone.
 
 ## Stany procesu i warunek uaktywnienia
 
@@ -58,7 +75,12 @@ deadlock(\mathcal{B}) \equiv\ & (\mathcal{B} \subseteq \mathcal{P}) \wedge (\mat
 \end{aligned}
 $$
 
-Różnica sprowadza się do dwóch miejsc. Kwantyfikator po $P_j$ jest w modelu AND **egzystencjalny** — wystarczy **jedna** brakująca wiadomość, by proces pozostał pasywny — a w modelu OR **ogólny**: brakować muszą **wszystkie**. Dodatkowo model OR żąda $\mathcal{D}_i \subseteq \mathcal{B}$, czyli **cały zbiór warunkujący musi być zakleszczony**, podczas gdy w AND wystarczy $P_j \in \mathcal{D}_i \cap \mathcal{B}$. **Zakleszczenie w modelu OR jest więc trudniejsze do wystąpienia**: pojedynczy aktywny proces w zbiorze warunkującym wystarczy, by proces nie był zakleszczony.
+Różnica sprowadza się do dwóch miejsc:
+
+- **Kwantyfikator po $P_j$** — w modelu AND **egzystencjalny** (wystarczy **jedna** brakująca wiadomość, by proces pozostał pasywny), w modelu OR **ogólny** (brakować muszą **wszystkie**).
+- **Zasięg zbioru warunkującego** — model OR żąda $\mathcal{D}_i \subseteq \mathcal{B}$, czyli **cały zbiór warunkujący musi być zakleszczony**, podczas gdy w AND wystarczy $P_j \in \mathcal{D}_i \cap \mathcal{B}$.
+
+**Zakleszczenie w modelu OR jest więc trudniejsze do wystąpienia**: pojedynczy aktywny proces w zbiorze warunkującym wystarczy, by proces nie był zakleszczony.
 
 Przekłada się to wprost na warunek grafowy: w modelu AND zakleszczeniu odpowiada **cykl** w WFG, w modelu OR — **węzeł** (*knot*), czyli zbiór wierzchołków, z których osiągalne są wyłącznie wierzchołki tego zbioru. W modelu OR **cykl nie oznacza zakleszczenia**, bo proces może zostać odblokowany krawędzią prowadzącą poza cykl.
 
@@ -77,13 +99,30 @@ W modelu aplikacyjnym proces wysyła do procesów swojego zbioru warunkującego 
 
 ## Algorytmy Chandy-Misra-Haas
 
-**CMH dla modelu AND** rozwiązuje detekcję zakleszczenia procesu techniką **pogoni za krawędziami** (*edge-chasing*): zablokowany proces rozsyła **sondę** ze swoim identyfikatorem wzdłuż krawędzi WFG, a **powrót sondy do inicjatora** ($\alpha_i = i$) dowodzi istnienia cyklu. Sondę propaguje się tylko wtedy, gdy proces jest **pasywny**, sonda tego inicjatora **jeszcze przez niego nie przeszła** (co zapobiega zapętleniu) i zasób od nadawcy **nie został przyznany**. Przy uaktywnieniu procesu znaczniki przejścia sond są czyszczone. Przebieg: [[RSO 06 Zakleszczenie w systemach rozproszonych#Algorytm Chandy-Misra-Haas dla modelu AND|RSO 06]].
+**CMH dla modelu AND** rozwiązuje detekcję zakleszczenia procesu techniką **pogoni za krawędziami** (*edge-chasing*): zablokowany proces rozsyła **sondę** ze swoim identyfikatorem wzdłuż krawędzi WFG, a **powrót sondy do inicjatora** ($\alpha_i = i$) dowodzi istnienia cyklu. Sondę propaguje się tylko wtedy, gdy spełnione są trzy warunki naraz:
+
+- proces jest **pasywny**,
+- sonda tego inicjatora **jeszcze przez niego nie przeszła** — co zapobiega zapętleniu,
+- zasób od nadawcy **nie został przyznany**.
+
+Przy uaktywnieniu procesu znaczniki przejścia sond są czyszczone. Przebieg: [[RSO 06 Zakleszczenie w systemach rozproszonych#Algorytm Chandy-Misra-Haas dla modelu AND|RSO 06]].
 
 **CMH dla modelu OR** rozwiązuje ten sam problem **przetwarzaniem dyfuzyjnym** (*query computation*). Zablokowany proces rozsyła **QUERY** do swojego zbioru warunkującego; proces **aktywny unieważnia** każde QUERY i REPLY, które do niego dotrze, i to właśnie milczenie procesu aktywnego „ratuje" inicjatora przed fałszywym wykryciem. Proces zablokowany propaguje **pierwsze** zapytanie danego inicjatora (*engaging query*), zapamiętując liczbę wysłanych zapytań w liczniku $num_k(i)$, a na zapytania kolejne odpowiada od razu, o ile jest zablokowany nieprzerwanie od pierwszego ($wait_k(i)$). **REPLY** odsyła się dopiero po zebraniu odpowiedzi na wszystkie własne zapytania, a **inicjator deklaruje zakleszczenie**, gdy jego licznik zejdzie do zera.
 
-Poprawność ujmuje **twierdzenie 5.2** w dwóch częściach: jeżeli inicjator rozpoczyna detekcję, będąc zakleszczonym, to **stwierdzi to w skończonym czasie** (zakończenie), a jeżeli deklaruje zakleszczenie, to **należy do pewnego zbioru procesów zakleszczonych** (poprawność). Przebieg: [[RSO 06 Zakleszczenie w systemach rozproszonych#Detekcja zakleszczenia dla modelu OR|RSO 06]].
+Poprawność ujmuje **twierdzenie 5.2** w dwóch częściach:
 
-Struktura algorytmu OR jest **identyczna z algorytmem Dijkstry-Scholtena** detekcji zakończenia: *engaging query* odpowiada rodzicowi, $num_k(i)$ — licznikowi wysłanych wiadomości, a REPLY — sygnałowi. Zob. [[RSO 10 Detekcja zakończenia#Model przetwarzania dyfuzyjnego i algorytm Dijkstry-Scholtena|RSO 10]].
+- **Zakończenie** — jeżeli inicjator rozpoczyna detekcję, będąc zakleszczonym, to **stwierdzi to w skończonym czasie**.
+- **Poprawność** — jeżeli inicjator deklaruje zakleszczenie, to **należy do pewnego zbioru procesów zakleszczonych**.
+
+Przebieg: [[RSO 06 Zakleszczenie w systemach rozproszonych#Detekcja zakleszczenia dla modelu OR|RSO 06]].
+
+Struktura algorytmu OR jest **identyczna z algorytmem Dijkstry-Scholtena** detekcji zakończenia:
+
+- *engaging query* — odpowiada rodzicowi,
+- $num_k(i)$ — licznikowi wysłanych wiadomości,
+- REPLY — sygnałowi.
+
+Zob. [[RSO 10 Detekcja zakończenia#Model przetwarzania dyfuzyjnego i algorytm Dijkstry-Scholtena|RSO 10]].
 
 | | model AND | model OR |
 |---|---|---|
@@ -94,7 +133,13 @@ Struktura algorytmu OR jest **identyczna z algorytmem Dijkstry-Scholtena** detek
 | **Koszt** | $\leq \lvert E \rvert$ komunikatów | $2\lvert E \rvert$ komunikatów |
 
 > [!note] Uzupełnienie spoza prezentacji — klasy algorytmów wykrywania
-> Poza dwoma powyższymi wyróżnia się algorytmy **scentralizowane** (koordynator buduje globalny WFG, np. Ho-Ramamoorthy — ryzyko fantomów i SPoF), **przepychanie ścieżek** (*path-pushing*, Obermarck — węzły przesyłają sobie fragmenty ścieżek WFG) oraz oparte na **stanie globalnym** (migawka WFG i jej analiza). Źródło: [[06 Zakleszczenie w systemach rozproszonych]].
+> Poza dwoma powyższymi wyróżnia się trzy klasy:
+>
+> - **scentralizowane** — koordynator buduje globalny WFG (np. Ho-Ramamoorthy); ryzyko fantomów i SPoF;
+> - **przepychanie ścieżek** (*path-pushing*, Obermarck) — węzły przesyłają sobie fragmenty ścieżek WFG;
+> - oparte na **stanie globalnym** — migawka WFG i jej analiza.
+>
+> Źródło: [[06 Zakleszczenie w systemach rozproszonych]].
 
 > [!note] Uzupełnienie spoza prezentacji — Bracha-Toueg
 > Algorytm Brachy-Touega (1987) rozwiązuje detekcję w ogólnym modelu **$p$-z-$q$**, obejmującym AND ($p=q$) i OR ($p=1$). Idea: najpierw **migawka** spójnego stanu globalnego WFG, a potem **symulacja** rozdawania przydziałów — proces, który w symulacji zbierze wymagane $p$ przydziałów, sam staje się wolny i „rozdaje" przydziały dalej wstecz. Proces, którego symulacja nie odblokuje, jest zakleszczony; inicjator jest zakleszczony wtedy i tylko wtedy, gdy na koniec nie został uznany za wolnego. Cztery typy komunikatów (powiadomienie, przydział i ich potwierdzenia) dają koszt $O(\lvert E \rvert)$ na fazę. **Nie mylić** z probabilistycznym algorytmem konsensusu tych samych autorów: [[Systemy Wysokiej Niezawodności/Algorytm Bracha-Touega]]. Źródło: [[06 Zakleszczenie w systemach rozproszonych]].

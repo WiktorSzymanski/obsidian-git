@@ -13,16 +13,45 @@ zagadnienie: 4
 **Wzajemne wykluczanie** zapewnia procesom ochronę przy dostępie do zasobów: daje gwarancję, że w danej chwili **co najwyżej jeden proces** przebywa w **sekcji krytycznej**. W systemie rozproszonym procesy nie mają ani wspólnej pamięci, ani wspólnego zegara, więc jedynym narzędziem koordynacji jest **wymiana komunikatów** — i stąd bierze się cała różnorodność rozwiązań.
 
 > [!note] Uzupełnienie spoza prezentacji — wymagania i miary
-> Algorytm wzajemnego wykluczania musi spełniać: **bezpieczeństwo** (*safety*) — co najwyżej jeden proces w sekcji krytycznej; **żywotność** (*liveness*) — brak zakleszczeń i zagłodzeń, każde żądanie zostaje w końcu obsłużone; **uczciwość** (*fairness*) — żądania obsługiwane w kolejności zgłoszenia, zwykle według znaczników czasowych.
-> Ocenia się je czterema miarami: **złożonością komunikacyjną** (liczba komunikatów na jedno wejście), **opóźnieniem synchronizacji** (czas od wyjścia jednego procesu do wejścia następnego), **czasem odpowiedzi** i **przepustowością**. Źródło: [[04 Algorytmy wzajemnego wykluczania]].
+> Algorytm wzajemnego wykluczania musi spełniać trzy wymagania:
+>
+> - **bezpieczeństwo** (*safety*) — co najwyżej jeden proces w sekcji krytycznej;
+> - **żywotność** (*liveness*) — brak zakleszczeń i zagłodzeń, każde żądanie zostaje w końcu obsłużone;
+> - **uczciwość** (*fairness*) — żądania obsługiwane w kolejności zgłoszenia, zwykle według znaczników czasowych.
+>
+> Ocenia się je czterema miarami:
+>
+> - **złożoność komunikacyjna** — liczba komunikatów na jedno wejście;
+> - **opóźnienie synchronizacji** — czas od wyjścia jednego procesu do wejścia następnego;
+> - **czas odpowiedzi**;
+> - **przepustowość**.
+>
+> Źródło: [[04 Algorytmy wzajemnego wykluczania]].
 
 ## Klasyfikacja
 
-Prezentacje wyliczają trzy typy: **podejście scentralizowane**, **algorytmy rozproszone** (Lamport) i **algorytmy bazujące na żetonie** (Suzuki-Kasami). Ogólniej przyjęty podział jest dwuczłonowy: algorytmy **oparte na zezwoleniach** (*permission-based*), w których proces wchodzi po uzyskaniu zgody wszystkich albo kworum (Lamport, Ricart-Agrawala, Maekawa), oraz **oparte na żetonie** (*token-based*), w których do sekcji wchodzi posiadacz jedynego żetonu (Suzuki-Kasami, Raymond).
+Prezentacje wyliczają trzy typy:
 
-Wspólne założenia wszystkich klasycznych algorytmów: niezawodne kanały, brak awarii procesów, unikalne identyfikatory.
+- **podejście scentralizowane**,
+- **algorytmy rozproszone** (Lamport),
+- **algorytmy bazujące na żetonie** (Suzuki-Kasami).
 
-Pojęciem porządkującym jest **zbiór żądań** $R_i$ — zbiór procesów, od których proces $P_i$ musi uzyskać pozwolenie. U Lamporta i Ricarta-Agrawali jest to **zbiór wszystkich procesów**, u Maekawy — **kworum**, a algorytmy żetonowe zastępują go posiadaniem żetonu.
+Ogólniej przyjęty podział jest dwuczłonowy:
+
+- **Oparte na zezwoleniach** (*permission-based*) — proces wchodzi po uzyskaniu zgody wszystkich albo kworum (Lamport, Ricart-Agrawala, Maekawa).
+- **Oparte na żetonie** (*token-based*) — do sekcji wchodzi posiadacz jedynego żetonu (Suzuki-Kasami, Raymond).
+
+Wspólne założenia wszystkich klasycznych algorytmów:
+
+- niezawodne kanały,
+- brak awarii procesów,
+- unikalne identyfikatory.
+
+Pojęciem porządkującym jest **zbiór żądań** $R_i$ — zbiór procesów, od których proces $P_i$ musi uzyskać pozwolenie:
+
+- u **Lamporta i Ricarta-Agrawali** — **zbiór wszystkich procesów**,
+- u **Maekawy** — **kworum**,
+- w algorytmach **żetonowych** — zastąpiony posiadaniem żetonu.
 
 ## Podejście scentralizowane
 
@@ -34,7 +63,12 @@ Podejście jest najprostsze i najtańsze, ale koordynator jest **pojedynczym pun
 
 Rozwiązuje problem wzajemnego wykluczania **bez koordynatora**, opierając się na **zegarze skalarnym Lamporta**. Każdy proces utrzymuje **własną kolejkę żądań** uszeregowaną według znaczników $(ts, id)$, a zbiorem żądań jest zbiór wszystkich procesów.
 
-Istotą algorytmu są **dwa warunki wejścia naraz**: własne żądanie musi być **na czele kolejki** oraz od każdego innego procesu musi nadejść odpowiedź ze znacznikiem **większym** od znacznika żądania. Pierwszy warunek daje uporządkowanie, drugi — pewność, że żaden proces nie zgłosi już starszego żądania. Wyjście z sekcji polega na rozesłaniu komunikatu **ZWOLNIJ** i usunięciu żądania z kolejki.
+Istotą algorytmu są **dwa warunki wejścia naraz**:
+
+- własne żądanie musi być **na czele kolejki** — to daje uporządkowanie;
+- od każdego innego procesu musi nadejść odpowiedź ze znacznikiem **większym** od znacznika żądania — to daje pewność, że żaden proces nie zgłosi już starszego żądania.
+
+Wyjście z sekcji polega na rozesłaniu komunikatu **ZWOLNIJ** i usunięciu żądania z kolejki.
 
 Algorytm wymaga **kanałów FIFO** i kosztuje $3(N-1)$ komunikatów na wejście (żądanie, odpowiedź, zwolnienie). Znaczniki $(ts, id)$ to zegar skalarny: [[RSO 08 Czas wirtualny i złożoność algorytmów#Zegar skalarny|RSO 08]]. Przebieg: [[RSO 04 Algorytmy wzajemnego wykluczania#Algorytm Lamporta|RSO 04]].
 
@@ -56,8 +90,21 @@ Koszt: **$0$ komunikatów**, gdy proces już ma żeton, albo $N$ ($N-1$ żądań
 > Optymalizacja algorytmu Lamporta, która rozwiązuje problem **nadmiarowej liczby komunikatów**, łącząc zwolnienie z odpowiedzią. Proces, który otrzymał żądanie, odpowiada natychmiast, jeśli sam nie ubiega się o sekcję; **odracza** odpowiedź, jeśli jest w sekcji; a jeśli też się ubiega — rozstrzyga porównaniem znaczników $(ts, id)$. Wejście następuje po zebraniu odpowiedzi od wszystkich $N-1$ procesów, wyjście polega na wysłaniu odpowiedzi odroczonych. Koszt $2(N-1)$, **bez wymogu kanałów FIFO**. Wada: awaria dowolnego procesu blokuje wszystkich. Źródło: [[04 Algorytmy wzajemnego wykluczania]].
 
 > [!note] Uzupełnienie spoza prezentacji — Maekawa
-> Rozwiązuje problem **liniowego kosztu komunikacyjnego**, żądając zgody nie od wszystkich, lecz od **kworum** $R_i$. Kwora muszą spełniać cztery własności: każde dwa mają **niepuste przecięcie** (i to właśnie wspólny proces gwarantuje bezpieczeństwo), proces należy do własnego kworum, wszystkie kwora są **równoliczne** ($|R_i| = K$), a każdy proces należy do dokładnie $K$ kworów. Stąd $N = K(K-1)+1$, czyli $K \approx \sqrt{N}$ — praktycznie kworum to wiersz i kolumna w siatce $\sqrt{N} \times \sqrt{N}$.
-> Wersja podstawowa może się **zakleszczyć**: procesy zbierają zgody w różnej kolejności i każdy czeka na zgodę trzymaną przez innego. Rozwiązanie dokłada trzy komunikaty — **FAILED** (twoje żądanie ma niższy priorytet), **INQUIRE** (czy na pewno możesz wejść?) i **RELINQUISH/YIELD** (oddaję zgodę) — dzięki którym proces bez szans na komplet zgód zwraca zgodę procesowi o wyższym priorytecie. Koszt od $3\sqrt{N}$ do $5\sqrt{N}$. Źródło: [[04 Algorytmy wzajemnego wykluczania]], przebieg z zajęć: [[Drawing 2024-06-19 16.38.35.excalidraw]].
+> Rozwiązuje problem **liniowego kosztu komunikacyjnego**, żądając zgody nie od wszystkich, lecz od **kworum** $R_i$. Kwora muszą spełniać cztery własności:
+>
+> - każde dwa mają **niepuste przecięcie** — i to właśnie wspólny proces gwarantuje bezpieczeństwo;
+> - proces należy do **własnego kworum**;
+> - wszystkie kwora są **równoliczne** ($|R_i| = K$);
+> - każdy proces należy do dokładnie **$K$ kworów**.
+>
+> Stąd $N = K(K-1)+1$, czyli $K \approx \sqrt{N}$ — praktycznie kworum to wiersz i kolumna w siatce $\sqrt{N} \times \sqrt{N}$.
+> Wersja podstawowa może się **zakleszczyć**: procesy zbierają zgody w różnej kolejności i każdy czeka na zgodę trzymaną przez innego. Rozwiązanie dokłada trzy komunikaty:
+>
+> - **FAILED** — twoje żądanie ma niższy priorytet;
+> - **INQUIRE** — czy na pewno możesz wejść?;
+> - **RELINQUISH/YIELD** — oddaję zgodę.
+>
+> Dzięki nim proces bez szans na komplet zgód zwraca zgodę procesowi o wyższym priorytecie. Koszt od $3\sqrt{N}$ do $5\sqrt{N}$. Źródło: [[04 Algorytmy wzajemnego wykluczania]], przebieg z zajęć: [[Drawing 2024-06-19 16.38.35.excalidraw]].
 
 > [!note] Uzupełnienie spoza prezentacji — Raymond
 > Algorytm żetonowy, który rozwiązuje problem **rozgłaszania żądań do wszystkich**: procesy tworzą logiczne **drzewo rozpinające**, a każdy proces zna tylko **kierunek do posiadacza żetonu** (zmienna $HOLDER$) i trzyma kolejkę FIFO żądających sąsiadów. Żądania wędrują po krawędziach drzewa w stronę żetonu, żeton wraca tą samą drogą. Wiedza jest więc wyłącznie **lokalna**, a koszt spada do $O(\log N)$ komunikatów w drzewie zrównoważonym (w najgorszym razie $O(D)$ dla średnicy $D$). Źródło: [[04 Algorytmy wzajemnego wykluczania]].

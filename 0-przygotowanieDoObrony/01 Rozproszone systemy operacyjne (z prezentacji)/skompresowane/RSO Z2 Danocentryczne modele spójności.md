@@ -10,45 +10,112 @@ zagadnienie: 2
 
 ## Zwielokrotnianie i jego cena
 
-**Zwielokrotnianie** polega na utrzymywaniu wielu kopii danych (obiektów) na **niezależnych serwerach**. Robi się to dla dwóch celów: **niezawodności** — odporności na awarie i zwiększenia dostępności — oraz **efektywności**, która rozpada się na współbieżny dostęp do wielu serwerów (równoważenie obciążenia, **skalowalność liczbowa**) i korzystanie z serwerów bliższych (**skalowalność geograficzna**, mniejsze opóźnienia).
+**Zwielokrotnianie** polega na utrzymywaniu wielu kopii danych (obiektów) na **niezależnych serwerach**. Robi się to dla dwóch celów:
+
+- **Niezawodność** — odporność na awarie i zwiększenie dostępności.
+- **Efektywność** — rozpada się na współbieżny dostęp do wielu serwerów (równoważenie obciążenia, **skalowalność liczbowa**) oraz korzystanie z serwerów bliższych (**skalowalność geograficzna**, mniejsze opóźnienia).
 
 Ceną jest **spójność**, i to ona jest właściwą treścią zagadnienia. Zwielokrotnianie a skalowalność to kompromis: skracamy czas dostępu, ale płacimy za utrzymywanie w stanie spójnym także kopii **nieużywanych**; spójność odwzorowująca system scentralizowany wymagałaby transakcyjnej aktualizacji wszystkich kopii i globalnej synchronizacji, więc realnym wyjściem jest **osłabienie modelu spójności** — dobrane do charakteru aplikacji i danych. Cała reszta zagadnienia to katalog takich osłabień.
 
 ## Konteksty: DSM i koncepcje dostępu
 
-**DSM** (*Distributed Shared Memory*) to wspólna wirtualna przestrzeń adresowa dostępna dla wszystkich węzłów systemu rozproszonego. Daje wygodny paradygmat programowania równoległego, skalowalność i łatwość rozbudowy, dostęp do pamięci fizycznej wszystkich węzłów oraz środowisko uruchomieniowe dla programów pisanych dla maszyn wieloprocesorowych. Mechanicznie działa jak pamięć wirtualna, z tą różnicą, że **brakująca strona sprowadzana jest z innego węzła sieci**, a nie z urządzenia wymiany.
+**DSM** (*Distributed Shared Memory*) to wspólna wirtualna przestrzeń adresowa dostępna dla wszystkich węzłów systemu rozproszonego. Daje:
 
-Dostęp do danych można zorganizować na trzy sposoby. **Dostęp zdalny** — zawsze przez sieć — jest koncepcyjnie i implementacyjnie najprostszy, ale płaci opóźnieniami. **Relokacja** fizycznie przenosi obiekt bliżej, co skraca czas dostępu kosztem przenoszenia i opłaca się przy wielokrotnych, zgrupowanych odwołaniach. **Zwielokrotnianie** tworzy kopie w węzłach lokalnych, skracając czas dostępu za cenę problemu spójności.
+- wygodny **paradygmat programowania równoległego**,
+- **skalowalność** i łatwość rozbudowy,
+- dostęp do **pamięci fizycznej wszystkich węzłów**,
+- **środowisko uruchomieniowe** dla programów pisanych dla maszyn wieloprocesorowych.
 
-Relokację i zwielokrotnianie opisuje ten sam zestaw problemów, ale rozstrzygniętych inaczej. **Problem lokalizacji** przy relokacji oznacza, że adres obiektu zmienia się w czasie, a przy zwielokrotnianiu — że trzeba tworzyć nowe i usuwać stare repliki. **Problem rozmiaru i struktury** przemieszczanej jednostki jest wspólny: małe obiekty dają duży poziom współdzielenia, duże — mały narzut administracyjny. **Problem migotania** (*trashing*, efekt ping-pong), czyli naprzemiennych odwołań kilku procesów, dotyczy **wyłącznie relokacji** — przy zwielokrotnianiu znika, bo każdy ubiegający się węzeł dostaje własną kopię. W zamian pojawia się **problem spójności replik**, którego waga zależy od **stosunku liczby zapisów do odczytów**.
+Mechanicznie działa jak pamięć wirtualna, z tą różnicą, że **brakująca strona sprowadzana jest z innego węzła sieci**, a nie z urządzenia wymiany.
 
-Jednostką zwielokrotniania może być **strona**, **pojedyncza zmienna** albo **obiekt**. Strona łączy fizycznie kilka odrębnych obiektów logicznych w jedną całość, co rodzi **fałszywe współdzielenie** — dwa procesy sięgające po różne obiekty na tej samej stronie wymuszają jej przesyłanie tam i z powrotem. Pojedyncza zmienna daje duży koszt jednostkowy relokacji i utrzymywania spójności. Obiekt, jako hermetyczna struktura dostępna wyłącznie przez zdefiniowane metody, pozwala **optymalizować strategię spójności**, bo sposób dostępu jest z góry znany.
+Dostęp do danych można zorganizować na trzy sposoby:
+
+- **Dostęp zdalny** — zawsze przez sieć; koncepcyjnie i implementacyjnie najprostszy, ale płaci opóźnieniami.
+- **Relokacja** — fizycznie przenosi obiekt bliżej, co skraca czas dostępu kosztem przenoszenia; opłaca się przy wielokrotnych, zgrupowanych odwołaniach.
+- **Zwielokrotnianie** — tworzy kopie w węzłach lokalnych, skracając czas dostępu za cenę problemu spójności.
+
+Relokację i zwielokrotnianie opisuje ten sam zestaw problemów, ale rozstrzygniętych inaczej:
+
+- **Problem lokalizacji** — przy relokacji adres obiektu zmienia się w czasie; przy zwielokrotnianiu trzeba tworzyć nowe i usuwać stare repliki.
+- **Problem rozmiaru i struktury** przemieszczanej jednostki — wspólny: małe obiekty dają duży poziom współdzielenia, duże — mały narzut administracyjny.
+- **Problem migotania** (*trashing*, efekt ping-pong) — naprzemienne odwołania kilku procesów; dotyczy **wyłącznie relokacji**, bo przy zwielokrotnianiu każdy ubiegający się węzeł dostaje własną kopię.
+- **Problem spójności replik** — pojawia się w zamian przy zwielokrotnianiu; jego waga zależy od **stosunku liczby zapisów do odczytów**.
+
+Jednostką zwielokrotniania może być strona, pojedyncza zmienna albo obiekt:
+
+- **Strona** — łączy fizycznie kilka odrębnych obiektów logicznych w jedną całość, co rodzi **fałszywe współdzielenie**: dwa procesy sięgające po różne obiekty na tej samej stronie wymuszają jej przesyłanie tam i z powrotem.
+- **Pojedyncza zmienna** — duży koszt jednostkowy relokacji i utrzymywania spójności.
+- **Obiekt** — hermetyczna struktura dostępna wyłącznie przez zdefiniowane metody, pozwala **optymalizować strategię spójności**, bo sposób dostępu jest z góry znany.
 
 ## Protokół koherencji
 
 **Protokół koherencji (spójności)** to algorytm rozproszony realizujący określony model spójności. Model mówi **co** system gwarantuje, protokół — **jak** to zapewnia.
 
-**Protokół unieważniania** (*invalidation protocol*) rozsyła małe komunikaty i unieważnia repliki jednokrotnie. **Protokół aktualizacji** (*update protocol*) przesyła nowe wartości do niespójnych replik, więc jego komunikaty są większe. Wybór między nimi to znów stosunek zapisów do odczytów.
+Dwa podstawowe rodzaje:
+
+- **Protokół unieważniania** (*invalidation protocol*) — rozsyła małe komunikaty i unieważnia repliki jednokrotnie.
+- **Protokół aktualizacji** (*update protocol*) — przesyła nowe wartości do niespójnych replik, więc jego komunikaty są większe.
+
+Wybór między nimi to znów stosunek zapisów do odczytów.
 
 ## Model spójności
 
-**Model spójności** określa gwarancje dotyczące spójności replik, dawane aplikacji przez system. Trzy pytania, które trzeba przy nim rozstrzygnąć, to: jak model zdefiniować, jak określić gwarancje dla aplikacji i **kiedy oraz w jaki sposób je egzekwować**.
+**Model spójności** określa gwarancje dotyczące spójności replik, dawane aplikacji przez system. Trzy pytania, które trzeba przy nim rozstrzygnąć:
 
-Punktem wyjścia jest **spójność ścisła** (*strict consistency*): każdy odczyt zmiennej $x$ zwraca wartość zapisaną przez **ostatnią** operację zapisu. W systemie rozproszonym jest ona nieosiągalna z dwóch powodów — słowo „ostatni" jest **niejednoznaczne** przy braku globalnego zegara, a koszt realizacji byłby bardzo duży. Wszystkie dalsze modele są odpowiedzią na to, jak sensownie osłabić spójność ścisłą.
+- jak model **zdefiniować**,
+- jak określić **gwarancje dla aplikacji**,
+- **kiedy oraz w jaki sposób je egzekwować**.
+
+Punktem wyjścia jest **spójność ścisła** (*strict consistency*): każdy odczyt zmiennej $x$ zwraca wartość zapisaną przez **ostatnią** operację zapisu. W systemie rozproszonym jest ona nieosiągalna z dwóch powodów:
+
+- słowo „ostatni" jest **niejednoznaczne** przy braku globalnego zegara,
+- **koszt realizacji** byłby bardzo duży.
+
+Wszystkie dalsze modele są odpowiedzią na to, jak sensownie osłabić spójność ścisłą.
 
 ### Klasyfikacja
 
 Modele dzielą się najpierw ze względu na to, **czyj punkt widzenia** opisują. **Modele danocentryczne** (nastawione na dane) dzielą się dalej na modele przy **dostępie ogólnym**, gdzie dane uspójnia się przy każdej modyfikacji, i przy **dostępie synchronizowanym**, gdzie uspójnianie zachodzi tylko podczas jawnych operacji synchronizujących. **Modele nastawione na klienta** uwzględniają mobilność klienta — to osobne zagadnienie: [[RSO Z3 Modele spójności zorientowane na klienta|zagadnienie 3]].
 
-Przy dostępie ogólnym: **spójność atomowa** (*atomic consistency*), zwana też **liniowością** (*linearizability*), **sekwencyjna** (*sequential*), **przyczynowa** (*causal*), **PRAM** (*pipelined RAM*), **podręczna** (*cache consistency*), zwana **koherencją**, oraz **procesorowa** (*processor consistency*). Przy dostępie synchronizowanym: **słaba** (*weak*), **zwalniania** (*release*), **wejścia** (*entry*) i **zakresu** (*scope*) — te prezentacje jedynie wymieniają.
+Przy **dostępie ogólnym**:
+
+- **spójność atomowa** (*atomic consistency*), zwana też **liniowością** (*linearizability*),
+- **sekwencyjna** (*sequential*),
+- **przyczynowa** (*causal*),
+- **PRAM** (*pipelined RAM*),
+- **podręczna** (*cache consistency*), zwana **koherencją**,
+- **procesorowa** (*processor consistency*).
+
+Przy **dostępie synchronizowanym** (te prezentacje jedynie wymieniają):
+
+- **słaba** (*weak*),
+- **zwalniania** (*release*),
+- **wejścia** (*entry*),
+- **zakresu** (*scope*).
 
 ## Formalizm
 
 System DSM to zbiór **sekwencyjnych** procesów $P = \{p_1, \ldots, p_n\}$ i zbiór **współdzielonych zmiennych** $X = \{x_1, x_2, \ldots\}$, przy czym **każdy proces ma własną replikę całego zbioru $X$**. Proces $p_i$ wykonuje na zmiennej $x$ operacje **zapisu** $w_i(x)v$ i **odczytu** $r_i(x)v$, a każda operacja przebiega w **dwóch fazach**: **żądania** (*operation issue*) i **wykonania** (*operation execution*). Rozdzielenie tych faz jest tym, co w ogóle umożliwia rozbieżność porządków.
 
-Oznaczenia: $O$ to zbiór wszystkich operacji, $O_i$ — operacji procesu $p_i$, $OW$ — wszystkich zapisów, $O\vert x$ — operacji na zmiennej $x$. Relacja $\rightarrow_i$ to **lokalny porządek** operacji procesu $p_i$, $\rightarrow$ to **porządek przyczynowy**, a $\mapsto_i$ to **uszeregowanie**, w jakim operacje są postrzegane przez proces $p_i$.
+Oznaczenia zbiorów:
 
-**Historia lokalna** procesu to zbiór **liniowo** uporządkowany $h_i = (O_i, \rightarrow_i)$; **historia globalna** to zbiór **częściowo** uporządkowany $h = (O, \rightarrow)$. **Obraz historii w procesie $p_i$** to zbiór liniowo uporządkowany $hv_i = (O_i \cup OW, \mapsto_i)$ — proces widzi **własne operacje oraz wszystkie zapisy w systemie**. **Obraz historii** to kolekcja $hv = \langle hv_1, \ldots, hv_n \rangle$.
+- $O$ — zbiór wszystkich operacji,
+- $O_i$ — operacji procesu $p_i$,
+- $OW$ — wszystkich zapisów,
+- $O\vert x$ — operacji na zmiennej $x$.
+
+Oznaczenia relacji:
+
+- $\rightarrow_i$ — **lokalny porządek** operacji procesu $p_i$,
+- $\rightarrow$ — **porządek przyczynowy**,
+- $\mapsto_i$ — **uszeregowanie**, w jakim operacje są postrzegane przez proces $p_i$.
+
+Historie i obrazy:
+
+- **Historia lokalna** procesu — zbiór **liniowo** uporządkowany $h_i = (O_i, \rightarrow_i)$.
+- **Historia globalna** — zbiór **częściowo** uporządkowany $h = (O, \rightarrow)$.
+- **Obraz historii w procesie $p_i$** — zbiór liniowo uporządkowany $hv_i = (O_i \cup OW, \mapsto_i)$; proces widzi **własne operacje oraz wszystkie zapisy w systemie**.
+- **Obraz historii** — kolekcja $hv = \langle hv_1, \ldots, hv_n \rangle$.
 
 Uszeregowanie $\mapsto_i$ jest **legalne** wtedy, gdy każdy odczyt zwraca wartość pewnego zapisu, a **między tym zapisem a odczytem nie ma w uszeregowaniu innej operacji na tej samej zmiennej o innej wartości**:
 $$\forall_{\substack{w(x)v \in OW \\ r(x)v \in O_i}} \left( w(x)v \mapsto_i r(x)v \wedge \nexists_{o(x)u \in O_i \cup OW} [\, u \neq v \wedge w(x)v \mapsto_i o(x)u \mapsto_i r(x)v \,] \right)$$
@@ -85,7 +152,14 @@ Jest to więc spójność sekwencyjna „per zmienna", bez żadnych gwarancji **
 Modele układają się w zagnieżdżenie, w którym model wewnętrzny jest **słabszy**:
 $$\text{atomowa} \subset \text{sekwencyjna} \subset \text{przyczynowa} \subset \text{PRAM}$$
 $$\text{procesorowa} = \text{PRAM} \cap \text{koherencja}$$
-Idąc od zewnątrz: atomowa zachowuje czas rzeczywisty, sekwencyjna rezygnuje z niego na rzecz porządków lokalnych, przyczynowa rezygnuje ze wspólnego porządku zapisów, PRAM — z przyczynowości między procesami. Spójność podręczna stoi z boku: nie leży na tej osi, bo ogranicza się do pojedynczej zmiennej, a dopiero jej złożenie z PRAM daje spójność procesorową.
+Idąc od zewnątrz:
+
+- **atomowa** — zachowuje czas rzeczywisty,
+- **sekwencyjna** — rezygnuje z niego na rzecz porządków lokalnych,
+- **przyczynowa** — rezygnuje ze wspólnego porządku zapisów,
+- **PRAM** — rezygnuje z przyczynowości między procesami.
+
+Spójność podręczna stoi z boku: nie leży na tej osi, bo ogranicza się do pojedynczej zmiennej, a dopiero jej złożenie z PRAM daje spójność procesorową.
 
 ## Protokoły realizujące modele
 
@@ -93,7 +167,14 @@ Protokoły mają wspólny schemat: odczyt czyta lokalną replikę $M_i[x]$, zapi
 
 Wariant **fast-read** (odczyt natychmiastowy, zapis blokuje do rozgłoszenia) i **fast-write** (zapis natychmiastowy, odczyt blokuje, dopóki są niepotwierdzone własne zapisy) istnieje dla spójności sekwencyjnej i podręcznej. Dla procesorowej podaje się wariant fast-write. Modele przyczynowy i PRAM nie blokują nigdzie — zapis od razu aktualizuje replikę lokalną i rozgłasza dalej.
 
-Kluczowy wzorzec, który warto umieć wypowiedzieć: **rodzaj rozgłaszania użytego w protokole odpowiada wprost realizowanemu modelowi**. Rozgłaszanie atomowe (totalne) daje spójność sekwencyjną, przyczynowe — przyczynową, FIFO — PRAM, a warianty indeksowane zmienną (`atomicx`, `FIFOx`, czyli porządek utrzymywany **osobno dla każdej zmiennej**) — spójność podręczną i procesorową. Model spójności danych jest więc **odbiciem porządku dostarczania komunikatów**, którym uspójniamy repliki; zob. [[RSO Z1 Komunikacja grupowa#Porządki dostarczania|zagadnienie 1]]. Pseudokody: [[RSO 02 Danocentryczne modele spójności#Protokoły realizujące modele|RSO 02]].
+Kluczowy wzorzec, który warto umieć wypowiedzieć: **rodzaj rozgłaszania użytego w protokole odpowiada wprost realizowanemu modelowi**:
+
+- rozgłaszanie **atomowe (totalne)** — spójność **sekwencyjna**,
+- rozgłaszanie **przyczynowe** — spójność **przyczynowa**,
+- rozgłaszanie **FIFO** — **PRAM**,
+- warianty **indeksowane zmienną** (`atomicx`, `FIFOx`, czyli porządek utrzymywany **osobno dla każdej zmiennej**) — spójność **podręczna** i **procesorowa**.
+
+Model spójności danych jest więc **odbiciem porządku dostarczania komunikatów**, którym uspójniamy repliki; zob. [[RSO Z1 Komunikacja grupowa#Porządki dostarczania|zagadnienie 1]]. Pseudokody: [[RSO 02 Danocentryczne modele spójności#Protokoły realizujące modele|RSO 02]].
 
 ---
 ## Czego w prezentacjach nie ma

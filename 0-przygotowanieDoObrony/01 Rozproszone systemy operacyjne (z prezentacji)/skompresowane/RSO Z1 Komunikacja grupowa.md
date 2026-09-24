@@ -12,7 +12,12 @@ zagadnienie: 1
 
 **Komunikacja grupowa** (*group communication*) to mechanizm umożliwiający **rozsyłanie** (*multicast*) wiadomości przez organizowanie procesów — szerzej: obiektów — w **grupy**. Nieformalnie **rozgłaszanie** to abstrakcja komunikacyjna, za pomocą której proces wysyła wiadomość do grupy procesów; w mechanizmach **niezawodnych** dochodzą gwarancje utrzymywane **pomimo awarii**. Pozwala to modelować niezawodną komunikację przy założeniu, że zbiór procesów **dynamicznie się zmienia**. Typowe zastosowania to systemy z wieloma uczestnikami oraz **zwielokrotnianie** (replikacja).
 
-Zagadnienie rozpada się na **dwa aspekty**: **zarządzanie grupami procesów** (usługa członkostwa, *membership service*) oraz **algorytmy niezawodnego rozsyłania wiadomości w grupie**. Cała reszta zagadnienia to rozwinięcie tych dwóch.
+Zagadnienie rozpada się na **dwa aspekty**:
+
+- **Zarządzanie grupami procesów** — usługa członkostwa (*membership service*).
+- **Algorytmy niezawodnego rozsyłania wiadomości w grupie**.
+
+Cała reszta zagadnienia to rozwinięcie tych dwóch.
 
 ### Grupa i obraz grupy
 
@@ -20,14 +25,31 @@ Zagadnienie rozpada się na **dwa aspekty**: **zarządzanie grupami procesów** 
 
 ### Architektura i dwa poziomy przekazania wiadomości
 
-Aplikacja rozmawia z **warstwą komunikacji grupowej** przez trzy operacje: **wyślij** (w dół), **odbierz** (w górę) i **zmiana_obrazu** (w górę); z zewnątrz do warstwy docierają sygnały **awaria** i **powrót**.
+Aplikacja rozmawia z **warstwą komunikacji grupowej** przez trzy operacje:
+
+- **wyślij** — w dół,
+- **odbierz** — w górę,
+- **zmiana_obrazu** — w górę.
+
+Z zewnątrz do warstwy docierają dodatkowo sygnały **awaria** i **powrót**.
 
 Stąd bierze się rozróżnienie, na którym opiera się cała reszta zagadnienia: **odebranie** wiadomości przez warstwę komunikacyjną to nie to samo co jej **dostarczenie** aplikacji. Wiadomość odebrana może zostać zabuforowana i przekazana w górę dopiero wtedy, gdy pozwoli na to wymagany porządek. **Porządek dostarczania może więc różnić się od porządku odbioru** — i to właśnie buforowanie realizuje wszystkie porządki opisane niżej.
 
-Przykładowe systemy komunikacji grupowej (GCS): **ISIS** (pionierski), **Horus/Ensemble** (jego nowoczesna wersja), **JGroups** (dla Javy), **Transis**.
+Przykładowe systemy komunikacji grupowej (GCS):
+
+- **ISIS** — pionierski.
+- **Horus/Ensemble** — jego nowoczesna wersja.
+- **JGroups** — dla Javy.
+- **Transis**.
 
 > [!note] Uzupełnienie spoza prezentacji — klasyfikacja grup
-> Prezentacje definiują tylko grupę i obraz grupy. Lista egzaminacyjna wymaga ponadto podziałów: **grupa zamknięta** (wiadomości wysyłają wyłącznie jej członkowie, np. zbiór replik) vs **otwarta** (może do niej wysłać dowolny proces z zewnątrz, np. klient replikowanego serwisu); **płaska** (wszyscy równorzędni, brak pojedynczego punktu awarii, ale kosztowne uzgadnianie) vs **hierarchiczna** (jest koordynator, decyzje prostsze, ale koordynator jest SPoF); **statyczna** (stały skład) vs **dynamiczna** (procesy dołączają, odchodzą i ulegają awariom). Źródło: [[01 Komunikacja grupowa]].
+> Prezentacje definiują tylko grupę i obraz grupy. Lista egzaminacyjna wymaga ponadto trzech podziałów:
+>
+> - **zamknięta** (wiadomości wysyłają wyłącznie jej członkowie, np. zbiór replik) vs **otwarta** (może do niej wysłać dowolny proces z zewnątrz, np. klient replikowanego serwisu);
+> - **płaska** (wszyscy równorzędni, brak pojedynczego punktu awarii, ale kosztowne uzgadnianie) vs **hierarchiczna** (jest koordynator, decyzje prostsze, ale koordynator jest SPoF);
+> - **statyczna** (stały skład) vs **dynamiczna** (procesy dołączają, odchodzą i ulegają awariom).
+>
+> Źródło: [[01 Komunikacja grupowa]].
 
 ## Usługa członkostwa i synchronizacja widoków
 
@@ -38,17 +60,15 @@ Przykładowe systemy komunikacji grupowej (GCS): **ISIS** (pionierski), **Horus/
 
 ## Własności rozgłaszania niezawodnego
 
-Specyfikacje wszystkich mechanizmów budowane są z tego samego zestawu własności.
+Specyfikacje wszystkich mechanizmów budowane są z tego samego zestawu własności:
 
-**Ważność** (*validity*) — wiadomość rozgłoszona przez proces poprawny zostaje ostatecznie dostarczona. W wariancie **best-effort** dotyczy tylko par procesów poprawnych: jeżeli $P_i$ oraz $P_j$ są poprawne, to każda wiadomość rozgłoszona przez $P_i$ trafi ostatecznie do $P_j$.
+- **Ważność** (*validity*) — wiadomość rozgłoszona przez proces poprawny zostaje ostatecznie dostarczona. W wariancie **best-effort** dotyczy tylko par procesów poprawnych: jeżeli $P_i$ oraz $P_j$ są poprawne, to każda wiadomość rozgłoszona przez $P_i$ trafi ostatecznie do $P_j$.
+- **Brak powielania** (*no duplication*) — wiadomość dostarczona jest dostarczona **co najwyżej raz**.
+- **Brak samogeneracji** (*no creation*) — jeżeli wiadomość została dostarczona, to wcześniej została przez jakiś proces rozgłoszona.
+- **Zgodność** (*agreement*) — jeżeli wiadomość odebrał pewien **poprawny** proces, to ostatecznie odbiorą ją **wszystkie procesy poprawne**.
+- **Jednolita zgodność** (*uniform agreement*) — jeżeli wiadomość odebrał **jakikolwiek** proces, poprawny **bądź niepoprawny**, to ostatecznie odbiorą ją wszystkie procesy poprawne.
 
-**Brak powielania** (*no duplication*) — wiadomość dostarczona jest dostarczona **co najwyżej raz**.
-
-**Brak samogeneracji** (*no creation*) — jeżeli wiadomość została dostarczona, to wcześniej została przez jakiś proces rozgłoszona. Dwie ostatnie własności bywają łącznie nazywane **integralnością**.
-
-**Zgodność** (*agreement*) — jeżeli wiadomość odebrał pewien **poprawny** proces, to ostatecznie odbiorą ją **wszystkie procesy poprawne**.
-
-**Jednolita zgodność** (*uniform agreement*) — jeżeli wiadomość odebrał **jakikolwiek** proces, poprawny **bądź niepoprawny**, to ostatecznie odbiorą ją wszystkie procesy poprawne.
+Brak powielania i brak samogeneracji bywają łącznie nazywane **integralnością**.
 
 Różnica między dwiema ostatnimi własnościami jest jedyną, która dzieli RB od URB, i warto ją umieć wypowiedzieć wprost: w **RB** wiadomość odebrana wyłącznie przez proces, który zaraz potem uległ awarii, **może przepaść** — pozostałe procesy nie muszą jej dostać. W **URB** takie odebranie już „zaraża": skoro ktokolwiek ją zobaczył, muszą ją zobaczyć wszyscy poprawni. URB jest potrzebne wszędzie tam, gdzie proces mógł na podstawie odebranej wiadomości wykonać **widoczny na zewnątrz** efekt, zanim padł.
 
@@ -96,7 +116,11 @@ Zestawienie obu jest klasycznym kompromisem: **detektor awarii kupuje nam niższ
 
 ### Porządek przyczynowy
 
-Relacja $m_1 \rightarrow m_2$ („$m_1$ przyczynowo poprzedza $m_2$") zachodzi, gdy: **(a)** obie wiadomości rozgłosił ten sam proces, $m_1$ przed $m_2$; **(b)** $m_1$ została odebrana przez pewien proces $P_i$, a $m_2$ została rozgłoszona przez $P_i$ **po odebraniu** $m_1$; **(c)** istnieje $m_3$ takie, że dla pary $m_1, m_3$ oraz pary $m_3, m_2$ zachodzi (a) lub (b) — czyli przez **domknięcie przechodnie**.
+Relacja $m_1 \rightarrow m_2$ („$m_1$ przyczynowo poprzedza $m_2$") zachodzi w trzech przypadkach:
+
+- **(a)** obie wiadomości rozgłosił ten sam proces, $m_1$ przed $m_2$;
+- **(b)** $m_1$ została odebrana przez pewien proces $P_i$, a $m_2$ została rozgłoszona przez $P_i$ **po odebraniu** $m_1$;
+- **(c)** istnieje $m_3$ takie, że dla pary $m_1, m_3$ oraz pary $m_3, m_2$ zachodzi (a) lub (b) — czyli przez **domknięcie przechodnie**.
 
 **RCB** to RB plus warunek **causal order**: proces nie odbierze $m_2$, dopóki nie odebrał wszystkich $m_1$ takich, że $m_1 \rightarrow m_2$. Ponieważ punkt (a) definicji to dokładnie warunek FIFO, **RCB $\Rightarrow$ RFB**. Typowy kontrprzykład odwrotnej implikacji: $P_1$ rozgłasza $m_1$, $P_2$ po jej dostarczeniu rozgłasza odpowiedź $m_2$, a $P_3$ dostarcza $m_2$ przed $m_1$ — FIFO spełnione (różni nadawcy), przyczynowość naruszona.
 

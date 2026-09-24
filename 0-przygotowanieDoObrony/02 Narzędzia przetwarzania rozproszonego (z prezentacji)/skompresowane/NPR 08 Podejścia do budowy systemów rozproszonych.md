@@ -12,19 +12,26 @@ zagadnienie: 8
 
 Wszystkie podejścia rozwiązują ten sam problem — jak dwa procesy na różnych maszynach mają ze sobą współpracować — i różnią się odpowiedzią na jedno pytanie: **czy ukrywać fakt rozproszenia, czy go ujawnić**.
 
-Jedna rodzina ukrywa. **Zdalne wywoływanie procedur** i **zdalne wywoływanie metod** udają, że wywołanie jest lokalne: programista pisze zwykłe wywołanie, a namiastki chowają sieć. Cena jest stała — udawanie załamuje się przy awariach, bo lokalne wywołanie nie może „nie dojść", a zdalne może. Stąd cały aparat semantyk błędu.
+Rysują się trzy odpowiedzi:
 
-Druga rodzina ujawnia. **Przekazywanie komunikatów**, **systemy kolejkowania** i **przestrzeń krotek** wymagają jawnych operacji wysłania i odebrania. Programista widzi, że coś jest przesyłane, i musi się z tym liczyć — ale w zamian dostaje rozłączenie stron w czasie i przestrzeni, którego pierwsza rodzina nie potrafi dać.
-
-Osobno stoją **spotkania Ady**, które ujawniają rozproszenie, ale nie w celu rozłączenia stron — przeciwnie, w celu ich ścisłej synchronizacji.
+- **Rodzina, która ukrywa** — **zdalne wywoływanie procedur** i **zdalne wywoływanie metod** udają, że wywołanie jest lokalne: programista pisze zwykłe wywołanie, a namiastki chowają sieć. Cena jest stała — udawanie załamuje się przy awariach, bo lokalne wywołanie nie może „nie dojść", a zdalne może. Stąd cały aparat semantyk błędu.
+- **Rodzina, która ujawnia** — **przekazywanie komunikatów**, **systemy kolejkowania** i **przestrzeń krotek** wymagają jawnych operacji wysłania i odebrania. Programista widzi, że coś jest przesyłane, i musi się z tym liczyć, ale w zamian dostaje rozłączenie stron w czasie i przestrzeni, którego pierwsza rodzina nie potrafi dać.
+- **Osobno: spotkania Ady** — ujawniają rozproszenie, ale nie w celu rozłączenia stron; przeciwnie, w celu ich ścisłej synchronizacji.
 
 ## Sprzężenie w czasie i przestrzeni
 
 Dwa wymiary, po których podejścia się różnią najostrzej.
 
-**Sprzężenie w przestrzeni** to pytanie, czy nadawca musi znać odbiorcę. W RPC i RMI musi — potrzebuje jego identyfikatora komunikacyjnego, choćby uzyskanego z łącznika. W systemach kolejkowania nie musi: zna tylko nazwę **kolejki** albo **tematu**, a kto po drugiej stronie odbierze, jest jego sprawą. W przestrzeni krotek nie ma nawet nazwy skrzynki — jest **opis treści**, czyli identyfikacja **asocjacyjna**.
+**Sprzężenie w przestrzeni** to pytanie, czy nadawca musi znać odbiorcę:
 
-**Sprzężenie w czasie** to pytanie, czy obie strony muszą działać jednocześnie. W RPC, RMI i w spotkaniach Ady muszą. W systemach kolejkowania i w przestrzeni krotek nie muszą — komunikat przeżywa nieobecność obu stron, co nazywa się **komunikacją nieustanną** (w odróżnieniu od **przejściowej**, w której komunikat jest utrzymywany tylko dopóki żyją nadawca i odbiorca).
+- **RPC i RMI** — musi; potrzebuje jego identyfikatora komunikacyjnego, choćby uzyskanego z łącznika.
+- **Systemy kolejkowania** — nie musi; zna tylko nazwę **kolejki** albo **tematu**, a kto po drugiej stronie odbierze, jest jego sprawą.
+- **Przestrzeń krotek** — nie ma nawet nazwy skrzynki; jest **opis treści**, czyli identyfikacja **asocjacyjna**.
+
+**Sprzężenie w czasie** to pytanie, czy obie strony muszą działać jednocześnie:
+
+- **RPC, RMI i spotkania Ady** — muszą.
+- **Systemy kolejkowania i przestrzeń krotek** — nie muszą; komunikat przeżywa nieobecność obu stron, co nazywa się **komunikacją nieustanną** (w odróżnieniu od **przejściowej**, w której komunikat jest utrzymywany tylko dopóki żyją nadawca i odbiorca).
 
 Im luźniejsze sprzężenie, tym trudniej wnioskować o globalnym przebiegu obliczenia — i tym łatwiej wymieniać, restartować i skalować poszczególne składniki.
 

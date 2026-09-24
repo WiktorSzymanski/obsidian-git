@@ -13,11 +13,23 @@ zagadnienie: 5
 
 **Elekcja** (*leader election*) to wybór spośród procesów **jednego koordynatora**, uznawanego za takiego przez wszystkie procesy poprawne. Typowo wybiera się działający proces o **największym identyfikatorze**. Elekcję uruchamia się na starcie systemu albo po wykryciu awarii dotychczasowego koordynatora.
 
-Elekcja jest cegłą, na której stoi zaskakująco dużo innych mechanizmów: koordynator w [[RSO Z4 Algorytmy wzajemnego wykluczania#Podejście scentralizowane|scentralizowanym wzajemnym wykluczaniu]], sekwencer w [[RSO Z1 Komunikacja grupowa#Porządek globalny|rozgłaszaniu totalnym]], regeneracja utraconego żetonu, koordynator protokołów 2PC i 3PC, lider w Paxosie i Rafcie.
+Elekcja jest cegłą, na której stoi zaskakująco dużo innych mechanizmów:
 
-**Wymagania** są dwa. **Bezpieczeństwo**: każdy uczestniczący proces ma $elected = \bot$ albo $elected = P$, gdzie $P$ to **ten sam** działający proces o największym identyfikatorze. **Żywotność**: wszystkie procesy poprawne ostatecznie ustalą $elected \neq \bot$.
+- koordynator w [[RSO Z4 Algorytmy wzajemnego wykluczania#Podejście scentralizowane|scentralizowanym wzajemnym wykluczaniu]],
+- sekwencer w [[RSO Z1 Komunikacja grupowa#Porządek globalny|rozgłaszaniu totalnym]],
+- regeneracja utraconego żetonu,
+- koordynator protokołów 2PC i 3PC,
+- lider w Paxosie i Rafcie.
 
-**Założenia**: procesy mają **unikalne, porównywalne identyfikatory**, a elekcję może rozpocząć **jednocześnie wiele procesów** — algorytm musi więc znosić współbieżnych inicjatorów.
+**Wymagania** są dwa:
+
+- **Bezpieczeństwo** — każdy uczestniczący proces ma $elected = \bot$ albo $elected = P$, gdzie $P$ to **ten sam** działający proces o największym identyfikatorze.
+- **Żywotność** — wszystkie procesy poprawne ostatecznie ustalą $elected \neq \bot$.
+
+**Założenia**:
+
+- procesy mają **unikalne, porównywalne identyfikatory**,
+- elekcję może rozpocząć **jednocześnie wiele procesów** — algorytm musi więc znosić współbieżnych inicjatorów.
 
 ## Algorytm tyrana (Bully)
 
@@ -43,7 +55,13 @@ Rozwiązuje elekcję, gdy topologia jest **dowolnym grafem**. Każdy inicjator u
 
 ## Elekcja z losowością — Raft
 
-Raft (2014) porządkuje czas **kadencjami** (*term*), a procesy trzyma w stanach *follower*, *candidate* i *leader*. Follower, który przez **losowy** timeout nie dostał heartbeatu, zwiększa kadencję, głosuje na siebie i prosi innych o głos; każdy proces oddaje w danej kadencji **co najwyżej jeden głos**, i to tylko na kandydata z logiem nie starszym niż własny. Liderem zostaje ten, kto zbierze **większość**. Losowość timeoutów istnieje po to, by **minimalizować podział głosów**, a wymóg większości gwarantuje, że w jednej kadencji nie da się wybrać dwóch liderów.
+Raft (2014) porządkuje czas **kadencjami** (*term*), a procesy trzyma w trzech stanach:
+
+- *follower*,
+- *candidate*,
+- *leader*.
+
+Follower, który przez **losowy** timeout nie dostał heartbeatu, zwiększa kadencję, głosuje na siebie i prosi innych o głos; każdy proces oddaje w danej kadencji **co najwyżej jeden głos**, i to tylko na kandydata z logiem nie starszym niż własny. Liderem zostaje ten, kto zbierze **większość**. Losowość timeoutów istnieje po to, by **minimalizować podział głosów**, a wymóg większości gwarantuje, że w jednej kadencji nie da się wybrać dwóch liderów.
 
 ## Elekcja a model systemu
 

@@ -11,15 +11,34 @@ zagadnienie: 23
 ## Model systemu
 
 ### System synchroniczny i rundy
-**System synchroniczny** $\mathbb{S}^{Sync}$ opisuje się przez cztery założenia. Kanał między procesami może w dowolnej chwili przechowywać **co najwyżej jedną wiadomość**. **Funkcja tranzycji stanu** odwzorowuje deterministycznie bieżący stan procesu i wektor wiadomości przychodzących na stan nowy. **Funkcja generacji wiadomości** odwzorowuje stan procesu i jego sąsiadów na wiadomości do wysłania. Wykonanie całego systemu rozpoczyna się z procesami w dowolnych stanach początkowych i **wszystkimi kanałami pustymi**.
+**System synchroniczny** $\mathbb{S}^{Sync}$ opisuje się przez cztery założenia:
 
-Procesy działają **krok w krok** (*lock-step*), powtarzając parę kroków nazywaną **rundą**. W pierwszym kroku każdy proces generuje zgodnie ze swoim stanem wiadomości do sąsiadów i umieszcza je w odpowiednich kanałach. W drugim stosuje funkcję tranzycji do swojego stanu i wiadomości przychodzących, przechodząc do stanu nowego, po czym kanały zostają opróżnione. Synchroniczność oznacza więc nie tyle wspólny zegar, ile **znane granice czasowe pozwalające podzielić wykonanie na rundy**.
+- **Pojemność kanału** — kanał między procesami może w dowolnej chwili przechowywać **co najwyżej jedną wiadomość**.
+- **Funkcja tranzycji stanu** — odwzorowuje deterministycznie bieżący stan procesu i wektor wiadomości przychodzących na stan nowy.
+- **Funkcja generacji wiadomości** — odwzorowuje stan procesu i jego sąsiadów na wiadomości do wysłania.
+- **Stan początkowy** — wykonanie całego systemu rozpoczyna się z procesami w dowolnych stanach początkowych i **wszystkimi kanałami pustymi**.
+
+Procesy działają **krok w krok** (*lock-step*), powtarzając parę kroków nazywaną **rundą**:
+
+1. Każdy proces generuje zgodnie ze swoim stanem wiadomości do sąsiadów i umieszcza je w odpowiednich kanałach.
+2. Każdy proces stosuje funkcję tranzycji do swojego stanu i wiadomości przychodzących, przechodząc do stanu nowego, po czym kanały zostają opróżnione.
+
+Synchroniczność oznacza więc nie tyle wspólny zegar, ile **znane granice czasowe pozwalające podzielić wykonanie na rundy**.
 
 ### Rozszerzenia modelu
-Zapis $\mathbb{S}\{M\}$ oznacza system $\mathbb{S}$ **wzbogacony o dodatkowy mechanizm** $M$. Notacja ta porządkuje całe zagadnienie, bo większość wyników brzmi „w tym modelu problem jest nierozwiązywalny, ale po dodaniu mechanizmu $M$ staje się rozwiązywalny". Najważniejsze warianty to $\mathbb{S}^{Sync}\{\varnothing\}$ — system synchroniczny bez dodatków, $\mathbb{S}^{Sync}\{C\}$ — z kryptograficznym podpisem cyfrowym, $\mathbb{S}^{Async}\{FD\}$ — system asynchroniczny z detektorem awarii, oraz $\mathbb{S}^{Async}\{\text{stable storage}\}$ i $\mathbb{S}^{Async}\{\text{Election}\}$, wykorzystywane przy omawianiu Paxosa.
+Zapis $\mathbb{S}\{M\}$ oznacza system $\mathbb{S}$ **wzbogacony o dodatkowy mechanizm** $M$. Notacja ta porządkuje całe zagadnienie, bo większość wyników brzmi „w tym modelu problem jest nierozwiązywalny, ale po dodaniu mechanizmu $M$ staje się rozwiązywalny". Najważniejsze warianty:
+
+- $\mathbb{S}^{Sync}\{\varnothing\}$ — system synchroniczny bez dodatków.
+- $\mathbb{S}^{Sync}\{C\}$ — z kryptograficznym podpisem cyfrowym.
+- $\mathbb{S}^{Async}\{FD\}$ — system asynchroniczny z detektorem awarii.
+- $\mathbb{S}^{Async}\{\text{stable storage}\}$ i $\mathbb{S}^{Async}\{\text{Election}\}$ — wykorzystywane przy omawianiu Paxosa.
 
 ### Rodzaje awarii
-Rozważa się zarówno awarie procesów, jak i awarie łączy. **Awaria zatrzymania** (*stopping failure*) polega na tym, że proces przerywa wykonanie w dowolnym momencie — przed krokiem pierwszym lub drugim, po nim, a także **w środku kroku pierwszego**, umieszczając w kanałach jedynie **podzbiór** wiadomości, które miał wysłać. **Awaria bizantyjska** oznacza, że proces może wygenerować swój kolejny stan i kolejne wiadomości w **dowolny sposób**, niezależnie od funkcji tranzycji i funkcji generacji wiadomości. **Awaria łącza** polega na **gubieniu wiadomości**: proces próbuje umieścić wiadomość w kanale, ale uszkodzone łącze jej nie rejestruje.
+Rozważa się zarówno awarie procesów, jak i awarie łączy:
+
+- **Awaria zatrzymania** (*stopping failure*) — proces przerywa wykonanie w dowolnym momencie: przed krokiem pierwszym lub drugim, po nim, a także **w środku kroku pierwszego**, umieszczając w kanałach jedynie **podzbiór** wiadomości, które miał wysłać.
+- **Awaria bizantyjska** — proces może wygenerować swój kolejny stan i kolejne wiadomości w **dowolny sposób**, niezależnie od funkcji tranzycji i funkcji generacji wiadomości.
+- **Awaria łącza** — **gubienie wiadomości**: proces próbuje umieścić wiadomość w kanale, ale uszkodzone łącze jej nie rejestruje.
 
 ### Przemilczenia
 Ponieważ proces wadliwy może po prostu odmówić wysłania wiadomości, proces poprawny może nigdy nie doczekać się oczekiwanego komunikatu. Przyjmuje się wówczas, że odbiorca **wybiera dowolną wartość domyślną** i działa tak, jakby komunikat został odebrany. Wymaga to jednak, by **brak komunikatu dał się wykryć**, co w systemie synchronicznym jest proste: skoro czas trwania rundy jest znany, wszystkie komunikaty nieotrzymane do jej końca uznaje się za niewysłane. To założenie odróżnia później algorytm na komunikatach ustnych, gdzie brak komunikatu liczy się jako konkretna wartość, od algorytmu na komunikatach podpisanych, gdzie brak komunikatu jest po prostu ignorowany.
@@ -27,12 +46,22 @@ Ponieważ proces wadliwy może po prostu odmówić wysłania wiadomości, proces
 ## Problemy uzgadniania
 
 ### Skoordynowany atak
-**Skoordynowany atak** (*coordinated attack*) jest najprostszym problemem uzgadniania i punktem wyjścia dla pozostałych. Nieformalnie: kilku generałów planuje atak z różnych kierunków na wspólny cel, przy czym **jedyną drogą powodzenia jest zaatakowanie wszystkich naraz**; każdy ma początkową opinię, czy jego armia jest gotowa, a porozumiewają się wyłącznie przez posłańców, którzy mogą zostać zgubieni lub schwytani. Formalnie, przy oznaczeniach $1 = \text{atak}$ i $0 = \text{odwrót}$, wymaga się trzech własności. **Terminacja** (*liveness*) — wszystkie procesy w końcu decydują. **Zgodność** (*safety*) — żadne dwa procesy nie decydują o różnych wartościach. **Słaba ważność** (*Weak Validity*) — jeżeli wszystkie procesy startują z wartością 0, to jedyną możliwą decyzją jest 0; jeżeli wszystkie startują z wartością 1 **i wszystkie komunikaty zostaną dostarczone**, to jedyną możliwą decyzją jest 1.
+**Skoordynowany atak** (*coordinated attack*) jest najprostszym problemem uzgadniania i punktem wyjścia dla pozostałych. Nieformalnie: kilku generałów planuje atak z różnych kierunków na wspólny cel, przy czym **jedyną drogą powodzenia jest zaatakowanie wszystkich naraz**; każdy ma początkową opinię, czy jego armia jest gotowa, a porozumiewają się wyłącznie przez posłańców, którzy mogą zostać zgubieni lub schwytani. Formalnie, przy oznaczeniach $1 = \text{atak}$ i $0 = \text{odwrót}$, wymaga się trzech własności:
+
+- **Terminacja** (*liveness*) — wszystkie procesy w końcu decydują.
+- **Zgodność** (*safety*) — żadne dwa procesy nie decydują o różnych wartościach.
+- **Słaba ważność** (*Weak Validity*) — jeżeli wszystkie procesy startują z wartością 0, to jedyną możliwą decyzją jest 0; jeżeli wszystkie startują z wartością 1 **i wszystkie komunikaty zostaną dostarczone**, to jedyną możliwą decyzją jest 1.
 
 Warunek ważności jest tu celowo osłabiony: jeśli choćby jeden proces startuje z jedynką, algorytm wolno zdecydować na 1, a jeśli wszystkie startują z jedynką, ale wszystkie komunikaty zostaną zgubione, wolno zdecydować na 0. Mimo tak słabego wymagania problem pozostaje nierozwiązywalny, o czym dalej.
 
 ### Konsensus
-**Konsensus** jest bezpośrednim uogólnieniem skoordynowanego ataku — ten ostatni to w istocie konsensus binarny. Każdy proces rozgłasza swoją wartość początkową, przy czym wartości różnych procesów mogą się różnić. Wymaga się trzech własności: **terminacja** — każdy proces poprawny decyduje dokładnie jedną wartość; **zgodność** — wszystkie procesy poprawne decydują tę samą wartość; **ważność** — zdecydowana wartość została **zaproponowana przez pewien proces**. Nie ma znaczenia, którą konkretnie wartość procesy uzgodnią, dopóki nie łamie to ważności, ani na co zdecydują procesy wadliwe.
+**Konsensus** jest bezpośrednim uogólnieniem skoordynowanego ataku — ten ostatni to w istocie konsensus binarny. Każdy proces rozgłasza swoją wartość początkową, przy czym wartości różnych procesów mogą się różnić. Wymaga się trzech własności:
+
+- **Terminacja** — każdy proces poprawny decyduje dokładnie jedną wartość.
+- **Zgodność** — wszystkie procesy poprawne decydują tę samą wartość.
+- **Ważność** — zdecydowana wartość została **zaproponowana przez pewien proces**.
+
+Nie ma znaczenia, którą konkretnie wartość procesy uzgodnią, dopóki nie łamie to ważności, ani na co zdecydują procesy wadliwe.
 
 Odmianą wzmacniającą jest **jednolita zgodność** (*uniform agreement*), w której żadne dwa procesy — **także takie, które później ulegną awarii** — nie decydują różnie.
 
@@ -45,16 +74,35 @@ Istotna obserwacja: gdy dowódca jest lojalny, **zgodność wynika bezpośrednio
 W **spójności interaktywnej** (*Interactive Consistency*, IC) każdy proces rozgłasza swoją wartość początkową, a procesy uzgadniają **cały wektor** $\langle v_1, v_2, \ldots, v_N \rangle$ wszystkich zaproponowanych wartości. Wymaga się, by wszystkie procesy poprawne uzgodniły **ten sam** wektor oraz by — jeśli proces $P_i$ jest poprawny — jego $i$-ta składowa była wartością przez niego zaproponowaną. Dla procesów wadliwych składowa może być dowolna, byle wspólna.
 
 ### Relacje między problemami
-Wszystkie cztery problemy są ściśle powiązane i wzajemnie sprowadzalne. BA jest **szczególnym przypadkiem** IC, w którym interesuje nas wartość początkowa tylko jednego procesu. W drugą stronę, uruchomienie $N$ równoległych kopii protokołu BA — po jednej dla każdego procesu jako źródła — **rozwiązuje IC**. Mając rozwiązanie IC, można rozwiązać konsensus: procesy poprawne obliczają decyzję jako **wartość większościową** wspólnego wektora albo po prostu biorą jego **pierwszą składową**. Wreszcie mając konsensus, można rozwiązać BA w dwóch krokach — źródło wysyła swoją wartość do wszystkich procesów **łącznie z sobą samym**, po czym wszystkie uruchamiają algorytm konsensusu, traktując otrzymane wartości jako propozycje. Jeśli źródło jest poprawne, wszyscy dostaną tę samą wartość już w kroku pierwszym; jeśli wadliwe, mogą dostać różne, ale konsensus i tak je uzgodni.
+Wszystkie cztery problemy są ściśle powiązane i wzajemnie sprowadzalne:
+
+- **BA $\subset$ IC** — BA jest **szczególnym przypadkiem** IC, w którym interesuje nas wartość początkowa tylko jednego procesu.
+- **BA $\rightarrow$ IC** — uruchomienie $N$ równoległych kopii protokołu BA, po jednej dla każdego procesu jako źródła, **rozwiązuje IC**.
+- **IC $\rightarrow$ konsensus** — procesy poprawne obliczają decyzję jako **wartość większościową** wspólnego wektora albo po prostu biorą jego **pierwszą składową**.
+- **Konsensus $\rightarrow$ BA** — w dwóch krokach: źródło wysyła swoją wartość do wszystkich procesów **łącznie z sobą samym**, po czym wszystkie uruchamiają algorytm konsensusu, traktując otrzymane wartości jako propozycje. Jeśli źródło jest poprawne, wszyscy dostaną tę samą wartość już w kroku pierwszym; jeśli wadliwe, mogą dostać różne, ale konsensus i tak je uzgodni.
 
 Z tej wzajemnej sprowadzalności **nie wynika żaden porządek liniowy** między problemami: to, że jeden daje się wyrazić przez drugi, nie znaczy, że jest od niego słabszy.
 
 ### Dalsze warianty
-Poza czterema podstawowymi problemami rozważa się warianty osłabiające wymagania na decyzję. **Konsensus $k$-zbiorowy** (*$k$-set consensus*) dopuszcza, by procesy uzgodniły **mały zbiór $k$ wartości** zamiast jednej. **Uzgodnienie przybliżone** (*approximate agreement*) wymaga jedynie, by zdecydowane wartości były **bliskie sobie nawzajem** — na przykład by wszyscy lojalni generałowie zaatakowali w odstępie nie większym niż dziesięć minut.
+Poza czterema podstawowymi problemami rozważa się warianty osłabiające (lub zmieniające) wymagania na decyzję:
 
-**Przemianowanie** (*renaming*) idzie w przeciwną stronę: wymaga, by wartości były **koniecznie różne**. Każdy proces otrzymuje nazwę $x_i$ z dziedziny $\mathbb{X}$, przy czym żądamy terminacji, przynależności nazwy do dziedziny, **różności nazw** procesów poprawnych oraz **anonimowości** — kod wykonywany przez proces **nie może zależeć od jego początkowego identyfikatora**. Problem przydaje się przy transformacji przestrzeni nazw, gdy procesy z różnych dziedzin muszą przypisać sobie różne nazwy z małej dziedziny, albo gdy identyfikatory mają służyć jako etykiety porządkujące.
+- **Konsensus $k$-zbiorowy** (*$k$-set consensus*) — dopuszcza, by procesy uzgodniły **mały zbiór $k$ wartości** zamiast jednej.
+- **Uzgodnienie przybliżone** (*approximate agreement*) — wymaga jedynie, by zdecydowane wartości były **bliskie sobie nawzajem**, na przykład by wszyscy lojalni generałowie zaatakowali w odstępie nie większym niż dziesięć minut.
+- **Przemianowanie** (*renaming*) — idzie w przeciwną stronę: wymaga, by wartości były **koniecznie różne**.
+- **Elekcja** — wybór jednego wyróżnionego procesu.
 
-**Elekcja** polega na wyborze jednego wyróżnionego procesu. W modelu procesów początkowo martwych jest trywialna i co więcej **każdy algorytm elekcji wybierający proces poprawny rozwiązuje zarazem konsensus** — wybrany lider rozgłasza swoją wartość początkową, a wszystkie procesy poprawne na nią decydują. W modelu fail-stop ta zależność zawodzi, bo lider może paść **przed** rozgłoszeniem wartości; elekcja nie jest zresztą rozwiązywalna przy awariach typu crash.
+Dwa ostatnie warianty wymagają rozwinięcia.
+
+**Przemianowanie**: każdy proces otrzymuje nazwę $x_i$ z dziedziny $\mathbb{X}$, przy czym żąda się czterech własności:
+
+- **Terminacja** — proces w końcu przyjmuje nazwę.
+- **Przynależność** nazwy do dziedziny $\mathbb{X}$.
+- **Różność nazw** procesów poprawnych.
+- **Anonimowość** — kod wykonywany przez proces **nie może zależeć od jego początkowego identyfikatora**.
+
+Problem przydaje się przy transformacji przestrzeni nazw, gdy procesy z różnych dziedzin muszą przypisać sobie różne nazwy z małej dziedziny, albo gdy identyfikatory mają służyć jako etykiety porządkujące.
+
+**Elekcja**: w modelu procesów początkowo martwych jest trywialna i co więcej **każdy algorytm elekcji wybierający proces poprawny rozwiązuje zarazem konsensus** — wybrany lider rozgłasza swoją wartość początkową, a wszystkie procesy poprawne na nią decydują. W modelu fail-stop ta zależność zawodzi, bo lider może paść **przed** rozgłoszeniem wartości; elekcja nie jest zresztą rozwiązywalna przy awariach typu crash.
 
 ### Zadanie rozproszone
 Wszystkie powyższe problemy uogólnia pojęcie **zadania rozproszonego**, opisanego zbiorami możliwych wartości wejściowych i wyjściowych oraz — być może częściową — funkcją $\mathcal{T}: \mathbb{In}^{N} \rightarrow \mathbb{Out}^{N}$. Jeśli wektor $I$ opisuje wejścia procesów, to $\mathcal{T}(I)$ jest **zbiorem legalnych wektorów decyzji**; częściowość funkcji oznacza, że nie każda kombinacja wejść jest dozwolona. Konsensus wyraża się w tym języku jako zadanie, w którym wszystkie decyzje muszą być równe, a elekcja — jako zadanie, w którym dokładnie jeden proces decyduje 1, a pozostałe 0.
@@ -82,15 +130,25 @@ Podstawą dowodu jest przypadek **trzech generałów z jednym zdrajcą**. W pier
 Naturalne pytanie brzmi, czy trudność nie bierze się z żądania **dokładnego** uzgodnienia. Odpowiedź jest przecząca: **dla uzgodnienia przybliżonego obowiązuje ten sam próg $f \geqslant \frac{1}{3}N$**. Dowodzi się tego, **przekształcając rozwiązanie AA w rozwiązanie BA**. Dowódca wysyła czas ataku, przy czym godzina 1:00 koduje atak, a 2:00 odwrót. W pierwszej fazie porucznicy uruchamiają protokół uzgodnienia przybliżonego i jeśli uzgodniony czas wypada przed 1:10, decydują atak, a jeśli po 1:50 — odwrót. W drugiej fazie ci, którzy nie podjęli decyzji, pytają drugiego porucznika, czy on zdecydował; jeśli tak, robią to samo, a jeśli nie — wycofują się. Skoro BA jest niemożliwe, niemożliwe jest i AA. Wniosek ma charakter ogólny: **samo osłabienie dokładności uzgodnienia nie ułatwia problemu**.
 
 ### Rozwiązania probabilistyczne
-Osobną rodziną są algorytmy losowe, dzielone według tego, z czego rezygnują. Algorytm jest **Monte Carlo**, jeżeli **zawsze się kończy**, a prawdopodobieństwo uzyskania poprawnej konfiguracji końcowej jest większe od zera — poświęca więc poprawność. Algorytm jest **Las Vegas**, jeżeli kończy się z prawdopodobieństwem większym od zera, ale **wszystkie konfiguracje końcowe są poprawne** — poświęca więc terminację.
+Osobną rodziną są algorytmy losowe, dzielone według tego, z czego rezygnują:
 
-Dla obu rodzin obowiązują ograniczenia. **Nie istnieje 1-odporne fail-stop rozwiązanie Monte Carlo konsensusu.** **Nie istnieje $f$-odporne fail-stop rozwiązanie Las Vegas konsensusu dla $f \geqslant \frac{N}{2}$**, natomiast dla $f < \frac{N}{2}$ takie rozwiązanie **istnieje**. Oddzielnie dowodzi się też, że **nie istnieje 1-odporne fail-stop rozwiązanie konsensusu, które zawsze się kończy** — co jest formalnym uzasadnieniem konstrukcji Paxosa.
+- **Monte Carlo** — **zawsze się kończy**, a prawdopodobieństwo uzyskania poprawnej konfiguracji końcowej jest większe od zera; poświęca więc **poprawność**.
+- **Las Vegas** — kończy się z prawdopodobieństwem większym od zera, ale **wszystkie konfiguracje końcowe są poprawne**; poświęca więc **terminację**.
+
+Dla obu rodzin obowiązują ograniczenia:
+
+- **Nie istnieje 1-odporne fail-stop rozwiązanie Monte Carlo konsensusu.**
+- **Nie istnieje $f$-odporne fail-stop rozwiązanie Las Vegas konsensusu dla $f \geqslant \frac{N}{2}$** — natomiast dla $f < \frac{N}{2}$ takie rozwiązanie **istnieje**.
+- **Nie istnieje 1-odporne fail-stop rozwiązanie konsensusu, które zawsze się kończy** — co jest formalnym uzasadnieniem konstrukcji Paxosa.
 
 ## Obejścia twierdzenia FLP
 
-Ponieważ twierdzenie FLP opiera się na trzech warunkach naraz, każdy z nich wyznacza osobną drogę wyjścia. Mimo wyników niemożliwości wiele nietrywialnych problemów ma więc rozwiązania również w systemach asynchronicznych z awariami.
+Ponieważ twierdzenie FLP opiera się na trzech warunkach naraz, każdy z nich wyznacza osobną drogę wyjścia. Mimo wyników niemożliwości wiele nietrywialnych problemów ma więc rozwiązania również w systemach asynchronicznych z awariami. W sumie dróg tych jest cztery:
 
-Pierwszą drogą jest **silniejsza synchronia** — przyjęcie modelu synchronicznego lub quasi-synchronicznego, w którym awarię da się wykryć przekroczeniem czasu oczekiwania. Drugą jest **słabszy model awarii**, w szczególności model **procesów początkowo martwych**. Trzecią jest **poświęcenie żywotności na rzecz bezpieczeństwa**, czyli osłabienie warunku terminacji do postaci „każdy proces poprawny w końcu decyduje **z prawdopodobieństwem 1**", co realizuje randomizacja, albo wręcz rezygnacja z terminacji, co realizuje Paxos. Czwartą, omówioną osobno na końcu, jest **rozszerzenie modelu o detektor awarii**, czyli przejście do $\mathbb{S}^{Async}\{FD\}$.
+- **Silniejsza synchronia** — przyjęcie modelu synchronicznego lub quasi-synchronicznego, w którym awarię da się wykryć przekroczeniem czasu oczekiwania.
+- **Słabszy model awarii** — w szczególności model **procesów początkowo martwych**.
+- **Poświęcenie żywotności na rzecz bezpieczeństwa** — osłabienie warunku terminacji do postaci „każdy proces poprawny w końcu decyduje **z prawdopodobieństwem 1**", co realizuje randomizacja, albo wręcz rezygnacja z terminacji, co realizuje Paxos.
+- **Rozszerzenie modelu o detektor awarii** — przejście do $\mathbb{S}^{Async}\{FD\}$; omówione osobno na końcu.
 
 ### Model procesów początkowo martwych
 W **modelu procesów początkowo martwych** przyjmuje się, że **żaden proces nie może ulec awarii po wykonaniu jakiegokolwiek zdarzenia** — proces albo jest martwy od początku, albo pozostanie poprawny. Model ten jest słabszy od fail-stop i w nim konsensus oraz elekcja są osiągalne **deterministycznie**, dopóki $f < \frac{N}{2}$.
@@ -104,10 +162,21 @@ Problem ten rozwiązuje **[[SWN 05 Problemy uzgadniania i wyniki niemożliwości
 ### Dlaczego typ komunikatu zmienia wszystko
 Aby osiągnąć porozumienie, procesy muszą wymieniać wartości i wielokrotnie przekazywać dalej to, co otrzymały od innych. Zdolność procesu wadliwego do **zniekształcania tego, co przekazuje**, zależy zaś od typu komunikatu i to właśnie ona przesądza o granicach możliwości.
 
-Przy **komunikatach ustnych** (*oral*, nieuwierzytelnionych) proces wadliwy może **sfałszować** komunikat, twierdząc, że otrzymał go od kogoś innego, albo **zmienić zawartość** otrzymanego komunikatu przed przekazaniem dalej. Odbiorca nie ma żadnego sposobu, by zweryfikować autentyczność. Przy **komunikatach podpisanych** (*signed*, uwierzytelnionych) proces wadliwy **nie może sfałszować** komunikatu ani zmienić jego treści, a każdy może **zweryfikować autentyczność** — procesy wadliwe wyrządzają więc znacznie mniej szkody.
+Wyróżnia się dwa typy komunikatów:
+
+- **Komunikaty ustne** (*oral*, nieuwierzytelnione) — proces wadliwy może **sfałszować** komunikat, twierdząc, że otrzymał go od kogoś innego, albo **zmienić zawartość** otrzymanego komunikatu przed przekazaniem dalej; odbiorca nie ma żadnego sposobu, by zweryfikować autentyczność.
+- **Komunikaty podpisane** (*signed*, uwierzytelnione) — proces wadliwy **nie może sfałszować** komunikatu ani zmienić jego treści, a każdy może **zweryfikować autentyczność**; procesy wadliwe wyrządzają więc znacznie mniej szkody.
 
 ### Założenia o sieci
-Dla komunikatów ustnych przyjmuje się trzy założenia: **A1** — każdy wysłany komunikat jest dostarczany poprawnie; **A2** — odbiorca komunikatu wie, kto go wysłał; **A3** — brak komunikatu może zostać wykryty. Założenia A1 i A2 uniemożliwiają zdrajcy zakłócanie komunikacji między innymi i wykluczają fałszywe komunikaty, a A3 sprawia, że zdrajca nie może zablokować postępu, po prostu milcząc. Dla komunikatów podpisanych dochodzi **A4** — podpis cyfrowy nie może zostać sfałszowany, każda zmiana komunikatu jest wykrywalna, a autentyczność podpisu może zweryfikować każdy.
+Dla komunikatów ustnych przyjmuje się trzy założenia:
+
+- **A1** — każdy wysłany komunikat jest dostarczany poprawnie.
+- **A2** — odbiorca komunikatu wie, kto go wysłał.
+- **A3** — brak komunikatu może zostać wykryty.
+
+Założenia A1 i A2 uniemożliwiają zdrajcy zakłócanie komunikacji między innymi i wykluczają fałszywe komunikaty, a A3 sprawia, że zdrajca nie może zablokować postępu, po prostu milcząc. Dla komunikatów podpisanych dochodzi czwarte:
+
+- **A4** — podpis cyfrowy nie może zostać sfałszowany, każda zmiana komunikatu jest wykrywalna, a autentyczność podpisu może zweryfikować każdy.
 
 ### Rozstrzyganie wartości
 Przy komunikatach ustnych decyzję podejmuje funkcja większościowa: $majority(v_1, \ldots, v_n)$ zwraca $v$, jeśli więcej niż $\frac{n}{2}$ wartości jest równych $v$, a w przeciwnym razie wartość domyślną 0. Ponieważ obowiązuje założenie A3, **brakujący komunikat traktuje się jako wartość 0**.
@@ -145,16 +214,48 @@ Trzy algorytmy odpowiadają trzem różnym obejściom twierdzenia FLP.
 Replikacja jest praktycznym zastosowaniem konsensusu i właśnie ona pokazuje, dlaczego wyniki niemożliwości mają znaczenie inżynierskie.
 
 ### Replikacja aktywna
-**Replikacja aktywna**, nazywana też **replikacją maszyny stanów**, polega na tym, że żądanie klienta trafia do **wszystkich replik**, a każda je przetwarza i odpowiada. Klient może wybrać strategię zbierania odpowiedzi — pierwszą, która nadejdzie, wszystkie istniejące albo ustaloną liczbę $R < n$ — i w zależności od $R$ może nawet tolerować **awarie bizantyjskie**, na przykład przy $R > 3f$.
+**Replikacja aktywna**, nazywana też **replikacją maszyny stanów**, polega na tym, że żądanie klienta trafia do **wszystkich replik**, a każda je przetwarza i odpowiada. Klient może wybrać strategię zbierania odpowiedzi:
+
+- **pierwszą**, która nadejdzie,
+- **wszystkie** istniejące,
+- ustaloną **liczbę $R < n$**.
+
+W zależności od $R$ może nawet tolerować **awarie bizantyjskie**, na przykład przy $R > 3f$.
 
 Kluczowym wymaganiem spójności jest, by **żądania były całkowicie uporządkowane**, przy czym **konkretna relacja porządkująca nie ma znaczenia** — istotne jest wyłącznie, aby wszystkie repliki przetwarzały żądania **w tej samej kolejności**. Stąd bierze się zapotrzebowanie na rozgłaszanie totalne.
 
-Replikacja aktywna **nie dopuszcza przetwarzania niedeterministycznego**, ponieważ mogłoby ono dać różne odpowiedzi na to samo żądanie. Co gorsza, takiego niedeterminizmu **nie da się odróżnić od awarii bizantyjskiej**, a głosowanie ani porozumienie bizantyjskie go nie ratują, bo każda odpowiedź może być inna. Nawet gdyby klient arbitralnie wybrał jedną odpowiedź, **stany poszczególnych replik zdążyły już się rozejść**. Zaletami są to, że klient nigdy nie musi ponawiać żądania oraz dopuszczalność awarii bizantyjskich; wadami — ograniczenie do operacji deterministycznych, większe zużycie zasobów i **brak skalowalności**, bo zwiększanie liczby replik nie podnosi przepustowości.
+Replikacja aktywna **nie dopuszcza przetwarzania niedeterministycznego**, ponieważ mogłoby ono dać różne odpowiedzi na to samo żądanie. Co gorsza, takiego niedeterminizmu **nie da się odróżnić od awarii bizantyjskiej**, a głosowanie ani porozumienie bizantyjskie go nie ratują, bo każda odpowiedź może być inna. Nawet gdyby klient arbitralnie wybrał jedną odpowiedź, **stany poszczególnych replik zdążyły już się rozejść**. Zalety:
+
+- Klient **nigdy nie musi ponawiać żądania**.
+- Dopuszczalność **awarii bizantyjskich**.
+
+Wady:
+
+- Ograniczenie do **operacji deterministycznych**.
+- Większe **zużycie zasobów**.
+- **Brak skalowalności** — zwiększanie liczby replik nie podnosi przepustowości.
 
 ### Replikacja pasywna
 **Replikacja pasywna**, czyli **primary-backup**, polega na tym, że żądanie obsługuje wyłącznie **replika główna**, która następnie rozsyła uaktualnienia do kopii zapasowych. To ona **narzuca całkowity porządek uaktualnień**, więc porządek nie musi być uzgadniany między replikami.
 
-Ponieważ żądania przetwarza tylko jedna replika, **przetwarzanie niedeterministyczne jest dozwolone** — uaktualnienia i tak zapewniają globalną spójność grupy. Niezawodność zależy jednak od repliki głównej, a jej awaria pociąga cztery konsekwencje: operacja uaktualnienia musi być **atomowa**, trzeba **wybrać nową replikę główną**, klient może zaobserwować **opóźnienie** i może być zmuszony **ponowić żądanie**, co z kolei wymaga, by każde żądanie było **jednoznacznie identyfikowane**. Dodatkowo, przy wielu klientach, żądania muszą być **zsynchronizowane ze zmianami członkostwa** w grupie. Zaletami są niskie zużycie zasobów i dopuszczalność niedeterminizmu; wadami — brak zastosowań czasu rzeczywistego wobec możliwych dużych opóźnień oraz **brak tolerancji awarii bizantyjskich**, bo klient nie może otrzymać niepoprawnej odpowiedzi.
+Ponieważ żądania przetwarza tylko jedna replika, **przetwarzanie niedeterministyczne jest dozwolone** — uaktualnienia i tak zapewniają globalną spójność grupy. Niezawodność zależy jednak od repliki głównej, a jej awaria pociąga cztery konsekwencje:
+
+- Operacja uaktualnienia musi być **atomowa**.
+- Trzeba **wybrać nową replikę główną**.
+- Klient może zaobserwować **opóźnienie**.
+- Klient może być zmuszony **ponowić żądanie**, co wymaga, by każde żądanie było **jednoznacznie identyfikowane**.
+
+Dodatkowo, przy wielu klientach, żądania muszą być **zsynchronizowane ze zmianami członkostwa** w grupie.
+
+Zalety:
+
+- Niskie **zużycie zasobów**.
+- Dopuszczalność **niedeterminizmu**.
+
+Wady:
+
+- Brak zastosowań **czasu rzeczywistego** wobec możliwych dużych opóźnień.
+- **Brak tolerancji awarii bizantyjskich** — klient nie może otrzymać niepoprawnej odpowiedzi.
 
 ### Wywołania zagnieżdżone
 Swoboda niedeterminizmu w replikacji pasywnej ma jeden wyjątek: **wywołania zagnieżdżone** (*nested invocations*). Scenariusz wygląda tak, że replika główna na podstawie decyzji niedeterministycznej wywołuje jeden serwer zaplecza, otrzymuje odpowiedź i **dopiero potem pada**. Nowa replika główna, podejmując **własną** decyzję niedeterministyczną, wywołuje **inny** serwer. W efekcie **oba serwery zaplecza zostały uaktualnione**, choć miał zostać wywołany tylko jeden — stan globalny jest niespójny.
@@ -164,7 +265,13 @@ Swoboda niedeterminizmu w replikacji pasywnej ma jeden wyjątek: **wywołania za
 Każdy typ replikacji wymaga innego rodzaju rozgłaszania: aktywna potrzebuje **rozgłaszania całkowicie uporządkowanego**, pasywna — **rozgłaszania synchronicznego względem widoków**. **Widokiem** grupy nazywa się przy tym jej skład członkowski, a każda jego zmiana, wywołana awarią lub odtworzeniem procesu, tworzy **nowy widok**.
 
 ### Rozgłaszanie niezawodne
-**RBcast** (*Reliable Broadcast*) określają trzy własności. **Terminacja** — jeśli proces poprawny rozgłasza wiadomość, to w końcu sam ją dostarcza. **Zgodność** — jeśli **jakikolwiek** proces poprawny dostarcza wiadomość, to dostarczają ją **wszystkie** procesy poprawne. **Ważność** — wiadomość została rozgłoszona przez pewien proces i jest dostarczana **co najwyżej raz**. Realizuje to **[[SWN 08 Detektory awarii i replikacja procesu#Reliable Broadcast przez dyfuzję komunikatów|rozgłaszanie przez dyfuzję komunikatów]]**, rozwiązujące problem niezawodnego rozgłaszania w $\mathbb{S}^{Async}\{\varnothing\}$ przez to, że każdy odbiorca przy **pierwszym** odebraniu danej wiadomości retransmituje ją do wszystkich.
+**RBcast** (*Reliable Broadcast*) określają trzy własności:
+
+- **Terminacja** — jeśli proces poprawny rozgłasza wiadomość, to w końcu sam ją dostarcza.
+- **Zgodność** — jeśli **jakikolwiek** proces poprawny dostarcza wiadomość, to dostarczają ją **wszystkie** procesy poprawne.
+- **Ważność** — wiadomość została rozgłoszona przez pewien proces i jest dostarczana **co najwyżej raz**.
+
+Realizuje to **[[SWN 08 Detektory awarii i replikacja procesu#Reliable Broadcast przez dyfuzję komunikatów|rozgłaszanie przez dyfuzję komunikatów]]**, rozwiązujące problem niezawodnego rozgłaszania w $\mathbb{S}^{Async}\{\varnothing\}$ przez to, że każdy odbiorca przy **pierwszym** odebraniu danej wiadomości retransmituje ją do wszystkich.
 
 ### Rozgłaszanie jednolite
 W RBcast, jeśli nadawca uległ awarii, wiadomość jest dostarczana przez wszystkie procesy poprawne **albo przez żaden**. **UBcast** (*Uniform Broadcast*) wzmacnia warunek zgodności, obejmując nim także procesy wadliwe: jeśli **jakikolwiek proces — poprawny lub nie** — dostarczy wiadomość, to **wszystkie procesy poprawne w końcu ją dostarczą**. Różnica jest zasadnicza: RBcast wiąże tylko procesy poprawne, więc proces, który dostarczył wiadomość i natychmiast padł, nie zobowiązuje nikogo; w UBcast dostarczenie przez kogokolwiek jest już zobowiązaniem dla całej grupy.
@@ -172,7 +279,12 @@ W RBcast, jeśli nadawca uległ awarii, wiadomość jest dostarczana przez wszys
 ### Rozgłaszanie totalne i synchroniczne względem widoków
 **TOcast** (*totally ordered multicast*), nazywane też **rozgłaszaniem atomowym** (ABcast), to **RBcast uzupełniony o całkowity porządek dostarczania**. Wymaga go replikacja aktywna.
 
-**VScast** (*view synchronous multicast*) zapewnia **spójny zbiór wiadomości dostarczanych mimo zmian członkostwa**. Dla dwóch kolejnych widoków $v_i$ i $v_{i+1}$ wymaga się, by wszystkie procesy poprawne należące do $v_i \cap v_{i+1}$ w końcu dostarczyły wiadomość (**zgodność**) oraz by wiadomość wysłana w widoku $v_i$ została dostarczona w każdym takim procesie **przed jakąkolwiek wiadomością z widoku $v_{i+1}$** (**ważność**). Wymaga go replikacja pasywna.
+**VScast** (*view synchronous multicast*) zapewnia **spójny zbiór wiadomości dostarczanych mimo zmian członkostwa**. Dla dwóch kolejnych widoków $v_i$ i $v_{i+1}$ wymaga się dwóch własności:
+
+- **Zgodność** — wszystkie procesy poprawne należące do $v_i \cap v_{i+1}$ w końcu dostarczą wiadomość.
+- **Ważność** — wiadomość wysłana w widoku $v_i$ zostanie dostarczona w każdym takim procesie **przed jakąkolwiek wiadomością z widoku $v_{i+1}$**.
+
+Wymaga go replikacja pasywna.
 
 Wszystkie rodzaje rozgłaszania układają się w **trójwymiarową siatkę**: z RBcast przechodzi się do TOcast przez nałożenie **porządku totalnego**, w dół przez nałożenie porządku **FIFO** i dalej **przyczynowego**, a w trzecim wymiarze — do wariantów **jednolitych**.
 
@@ -189,9 +301,17 @@ Skoro przyczyną niemożliwości jest brak zdolności odróżnienia procesu mart
 ### Zupełność i dokładność
 Detektory klasyfikuje się według dwóch niezależnych rodzin własności. **Zupełność** (*completeness*) mówi o tym, czy awarie są wykrywane; **dokładność** (*accuracy*) — czy nie ma fałszywych podejrzeń.
 
-W wariancie **silnej zupełności (SC)** w końcu **każdy** proces uszkodzony jest podejrzewany przez **każdy** proces poprawny. W wariancie **słabej zupełności (WC)** każdy uszkodzony jest podejrzewany przez **pewien** proces poprawny, przy czym każdy uszkodzony może być podejrzewany przez **inny** proces.
+Zupełność ma dwa warianty:
 
-Dokładność ma cztery warianty. **Silna dokładność (SA)** — **żaden** proces poprawny **nigdy** nie jest podejrzewany. **Słaba dokładność (WA)** — **pewien** proces poprawny nigdy nie jest podejrzewany. **Ostateczna dokładność (EA)** — żaden proces poprawny **w końcu** nie jest podejrzewany. **Ostateczna słaba dokładność (EWA)** — pewien proces poprawny w końcu nie jest podejrzewany, przy czym musi to być **ten sam** proces dla wszystkich.
+- **Silna zupełność (SC)** — w końcu **każdy** proces uszkodzony jest podejrzewany przez **każdy** proces poprawny.
+- **Słaba zupełność (WC)** — każdy uszkodzony jest podejrzewany przez **pewien** proces poprawny, przy czym każdy uszkodzony może być podejrzewany przez **inny** proces.
+
+Dokładność ma cztery warianty:
+
+- **Silna dokładność (SA)** — **żaden** proces poprawny **nigdy** nie jest podejrzewany.
+- **Słaba dokładność (WA)** — **pewien** proces poprawny nigdy nie jest podejrzewany.
+- **Ostateczna dokładność (EA)** — żaden proces poprawny **w końcu** nie jest podejrzewany.
+- **Ostateczna słaba dokładność (EWA)** — pewien proces poprawny w końcu nie jest podejrzewany, przy czym musi to być **ten sam** proces dla wszystkich.
 
 ### Osiem klas detektorów
 Kombinacje obu rodzin dają osiem klas, układających się w sześcian:
@@ -202,7 +322,12 @@ Kombinacje obu rodzin dają osiem klas, układających się w sześcian:
 | **WC** | $\mathcal{Q}$ | $\mathcal{W}$ (*weak*) | $\Diamond\mathcal{Q}$ | $\Diamond\mathcal{W}$ (*eventually weak*) |
 
 ### Dokładność ograniczona do podzbioru
-Własności dokładności **nie da się osiągnąć przy podziale sieci** na rozłączne fragmenty, bo procesy po przeciwnych stronach podziału zawsze będą się nawzajem podejrzewać. Wprowadza się więc **$\Gamma$-dokładność**, dotyczącą jedynie procesów należących do pewnego podzbioru $\Gamma$. W wariancie **silnej $\Gamma$-dokładności** żaden poprawny proces ze zbioru $\Gamma$ nie jest podejrzewany przez inny proces z tego zbioru; w wariancie **słabej** pewien poprawny proces — niekoniecznie ze zbioru $\Gamma$ — nie jest podejrzewany przez żaden proces z $\Gamma$. Zachodzi przy tym monotoniczność: jeśli $\Gamma_1 \subset \Gamma_2$ i $\Gamma$-dokładność zachodzi w $\Gamma_2$, to zachodzi też w $\Gamma_1$.
+Własności dokładności **nie da się osiągnąć przy podziale sieci** na rozłączne fragmenty, bo procesy po przeciwnych stronach podziału zawsze będą się nawzajem podejrzewać. Wprowadza się więc **$\Gamma$-dokładność**, dotyczącą jedynie procesów należących do pewnego podzbioru $\Gamma$. Ma ona dwa warianty:
+
+- **Silna $\Gamma$-dokładność** — żaden poprawny proces ze zbioru $\Gamma$ nie jest podejrzewany przez inny proces z tego zbioru.
+- **Słaba $\Gamma$-dokładność** — pewien poprawny proces, niekoniecznie ze zbioru $\Gamma$, nie jest podejrzewany przez żaden proces z $\Gamma$.
+
+Zachodzi przy tym monotoniczność: jeśli $\Gamma_1 \subset \Gamma_2$ i $\Gamma$-dokładność zachodzi w $\Gamma_2$, to zachodzi też w $\Gamma_1$.
 
 ### Redukcja i równoważność
 Dwa detektory porównuje się za pomocą **algorytmu transformacji** $T_{\mathcal{D} \rightarrow \mathcal{D}'}$. Zapis $\mathcal{D} \succeq \mathcal{D}'$ czyta się „$\mathcal{D}$ emuluje $\mathcal{D}'$", równoważnie „$\mathcal{D}'$ jest słabszy niż $\mathcal{D}$". Jeśli redukcja zachodzi w obie strony, detektory są **równoważne**, co zapisuje się $\mathcal{D} \cong \mathcal{D}'$.
@@ -221,12 +346,35 @@ Dodatkowo obowiązuje wynik wzmacniający: **każdy protokół rozwiązujący ko
 ### Rozgłaszanie niezawodne z terminacją
 **TRBcast** (*Terminating Reliable Broadcast*) przypomina RBcast, ale wymaga, by **każdy proces poprawny zawsze dostarczył dokładnie jeden komunikat** — nawet wtedy, gdy wyróżniony nadawca jest wadliwy i padł przed rozgłoszeniem. W takim przypadku procesy dostarczają **specjalny komunikat $m_F$**, w istocie pustą wartość, która nie została faktycznie rozgłoszona i której dostarczenie **dowodzi awarii nadawcy**. Problem ten jest **równoważny porozumieniu bizantyjskiemu**.
 
-Kluczowa różnica wobec RBcast polega na tym, że TRBcast **wymaga ostatecznego dostarczenia jakiegoś komunikatu**, a więc wymaga **rozpoznania awarii** — w przeciwieństwie do sytuacji, w której po prostu nic nie zostaje wysłane. Jest to zatem równoważne zdolności **odróżnienia procesu wolnego od procesu, który uległ awarii**, i stąd bierze się jego wysokie zapotrzebowanie na siłę detektora: TRBcast **da się rozwiązać przy dowolnej liczbie awarii typu crash, używając $\mathcal{P}$**, ale **nie da się go rozwiązać przy użyciu $\Diamond\mathcal{P}$, $\mathcal{S}$ ani $\Diamond\mathcal{S}$, nawet przy założeniu co najwyżej jednej awarii**. Detektor $\mathcal{P}$ jest przy tym **najsłabszym** wystarczającym do rozwiązania powtarzanych instancji TRBcast.
+Kluczowa różnica wobec RBcast polega na tym, że TRBcast **wymaga ostatecznego dostarczenia jakiegoś komunikatu**, a więc wymaga **rozpoznania awarii** — w przeciwieństwie do sytuacji, w której po prostu nic nie zostaje wysłane. Jest to zatem równoważne zdolności **odróżnienia procesu wolnego od procesu, który uległ awarii**, i stąd bierze się jego wysokie zapotrzebowanie na siłę detektora: TRBcast:
+
+- **Da się rozwiązać** przy dowolnej liczbie awarii typu crash, używając $\mathcal{P}$.
+- **Nie da się rozwiązać** przy użyciu $\Diamond\mathcal{P}$, $\mathcal{S}$ ani $\Diamond\mathcal{S}$ — nawet przy założeniu co najwyżej jednej awarii.
+
+Detektor $\mathcal{P}$ jest przy tym **najsłabszym** wystarczającym do rozwiązania powtarzanych instancji TRBcast.
 
 ### Detektory w praktyce
-Detektory awarii mają zalety, dla których wprowadza się je jako rozszerzenie modelu: są **naturalne**, bo stanowią autentyczne rozszerzenie modelu asynchronicznego; **minimalne**, bo dostarczają najmniejszej dodatkowej informacji wystarczającej do rozwiązania konsensusu; **proste** w zrozumieniu i użyciu; **przenośne**, bo pozwalają rozwiązać szeroki zakres problemów, od członkostwa w grupie przez elekcję po zatwierdzanie atomowe; wreszcie **efektywne dla małych wartości $f$**. Ich wadą są **skomplikowane algorytmy**, które muszą radzić sobie z błędnymi podejrzeniami.
+Detektory awarii mają zalety, dla których wprowadza się je jako rozszerzenie modelu:
 
-Zasadnicze ograniczenie jest jednak takie, że detektory **nie są implementowalne w systemie asynchronicznym**, ponieważ ich własności musiałyby zachodzić **na zawsze**, ewentualnie od pewnego nieznanego, ale skończonego momentu. W praktyce implementuje się więc rozwiązania zbliżone, w których własności zachodzą **dostatecznie długo**, to znaczy na tyle długo, by rozwiązać problem. Formalizuje to pojęcie **algorytmu wyrozumiałego** (*indulgent*): taki algorytm **kończy się i produkuje poprawny wynik, jeśli detektor zachowuje się zgodnie ze swoją specyfikacją; jeśli detektor specyfikacji nie spełnia, algorytm może się nie zakończyć, ale jeśli się zakończy, wynik zawsze jest poprawny**. Zakłada się przy tym istnienie **okresów stabilności**, podczas których własności detektora zachodzą — i to właśnie w tych okresach możliwe są konsensus oraz replikacja, zarówno aktywna, jak i pasywna.
+- **Naturalne** — stanowią autentyczne rozszerzenie modelu asynchronicznego.
+- **Minimalne** — dostarczają najmniejszej dodatkowej informacji wystarczającej do rozwiązania konsensusu.
+- **Proste** w zrozumieniu i użyciu.
+- **Przenośne** — pozwalają rozwiązać szeroki zakres problemów, od członkostwa w grupie przez elekcję po zatwierdzanie atomowe.
+- **Efektywne dla małych wartości $f$**.
+
+Wadą są **skomplikowane algorytmy**, które muszą radzić sobie z błędnymi podejrzeniami.
+
+Zasadnicze ograniczenie jest jednak takie, że detektory **nie są implementowalne w systemie asynchronicznym**, ponieważ ich własności musiałyby zachodzić **na zawsze**, ewentualnie od pewnego nieznanego, ale skończonego momentu. W praktyce implementuje się więc rozwiązania zbliżone, w których własności zachodzą **dostatecznie długo**, to znaczy na tyle długo, by rozwiązać problem. Formalizuje to pojęcie **algorytmu wyrozumiałego** (*indulgent*):
+
+- Jeśli detektor **zachowuje się zgodnie ze swoją specyfikacją** — algorytm kończy się i produkuje poprawny wynik.
+- Jeśli detektor **specyfikacji nie spełnia** — algorytm może się nie zakończyć, ale jeśli się zakończy, wynik zawsze jest poprawny.
+
+Zakłada się przy tym istnienie **okresów stabilności**, podczas których własności detektora zachodzą — i to właśnie w tych okresach możliwe są konsensus oraz replikacja, zarówno aktywna, jak i pasywna.
 
 ### Rozwiązywalność problemów a siła modelu
-Całość zagadnienia podsumowuje uporządkowanie problemów według siły modelu potrzebnej do ich rozwiązania. **RBcast** wystarcza $\mathbb{S}^{Async}\{\varnothing\}$. **Konsensus, TOcast i VScast** wymagają $\mathbb{S}^{Async}\{\Diamond\mathcal{W}\}$. **Porozumienie bizantyjskie, równoważne mu TRBcast oraz nieblokujące zatwierdzanie atomowe** wymagają $\mathbb{S}^{Async}\{\mathcal{P}\}$. **Synchronizacja zegarów** wymaga już pełnej synchroniczności, czyli $\mathbb{S}^{Sync}\{\varnothing\}$.
+Całość zagadnienia podsumowuje uporządkowanie problemów według siły modelu potrzebnej do ich rozwiązania:
+
+- **RBcast** — wystarcza $\mathbb{S}^{Async}\{\varnothing\}$.
+- **Konsensus, TOcast i VScast** — wymagają $\mathbb{S}^{Async}\{\Diamond\mathcal{W}\}$.
+- **Porozumienie bizantyjskie, równoważne mu TRBcast oraz nieblokujące zatwierdzanie atomowe** — wymagają $\mathbb{S}^{Async}\{\mathcal{P}\}$.
+- **Synchronizacja zegarów** — wymaga już pełnej synchroniczności, czyli $\mathbb{S}^{Sync}\{\varnothing\}$.
