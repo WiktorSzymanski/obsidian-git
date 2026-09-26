@@ -284,6 +284,10 @@ unlock(mutex)
 
 Zamek powinien być zwalniany także przy błędzie lub wyjątku. Nie wolno wykonywać długich operacji wejścia-wyjścia ani czekać na zdalną odpowiedź, trzymając lokalny mutex, chyba że jest to świadoma decyzja projektowa.
 
+**Przykład zastosowania:** kilka wątków serwera aktualizuje wspólną mapę sesji użytkowników. Odczyt, sprawdzenie i modyfikacja wpisu (na przykład zwiększenie licznika żądań) są wykonywane pod jednym mutexem, dzięki czemu dwa żądania nie nadpiszą sobie wzajemnie wyniku.
+
+Mutex nadaje się do krótkiej sekcji krytycznej, ale nie opisuje warunku, na który trzeba czekać. Jeżeli wątek ma czekać, aż bufor przestanie być pełny, sam mutex nie wystarczy — trzeba dodać zmienną warunkową albo użyć wyższego mechanizmu, na przykład `BlockingQueue`.
+
 ### 7.2. Semafor
 
 **Semafor** jest licznikiem dostępnych jednostek zasobu. Operacja `P`/`down`/`acquire` zmniejsza licznik albo usypia wywołującego, gdy nie ma jednostek. Operacja `V`/`up`/`release` zwiększa licznik i może obudzić oczekującego.
@@ -296,6 +300,15 @@ Semafor może reprezentować:
 - ograniczenie liczby równoczesnych żądań.
 
 Ważna różnica wobec zmiennej warunkowej: semafor **pamięta** zwolnione jednostki. `release` wykonane przed `acquire` nie przepada.
+
+**Przykłady zastosowania:**
+
+- semafor o wartości `1` może chronić pojedynczy zasób, podobnie jak mutex;
+- semafor o wartości `N` może ograniczać liczbę równoczesnych połączeń do bazy danych;
+- dwa semafory mogą opisywać ograniczony bufor: `empty` przechowuje liczbę wolnych miejsc, a `full` liczbę elementów gotowych do pobrania;
+- w usłudze rozproszonej semafor lokalny może ograniczyć liczbę równoległych zadań obsługujących żądania, aby nie przeciążyć procesora lub puli połączeń.
+
+Semafor nie przechowuje informacji o tym, **dlaczego** pozwolenie zostało zwolnione. Programista musi pilnować, aby każde `acquire` miało odpowiadające mu `release`, także w przypadku wyjątku. Zbyt mała liczba zwolnień prowadzi do zagłodzenia, a zbyt duża może naruszyć założenia o liczbie dostępnych zasobów.
 
 ### 7.3. Zmienna warunkowa
 
@@ -319,16 +332,39 @@ Warunek musi być sprawdzany w pętli `while`, a nie w `if`, ponieważ:
 - po obudzeniu inny wątek mógł już wykorzystać zasób,
 - `notifyAll` budzi także wątki oczekujące na inne warunki.
 
+**Przykład zastosowania:** w puli zadań wątek roboczy czeka na warunku `notEmpty`, gdy kolejka jest pusta. Wątek producenta dodaje zadanie, zmienia stan kolejki i sygnalizuje `notEmpty`. Analogiczny warunek `notFull` może blokować producentów, gdy kolejka osiągnie limit.
+
+W Javie `wait()` zwalnia monitor na czas oczekiwania i odzyskuje go przed powrotem. W POSIX (Portable Operating System Interface, przenośny interfejs systemów operacyjnych) odpowiednikiem jest `pthread_cond_wait`, który również atomowo zwalnia mutex i usypia wątek. W obu przypadkach warunek stanu i oczekiwanie muszą być chronione tym samym mutexem, inaczej możliwy jest wyścig prowadzący do zgubienia sygnału.
+
 ### 7.4. Monitor
 
-**Monitor** łączy:
+**Monitor** jest strukturą synchronizacji, która zamyka współdzielone dane razem z operacjami dozwolonymi na tych danych. Nie jest więc tylko zamkiem. Jest gotową abstrakcją, wewnątrz której przechowywany jest stan, a dostęp do niego odbywa się wyłącznie przez kontrolowane procedury, metody lub funkcje.
 
-- hermetyzację danych,
-- automatyczne wzajemne wykluczanie,
-- zmienne warunkowe,
-- operacje udostępniane innym wątkom.
+Monitor łączy kilka elementów:
 
-Dobrze zaprojektowany monitor ukrywa dane i pozwala czekać na warunek bez ujawniania sposobu blokowania.
+- **hermetyzację danych** — stan chroniony przez monitor jest ukryty przed bezpośrednią modyfikacją z zewnątrz; inne wątki nie powinny samodzielnie zmieniać jego pól;
+- **automatyczne wzajemne wykluczanie** — monitor posiada niejawny zamek. W danej chwili tylko jeden wątek wykonuje operację modyfikującą stan monitora, dzięki czemu instrukcje należące do jednej operacji nie przeplatają się z analogiczną operacją innego wątku;
+- **warunki oczekiwania** — jeśli operacji nie można jeszcze wykonać, wątek zasypia na zmiennej warunkowej i tymczasowo zwalnia zamek monitora. Inny wątek może wtedy wejść do monitora, zmienić stan i zasygnalizować, że oczekiwany warunek może być spełniony;
+- **interfejs operacji** — monitor udostępnia operacje opisujące dozwolone działania, a nie samą blokadę. Kod korzystający z monitora wywołuje na przykład `put()`, `get()`, `acquire()` lub `release()`, ale nie manipuluje bezpośrednio mutexem i nie zna wewnętrznego układu danych.
+
+Zależność między tymi elementami jest kluczowa. Hermetyzacja sprawia, że wszystkie zmiany stanu przechodzą przez operacje monitora. Wzajemne wykluczanie gwarantuje, że operacja sprawdzenia i zmiany stanu nie zostanie przerwana przez inną operację. Zmienne warunkowe pozwalają natomiast oczekiwać na stan, który jeszcze nie istnieje, bez blokowania dostępu innym wątkom. Monitor łączy zatem **ochronę danych** z **koordynacją kolejności działań**.
+
+Przykładowo monitor ograniczonego bufora przechowuje tablicę elementów i licznik zajętych miejsc. Operacja `put()`:
+
+1. zajmuje monitor,
+2. sprawdza, czy bufor nie jest pełny,
+3. jeśli jest pełny, czeka na warunku `notFull` i zwalnia monitor,
+4. po obudzeniu ponownie sprawdza warunek,
+5. umieszcza element i sygnalizuje `notEmpty`,
+6. zwalnia monitor.
+
+Operacja `get()` działa analogicznie, ale czeka na `notEmpty` i po pobraniu sygnalizuje `notFull`. Dzięki temu użytkownik monitora nie musi sam pilnować mutexu, kolejki oczekujących ani spójności licznika. Te zasady są ukryte w jednej abstrakcji.
+
+Warunek należy sprawdzać w pętli `while`, ponieważ samo obudzenie nie oznacza, że warunek na pewno jest spełniony. Inny wątek mógł wcześniej przejąć zasób, mogło wystąpić fałszywe przebudzenie albo sygnał mógł obudzić wątek czekający na inny warunek.
+
+**Przykład zastosowania:** monitor `ConnectionPool` ukrywa pulę połączeń do bazy. `acquire()` czeka, gdy nie ma wolnego połączenia, a `release()` zwraca połączenie do puli i budzi oczekującego. Kod obsługujący żądanie wywołuje tylko te operacje; nie może przypadkowo zmienić licznika dostępnych połączeń ani zwolnić nieprawidłowego zamka.
+
+W Adzie rolę monitora pełni **obiekt chroniony**. Dane są prywatne, a funkcje, procedury i wejścia określają dozwolone sposoby dostępu. W Javie podobną abstrakcję można zbudować przez prywatne pola, `synchronized` oraz `Condition`. Samo używanie publicznego mutexu nie tworzy jeszcze monitora, ponieważ nie zapewnia hermetyzacji ani nie gwarantuje, że każdy użytkownik będzie przestrzegał jednej polityki dostępu.
 
 ### 7.5. Bariera
 
@@ -336,13 +372,46 @@ Dobrze zaprojektowany monitor ukrywa dane i pozwala czekać na warunek bez ujawn
 
 Bariera pasuje do algorytmów iteracyjnych, w których każda iteracja korzysta z wyników poprzedniej. Nie jest właściwym narzędziem do ochrony pojedynczej zmiennej.
 
+**Przykłady zastosowania:**
+
+- w symulacji rozproszonej każdy wątek oblicza stan swojego fragmentu świata, a bariera gwarantuje, że żadna część nie rozpocznie następnej klatki przed zakończeniem bieżącej;
+- w algorytmie iteracyjnym wszystkie procesy MPI (Message Passing Interface, interfejs przekazywania komunikatów) kończą etap obliczeń, zanim rozpoczną wymianę danych dla kolejnej iteracji;
+- w testach integracyjnych bariera może zwolnić grupę klientów jednocześnie, aby rozpocząć kontrolowany test obciążeniowy.
+
+`CyclicBarrier` w Javie można wykorzystać wielokrotnie, a `CountDownLatch` służy raczej do jednorazowego zdarzenia, na przykład oczekiwania na zakończenie inicjalizacji kilku komponentów. Bariera może powodować zakleszczenie, jeżeli jeden z uczestników zakończy się przed jej osiągnięciem; dlatego przy operacjach rozproszonych warto przewidzieć timeout i obsługę awarii uczestnika.
+
 ### 7.6. Czytelnicy i pisarze
 
-Blokada czytelników i pisarzy pozwala wielu czytelnikom korzystać ze stanu jednocześnie, ale wyklucza pisarza z każdym innym dostępem. Można stosować:
+Problem **czytelników i pisarzy** dotyczy współdzielonego zasobu, który jest często odczytywany, ale od czasu do czasu modyfikowany. Odczyt nie zmienia stanu, dlatego wielu czytelników może wykonywać go jednocześnie. Zapis zmienia dane, więc pisarz musi mieć dostęp wyłączny: podczas zapisu nie może działać ani inny pisarz, ani żaden czytelnik.
 
-- preferencję czytelników — dobra przepustowość, możliwe zagłodzenie pisarza,
-- preferencję pisarzy — ogranicza zagłodzenie pisarzy, może opóźniać czytelników,
-- politykę sprawiedliwą — kompromis między przepustowością i przewidywalnością.
+Blokada czytelników i pisarzy utrzymuje więc dwa rodzaje dostępu:
+
+- **blokadę współdzieloną** — może ją posiadać wielu czytelników naraz;
+- **blokadę wyłączną** — może ją posiadać jeden pisarz i wtedy nikt inny nie korzysta z zasobu.
+
+Przykładowy przebieg:
+
+1. Pierwszy czytelnik zwiększa licznik aktywnych czytelników i zajmuje dostęp czytelniczy.
+2. Kolejni czytelnicy mogą wejść bez wzajemnego wykluczania z pierwszym czytelnikiem.
+3. Pisarz, który chce wejść, musi poczekać, aż licznik czytelników spadnie do zera.
+4. Gdy pisarz uzyska blokadę wyłączną, wszyscy nowi czytelnicy i pisarze muszą czekać.
+5. Po zakończeniu zapisu pisarz zwalnia blokadę, a wybrana polityka decyduje, kto otrzyma dostęp jako następny.
+
+Najważniejszym problemem nie jest samo rozróżnienie odczytu i zapisu, ale **wybór kolejności obsługi oczekujących**. Jeżeli system zawsze wpuszcza czytelników, gdy tylko jest to możliwe, nowy czytelnik może wejść przed czekającym pisarzem. Przy stałym napływie czytelników pisarz może czekać bez końca. Odwrotna polityka może z kolei opóźniać czytelników, gdy pisarze pojawiają się często.
+
+Można stosować:
+
+- **preferencję czytelników** — jeżeli zasób nie jest właśnie zapisywany, wpuszcza się kolejnych czytelników, nawet gdy pisarz już czeka. Czytelnicy tworzą wtedy grupy wykonujące odczyty równolegle. Zwiększa to przepustowość w systemach z przewagą odczytów, ale może zagłodzić pisarza. Aktualizacja konfiguracji, indeksu lub danych może być odkładana bez ograniczenia, ponieważ zawsze pojawia się kolejny czytelnik;
+- **preferencję pisarzy** — gdy tylko pisarz zgłosi oczekiwanie, blokuje się dopuszczanie nowych czytelników. Najpierw muszą zakończyć się odczyty już rozpoczęte, potem pisarz wykonuje zapis, a dopiero następnie wpuszczani są czytelnicy. Ogranicza to zagłodzenie pisarzy i czas oczekiwania na aktualizację, ale przy dużej liczbie zapisów może powodować długie kolejki czytelników;
+- **politykę sprawiedliwą** — stosuje się kolejkę lub mechanizm FIFO (*First In, First Out*, pierwszy wszedł, pierwszy wyszedł), aby żadna grupa nie była stale pomijana. Można na przykład nie wpuszczać nowych czytelników za pisarza, który już czeka, ale nadal pozwalać działać czytelnikom aktualnie znajdującym się w zasobie. Jest to kompromis: przewidywalność i mniejsze ryzyko zagłodzenia są uzyskiwane kosztem części maksymalnej przepustowości.
+
+**Przykłady zastosowania:**
+
+- cache konfiguracji usługi jest często czytany, lecz zmieniany tylko przy przeładowaniu konfiguracji;
+- katalog produktów lub schemat bazy może być jednocześnie odczytywany przez wiele żądań i okresowo aktualizowany;
+- lokalna tablica routingu może obsługiwać wielu czytelników, podczas gdy pojedynczy wątek aktualizuje ją po zmianie topologii.
+
+W systemie rozproszonym `ReadWriteLock` chroni tylko stan lokalnego procesu. Jeżeli wiele replik posiada własne kopie danych, potrzebny jest dodatkowo protokół replikacji, unieważniania cache albo wersjonowania. Lokalna blokada nie gwarantuje spójności między węzłami. Jeżeli zapis ma być widoczny dla wszystkich replik, potrzebny jest mechanizm rozproszonego uzgadniania, lider, blokada rozproszona albo dziennik zdarzeń.
 
 ### 7.7. Lock-free i wait-free
 
@@ -356,6 +425,22 @@ Struktura:
 Lock-free nie oznacza automatycznie sprawiedliwości. Jeden wątek może stale przegrywać operacje CAS. Takie rozwiązania są trudniejsze do zweryfikowania i mogą wymagać obsługi problemu ABA.
 
 **Problem ABA (A-B-A)** występuje, gdy wątek T1 odczyta wartość A, wątek T2 zmieni ją na B, a następnie ponownie na A. T1 wykonuje CAS i widzi oczekiwane A, chociaż stan pośredni miał znaczenie. Stosuje się między innymi wersjonowanie wartości, `AtomicStampedReference`, znaczniki oraz bezpieczne zarządzanie pamięcią.
+
+**Przykłady zastosowania:**
+
+- lock-free kolejka zdarzeń może przyjmować logi z wielu wątków bez blokowania całego producenta przez wolnego konsumenta;
+- atomowy licznik może zliczać żądania, komunikaty lub błędy w bardzo gorącej ścieżce obsługi;
+- struktura wait-free może być użyta w systemie czasu rzeczywistego, gdy każdy wątek musi mieć gwarantowany maksymalny czas zakończenia operacji;
+- CAS może bez blokady opublikować nową, niezmienną wersję konfiguracji lub wskaźnik do aktualnego stanu.
+
+Różnica między gwarancjami jest praktyczna:
+
+- **blocking** — wątek może czekać na zamek, a awaria właściciela może zatrzymać innych;
+- **lock-free** — w każdej dostatecznie długiej serii kroków jakiś wątek kończy operację, ale konkretny wątek może głodować;
+- **wait-free** — każdy wątek ma skończoną granicę liczby własnych kroków;
+- **obstruction-free** — postęp jest gwarantowany tylko wtedy, gdy wątek działa bez konkurencji.
+
+Brak zamka nie oznacza braku kosztów. Struktury lock-free wymagają poprawnego modelu pamięci, mogą powodować intensywne powtarzanie CAS i są trudniejsze do testowania. W systemie rozproszonym CAS chroni pamięć jednego procesu; nie zastępuje uzgodnienia między replikami ani transakcji rozproszonej.
 
 ## 8. Java: wątki i synchronizacja
 
