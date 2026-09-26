@@ -1,0 +1,28 @@
+Event Sourcing is an architectural design pattern where changes that occur in a domain are immutably stored as events in an append-only log. (cite https://www.kurrent.io/event-sourcing). This fundamental shift enables capturing complete historical context and serves as a reliable, auditable source of truth representing what actually happened in the domain over time (cite https://www.kurrent.io/event-sourcing)
+
+The fundamental idea of Event Sourcing is that of ensuring every change to the state of an application is captured in an event object, and that these event objects are themselves stored in the sequence they were applied for the same lifetime as the application state itself. (cite https://martinfowler.com/eaaDev/EventSourcing.html). Events themselves are the same entities as in Event-Driven Architecture, the difference here is that in EDA case, components interact via events, when here they are stored as the single source of truth.
+
+At any point, it's possible for applications to read the history of events. You can then use the events to materialize the current state of an entity by playing back and consuming all the events that are related to that entity. This process can occur on demand to materialize a domain object when handling a request. (cite https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
+
+
+Most applications work with data, and the typical approach is for the application to store the latest state of the data in a relational database, inserting or updating data as required. For example, in the traditional create, read, update, and delete (CRUD) model, a typical data process is to read data from the store, make some modifications to it, and update the current state of the data with the new values—often by using transactions that lock the data.
+The CRUD approach is straightforward and fast for most scenarios. However, in high-load systems, this approach has some challenges:
+- **Performance**: As the system scales, the performance will degrade due to contention for resources and locking issues.
+- **Scalability**: CRUD systems are synchronous and data operations block on updates. This can lead to bottlenecks and higher latency when the system is under load.
+- **Auditability**: CRUD systems only store the latest state of the data. Unless there's an auditing mechanism that records the details of each operation in a separate log, history is lost.
+  (cite https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
+
+Event Sourcing arose to address those limitations while also providing additional advantages.
+- Audit - An event-sourced system stores your data as a series of immutable events over time, providing one of the strongest audit log options available. (cite https://www.kurrent.io/event-sourcing)
+- Root cause analysis - Business events can be tied back to their originating events providing traceability and visibility of entire workflows from start to finish. (cite https://www.kurrent.io/event-sourcing)
+- Resilience and Fault Tolerance - The immutability of occasions in Event Sourcing affords a resilient technique to records control. In case of failures or mistakes, systems can be restored to a steady state with the aid of replaying occasions from the log.By decoupling statistics garage and processing, Event Sourcing enhances fault tolerance and guarantees statistics consistency in disbursed environments. (cite https://www.ijert.org/research/title-enhancing-efficiency-and-scalability-in-microservices-via-event-sourcing-IJERTV13IS040252.pdf)
+- Performance and scalability - Events are immutable and can be stored using an append-only operation. The user interface, workflow, or process that initiated an event can continue, and tasks that handle the events can run in the background. This process, combined with the fact that there's no contention during the processing of transactions, can vastly improve performance and scalability for applications, especially for the presentation layer. (cite https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
+
+When implementing an ES application, Because it is relatively expensive to read and replay events, applications typically implement materialized views, read-only projections of the event store that are optimized for querying. For example, a system can maintain a materialized view of all customer orders that's used to populate the UI. As the application adds new orders, adds or removes items on the order, or adds shipping information, events are raised and a handler updates the materialized view.
+
+Establishing snapshot mechanism can decrease time needed to reconstruct entity. (cite ALLDATA 2018 : The Fourth International Conference on Big Data, Small Data, Linked Data and Open Data, Application of Event Sourcing in Research Data Management, edrzej Rybicki
+Juelich Supercomputing Center (JSC)
+Juelich, Germany) It can be done by saving a snapshot of given entity every N events, it's most useful when entity is long living, so lots of events may be applied 
+
+Event Sourcing is widely adopted in high-scale commercial systems including Netflix and Walmart, spanning industries such as finance, logistics, healthcare, and e-commerce (cite https://arxiv.org/pdf/2104.01146)(cite https://datascientest.com/en/all-about-event-sourcing). It is important to note that once system becomes an ES system all future decisions are constricted by this fact. There is high cost to migrate both from and to ES architecture, so it's advised to apply it it performance and scalability are top requirements (cite https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing)
+

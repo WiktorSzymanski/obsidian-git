@@ -4,19 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "42547e56587baadb",
+        "id": "e96647e19e6c3f4e",
         "type": "tabs",
         "children": [
           {
-            "id": "8cdd836daf3e1845",
+            "id": "8e9117288e696cf9",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "Magisterka/AR2.excalidraw.md"
+                "file": "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego/Wielozadaniowość i synchronizacja zadań i wątków w systemach rozproszonych.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "excalidraw-icon",
-              "title": "AR2.excalidraw"
+              "icon": "lucide-file",
+              "title": "Wielozadaniowość i synchronizacja zadań i wątków w systemach rozproszonych"
             }
           }
         ]
@@ -39,7 +51,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -51,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Narzędzia przetwarzania rozproszonego",
                 "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -76,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 438.0559768676758
   },
   "right": {
     "id": "934776b18c83d676",
@@ -150,6 +164,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -159,56 +174,57 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "8cdd836daf3e1845",
+  "active": "8e9117288e696cf9",
   "lastOpenFiles": [
-    "Magisterka/Architectures.md",
-    "Magisterka/Architektura Aplikacji.md",
-    "Magisterka/Architectures.png",
-    "Marketing i elementy kompetencji menedżerskich/Proces decyzyjny.md",
-    "Marketing i elementy kompetencji menedżerskich/Misja.md",
-    "Magisterka/AR2.excalidraw.md",
-    "Magisterka/SeminariumPrezentacja.md",
-    "Excalidraw/Drawing 2025-04-06 13.27.08.excalidraw.md",
-    "TeamImg.png",
-    "Zarządzanie bezpieczeństwem w systemach IT/DokumentA.md",
-    "DocA/DokumentA/TopCor.png",
-    "DocA/DokumentA/TeamImg.png",
-    "DocA/DokumentA/PlanBudynku.png",
-    "DocA/DokumentA/PP_znak_konturowy_RGB.png",
-    "DocA/DokumentA/DokumentA.md",
-    "DocA/DokumentA",
-    "DocA/Zarządzanie bezpieczeństwem w systemach IT/DokumentA.md",
-    "DocA/Zarządzanie bezpieczeństwem w systemach IT/TopCor.png",
-    "DocA/Zarządzanie bezpieczeństwem w systemach IT/TeamImg.png",
-    "DocA/Zarządzanie bezpieczeństwem w systemach IT/PP_znak_konturowy_RGB.png",
-    "DocA/Zarządzanie bezpieczeństwem w systemach IT/PlanBudynku.png",
-    "DocA/Zarządzanie bezpieczeństwem w systemach IT",
-    "DocA",
-    "DocA.zip",
-    "Zarządzanie bezpieczeństwem w systemach IT/Teams.excalidraw.md",
-    "Plan.md",
-    "AB testing.md",
-    "Excalidraw/architecture-diagram-components.excalidrawlib",
-    "Excalidraw/aws-serverless-icons-v2.excalidrawlib",
-    "Marketing i elementy kompetencji menedżerskich",
-    "Zarządzanie bezpieczeństwem w systemach IT",
-    "Excalidraw/ArchitekturyAplikacji.excalidraw.md",
-    "Magisterka",
-    "Systemy Wysokiej Niezawodności/Replikacja Procesu.md",
-    "Systemy Wysokiej Niezawodności/Błąd Bizantyjski.md",
-    "SRE.md",
-    "KEDA.md",
-    "Excalidraw/drwnio.excalidrawlib",
-    "Plan Pracy Magisterskiej.md",
-    "Excalidraw/Drawing 2025-03-17 16.18.53.excalidraw.md",
-    "Systemy Wysokiej Niezawodności/2 Phase Locking.md",
-    "Systemy Wysokiej Niezawodności/Wycofanie operacji.md",
-    "Systemy Wysokiej Niezawodności/Write-Ahead-Log.md",
-    "Systemy Wysokiej Niezawodności/Update-In-Place.md",
-    "Systemy Wysokiej Niezawodności/Shadow Pages.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego/Wielozadaniowość i synchronizacja zadań i wątków w systemach rozproszonych - skrót.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego/Wielozadaniowość i synchronizacja zadań i wątków w systemach rozproszonych.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/skompresowane/NPR 09 Wielozadaniowość i synchronizacja zadań i wątków.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/odpowiedzi/NPR O9 Wielozadaniowość i synchronizacja zadań i wątków.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego/09 Wielozadaniowość i synchronizacja zadań i wątków.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/skompresowane/SWN 23 Rozproszone uzgadnianie w środowisku zawodnym.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/skompresowane/SWN 22 Wsteczne odtwarzanie stanu.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/odpowiedzi/NPR O7 Aspekty projektowe realizacji systemów rozproszonych.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/odpowiedzi/SWN O24 Niezawodne zatwierdzanie transakcji.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/odpowiedzi/SWN O23 Rozproszone uzgadnianie w środowisku zawodnym.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/odpowiedzi/SWN O22 Wsteczne odtwarzanie stanu.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/odpowiedzi/NPR O8 Podejścia do budowy systemów rozproszonych.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi/RSO O6 Zakleszczenie w systemach rozproszonych.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi/RSO O5 Algorytmy elekcji.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi/RSO O4 Algorytmy wzajemnego wykluczania.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi/RSO O3 Modele spójności zorientowane na klienta.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi/RSO O2 Danocentryczne modele spójności.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi/RSO O1 Komunikacja grupowa.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/odpowiedzi",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/odpowiedzi",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/odpowiedzi",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/skompresowane/NPR 07 Aspekty projektowe realizacji systemów rozproszonych.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/skompresowane/NPR 08 Podejścia do budowy systemów rozproszonych.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego/07 Aspekty projektowe realizacji systemów rozproszonych.md",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego/08 Podejścia do budowy systemów rozproszonych.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/skompresowane/RSO Z1 Komunikacja grupowa.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/skompresowane/SWN 24 Niezawodne zatwierdzanie transakcji.md",
+    "0-przygotowanieDoObrony/05 Systemy wysokiej niezawodności (z prezentacji)/na_temat",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/skompresowane/RSO Z3 Modele spójności zorientowane na klienta.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/skompresowane/RSO Z2 Danocentryczne modele spójności.md",
+    "0-przygotowanieDoObrony/01 Rozproszone systemy operacyjne (z prezentacji)/skompresowane",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-lin-s259-dopasowanie-krotek.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-jms-s251-trwale-subskrypcje-2.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-jms-s250-trwale-subskrypcje.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-jms-s243-przesylanie-miedzy-systemami.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-jms-s232-model-programistyczny.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-jms-s228-architektura-jms.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-mom-s07-funkcjonowanie-systemu.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-mom-s08-warianty-komunikacji.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-zmq-s11-schemat-komunikacji.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets/npr-mom-s08-model-publish-subscribe.png",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/skompresowane",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)/assets",
+    "0-przygotowanieDoObrony/02 Narzędzia przetwarzania rozproszonego (z prezentacji)",
+    "Untitled 4.base",
+    "0-przygotowanieDoObrony/NarzędziaPrzetwarzaniaRozproszonego/Opracowanie.pdf",
     "Untitled.canvas",
-    "Untitled 3.canvas",
     "Untitled 2.canvas",
-    "Untitled 1.canvas"
+    "Untitled 1.canvas",
+    "Untitled 3.canvas"
   ]
 }
