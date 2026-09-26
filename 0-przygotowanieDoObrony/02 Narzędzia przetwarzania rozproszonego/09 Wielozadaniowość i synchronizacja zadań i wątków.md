@@ -16,6 +16,20 @@ zagadnienie: 9
 - **Bezpieczeństwo** (nic złego się nie stanie) i **żywotność** (coś dobrego w końcu nastąpi).
 - Rodzaje synchronizacji: **wykluczająca** (dostęp do zasobu) i **warunkowa** (czekanie na spełnienie warunku) – [[Synchronizacja]].
 
+### Co synchronizujemy
+- **Synchronizacja procesów/wątków** – kontrola przepływu sterowania (kiedy i w jakiej kolejności wykonują się kroki).
+- **Synchronizacja danych** – kontrola widoczności i spójności danych współdzielonych.
+
+### Poziomy mechanizmów synchronizacji
+- **Architektura**: operacje atomowe (`test&set`, `exchange`, `CAS`).
+- **System operacyjny**: semafory, zamki, zmienne warunkowe.
+- **Język/biblioteki**: monitory, obiekty chronione, kolejki i bariery wysokiego poziomu.
+
+### Atomowość (Java)
+- Atomowy jest pojedynczy odczyt/zapis typów prostych i referencji.
+- Wyjątki praktyczne: `long` i `double` (historycznie możliwość nieatomowego dostępu 64-bitowego), oraz operacje typu `++`/`+=` (to sekwencja: odczyt–modyfikacja–zapis).
+- `volatile` poprawia **widoczność** zmian między wątkami, ale **nie zastępuje** wzajemnego wykluczania.
+
 ## Mechanizmy synchronizacji
 | Mechanizm | Opis |
 |---|---|
@@ -125,12 +139,45 @@ end Buffer;
 - Po każdej procedurze/wejściu bariery są przeliczane, a zakolejkowane wywołania z otwartą barierą obsługiwane są **przed** nowymi (**model „eggshell”**) – brak fałszywych przebudzeń i konieczności pętli.
 - `requeue` – przekazanie wywołania do innej kolejki wejścia.
 
+### Bariera ważona (Ada i Java – z opracowania)
+W PDF-ie pojawia się wariant bariery, gdzie każde zgłoszenie może mieć „wagę” (np. `weight`), a odblokowanie następuje po przekroczeniu progu.
+
+```ada
+protected Barrier is
+  entry Await (Weight : in Integer);
+private
+  entry Inner_Await;
+  Count : Integer := 10;
+  Barrier_Strength : Integer := 10;
+end Barrier;
+```
+
+Wersja ideowa w Javie:
+```java
+public synchronized void breakThrough(int breakCount) throws InterruptedException {
+    currentBreak += breakCount;
+    if (currentBreak < strength) wait();
+    else { currentBreak = 0; notifyAll(); }
+}
+```
+
+- W notatkach do PDF zaznaczono też kompromis: **fairness** (sprawiedliwość/FIFO) vs **throughput** (przepustowość).
+
 ---
 ## Java
 - `Thread` / `Runnable`, `ExecutorService` (pule wątków), `Future`, `CompletableFuture`,
 - monitor wbudowany: `synchronized`, `wait`/`notify` – [[37 Monitory w C Sharp i Java]],
 - `java.util.concurrent`: `ReentrantLock`, `Condition`, `Semaphore`, `CountDownLatch`, `CyclicBarrier`, `BlockingQueue`, `ConcurrentHashMap`, `Atomic*`,
 - model pamięci i widoczność zmian: [[43 Model pamięci w języku Java]].
+
+### Uzupełnienia z PDF
+- `interrupt()` to bezpieczny mechanizm przerywania czekania (`InterruptedException`); historyczne `stop()`/`suspend()` są niezalecane.
+- `Lock`/`Condition` daje wiele kolejek warunkowych na jeden zamek (w odróżnieniu od pojedynczej kolejki `wait` na monitorze obiektu).
+- Mechanizmy barierowe:
+  - `CyclicBarrier` – cykliczna, dla stałej liczby uczestników,
+  - `CountDownLatch` – jednorazowa, licznik malejący,
+  - `Phaser` – dynamiczna liczba uczestników/faz.
+- Kolekcje i narzędzia synchronizacyjne: `BlockingQueue`, `TransferQueue`, `Exchanger`, `ConcurrentMap`, `Semaphore(fair=true/false)`.
 
 ## MPI – synchronizacja przez komunikaty
 - punkt-punkt blokujące (`MPI_Send`, `MPI_Recv`) i nieblokujące (`MPI_Isend`, `MPI_Irecv` + `MPI_Wait`/`MPI_Test`),
@@ -155,6 +202,14 @@ Zasada: **nie współdzielić gniazd między wątkami**. Wątki komunikują się
 | Komunikacja | wspólne zmienne | rendezvous (synchron.) | wspólne zmienne / kolejki | send/recv |
 | Wsparcie języka | biblioteka | wbudowane w język | język + biblioteka | biblioteka |
 | Bezpieczeństwo | łatwe błędy (brak unlock) | kontrola kompilatora, brak fałszywych przebudzeń | średnie | brak wyścigów pamięci |
+
+## TODO (braki względem zakresu egzaminacyjnego i PDF-ów)
+> [!todo] Zagadnienia, których PDF-y nie domykają lub tylko sygnalizują
+> - Formalna relacja **happens-before** w Java Memory Model (pełne reguły).
+> - Problem **ABA** przy operacjach `compareAndSet` i techniki obejścia.
+> - Priorytety zadań w Adzie i **priority ceiling protocol** (szczegóły).
+> - Pełne, formalne rozwiązania klasyków synchronizacji (czytelnicy-pisarze, filozofowie) – w PDF-ach głównie sygnalizacja/zadania.
+> - Zaawansowane wzorce lock-free/wait-free i ich gwarancje postępu.
 
 ## Zobacz też
 - [[Narzędzia Przetwarzania Rozproszonego/ADA-95]]
