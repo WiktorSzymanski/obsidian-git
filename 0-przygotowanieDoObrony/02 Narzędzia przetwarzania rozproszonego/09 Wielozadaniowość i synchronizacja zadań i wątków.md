@@ -16,6 +16,20 @@ zagadnienie: 9
 - **Bezpieczeństwo** (nic złego się nie stanie) i **żywotność** (coś dobrego w końcu nastąpi).
 - Rodzaje synchronizacji: **wykluczająca** (dostęp do zasobu) i **warunkowa** (czekanie na spełnienie warunku) – [[Synchronizacja]].
 
+### Co synchronizujemy
+- **Synchronizacja procesów/wątków** – kontrola przepływu sterowania (kiedy i w jakiej kolejności wykonują się kroki).
+- **Synchronizacja danych** – kontrola widoczności i spójności danych współdzielonych.
+
+### Poziomy mechanizmów synchronizacji
+- **Architektura**: operacje atomowe (`test&set`, `exchange`, `CAS`).
+- **System operacyjny**: semafory, zamki, zmienne warunkowe.
+- **Język/biblioteki**: monitory, obiekty chronione, kolejki i bariery wysokiego poziomu.
+
+### Atomowość (Java)
+- Atomowy jest pojedynczy odczyt/zapis typów prostych i referencji.
+- Wyjątki praktyczne: `long` i `double` (historycznie możliwość nieatomowego dostępu 64-bitowego), oraz operacje typu `++`/`+=` (to sekwencja: odczyt–modyfikacja–zapis).
+- `volatile` poprawia **widoczność** zmian między wątkami, ale **nie zastępuje** wzajemnego wykluczania.
+
 ## Mechanizmy synchronizacji
 | Mechanizm | Opis |
 |---|---|
@@ -125,12 +139,45 @@ end Buffer;
 - Po każdej procedurze/wejściu bariery są przeliczane, a zakolejkowane wywołania z otwartą barierą obsługiwane są **przed** nowymi (**model „eggshell”**) – brak fałszywych przebudzeń i konieczności pętli.
 - `requeue` – przekazanie wywołania do innej kolejki wejścia.
 
+### Bariera ważona (Ada i Java – z opracowania)
+W PDF-ie pojawia się wariant bariery, gdzie każde zgłoszenie może mieć „wagę” (np. `weight`), a odblokowanie następuje po przekroczeniu progu.
+
+```ada
+protected Barrier is
+  entry Await (Weight : in Integer);
+private
+  entry Inner_Await;
+  Count : Integer := 10;
+  Barrier_Strength : Integer := 10;
+end Barrier;
+```
+
+Wersja ideowa w Javie:
+```java
+public synchronized void breakThrough(int breakCount) throws InterruptedException {
+    currentBreak += breakCount;
+    if (currentBreak < strength) wait();
+    else { currentBreak = 0; notifyAll(); }
+}
+```
+
+- W notatkach do PDF zaznaczono też kompromis: **fairness** (sprawiedliwość/FIFO) vs **throughput** (przepustowość).
+
 ---
 ## Java
 - `Thread` / `Runnable`, `ExecutorService` (pule wątków), `Future`, `CompletableFuture`,
 - monitor wbudowany: `synchronized`, `wait`/`notify` – [[37 Monitory w C Sharp i Java]],
 - `java.util.concurrent`: `ReentrantLock`, `Condition`, `Semaphore`, `CountDownLatch`, `CyclicBarrier`, `BlockingQueue`, `ConcurrentHashMap`, `Atomic*`,
 - model pamięci i widoczność zmian: [[43 Model pamięci w języku Java]].
+
+### Uzupełnienia z PDF
+- `interrupt()` to bezpieczny mechanizm przerywania czekania (`InterruptedException`); historyczne `stop()`/`suspend()` są niezalecane.
+- `Lock`/`Condition` daje wiele kolejek warunkowych na jeden zamek (w odróżnieniu od pojedynczej kolejki `wait` na monitorze obiektu).
+- Mechanizmy barierowe:
+  - `CyclicBarrier` – cykliczna, dla stałej liczby uczestników,
+  - `CountDownLatch` – jednorazowa, licznik malejący,
+  - `Phaser` – dynamiczna liczba uczestników/faz.
+- Kolekcje i narzędzia synchronizacyjne: `BlockingQueue`, `TransferQueue`, `Exchanger`, `ConcurrentMap`, `Semaphore(fair=true/false)`.
 
 ## MPI – synchronizacja przez komunikaty
 - punkt-punkt blokujące (`MPI_Send`, `MPI_Recv`) i nieblokujące (`MPI_Isend`, `MPI_Irecv` + `MPI_Wait`/`MPI_Test`),
@@ -155,6 +202,115 @@ Zasada: **nie współdzielić gniazd między wątkami**. Wątki komunikują się
 | Komunikacja | wspólne zmienne | rendezvous (synchron.) | wspólne zmienne / kolejki | send/recv |
 | Wsparcie języka | biblioteka | wbudowane w język | język + biblioteka | biblioteka |
 | Bezpieczeństwo | łatwe błędy (brak unlock) | kontrola kompilatora, brak fałszywych przebudzeń | średnie | brak wyścigów pamięci |
+
+## TODO (braki względem zakresu egzaminacyjnego i PDF-ów)
+> [!todo] Zagadnienia, których PDF-y nie domykają lub tylko sygnalizują
+> - Formalna relacja **happens-before** w Java Memory Model (pełne reguły).
+> - Problem **ABA** przy operacjach `compareAndSet` i techniki obejścia.
+> - Priorytety zadań w Adzie i **priority ceiling protocol** (szczegóły).
+> - Pełne, formalne rozwiązania klasyków synchronizacji (czytelnicy-pisarze, filozofowie) – w PDF-ach głównie sygnalizacja/zadania.
+> - Zaawansowane wzorce lock-free/wait-free i ich gwarancje postępu.
+
+## Z sieci
+
+### 1) Java Memory Model (JMM) i relacja happens-before
+- **Cel JMM**: formalnie opisać, jakie wartości może odczytać wątek i kiedy zapis jednego wątku jest gwarantowanie widoczny dla drugiego. Bez tego kompilator/JIT/CPU mógłby legalnie wykonywać optymalizacje, które „łamą” intuicję sekwencyjnego działania programu wielowątkowego.
+- **`happens-before` (HB)** to relacja porządkująca. Jeśli A HB B, to:
+  1. efekty A muszą być widoczne w B,  
+  2. B nie może „przesunąć się logicznie” przed A.
+- Kluczowe reguły HB:
+  - **program order**: w obrębie jednego wątku wcześniejsze instrukcje HB późniejsze,
+  - **monitor lock rule**: `unlock(m)` HB każde późniejsze `lock(m)` tego samego monitora,
+  - **volatile rule**: zapis do zmiennej `volatile` HB każdy późniejszy odczyt tej samej zmiennej,
+  - **thread start rule**: wywołanie `start()` HB pierwsze akcje uruchamianego wątku,
+  - **thread termination rule**: wszystkie akcje wątku HB skuteczny `join()` na tym wątku,
+  - **transitivity**: jeśli A HB B i B HB C, to A HB C.
+- **Dlaczego to ważne w systemach rozproszonych?**  
+  Węzeł aplikacji ma zwykle wiele wątków: obsługa RPC, I/O, kolejki, timeouty, retry. Błędna publikacja stanu lokalnego (np. cache, mapa sesji, metadane kolejki) potrafi dać subtelne błędy semantyczne widoczne „jakby” były błędem sieci.
+- **Praktyczny wzorzec**:
+  - flaga zatrzymania/zdrowia komponentu: `volatile boolean running`,
+  - złożony stan współdzielony: ochrona przez `synchronized`/`Lock`,
+  - nigdy nie traktuj `volatile` jako zamiennika sekcji krytycznej.
+
+### 2) CAS i problem ABA
+- **CAS (Compare-And-Set)**: atomowa operacja „ustaw nową wartość tylko wtedy, gdy obecna jest równa oczekiwanej”. To podstawa większości struktur lock-free.
+- **A-B-A**:
+  - wątek T1 odczytuje `A`,
+  - wątek T2 zmienia `A -> B -> A`,
+  - T1 robi CAS i dostaje sukces, choć stan semantyczny mógł się zmienić (np. inny element stosu został w międzyczasie zdjęty i ponownie użyty).
+- **Gdzie boli najmocniej?**
+  - lock-free stack/queue/list,
+  - struktury z recyklingiem węzłów,
+  - kod „niskopoziomowy” pod bardzo dużą konkurencją.
+- **Techniki obrony**:
+  - **stemple/wersje** (`value + version`), np. `AtomicStampedReference`,
+  - **markowanie** stanu referencji (`AtomicMarkableReference`),
+  - **memory reclamation discipline**: hazard pointers, epoch-based reclamation, RCU-like podejścia,
+  - unikanie agresywnego recyklingu obiektów.
+- **Wniosek praktyczny**: lock-free zwiększa skalowalność, ale kosztuje dużo więcej w dowodzeniu poprawności niż klasyczny lock.
+
+### 3) Ada: priorytety i Priority Ceiling Protocol (PCP)
+- **Problem bazowy**: odwrócenie priorytetów – niski priorytet trzyma zasób, wysoki czeka, a średni „wypycha” niskiego z CPU i wydłuża blokadę wysokiego.
+- **Priority Ceiling Protocol**:
+  - każdemu obiektowi chronionemu przypisuje się pułap równy najwyższemu priorytetowi zadań, które mogą go używać,
+  - wejście do sekcji krytycznej podnosi efektywny priorytet zadania tak, by ograniczyć preempcję,
+  - dzięki temu maleje ryzyko długotrwałej i trudnej do oszacowania inwersji priorytetów.
+- **Znaczenie inżynierskie**:
+  - silniejsza przewidywalność opóźnień (latency bounds),
+  - łatwiejsza analiza schedulability,
+  - realna poprawa stabilności komponentów RT (np. gatewaye IoT, sterowniki, węzły edge z krytycznymi deadline’ami).
+
+### 4) Klasyczne problemy synchronizacji (ujęcie egzaminacyjne)
+- **Producent–Konsument (bufor ograniczony)**:
+  - inwariant: `0 <= count <= N`,
+  - producent czeka gdy bufor pełny, konsument gdy pusty,
+  - poprawna implementacja wymaga `while`, nie `if` (fałszywe przebudzenia i wyścigi po przebudzeniu),
+  - poprawność obejmuje i **safety** (brak przepełnienia/podpełnienia), i **liveness** (brak zakleszczenia/zagłodzenia).
+- **Czytelnicy–Pisarze**:
+  - polityki: preferencja czytelników, preferencja pisarzy, fair,
+  - trade-off: przepustowość vs ryzyko zagłodzenia jednej grupy,
+  - w systemach usługowych fair policy bywa lepsza niż maksymalizacja throughput, bo stabilizuje tail latency.
+- **Jedzący filozofowie**:
+  - pokazuje deadlock i starvation,
+  - typowe naprawy: globalne porządkowanie zasobów, lokaj/semafor N-1, asymetria pobierania,
+  - to model wielu problemów „alokuj wiele zasobów albo żaden” (połączenia, locki, sloty I/O).
+- **Wersja rozproszona**:
+  - lokalne sekcje krytyczne zastępuje się kolejkami komunikatów, tokenem lub consensus/lock service,
+  - dochodzą awarie, timeouty i częściowa synchronia – sama poprawność algorytmu lokalnego nie wystarcza.
+
+### 5) Lock-free / wait-free: gwarancje postępu
+- **Blocking**: wątek może zatrzymać innych (np. trzyma zamek i padnie).
+- **Lock-free**: system jako całość robi postęp (któryś wątek skończy w skończonej liczbie kroków).
+- **Wait-free**: każdy wątek kończy operację w skończonej liczbie własnych kroków.
+- **Obstruction-free**: postęp przy braku konkurencji.
+- **Praktyka inżynierska**:
+  - lock-free często zwiększa throughput pod dużą konkurencją,
+  - koszt: trudniejsze dowodzenie poprawności, ABA i zarządzanie pamięcią,
+  - lock-free nie gwarantuje fairness (pojedynczy wątek może głodować),
+  - do prostych sekcji krytycznych z małą konkurencją często lepszy jest dobry `Lock` (czytelność, debugowalność, niższy koszt poznawczy).
+
+### 6) Synchronizacja w podejściach rozproszonych (narzędzia)
+- **MPI**:
+  - synchronizacja przez komunikaty i operacje kolektywne (`Barrier`, `Bcast`, `Reduce`),
+  - `Isend/Irecv` + `Wait/Test` umożliwiają overlap komunikacji i obliczeń,
+  - model wymusza jawne myślenie o punktach synchronizacji między procesami/rankami.
+- **ZeroMQ**:
+  - model „share-nothing” między wątkami (brak współdzielonych gniazd),
+  - wzorce `PUSH/PULL`, `REQ/REP`, `PUB/SUB` realizują koordynację bez klasycznych locków,
+  - dobra praktyka: traktować kanał komunikacji jako granicę izolacji stanu.
+- **Kafka / log-based systems**:
+  - synchronizacja przez uporządkowany log i offsety konsumentów,
+  - porządek gwarantowany per-partition, więc klucze partycjonowania wpływają na semantykę współbieżności,
+  - przetwarzanie idempotentne + retry to praktyczny odpowiednik „bezpiecznej współbieżności” przy awariach.
+
+### 7) Szybka ściąga: co dobrać do problemu
+- **Wspólna pamięć + krótka sekcja krytyczna**: mutex/lock.
+- **Czekanie na warunek stanu**: condition variable + `while`.
+- **Limit zasobu (N miejsc/slotów)**: semaphore.
+- **Faza „wszyscy muszą dojść”**: barrier/latch/phaser.
+- **Skalowanie między procesami/węzłami**: komunikaty (MPI/ZeroMQ/Kafka), nie współdzielona pamięć.
+- **Wysoka konkurencja i niski latency**: struktury lock-free (z kontrolą ABA i memory reclamation).
+- **Deadline’y i priorytety (RT)**: PCP / protokoły priorytetowe + krótki czas trzymania zasobu.
 
 ## Zobacz też
 - [[Narzędzia Przetwarzania Rozproszonego/ADA-95]]

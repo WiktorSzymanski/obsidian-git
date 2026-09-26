@@ -38,4 +38,34 @@ Aplikacja biura podróży wymaga synchronizacji z usługami:
 
 
 ## Przy pisaniu pracy:
-- napomnieć dlaczego podejście Reactive a nie klasyczny REST/Async REST
+- napomnieć możliwe podejścia do non blocking API
+
+
+
+## NIEPEWNE
+- W "klasycznym rozwiązaniu" czy może wystąpić komunikacja wewnątrz aplikacji przez Event-Driven Architecture? Wprowadza to eventual consistency co zdaje się nie być takie klasycznie? Jeśli z kolei w klasycznym rozwiązaniu dokonamy transakcyjne operacji bookowania oferty, to czy w innych też nie powinno być jako że chcemy aby aplikacje poza architekturą były takie same. Czy uznajemy, że ponieważ inne architektury wprowadzają już eventual consistency to możemy sobie pozwolić na EDA ponieważ ma to sens aby to wykorzystać kiedy już generujemy eventy? A dziwnym z kolei by było transakcyjne zapisywanie 4 eventów, jeśli i tak jest to eventual consistent
+
+
+
+## Spis treści
+0. Wstęp
+	- motywacja (dlaczego takie porównanie)
+	- cel
+	- struktura pracy
+1. Podstawy teoretyczne
+	- czym co jest
+	- jak to jest implementowane na ogół 
+2. Istniejące rozwiązania
+	- można sprawdzić w literaturze czy są prace które zajmowały się takim porównaniem, lub analizą jednego z tych podejść
+3. Zaproponowana architektura testowanej aplikacji
+	- co w jakiej implementacji jest wyróżnione co jak ze sobą działa w wysokiego poziomu abstrakcji
+4. Opis implementacji
+	- ogólnie co mają wszystkie tak samo
+	- tutaj konkretnie o implementacji jak została napisana
+5. Testy
+	- jak to było testowane, jakie środowisko, podejście metodologiczne, jak wykonywane ile razy powtarzane
+	- otrzymane wyniki i ich analiza, tabelki wykresy, mini dyskusja na temat wyników
+6. Podsumowanie
+
+
+	(najtrudniejsze Wstęp i Podsumowanie)
