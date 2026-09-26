@@ -335,7 +335,7 @@ pckt        : PACKET
 $m_1 \rightarrow m_2$, gdy:
 - a) obie wiadomości zostały rozgłoszone przez **ten sam proces**, $m_1$ przed $m_2$,
 - b) $m_1$ została **odebrana** przez pewien proces $P_i$, a $m_2$ została **rozgłoszona** przez $P_i$ **po odebraniu** $m_1$,
-- c) istnieje wiadomość $m_3$ taka, że dla $m_1$ i $m_3$, lub $m_3$ i $m_2$ zachodzi a) lub b).
+- c) istnieje wiadomość $m_3$ taka, że dla $m_1$ i $m_3$, oraz $m_3$ i $m_2$ zachodzi a) lub b).
 
 ### Specyfikacje RFB i RCB
 <sub>rso_sum_05.pdf, slajd 50</sub>
