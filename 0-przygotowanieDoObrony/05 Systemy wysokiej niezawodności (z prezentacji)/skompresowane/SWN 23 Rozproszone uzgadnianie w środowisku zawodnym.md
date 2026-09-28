@@ -1,8 +1,8 @@
 ---
 tags:
   - obrona
-up: "[[SWN 00 Indeks i mapowanie na prezentacje]]"
 zagadnienie: 23
+up: "[[SWN 00 Indeks i mapowanie na prezentacje]]"
 ---
 # 23. Problemy rozproszonego uzgadniania w środowisku zawodnym
 ---

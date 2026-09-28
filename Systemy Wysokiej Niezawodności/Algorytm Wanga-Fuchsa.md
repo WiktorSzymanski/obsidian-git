@@ -49,6 +49,7 @@ Jego celem jest pozbycie się zbędnych _checkpoint_-ów.
 
 - **discardable checkpoints** - to takie które **nigdy** nie będą częścią, żadnej przyszłej **linii odtwarzania** .
 - **obsolete checkpoints** - poprzedzające **linię odtwarzania**, która została by użyta w najgorszym wypadku.
+
 Punkty kontrolne typu **obsolete** są też **discardable** ale niektóre **non-obsolete** punkty również mogą być **discardable**.
 
 ![[Pasted image 20250206120951.png]]
